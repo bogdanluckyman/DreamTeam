@@ -12,5 +12,5 @@ export default defineConfig({
       assets: '/src/assets',
     },
   },
-  base: 'https://github.com/bogdanluckyman/DreamTeam',
+  base: '/bogdanluckyman/DreamTeam',
 });

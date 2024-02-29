@@ -222,4 +222,4 @@ img {
 button {
   cursor: pointer;
 }
-`;Bl.createRoot(document.getElementById("root")).render(L.jsx(Ze.StrictMode,{children:L.jsxs(dm,{basename:"/",children:[L.jsx(Fv,{}),L.jsx(Uv,{})]})}));
+`;Bl.createRoot(document.getElementById("root")).render(L.jsx(Ze.StrictMode,{children:L.jsxs(dm,{basename:"/bogdanluckyman/DreamTeam",children:[L.jsx(Fv,{}),L.jsx(Uv,{})]})}));

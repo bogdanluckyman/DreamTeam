@@ -1,4 +1,7 @@
-body {
+import { createGlobalStyle } from 'styled-components';
+import 'modern-normalize';
+
+export const GlobalStyle = createGlobalStyle`body {
   background-color: #000;
   /* background-image: url('./assets/background.png'); */
   background-size: auto 100%;
@@ -35,3 +38,4 @@ img {
 button {
   cursor: pointer;
 }
+`;

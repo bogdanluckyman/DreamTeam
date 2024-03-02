@@ -1,10 +1,16 @@
 import styled from 'styled-components';
- export const Wrapper = styled.div`
- display: flex;
-align-items: center;
- height: 100%;
+export const Wrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 40px;
 
- `;
+  @media screen and (min-width: 768px) and (max-width: 1439px) {
+    margin-top: 64px;
+    
+  }
+`;
 
 
 export const FormContainer = styled.div`
@@ -21,14 +27,7 @@ export const FormContainer = styled.div`
   }
 `;
 
-export const SectionTitle = styled.p`
-  color: var(--normal-color);
-  margin-bottom: 4px;
-  font-size: 12px;
-  @media screen and (min-width: 768px) {
-    font-size: 14px;
-  }
-`;
+
 
 export const Input = styled.input`
   width: 335px;
@@ -48,11 +47,22 @@ export const Input = styled.input`
 `;
 
 export const WrapperInputField = styled.div`
-  display: inline-flex;
+  display: flex;
   align-items: flex-end;
-  margin-top: 20px;
   gap: 14px;
 `;
+
+export const InfoContainer = styled.div`
+
+@media screen and (min-width: 768px)  {
+  display: inline-flex;
+  align-items: flex-end;
+  margin-top: 36px;
+  gap: 14px;
+}
+  
+`;
+
 
 
 
@@ -77,8 +87,8 @@ export const Label = styled.label`
 
 export const WrapperRadio = styled.div`
   margin-top: 30px;
-  display: flex;
-  flex-wrap: wrap;
+  // display: flex;
+  // flex-wrap: wrap;
 
   @media screen and (min-width: 1440px) {
     display: block;
@@ -184,9 +194,9 @@ export const WrappInput = styled.div`
   label {
     position: absolute;
     font-size: 14px;
-    top: 50%;
-    left: 14px;
-    transform: translateY(-50%);
+    bottom: 70px;
+    left: 1px;
+    
     pointer-events: none;
     transition:
       top 0.2s,
@@ -194,7 +204,7 @@ export const WrappInput = styled.div`
       transform 0.2s;
     color: var(--light-grey-color);
     color: var(--light-grey-color);
-    transform: translateY(-50px);
+    
   }
 
   

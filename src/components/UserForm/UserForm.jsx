@@ -12,6 +12,7 @@ import {
   WrappInput,
   Input,
   Wrapper,
+  InfoContainer,
 } from './UserForm.styled';
 import RadioBtn from '../RadioBtn/RadioBtn';
 import Datapicker from '../Datapicker/Datapicker';
@@ -149,6 +150,8 @@ const UserForm = () => {
             </WrappInput>
           </FormContainer>
 
+
+<InfoContainer>
           <WrapperInputField>
             <WrappInput>
               <Field
@@ -193,10 +196,8 @@ const UserForm = () => {
               formik.setFieldValue('birthday', formattedDate);
             }}
           />
-      
-          
-            
           </WrapperInputField>
+          </InfoContainer>
 
               <WrapperRadio>
                 <div style={{ display: 'flex', marginRight: '20px' }}>

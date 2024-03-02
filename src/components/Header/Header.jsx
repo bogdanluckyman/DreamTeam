@@ -11,6 +11,12 @@ export const Header = () => {
   return (
     <HeaderContainer>
       <Navigation>
+      <StyledLink to="/profile">
+          <IconWrapper>
+            <use href={`${sprite}#icon-logo`} />
+          </IconWrapper>
+          Profile
+        </StyledLink>
         <StyledLink to="/first">
           <IconWrapper>
             <use href={`${sprite}#icon-logo`} />

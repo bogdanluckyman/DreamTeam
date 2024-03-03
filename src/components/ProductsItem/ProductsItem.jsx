@@ -8,7 +8,13 @@ export const ProductItem = ({ product }) => {
       </DietMark>
       <RecomendedLight></RecomendedLight>
       <p>rec</p>
-      <AddBtn type="button" />
+      <AddBtn
+        type="button"
+        onClick={
+          () => {}
+          //відкриття модалки
+        }
+      ></AddBtn>
       <img src="" alt="" />
       <ProductName>{product.title}</ProductName>
       <dl>

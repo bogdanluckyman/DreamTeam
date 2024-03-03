@@ -42,6 +42,4 @@ export const Term = styled.dt`
   color: rgba(239, 237, 232, 0.4);
 `;
 
-export const AddBtn = () => {
-  return <button></button>;
-};
+export const AddBtn = styled.button;

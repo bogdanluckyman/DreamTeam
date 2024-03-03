@@ -10,16 +10,11 @@ export const ProductList = () => {
     <ul>
       {filteredProducts.map((product) => (
         //потрібна структура бека
-        <ProductItem product={product} key={product.id} id={product.id}>
-          info
-          <AddBtn
-            type="button"
-            onClick={
-              () => {}
-              //відкриття модалки
-            }
-          ></AddBtn>
-        </ProductItem>
+        <ProductItem
+          product={product}
+          key={product.id}
+          id={product.id}
+        ></ProductItem>
       ))}
     </ul>
   );

@@ -1,32 +1,18 @@
 import { createGlobalStyle } from 'styled-components';
 import 'modern-normalize';
+import { colors } from './colors';
 
 export const GlobalStyle = createGlobalStyle`body {
-  background-color:  var(--black-color);
-
-  /* background-image: url('./assets/background.png'); */
   background-size: auto 100%;
   background-position: center center;
   background-repeat: no-repeat;
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   font-style: normal;
-  color: #111111;
+  color: ${colors.white};
   width: 100%;
   height: 100vh;
   margin: 0;
-}
-:root {
-  /* colors */
-  --black-color: #040404;
-  --orange-color: #E6533C;
-  --orange-light-color: #EF8964;
-  --white-color: #EFEDE8; 
-  --grey-color: #636366;
-  --light-grey-color: rgba(239, 237, 232, 0.5);
-  --more-light-grey-color: rgba(239, 237, 232, 0.30);
-
-
 }
 h1,
 h2,

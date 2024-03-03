@@ -66,18 +66,23 @@ export const IconBtn = styled.svg`
 
 export const TitleName = styled.p`
   color: var(--white-color);
-
+  font-family: Roboto;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
   @media screen and (min-width: 768px) {
-    font-family: 'RobotoRegular';
     font-size: 24px;
     line-height: 28px;
   }
 `;
 
 export const Subtitle = styled.p`
-  font-family: 'RobotoRegular';
-  font-size: 14px;
-  line-height: 18px;
+font-family: Roboto;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 18px; 
   color: var(--light-grey-color);
   margin-top: 4px;
 

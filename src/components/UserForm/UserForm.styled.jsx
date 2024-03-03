@@ -114,7 +114,7 @@ export const WrapperRadio = styled.div`
   .radio-label {
     padding-left: 25px;
     cursor: pointer;
-    font-family: 'RobotoRegular';
+    font-family: 'Roboto';
     font-size: 14px;
     line-height: 1.71em;
     letter-spacing: -0.28px;
@@ -168,6 +168,7 @@ export const Button = styled.button`
   margin: 40px 0px 80px 20px;
   padding: 12px 40px;
   border-radius: 12px;
+  border-color: var(--orange-color);
   background: var(--orange-color);
   color: rgba(239, 237, 232, 0.6);
 

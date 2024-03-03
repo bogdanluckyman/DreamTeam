@@ -12,7 +12,7 @@ export const Header = () => {
       <Navigation>
       <StyledLink to="/profile">
           
-          First
+         Profile
         </StyledLink>
         <StyledLink to="/first">
           

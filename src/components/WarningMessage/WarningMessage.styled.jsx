@@ -27,9 +27,19 @@ export const WrapperMark = styled.div`
 
 export const Text = styled.p`
   color: var(--more-light-grey-color);
-  font-family: 'RobotoRegular';
+  font-family: Roboto;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
-  line-height: 18px;
+  line-height: 1.28px; /* 128.571% */
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: 1.5; /* 150% */
+  }
+
+ 
 `;
+  
+
+ 

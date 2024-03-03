@@ -45,16 +45,18 @@ export const Svg = styled.svg`
 
 export const Text = styled.p`
   color: rgba(239, 237, 232, 0.8);
-  font-family: 'RobotoRegular';
-  font-size: 12px;
-  line-height: 16px;
+  font-family: Roboto;
+font-size: 12px;
+font-style: normal;
+font-weight: 400;
+line-height: 18px; 
 
-  @media screen and (min-width: 1440px) {
-    font-feature-settings:
-      'clig' off,
-      'liga' off;
-    line-height: 18px;
-  }
+  // @media screen and (min-width: 1440px) {
+  //   font-feature-settings:
+  //     'clig' off,
+  //     'liga' off;
+  //   line-height: 18px;
+  // }
 `;
 
 export const Value = styled.p`

@@ -20,9 +20,9 @@ import WarningMessage from '../WarningMessage/WarningMessage';
 
 
 const UserCard= () => {
-
+// *тут буде редакс*
 //   const dispatch = useDispatch();
-//   const user = useSelector(selectUser);
+//   const user = useSelector(*селектор юзеру*);
 const user = {avatarURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLDKKGk27KAYuHEOcE4cjcWtTxCmTrDE79Zg&usqp=CAU",
 name: 'Ang', }
   const [avatar, setAvatar] = useState(user.avatarURL);

@@ -11,7 +11,7 @@ export const GlobalStyle = createGlobalStyle`
   --white-color: #EFEDE8; 
   --grey-color: #636366;
   --light-grey-color: rgba(239, 237, 232, 0.5);
-  --more-light-grey-color: rgba(239, 237, 232, 0.30);
+  --more-light-grey-color: rgba(239, 237, 232, 0.30); }
 
 body {
   background-size: auto 100%;

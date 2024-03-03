@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux';
 import { setFilters } from '../../redux/products/filtersSlice';
 import { getProductCategories } from '../../redux/products/operations';
 
-export const Filter = () => {
+export const ProductsFilter = () => {
   const dispatch = useDispatch();
   const productCategories = getProductCategories();
   return (

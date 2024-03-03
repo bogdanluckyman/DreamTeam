@@ -29,7 +29,7 @@ name: 'Ang', }
 
   const avatarUser = <Photo src={avatar} width="100%" alt="Avatar" />;
   const avatarLogo = (
-    <SvgLogoUser fill="var(--normal-color)" width="62" height="62">
+    <SvgLogoUser fill="var(--light-grey-color)" width="68" height="68">
       {/* <use href={`${sprite}#*назва іконки*`}></use> */}
     </SvgLogoUser>
   );
@@ -52,7 +52,7 @@ name: 'Ang', }
 
   return (
     <Wrapper>
-      <Avatar>{avatar ? avatarUser : avatarLogo}</Avatar>
+      <Avatar>{ avatar ? avatarUser : avatarLogo}</Avatar>
       <form id="upload-form">
         <input
           type="file"
@@ -74,13 +74,13 @@ name: 'Ang', }
       <WrapperDiv>
               <DailyRate
                 color="var(--orange-color)"
-                iconId="icon-fork-knife"
+                iconId="*назва іконкии з виделкою*"
                 text="Daily calorie intake"
                 value="2200"
               />
               <DailyRate
                 color="var(--orange-color)"
-                iconId="icon-dumbbell"
+                iconId="*назва іконкии з гантелею*"
                 text="Daily norm of sports"
                 value="110 min"
               />

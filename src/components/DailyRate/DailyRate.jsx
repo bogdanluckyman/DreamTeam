@@ -2,8 +2,10 @@ import PropTypes from 'prop-types';
 
 import { Text, Value, Container, Wrapper, Svg } from './DailyRate.styled';
 
-const DailyRate = ({ color,  text, value }) => {
+const DailyRate = ({ color,  text, value, iconId }) => {
+  console.log(iconId);
   return (
+    
     <Container color={color}>
       <Wrapper>
         <Svg>

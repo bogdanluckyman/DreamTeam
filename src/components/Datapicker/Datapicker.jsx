@@ -16,6 +16,12 @@ const StyledDatepicker = ({ selectedDate, setSelectedDate }) => {
 
   return (
     <>
+
+      <div style={{ position: 'relative' }}>
+        {/* <IconSvg width="18" height="18">
+          <use href={`${sprite}#icon-calendar-white`}></use>
+        </IconSvg> */}
+
      <DatePicker
         selected={selectedDate}
         onChange={(date) => {
@@ -26,10 +32,12 @@ const StyledDatepicker = ({ selectedDate, setSelectedDate }) => {
 
         dateFormat={"dd.MM.yyyy"}
         calendarStartDay={1}
-        formatWeekDay={(day) => day.substr(0, 1)}
+        formatWeekDay={(day) => day.substr(0, 2)}
         
       />
       <CalendarGlobalStyles />
+   
+    </div>
     </>
      
       

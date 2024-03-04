@@ -9,6 +9,7 @@ export const Wrappper = styled.div`
   display: flex;
   gap: 8px;
   margin-top: 40px;
+  width: 335px;
 
   @media screen and (min-width: 768px) {
     width: 440px;
@@ -20,8 +21,8 @@ export const WrapperMark = styled.div`
   justify-content: center;
   align-items: center;
   border-radius: 100px;
-  width: 24px;
-  height: 24px;
+   width: 24px;
+   height: 24px;
   background-color: var(--beige-color);
 `;
 
@@ -31,7 +32,8 @@ export const Text = styled.p`
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
-  line-height: 1.28px; /* 128.571% */
+  line-height: 1.28; /* 128.571% */
+  
 
   @media screen and (min-width: 768px) {
     font-size: 16px;

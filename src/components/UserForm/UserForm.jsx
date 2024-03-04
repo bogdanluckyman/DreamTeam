@@ -17,10 +17,10 @@ import {
 } from './UserForm.styled';
 import RadioBtn from '../RadioBtn/RadioBtn';
 import Datapicker from '../Datapicker/Datapicker';
-// import StyledDatepicker from '../StyledDatepicker/StyledDatepicker';
+
 
 // import { selectUser } from '../../redux/auth/selectors';
-// import { updateUserParams } from '../../redux/auth/operations';
+
 
 const UserForm = () => {
   // тут буде редакс

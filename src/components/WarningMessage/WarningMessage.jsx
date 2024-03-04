@@ -6,13 +6,16 @@ import {
   Text,
 } from './WarningMessage.styled';
 
+import sprite from '../../img/symbol-defs.svg';
+
+
 const WarningMessage = () => {
   return (
     <Wrappers>
       <Wrappper>
         <WrapperMark>
           <svg width="24" height="24">
-            {/* <use href={`${sprite}#*назва іконки*`}></use> */}
+            <use href={`${sprite}#icon-warning`}></use>
           </svg>
         </WrapperMark>
         <Text>

@@ -4,7 +4,9 @@ import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker-cssmodules.css";
 
-import { CalendarGlobalStyles, InputField } from "./Datapicker.styled";
+import { CalendarGlobalStyles, IconSvg, InputField } from "./Datapicker.styled";
+import sprite from '../../img/symbol-defs.svg';
+
 
 
 const StyledDatepicker = ({ selectedDate, setSelectedDate }) => {
@@ -18,9 +20,9 @@ const StyledDatepicker = ({ selectedDate, setSelectedDate }) => {
     <>
 
       <div style={{ position: 'relative' }}>
-        {/* <IconSvg width="18" height="18">
-          <use href={`${sprite}#icon-calendar-white`}></use>
-        </IconSvg> */}
+        <IconSvg width="18" height="18">
+          <use href={`${sprite}#icon-calendar`}></use>
+        </IconSvg>
 
      <DatePicker
         selected={selectedDate}

@@ -1,4 +1,5 @@
 
+import Logout from "../../components/Logout/Logout";
 import { TitlePage } from "../../components/TitlePage/TitlePage";
 import UserCard from "../../components/UserCard/UserCard";
 import UserForm from "../../components/UserForm/UserForm";
@@ -18,7 +19,7 @@ const ProfilePage = () => {
         <WrapperContent>
           <div>
             <UserCard />
-            {/* <Logout /> */}
+            <Logout />
           </div>
           <WrapperForm>
             <UserForm />

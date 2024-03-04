@@ -1,13 +1,14 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+position: relative;
   display: flex;
   flex-direction: column;
   width: 165px;
   height: 96px;
   padding: 14px;
   align-items: flex-start;
-  gap: 8px;
+  gap: 17px;
   flex-shrink: 0;
   border-radius: 12px;
   border: 1px solid rgba(239, 237, 232, 0.2);
@@ -17,16 +18,18 @@ export const Container = styled.div`
     width: 209px;
     height: 108px;
     padding: 14px 18px;
+    
     align-items: flex-start;
-    gap: 32px;
+    // gap: 32px;
   }
 
   @media screen and (min-width: 1440px) {
     width: 214px;
     height: 108px;
     padding: 14px 18px;
+    
     align-items: flex-start;
-    gap: 32px;
+    // gap: 32px;
   }
 `;
 
@@ -41,7 +44,10 @@ export const Svg = styled.svg`
   height: 16px;
   fill: var(--orange-color);
   stroke: var(--orange-color);
+  margin-bottom: 10px;
 `;
+
+
 
 export const Text = styled.p`
   color: rgba(239, 237, 232, 0.8);
@@ -49,17 +55,23 @@ export const Text = styled.p`
 font-size: 12px;
 font-style: normal;
 font-weight: 400;
-line-height: 18px; 
+line-height: 1.33; 
 
-  // @media screen and (min-width: 1440px) {
-  //   font-feature-settings:
-  //     'clig' off,
-  //     'liga' off;
-  //   line-height: 18px;
-  // }
+font-feature-settings: 'clig' off, 'liga' off;
+
+
+
+   @media screen and (min-width: 1440px) {
+    
+     line-height: 18px;
+   }
 `;
 
 export const Value = styled.p`
+
+// position: absolute;
+//     bottom: 0;
+//     left: 18;
   color: var(--white-color);
   font-family: 'RobotoBold';
   font-size: 24px;

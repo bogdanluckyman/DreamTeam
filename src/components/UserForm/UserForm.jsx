@@ -13,12 +13,14 @@ import {
   Input,
   Wrapper,
   InfoContainer,
+  LabelSpan,
 } from './UserForm.styled';
 import RadioBtn from '../RadioBtn/RadioBtn';
 import Datapicker from '../Datapicker/Datapicker';
 
+
 // import { selectUser } from '../../redux/auth/selectors';
-// import { updateUserParams } from '../../redux/auth/operations';
+
 
 const UserForm = () => {
   // тут буде редакс
@@ -187,7 +189,9 @@ const UserForm = () => {
               />
               <label htmlFor="desiredWeight">Desired Weight</label>
             </WrappInput>
-            {/* <span>Date of birth</span> */}
+            
+            <WrappInput>
+            <LabelSpan>Date of birth</LabelSpan>
             <Datapicker
             
             selectedDate={formik.values.birthday}
@@ -196,6 +200,8 @@ const UserForm = () => {
               formik.setFieldValue('birthday', formattedDate);
             }}
           />
+          
+          </WrappInput>
           </WrapperInputField>
           </InfoContainer>
 

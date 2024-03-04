@@ -3,6 +3,8 @@
 
 // import { selectUser } from '../../redux/auth/selectors';
 
+import sprite from '../../img/symbol-defs.svg';
+
 import { useState } from 'react';
 import {
   Button,
@@ -64,7 +66,7 @@ name: 'Ang', }
         <label htmlFor="file-input">
           <Button>
             <IconBtn>
-              {/* <use href={`${sprite}#*назва іконки*`}></use> */}
+              <use href={`${sprite}#icon-plus`}></use>
             </IconBtn>
           </Button>
         </label>
@@ -74,14 +76,14 @@ name: 'Ang', }
       <WrapperDiv>
               <DailyRate
                 color="var(--orange-color)"
-                iconId="*назва іконкии з виделкою*"
+                iconId="icon-fork"
                 text="Daily calorie intake"
                 value="2200"
               />
               <DailyRate
                 color="var(--orange-color)"
-                iconId="*назва іконкии з гантелею*"
-                text="Daily norm of sports"
+                iconId="icon-dumbbell"
+                text="Daily physical activity"
                 value="110 min"
               />
             </WrapperDiv>

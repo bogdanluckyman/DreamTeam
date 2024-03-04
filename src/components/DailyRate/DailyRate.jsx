@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 
 import { Text, Value, Container, Wrapper, Svg } from './DailyRate.styled';
+import sprite from '../../img/symbol-defs.svg';
+
 
 const DailyRate = ({ color,  text, value, iconId }) => {
   console.log(iconId);
@@ -9,7 +11,7 @@ const DailyRate = ({ color,  text, value, iconId }) => {
     <Container color={color}>
       <Wrapper>
         <Svg>
-          {/* <use href={`${sprite}#${iconId}`} /> */}
+          <use href={`${sprite}#${iconId}`} />
         </Svg>
         <Text>{text}</Text>
       </Wrapper>

@@ -7,11 +7,20 @@ export const ProductWrapp = styled.div`
   border: 1px solid rgba(239, 237, 232, 0.2);
   padding: 16px;
   margin-bottom: 20px;
+
+  @media screen and (min-width: 1440px) {
+    width: 405px;
+  }
 `;
 
 export const TopLineWrapper = styled.div`
   display: flex;
   justify-content: space-between;
+  margin-bottom: 40px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 28px;
+  }
 `;
 
 export const TopLineRightWrapper = styled.div`
@@ -27,7 +36,7 @@ export const DietMark = styled.div`
   font-weight: 700;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 1);
-  background-color: rgba(239, 237, 232, 0.05);
+  background-color: var(--light-grey-color);
 `;
 
 export const RecomendedLight = styled.span`

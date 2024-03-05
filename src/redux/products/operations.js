@@ -4,7 +4,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://.com';
+axios.defaults.baseURL = "https://dream-team-backend-10w1.onrender.com"
+
 
 export const fetchProducts = createAsyncThunk(
   'products/fetchAll',
@@ -28,6 +29,8 @@ export async function getProductCategories() {
     }
     const categoriesList = response.data;
     return categoriesList;
-  } catch {}
+  } catch (e) {
+    console.log((e.message));
+  }
   return;
 }

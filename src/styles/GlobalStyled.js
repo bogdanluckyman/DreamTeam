@@ -50,4 +50,7 @@ img {
 button {
   cursor: pointer;
 }
+dd {
+  margin-left: 0;
+}
 `;

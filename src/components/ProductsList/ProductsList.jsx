@@ -1,21 +1,24 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { selectVisibleProducts } from '../../redux/products/selector';
-import { AddBtn, ProductItem } from '../ProductsItem/ProductsItem';
+import { useSelector } from 'react-redux';
+//import { selectVisibleProducts } from '../../redux/products/selector';
+import { ProductItem } from '../ProductsItem/ProductsItem';
+import filteredProducts from './products.json';
 
 export const ProductsList = () => {
+  //поки через json
   // const dispatch = useDispatch();
-  const filteredProducts = useSelector(selectVisibleProducts);
+  //const filteredProducts = useSelector(selectVisibleProducts);
 
   return (
     <ul>
-      {filteredProducts.map((product) => (
-        //потрібна структура бека
-        <ProductItem
-          product={product}
-          key={product.id}
-          id={product.id}
-        ></ProductItem>
-      ))}
+      {filteredProducts.map((product) => {
+        return (
+          <ProductItem
+            product={product}
+            key={product._id.$oid}
+            id={product._id.$oid}
+          ></ProductItem>
+        );
+      })}
     </ul>
   );
 };

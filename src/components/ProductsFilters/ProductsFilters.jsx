@@ -1,32 +1,36 @@
-import { useDispatch } from 'react-redux';
-import { setFilters } from '../../redux/products/filtersSlice';
-import { getProductCategories } from '../../redux/products/operations';
+//import { useDispatch } from 'react-redux';
+//import { setFilters } from '../../redux/products/filtersSlice';
+//import { getProductCategories } from '../../redux/products/operations';
+import { FiltersField } from './ProductsFilters.styled';
+import productsCategories from './productsCategories.json';
+import { nanoid } from 'nanoid';
 
-export const ProductsFilter = () => {
-  const dispatch = useDispatch();
-  const productCategories = getProductCategories();
+export const ProductsFilters = () => {
+  //const dispatch = useDispatch();
+  //const productsCategories = getProductCategories();
   return (
     //стилізувати поле
-    //забрати з бера категорії та типи
     <FiltersField>
       <input
         type="text"
         name="search"
         placeholder="Search"
-        onChange={(evt) => dispatch(setFilters(evt.target.value))}
+        // onChange={evt => dispatch(setFilters(evt.target.value))}
       />
+
       <select
         name="categories"
         placeholder="Categories"
-        onChange={(evt) => dispatch(setFilters(evt.target.value))}
+        //onChange={evt => dispatch(setFilters(evt.target.value))}
       >
-        {productCategories.map((category) => {
-          <option>${category}</option>;
+        <option defaultChecked>Categories</option>
+        {productsCategories.map((category) => {
+          return <option key={nanoid()}>{category}</option>;
         })}
       </select>
       <select
         name="productType"
-        onChange={(evt) => dispatch(setFilters(evt.target.value))}
+        // onChange={evt => dispatch(setFilters(evt.target.value))}
       >
         <option defaultChecked>All</option>
 

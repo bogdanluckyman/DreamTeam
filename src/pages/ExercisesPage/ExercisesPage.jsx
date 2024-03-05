@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, NavgtionContainer, Title, ButtonsContainer, CardContainer, Card, CardList, TabButton, NavigationPanel, CircleButton } from './ExercisesPage.styled';
+import { ExercisesPageContainer, NavgtionContainer, Title, ButtonsContainer, CardContainer, Card, CardList, TabButton, NavigationPanel, CircleButton } from './ExercisesPage.styled';
 
 export default function ExercisesPage() {
     const [activeTab, setActiveTab] = useState(1);
@@ -35,7 +35,7 @@ export default function ExercisesPage() {
     const totalPages = Math.ceil(totalCards[activeTab] / cardsPerPage);
 
     return (
-        <Container>
+        <ExercisesPageContainer>
             <NavgtionContainer>
                 <Title>Exercises</Title>
                 <ButtonsContainer>
@@ -51,7 +51,7 @@ export default function ExercisesPage() {
                         if (cardNumber <= totalCards[activeTab]) {
                             return (
                                 <Card key={index + (currentPage - 1) * cardsPerPage}>
-                                    <CardDiv>{cardNumber}</CardDiv>
+                                    <div>{cardNumber}</div>
                                 </Card>
                             );
                         }
@@ -72,6 +72,6 @@ export default function ExercisesPage() {
                     </NavigationPanel>
                 )}
             </CardContainer>
-        </Container>
+        </ExercisesPageContainer>
     );
 }

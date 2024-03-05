@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const ExercisesPageContainer = styled.div`
     margin-left: 0;
     padding-left: 20px;
     background-color: #040404;
@@ -60,7 +60,6 @@ export const Card = styled.li`
     }
 `;
 
-export const CardDiv = styled.div``;
 
 export const CardList = styled.ul`
     list-style: none;

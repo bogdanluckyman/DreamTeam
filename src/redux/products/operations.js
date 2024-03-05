@@ -4,7 +4,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://.com';
+axios.defaults.baseURL = 'https://dream-team-backend-10w1.onrender.com/api/';
 
 export const fetchProducts = createAsyncThunk(
   'products/fetchAll',

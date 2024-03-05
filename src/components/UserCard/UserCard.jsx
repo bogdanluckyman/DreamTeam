@@ -32,7 +32,7 @@ name: 'Ang', }
   const avatarUser = <Photo src={avatar} width="100%" alt="Avatar" />;
   const avatarLogo = (
     <SvgLogoUser fill="var(--light-grey-color)" width="68" height="68">
-      {/* <use href={`${sprite}#*назва іконки*`}></use> */}
+      <use href={`${sprite}#icon-big-user`}></use>
     </SvgLogoUser>
   );
 

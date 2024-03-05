@@ -63,11 +63,11 @@ export default function ExercisesPage() {
                         {[...Array(totalPages)].map((_, index) => (
                             <CircleButton
                                 key={index}
-                                isActive={index + 1 === currentPage}
+                                isactive={(index + 1 === currentPage).toString()}
                                 onClick={() => handlePageChange(index + 1)}
                             >
                                 {index + 1}
-                            </CircleButton>
+                        </CircleButton>
                         ))}
                     </NavigationPanel>
                 )}

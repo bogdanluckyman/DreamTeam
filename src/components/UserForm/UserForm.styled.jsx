@@ -31,6 +31,11 @@ export const Input = styled.input`
   background-color: transparent;
   color: #efede8;
   font-size: 14;
+  &:hover,
+  &:focus {
+    border-color: var(--orange-color);
+    outline: 0;
+  }
 
   @media screen and (min-width: 768px) and (max-width: 1439px) {
     width: 341px;
@@ -59,7 +64,14 @@ export const InputField = styled.input`
   border-radius: 12px;
   border: 1px solid rgba(239, 237, 232, 0.3);
   background-color: transparent;
-  color: #efede8;
+  color: var(--white-color);
+
+  &:hover,
+  &:focus {
+    border-color: var(--orange-color);
+    outline: 0;
+  }
+ 
 `;
 export const WrappInput = styled.div`
   position: relative;

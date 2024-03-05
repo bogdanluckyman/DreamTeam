@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const ProductWrapp = styled.div`
+export const ProductWrapp = styled.li`
   width: 335px;
   height: 141px;
   border-radius: 12px;
@@ -8,6 +8,9 @@ export const ProductWrapp = styled.div`
   padding: 16px;
   margin-bottom: 20px;
 
+  @media screen and (min-width: 768px) {
+    margin: 0;
+  }
   @media screen and (min-width: 1440px) {
     width: 405px;
   }
@@ -59,6 +62,11 @@ export const ProductName = styled.h3`
   margin-bottom: 8px;
   color: var(--white-color);
   font-weight: 400;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  overflow-wrap: break-word;
 `;
 
 export const List = styled.dl`
@@ -74,4 +82,5 @@ export const Term = styled.dt`
 export const AddBtn = styled.button`
   margin-left: 16px;
   color: var(--orange-color);
+  background-color: none;
 `;

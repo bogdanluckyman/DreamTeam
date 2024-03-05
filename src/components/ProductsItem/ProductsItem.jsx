@@ -10,6 +10,8 @@ import {
   TopLineWrapper,
 } from './ProductsItem.styled';
 
+import sprite from '../../img/symbol-defs.svg';
+
 export const ProductItem = ({ product }) => {
   return (
     <ProductWrapp>
@@ -33,7 +35,9 @@ export const ProductItem = ({ product }) => {
         </TopLineRightWrapper>
       </TopLineWrapper>
 
-      <img src="" alt="" />
+      <svg width="16" height="16">
+        <use href={`${sprite}#icon-man-run`}></use>
+      </svg>
       <ProductName>{product.title}</ProductName>
       <List>
         <Term>Calories:</Term>

@@ -19,15 +19,18 @@ import {
 } from './UserCard.styled';
 import DailyRate from '../DailyRate/DailyRate';
 import WarningMessage from '../WarningMessage/WarningMessage';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectUser } from '../../redux/auth/selectors';
+import { updateAvatar } from '../../redux/auth/operation';
 
 
 const UserCard= () => {
 // *тут буде редакс*
-//   const dispatch = useDispatch();
-//   const user = useSelector(*селектор юзеру*);
-const user = {avatarURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLDKKGk27KAYuHEOcE4cjcWtTxCmTrDE79Zg&usqp=CAU",
-name: 'Ang', }
-  const [avatar, setAvatar] = useState(user.avatarURL);
+const dispatch = useDispatch();
+const user = useSelector(selectUser);
+const [avatar, setAvatar] = useState(user.avatarURL);
+// const user = {avatarURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLDKKGk27KAYuHEOcE4cjcWtTxCmTrDE79Zg&usqp=CAU",
+// name: 'Ang', }
 
   const avatarUser = <Photo src={avatar} width="100%" alt="Avatar" />;
   const avatarLogo = (
@@ -45,10 +48,10 @@ name: 'Ang', }
     }
 
     try {
-    //   *діспатч апдейту аватара*
+      dispatch(updateAvatar(file));
       console.log(file);
     } catch (error) {
-      console.error('Помилка при відправленні файлу', error);
+      console.error(error.message);
     }
   };
 

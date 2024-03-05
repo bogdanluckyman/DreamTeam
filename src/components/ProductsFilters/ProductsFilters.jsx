@@ -1,15 +1,20 @@
-//import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 //import { setFilters } from '../../redux/products/filtersSlice';
-//import { getProductCategories } from '../../redux/products/operations';
+import { getProductCategories } from '../../redux/products/operations';
 import { FiltersField } from './ProductsFilters.styled';
 import productsCategories from './productsCategories.json';
 import { nanoid } from 'nanoid';
+//import { useEffect } from 'react';
 
 export const ProductsFilters = () => {
-  //const dispatch = useDispatch();
+  // const dispatch = useDispatch();
+  // useEffect(() => {
+  //   dispatch(getProductCategories());
+  // }, [dispatch]);
+
   //const productsCategories = getProductCategories();
   return (
-    //стилізувати поле
+    //ЗРОБИТИ ФОРМІКОМ
     <FiltersField>
       <input
         type="text"

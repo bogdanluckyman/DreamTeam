@@ -4,11 +4,11 @@ import { Text, Value, Container, Wrapper, Svg } from './DailyRate.styled';
 import sprite from '../../img/symbol-defs.svg';
 
 
-const DailyRate = ({ color,  text, value, iconId }) => {
+const DailyRate = ({   text, value, iconId }) => {
   console.log(iconId);
   return (
     
-    <Container color={color}>
+    <Container>
       <Wrapper>
         <Svg>
           <use href={`${sprite}#${iconId}`} />

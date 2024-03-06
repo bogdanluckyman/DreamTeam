@@ -9,11 +9,11 @@ axios.defaults.baseURL = 'https://dream-team-backend-10w1.onrender.com';
 export const addCalories = createAsyncThunk(
   'diary/addCalories',
   async (value, thunkAPI) => {
-    const { date, amount, calories } = value;
+    // const { date, amount, calories } = value;
     console.log(value);
     try {
       const response = await axios.post('/api/diary/product', {
-        value,
+        ...value,
         // date: date,
         // product: { productID: 9, amount: amount, calories: calories },
       });

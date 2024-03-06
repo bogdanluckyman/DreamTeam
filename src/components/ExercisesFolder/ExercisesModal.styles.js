@@ -55,7 +55,6 @@ export const TimerDiv = styled.div`
 export const ExercisesModalImg = styled.img`
   border: 1px solid rgba(239, 237, 232, 0.2);
   border-radius: 12px;
-  padding: 45px 105px;
   width: 270px;
   height: 226px;
   background-color: white;

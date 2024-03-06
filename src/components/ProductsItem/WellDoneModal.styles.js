@@ -84,10 +84,15 @@ export const DiaryButton = styled.button`
   font-size: 14px;
   padding: 0;
   color: rgba(239, 237, 232, 0.3);
-  width: 97px;
-  height: 18px;
+  /* width: 97px;
+  height: 18px; */
   background-color: transparent;
   border: none;
+  display: flex;
+  align-items: center;
+`;
+export const ParagtafDiarty = styled.p`
+  margin-bottom: 0px;
 `;
 export const CloseWellDoneContainer = styled.button`
   stroke-width: 2px;
@@ -107,5 +112,13 @@ export const CloseWellDoneContainer = styled.button`
   @media screen and (min-width: 768px) {
     margin-left: 390px;
     margin-top: 16px;
+  }
+`;
+export const SvgNext = styled.svg`
+  margin-left: 8px;
+  width: 24px;
+  height: 24px;
+  & use {
+    stroke: rgba(239, 237, 232, 0.3);
   }
 `;

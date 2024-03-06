@@ -6,7 +6,9 @@ import {
   InnerWellDoneContainer,
   NextProduct,
   Paragraph,
+  ParagtafDiarty,
   Span,
+  SvgNext,
   Text,
   WellDoneBackground,
   WellDoneContainer,
@@ -33,8 +35,15 @@ const WellDoneModal = ({ Calories, onClose, toFormModal, Background }) => {
           </Paragraph>
           <NextProduct onClick={toFormModal}>Next product</NextProduct>
           <DiaryButton onClick={onClose}>
-            To the diary
-            <svg width="16" height="16"></svg>
+            <ParagtafDiarty> To the diary</ParagtafDiarty>
+
+            <SvgNext>
+              <use
+                href="/src/img/symbol-defs.svg#icon-next"
+                width="25"
+                height="25"
+              ></use>
+            </SvgNext>
           </DiaryButton>
         </InnerWellDoneContainer>
       </WellDoneContainer>

@@ -6,8 +6,7 @@ import { Provider } from 'react-redux';
 import { store } from './redux/store.js';
 import { GlobalStyle } from './styles/GlobalStyled.js';
 // import { PersistGate } from 'redux-persist/integration/react';
-import "react-datepicker/dist/react-datepicker.css";
-
+import 'react-datepicker/dist/react-datepicker.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

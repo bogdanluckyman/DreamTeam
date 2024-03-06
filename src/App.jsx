@@ -24,8 +24,9 @@ function App() {
           {/* <Route path="/second" element={<SecondPage />}>
             <Route path=":half" element={<HalfPage />} />
           </Route> */}
-          <Route path="*" element={<ErrorPage />} />
+          {/* <Route path="*" element={<ErrorPage />} /> */}
         </Route>
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
     </AppWrapper>
   );

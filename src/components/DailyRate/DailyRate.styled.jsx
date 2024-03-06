@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-position: relative;
+// position: relative;
   display: flex;
   flex-direction: column;
   width: 165px;
@@ -12,7 +12,7 @@ position: relative;
   flex-shrink: 0;
   border-radius: 12px;
   border: 1px solid rgba(239, 237, 232, 0.2);
-  background-color: ${({ color }) => color};
+  background-color: var(--orange-color);
 
   @media screen and (min-width: 768px) and (max-width: 1439px) {
     width: 209px;
@@ -73,8 +73,8 @@ export const Value = styled.p`
 //     bottom: 0;
 //     left: 18;
   color: var(--white-color);
-  font-family: 'RobotoBold';
-  font-size: 24px;
+  font-family: 'Roboto';
+  // font-size: 24px;
   line-height: 1.3;
   margin-top: auto;
 

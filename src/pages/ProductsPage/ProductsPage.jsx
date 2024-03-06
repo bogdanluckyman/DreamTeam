@@ -3,16 +3,16 @@ import { TitlePage } from '../../components/TitlePage/TitlePage';
 import { useEffect } from 'react';
 //import { ProductsFilter } from '../../components/ProductsFilters/ProductsFilters';
 import { ProductsList } from '../../components/ProductsList/ProductsList';
-import { fetchProducts } from '../../redux/products/operations';
+//import { fetchProducts } from '../../redux/products/operations';
 import { ProductsFilters } from '../../components/ProductsFilters/ProductsFilters';
 
 export default function ProductsPage() {
   //  const isLoading = useSelector(selectIsLoading);
   //  const error = useSelector(selectError);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchProducts());
-  }, [dispatch]);
+  //const dispatch = useDispatch();
+  //useEffect(() => {
+  //  dispatch(fetchProducts());
+  //}, [dispatch]);
 
   return (
     <>

@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const filtersSlice = createSlice({
   name: 'filters',
-  initialState: { search: '', categories: 'Categories', productType: 'All' },
+  initialState: { title: '', category: 'Categories', filter: 'All' },
   reducers: {
     setFilters(state, action) {
       return (state = action.payload);

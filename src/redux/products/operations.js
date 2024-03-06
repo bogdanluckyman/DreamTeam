@@ -37,6 +37,9 @@ export const fetchProducts = createAsyncThunk(
       const response = await axios.get(
         `/products/filter?title=${selectedFilters.title}&category=${selectedFilters.category}&filter=${selectedFilters.filter}`
       );
+      setAuthHeader(
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZTg5YjIxNmY4ZTA4YTk4MjZkNmM2MiIsImlhdCI6MTcwOTc0Mjg4MiwiZXhwIjoxNzA5ODI1NjgyfQ.zDKHtqQTCcUkhJvoo8oV6w1u5wiQEzJeHXi3WJPh5A0'
+      );
       console.log(response.data);
 
       return response.data;

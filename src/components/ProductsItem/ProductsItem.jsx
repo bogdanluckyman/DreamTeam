@@ -11,6 +11,7 @@ import {
   TopLineRightWrapper,
   TopLineWrapper,
 } from './ProductsItem.styled';
+import ExercisesModal from '../ExercisesFolder/ExercisesModal';
 
 export const ProductItem = ({ product }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -48,7 +49,8 @@ export const ProductItem = ({ product }) => {
           <dd>{product.weight}</dd>
         </List>
       </ProductWrapp>
-      {isModalOpen && <FormModal onClose={closeModal} />}
+      {/* {isModalOpen && <FormModal onClose={closeModal} />} */}
+      {isModalOpen && <ExercisesModal onClose={closeModal} />}
     </>
   );
 };

@@ -11,14 +11,14 @@ axios.defaults.baseURL = 'https://dream-team-backend-10w1.onrender.com/api';
 // };
 
 export const addCalories = createAsyncThunk(
-  'diaries/addCalories',
+  'diary/addCalories',
   async (value, thunkAPI) => {
-    const { name, number } = value;
+    const { date, amount, calories } = value;
 
     try {
-      const response = await axios.post('/diaries', {
-        name: name,
-        number: number,
+      const response = await axios.post('/diary/product', {
+        date: date,
+        product: { productID: 9, amount: amount, calories: calories },
       });
 
       return response.data;
@@ -28,15 +28,15 @@ export const addCalories = createAsyncThunk(
   }
 );
 
-export const addExercieses = createAsyncThunk(
-  'diaries/addExercieses',
+export const addExercises = createAsyncThunk(
+  'diary/addExercieses',
   async (value, thunkAPI) => {
-    const { name, number } = value;
+    const { date, time, calories } = value;
 
     try {
-      const response = await axios.post('/diaries', {
-        name: name,
-        number: number,
+      const response = await axios.post('/diary/exercise', {
+        date: date,
+        exercises: { exerciseID: 9, time: time, calories: calories },
       });
 
       return response.data;
@@ -78,13 +78,13 @@ export const diarySlice = createSlice({
         state.productCalories.push(action.payload);
       })
       .addCase(addCalories.rejected, handleRejected)
-      .addCase(addExercieses.pending, handlePending)
-      .addCase(addExercieses.fulfilled, (state, action) => {
+      .addCase(addExercises.pending, handlePending)
+      .addCase(addExercises.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
         state.exerciesesResults.push(action.payload);
       })
-      .addCase(addExercieses.rejected, handleRejected);
+      .addCase(addExercises.rejected, handleRejected);
   },
 });
 

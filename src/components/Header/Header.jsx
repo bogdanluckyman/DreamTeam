@@ -8,6 +8,7 @@ export const Header = () => {
         <StyledLink to="/first">First</StyledLink>
         <StyledLink to="/second">Second</StyledLink>
         <StyledLink to="/products">Products</StyledLink>
+        <StyledLink to="/exercises">Exercises</StyledLink>
       </Navigation>
     </HeaderContainer>
   );

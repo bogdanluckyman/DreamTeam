@@ -49,8 +49,8 @@ export const ProductItem = ({ product }) => {
           <dd>{product.weight}</dd>
         </List>
       </ProductWrapp>
-      {/* {isModalOpen && <FormModal onClose={closeModal} />} */}
-      {isModalOpen && <ExercisesModal onClose={closeModal} />}
+      {isModalOpen && <FormModal onClose={closeModal} />}
+      {/* {isModalOpen && <ExercisesModal onClose={closeModal} />} */}
     </>
   );
 };

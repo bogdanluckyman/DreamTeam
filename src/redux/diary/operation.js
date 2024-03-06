@@ -13,8 +13,9 @@ export const addCalories = createAsyncThunk(
     console.log(value);
     try {
       const response = await axios.post('/api/diary/product', {
-        date: date,
-        product: { productID: 9, amount: amount, calories: calories },
+        value,
+        // date: date,
+        // product: { productID: 9, amount: amount, calories: calories },
       });
 
       return response.data;

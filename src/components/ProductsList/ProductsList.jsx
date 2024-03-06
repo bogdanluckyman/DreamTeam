@@ -1,15 +1,23 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { ProductItem } from '../ProductsItem/ProductsItem';
 import filteredProducts from './products.json';
 import { ProductsCatalogue } from './ProductsList.styled';
-import { selectFilter } from '../../redux/products/selector';
+import { selectFilter, selectProducts } from '../../redux/products/selector';
 import { fetchProducts } from '../../redux/products/operations';
+import { useEffect } from 'react';
 
 export const ProductsList = () => {
-  //поки через json
-  // const dispatch = useDispatch();
+  //const dispatch = useDispatch();
   //const selectedFilters = useSelector(selectFilter);
 
+  //useEffect(() => {
+  //  dispatch(fetchProducts(selectedFilters));
+  //}, [dispatch]);
+  //поки через json
+
+  //const filteredProducts = useSelector(selectProducts);
+  //const nn = filteredProducts.userSearchProducts;
+  //console.log(filteredProducts);
   return (
     <ProductsCatalogue>
       {filteredProducts.map((product) => {

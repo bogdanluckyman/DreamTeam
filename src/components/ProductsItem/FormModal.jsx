@@ -19,8 +19,7 @@ import * as Yup from 'yup';
 import { useState } from 'react';
 import WellDoneModal from './WellDoneModal';
 import { useDispatch } from 'react-redux';
-import { addCalories } from '../../redux/toGet';
-// import axios from 'axios';
+import { addCalories } from '../../redux/diary/operation';
 
 const FormModal = ({ onClose, product }) => {
   const [productsInformation, setProductInformation] = useState({});

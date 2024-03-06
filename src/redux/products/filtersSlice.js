@@ -13,4 +13,4 @@ const filtersSlice = createSlice({
 //сетфільтр будемо відправляти при ончендж в компоненті фільтрів
 export const { setFilters } = filtersSlice.actions;
 
-export const filterReducer = filtersSlice.reducer;
+export const filtersReducer = filtersSlice.reducer;

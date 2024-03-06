@@ -13,7 +13,7 @@ export const ProductsFilters = () => {
   //const productsCategories = await getProductCategories();
   //це частина стейту, а потрібен запит на категорії
   //  const productsCategories = useSelector(selectFilter);
-  console.log(productsCategories);
+  //console.log(productsCategories);
   return (
     //ЗРОБИТИ ФОРМІКОМ
     <FiltersField>

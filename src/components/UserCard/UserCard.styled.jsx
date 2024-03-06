@@ -90,3 +90,13 @@ line-height: 18px;
     margin-top: 8px;
   }
 `;
+
+
+export const WrapperLogOut = styled.div`
+ margin-top: 40px;
+ margin-left: 260px;
+
+ @media screen and (min-width: 768px)  {
+  margin-left: 360px;
+}
+`;

@@ -4,6 +4,7 @@
 // import { selectUser } from '../../redux/auth/selectors';
 
 import sprite from '../../img/symbol-defs.svg';
+import Logout from '../Logout/Logout';
 
 import { useState } from 'react';
 import {
@@ -16,6 +17,7 @@ import {
   TitleName,
   Subtitle,
   WrapperDiv,
+  WrapperLogOut,
 } from './UserCard.styled';
 import DailyRate from '../DailyRate/DailyRate';
 import WarningMessage from '../WarningMessage/WarningMessage';
@@ -38,6 +40,7 @@ const [avatar, setAvatar] = useState(user.avatarURL);
       <use href={`${sprite}#icon-big-user`}></use>
     </SvgLogoUser>
   );
+
 
   const handleAvatarChange = event => {
     const file = event.target.files[0];
@@ -91,7 +94,15 @@ const [avatar, setAvatar] = useState(user.avatarURL);
               />
             </WrapperDiv>
             <WarningMessage />
-    </Wrapper>
+            <WrapperLogOut>
+            <Logout
+            />
+
+            </WrapperLogOut>
+           
+            
+            </Wrapper>
+
   );
 };
 

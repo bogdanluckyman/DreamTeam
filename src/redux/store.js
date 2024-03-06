@@ -9,6 +9,14 @@
 //   reducer: rootReducer,
 // });
 
+// import { combineReducers, configureStore } from '@reduxjs/toolkit';
+
+// const rootReducer = combineReducers({});
+
+// export const store = configureStore({
+//   reducer: rootReducer,
+// });
+
 import { configureStore } from '@reduxjs/toolkit';
 import {
   persistStore,

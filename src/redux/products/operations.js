@@ -3,26 +3,31 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-
-axios.defaults.baseURL = 'https://dream-team-backend-10w1.onrender.com/api';
-//додає токен в запит
-const setAuthHeader = (token) => {
-  axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-};
-
+const BASEURL = 'https://dream-team-backend-10w1.onrender.com/api';
+//додає токен в запит, але не працює
+//const setAuthHeader = (token) => {
+//  axios.defaults.headers.common.Authorization = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZThjYmE3NDVlODFjNzdiYTMzMzEyZiIsImlhdCI6MTcwOTc1NTMwMywiZXhwIjoxNzA5ODM4MTAzfQ.T8nqMePFbHcINtrEt0K_ASKq2HsWL4T3AVI2yJlV9nU`;
+//};
+const TOKEN =
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZThjYmE3NDVlODFjNzdiYTMzMzEyZiIsImlhdCI6MTcwOTc1NTMwMywiZXhwIjoxNzA5ODM4MTAzfQ.T8nqMePFbHcINtrEt0K_ASKq2HsWL4T3AVI2yJlV9nU';
 
 //запит за категоріями
 export const getProductCategories = createAsyncThunk(
-  'filters/',
+  'categories/getProductCategories',
   async (_, thunkAPI) => {
     try {
-      const response = await axios.get('/products/categories');
-      setAuthHeader(
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZTg5YjIxNmY4ZTA4YTk4MjZkNmM2MiIsImlhdCI6MTcwOTc0Mjg4MiwiZXhwIjoxNzA5ODI1NjgyfQ.zDKHtqQTCcUkhJvoo8oV6w1u5wiQEzJeHXi3WJPh5A0'
-      );
-      if (response.status !== 200) {
-        throw new Error(`Request failed with status: ${response.status}`);
-      }
+      const response = await axios
+        .create({
+          baseURL: BASEURL,
+          headers: {
+            Authorization: `Bearer ${TOKEN}`,
+          },
+        })
+        .get('/products/categories');
+
+      //   if (response.status !== 200) {
+      //    throw new Error(`Request failed with status: ${response.status}`);
+      //  }
       return response.data;
     } catch (e) {
       console.log(thunkAPI.rejectWithValue(e.message));
@@ -33,15 +38,20 @@ export const getProductCategories = createAsyncThunk(
 
 //запит за відфільтрованим масивом продуктів
 export const fetchProducts = createAsyncThunk(
-  'products/fetchAll',
+  'products/fetchProducts',
   async (selectedFilters, thunkAPI) => {
     try {
-      const response = await axios.get(
-        `/products/filter?title=${selectedFilters.title}&category=${selectedFilters.category}&filter=${selectedFilters.filter}`
-      );
-      setAuthHeader(
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZTg5YjIxNmY4ZTA4YTk4MjZkNmM2MiIsImlhdCI6MTcwOTc0Mjg4MiwiZXhwIjoxNzA5ODI1NjgyfQ.zDKHtqQTCcUkhJvoo8oV6w1u5wiQEzJeHXi3WJPh5A0'
-      );
+      const response = await axios
+        .create({
+          baseURL: BASEURL,
+          headers: {
+            Authorization: `Bearer ${TOKEN}`,
+          },
+        })
+        .get(
+          `/products/filter?title=${selectedFilters.title}&category=${selectedFilters.category}&filter=${selectedFilters.filter}`
+        );
+
       console.log(response.data);
 
       return response.data;
@@ -49,7 +59,5 @@ export const fetchProducts = createAsyncThunk(
       console.log(thunkAPI.rejectWithValue(e.message));
       return thunkAPI.rejectWithValue(e.message);
     }
-
   }
 );
-

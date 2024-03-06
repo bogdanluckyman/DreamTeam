@@ -5,8 +5,17 @@ import { useEffect } from 'react';
 import { ProductsList } from '../../components/ProductsList/ProductsList';
 //import { fetchProducts } from '../../redux/products/operations';
 import { ProductsFilters } from '../../components/ProductsFilters/ProductsFilters';
+import {
+  fetchProducts,
+  getProductCategories,
+} from '../../redux/products/operations';
 
 export default function ProductsPage() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getProductCategories());
+  }, [dispatch]);
+
   //  const isLoading = useSelector(selectIsLoading);
   //  const error = useSelector(selectError);
   //const dispatch = useDispatch();

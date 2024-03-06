@@ -18,13 +18,16 @@ import * as Yup from 'yup';
 
 import { useState } from 'react';
 import WellDoneModal from './WellDoneModal';
+import { useDispatch } from 'react-redux';
+import { addCalories } from '../../redux/toGet';
 // import axios from 'axios';
 
 const FormModal = ({ onClose, product }) => {
-  const [products, setProduct] = useState({});
+  const [productsInformation, setProductInformation] = useState({});
   const [showWellDoneModal, setShowWellDoneModal] = useState(false);
   const [getFormModal, setFormModal] = useState(true);
   const [getCalories, setCalories] = useState(0);
+  const dispatch = useDispatch();
   const h = product;
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') {
@@ -37,7 +40,7 @@ const FormModal = ({ onClose, product }) => {
   // }, [getCalories]);
 
   const ValidationSchema = Yup.object().shape({
-    product: Yup.string(),
+    // product: Yup.string(),
     amount: Yup.number()
       .min(1, 'Amount must be at least 1')
       .required('Amount is required'),
@@ -81,7 +84,9 @@ const FormModal = ({ onClose, product }) => {
       // });
       console.log(newObjekt);
 
-      setProduct(newObjekt);
+      setProductInformation(newObjekt);
+      console.log(productsInformation);
+      dispatch(addCalories(newObjekt));
       setShowWellDoneModal(true);
       setFormModal(false);
       resetForm();
@@ -98,7 +103,7 @@ const FormModal = ({ onClose, product }) => {
     <>
       <Formik
         initialValues={{
-          product: '',
+          // product: '',
           amount: '',
         }}
         onSubmit={handleSubmit}

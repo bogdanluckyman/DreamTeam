@@ -1,3 +1,4 @@
+import { useSelector } from 'react-redux';
 import { SvgFormModal } from './FormModal.styles';
 import {
   CloseWellDoneContainer,
@@ -13,7 +14,9 @@ import {
 } from './WellDoneModal.styles';
 
 const WellDoneModal = ({ Calories, onClose, toFormModal, Background }) => {
-  console.log(Calories);
+  const diaryProductValue = useSelector((state) => state.diary.productCalories);
+  console.log(diaryProductValue);
+
   return (
     <WellDoneBackground onClick={Background}>
       <WellDoneContainer>

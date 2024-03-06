@@ -1,8 +1,8 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import { diaryReducer } from './toGet';
+// import { diaryReducer } from './toGet';
 
 const rootReducer = combineReducers({
-  diary: diaryReducer,
+  // diary: diaryReducer,
 });
 
 export const store = configureStore({

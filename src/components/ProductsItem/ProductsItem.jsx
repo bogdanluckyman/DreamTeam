@@ -49,14 +49,14 @@ export const ProductItem = ({ product }) => {
           <dd>{product.weight}</dd>
         </List>
       </ProductWrapp>
-      {isModalOpen && (
+      {/* {isModalOpen && (
         <FormModal
           onClose={closeModal}
           date={'06 - 03 - 2024'}
           product={product}
         />
-      )}
-      {/* {isModalOpen && <ExercisesModal onClose={closeModal} />} */}
+      )} */}
+      {isModalOpen && <ExercisesModal onClose={closeModal} />}
     </>
   );
 };

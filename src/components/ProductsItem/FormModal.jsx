@@ -21,13 +21,20 @@ import WellDoneModal from './WellDoneModal';
 import { useDispatch } from 'react-redux';
 import { addCalories } from '../../redux/diary/operation';
 
-const FormModal = ({ onClose, product }) => {
-  const [productsInformation, setProductInformation] = useState({});
+const FormModal = ({ onClose, product, date }) => {
+  // const [productsInformation, setProductInformation] = useState({});
   const [showWellDoneModal, setShowWellDoneModal] = useState(false);
   const [getFormModal, setFormModal] = useState(true);
   const [getCalories, setCalories] = useState(0);
   const dispatch = useDispatch();
-  const h = product;
+  const id = product._id.$oid;
+  const productTitel = product.title;
+  const productCalori = product.calories;
+
+  // console.log(id);
+  // console.log(productTitel);
+  // console.log(date);
+
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') {
       onClose();
@@ -54,11 +61,10 @@ const FormModal = ({ onClose, product }) => {
   };
 
   const handleAmountChange = (event) => {
-    console.log(event.target.value);
     const value = event.target.value.trim();
     if (!isNaN(value) && value !== '') {
       const amount = parseFloat(event.target.value);
-      const productCalories = parseFloat(200);
+      const productCalories = parseFloat(productCalori);
       const calculatedCalories = (amount * productCalories) / 100;
       return setCalories(calculatedCalories.toFixed(2));
     }
@@ -67,24 +73,21 @@ const FormModal = ({ onClose, product }) => {
 
   const handleSubmit = async (values, { resetForm }) => {
     console.log(values);
-    console.log(getCalories);
+    const value = values.amount;
     try {
       await ValidationSchema.validate(values, { abortEarly: false });
-      //  product(product ID) - string; required
-      // date - string; format dd/mm/YYYY; required
-      // amount - number; minimum 1(g); required
-      // calories - number; minimum 1; required
 
-      const newObjekt = { ...values, getCalories };
-      // const response = await axios.post('/api/addProduct', {
-      //   product: values.produkt,
-      //   amount: values.amount,
-      //   calories: calories,
-      // });
+      const newObjekt = {
+        date: { date },
+        products: {
+          productID: { id },
+          amount: value,
+          calories: getCalories,
+        },
+      };
+
       console.log(newObjekt);
 
-      setProductInformation(newObjekt);
-      console.log(productsInformation);
       dispatch(addCalories(newObjekt));
       setShowWellDoneModal(true);
       setFormModal(false);
@@ -122,7 +125,7 @@ const FormModal = ({ onClose, product }) => {
                     <FormaInput
                       id="product"
                       name="product"
-                      placeholder={h}
+                      placeholder={productTitel}
                       readOnly={true}
                     />
                     <Label>grams</Label>

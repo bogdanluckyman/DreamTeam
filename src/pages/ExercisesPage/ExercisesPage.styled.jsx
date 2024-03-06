@@ -2,10 +2,11 @@ import styled from 'styled-components';
 
 export const ExercisesPageContainer = styled.div`
     margin-left: 0;
-    padding-left: 20px;
+
     background-color: #040404;
     color: #EFEDE8;
     min-height: 100vh;
+    padding-top: 72px;
 `;
 
 export const NavgtionContainer = styled.div`
@@ -13,30 +14,53 @@ export const NavgtionContainer = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 20px;
     
     @media (max-width: 767px) {
         flex-direction: column;
         display: block;
+        max-width: 335px;
+        margin: 0 auto;
+    }
+    @media (min-width: 1440px){
+        width: 1248px;
+        margin: 0 auto;
+    }
+    @media (min-width: 768px) and (max-width: 1439px) {
+        width: 704px;
+        margin: 0 auto;
     }
 `;
 
 export const Title = styled.h2`
     margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 24px;
+
+    @media (min-width: 768px) and (max-width: 1439px) {
+        font-size: 32px;
+    }
+    @media (min-width: 1440px){
+        font-size: 32px;
+    }
 `;
 
 export const ButtonsContainer = styled.div`
     display: flex;
-    
+
     @media (max-width: 767px) {
-        margin-top: 0;
+        margin-top: 10px;
         margin-left: -8px;
     }
 `;
 
 export const CardContainer = styled.div`
-    margin-left: -55px;
+    margin: 0 auto;
     position: relative;
+    padding-top: 64px;
+
+    @media (max-width: 767px) {
+        padding-top: 40px;
+    }
 `;
 
 export const Card = styled.li`
@@ -54,8 +78,10 @@ export const Card = styled.li`
     @media (min-width: 768px) and (max-width: 1439px) {
         width: 224px;
     }
-    
-    @media (min-width: 320px) and (max-width: 767px) {
+    @media (min-width: 320px) and (max-width: 374px) {
+        width: 90%;
+    }
+    @media (min-width: 375px) and (max-width: 767px) {
         width: 335px;
     }
 `;
@@ -91,8 +117,6 @@ export const TabButton = styled.button`
     margin-right: 10px;
     border-radius: 5px;
     cursor: pointer;
-    width: 84px;
-    height: 32px;
 
     &:not(.active) {
         opacity: 0.4;
@@ -116,16 +140,18 @@ export const NavigationPanel = styled.div`
 `;
 
 export const CircleButton = styled.button`
-    background-color: ${props => props.isActive ? '#EFEDE8' : 'transparent'};
-    color: ${props => props.isActive ? '#EFEDE8' : 'white'};
-    border: none;
+    background-color: #EFEDE8;
     padding: 5px;
     margin: 0 5px;
     border-radius: 50%;
+    border: 2px solid black;
     width: 25px;
     height: 25px;
+    opacity: 10%;
 
-    &:not(.active) {
-        opacity: 0.4;
+    &:hover,
+    &:focus {
+        background-color: #E6533C;
+        opacity: 100%;
     }
 `;

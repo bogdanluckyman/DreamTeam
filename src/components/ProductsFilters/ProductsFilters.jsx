@@ -1,27 +1,32 @@
-//import { useDispatch } from 'react-redux';
-//import { setFilters } from '../../redux/products/filtersSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { setFilters } from '../../redux/products/filtersSlice';
 //import { getProductCategories } from '../../redux/products/operations';
 import { FiltersField } from './ProductsFilters.styled';
 import productsCategories from './productsCategories.json';
 import { nanoid } from 'nanoid';
+import { selectFilter } from '../../redux/products/selector';
 
 export const ProductsFilters = () => {
-  //const dispatch = useDispatch();
-  //const productsCategories = getProductCategories();
+  const dispatch = useDispatch();
+  //const productsCategories = await getProductCategories();
+  //це частина стейту, а потрібен запит на категорії
+  //  const productsCategories = useSelector(selectFilter);
+  //console.log(productsCategories);
   return (
-    //стилізувати поле
+    //ЗРОБИТИ ФОРМІКОМ
     <FiltersField>
       <input
         type="text"
-        name="search"
+        name="title"
         placeholder="Search"
-        // onChange={evt => dispatch(setFilters(evt.target.value))}
+        onChange={(evt) => dispatch(setFilters({ title: evt.target.value }))}
       />
 
       <select
-        name="categories"
-        placeholder="Categories"
-        //onChange={evt => dispatch(setFilters(evt.target.value))}
+        name="category"
+        //onChange={(evt) => console.log(evt.target.value)}
+
+        onChange={(evt) => dispatch(setFilters({ category: evt.target.value }))}
       >
         <option defaultChecked>Categories</option>
         {productsCategories.map((category) => {
@@ -29,8 +34,8 @@ export const ProductsFilters = () => {
         })}
       </select>
       <select
-        name="productType"
-        // onChange={evt => dispatch(setFilters(evt.target.value))}
+        name="filter"
+        onChange={(evt) => dispatch(setFilters({ filter: evt.target.value }))}
       >
         <option defaultChecked>All</option>
 

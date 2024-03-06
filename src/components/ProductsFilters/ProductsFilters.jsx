@@ -17,7 +17,6 @@ export const ProductsFilters = () => {
     <FiltersField>
       <input
         type="text"
-        x
         name="title"
         placeholder="Search"
         onChange={(evt) => dispatch(setFilters({ title: evt.target.value }))}

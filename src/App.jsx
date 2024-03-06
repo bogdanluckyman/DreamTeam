@@ -7,6 +7,7 @@ import ErrorPage from 'pages/ErrorPage/ErrorPage';
 import { AppWrapper } from './App.styled';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
 import ProductsPage from './pages/ProductsPage/ProductsPage';
+import ExercisesPage from './pages/ExercisesPage/ExercisesPage';
 
 const test = import.meta.env.VITE_API_TEST;
 
@@ -19,6 +20,7 @@ function App() {
           {/* <Route path="/first" element={<FirstPage />} /> */}
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/products" element={<ProductsPage />} />
+          <Route path="/exercises" element={<ExercisesPage />} />
           {/* <Route path="/second" element={<SecondPage />}>
             <Route path=":half" element={<HalfPage />} />
           </Route> */}

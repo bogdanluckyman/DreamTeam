@@ -3,11 +3,13 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
+
 axios.defaults.baseURL = 'https://dream-team-backend-10w1.onrender.com/api';
 //додає токен в запит
 const setAuthHeader = (token) => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
+
 
 //запит за категоріями
 export const getProductCategories = createAsyncThunk(
@@ -47,5 +49,7 @@ export const fetchProducts = createAsyncThunk(
       console.log(thunkAPI.rejectWithValue(e.message));
       return thunkAPI.rejectWithValue(e.message);
     }
+
   }
 );
+

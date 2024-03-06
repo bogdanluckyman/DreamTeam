@@ -46,6 +46,7 @@ ul {
 }
 img {
   display: block;
+  border: none;
 }
 button {
   cursor: pointer;

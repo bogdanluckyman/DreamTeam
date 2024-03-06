@@ -1,5 +1,5 @@
 import { parseISO } from 'date-fns';
-// import { useDispatch, useSelector } from 'react-redux';
+
 import { Formik, Field, Form } from 'formik';
 import * as Yup from 'yup';
 import {
@@ -18,27 +18,28 @@ import {
 import RadioBtn from '../RadioBtn/RadioBtn';
 import Datapicker from '../Datapicker/Datapicker';
 
-
-// import { selectUser } from '../../redux/auth/selectors';
+ import { selectUser } from '../../redux/auth/selectors';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateUserInfo} from '../../redux/auth/operation';
 
 
 const UserForm = () => {
   // тут буде редакс
-  //   const dispatch = useDispatch();
-  // const user = useSelector(*селектор юзеру*);
+   const dispatch = useDispatch();
+  const user = useSelector(selectUser);
 
   // *статичний юзер*
-  const user = {
-    name: 'Ang',
-    email: 'data@gmail.com',
-    height: 165,
-    currentWeight: 60,
-    desiredWeight: 55,
-    birthday: '1997-01-01',
-    blood: 2,
-    sex: 'female',
-    levelActivity: 2,
-  };
+  // const user = {
+  //   name: 'Ang',
+  //   email: 'data@gmail.com',
+  //   height: 165,
+  //   currentWeight: 60,
+  //   desiredWeight: 55,
+  //   birthday: '1997-01-01',
+  //   blood: 2,
+  //   sex: 'female',
+  //   levelActivity: 2,
+  // };
 
   const bloodOptions = [
     { id: '1', value: '1', label: '1' },
@@ -110,11 +111,12 @@ const UserForm = () => {
   });
 
   const handleSubmit = (values) => {
-    const sendData = {
+    const UserData = {
       ...values,
     };
-    console.log(sendData);
+    console.log(UserData);
     // *тут буде діспатч апдейт параметрів юзера*
+    dispatch(updateUserInfo(UserData));
   };
 
   return (

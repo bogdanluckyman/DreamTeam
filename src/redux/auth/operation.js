@@ -101,3 +101,8 @@ export const updateAvatar = createAsyncThunk(
     }
   }
 );
+
+
+export const instance = () => {
+  
+}

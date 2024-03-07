@@ -1,6 +1,5 @@
 import { GlobalStyle } from '../../../GlobalStyle';
-
-import { lazy } from 'react';
+import { lazy, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
@@ -10,10 +9,10 @@ import { RestrictedRoute } from '../../components/RestrictedRoute';
 import { PrivateRoute } from '../../components/PrivateRoute';
 import { LoadingMessage } from '../../App.styled';
 
-// const HomePage = lazy(() => import('../../pages/Home/Home'));
-// const RegisterPage = lazy(() => import('../../pages/SignUp/SignUp'));
-// const LoginPage = lazy(() => import('../../pages/SignIn/SignIn'));
-// const ProfilePage = lazy(() => import('../../pages/Profile/ProfilePage'));
+const HomePage = lazy(() => import('../../pages/Home/Home'));
+const RegisterPage = lazy(() => import('../../pages/SignUp/SignUp'));
+const LoginPage = lazy(() => import('../../pages/SignIn/SignIn'));
+const ProfilePage = lazy(() => import('../../pages/Profile/ProfilePage'));
 
 const FirstPage = () => {
   const dispatch = useDispatch();

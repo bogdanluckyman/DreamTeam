@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
-import heroMobile1 from '../../images/hero-mobile-1x.jpg';
-import heroMobile2 from '../../images/hero-mobile-2x.jpg';
-import heroTablet1 from '../../images/hero-tablet-1x.jpg';
-import heroTablet2 from '../../images/hero-tablet-2x.jpg';
-import hero1 from '../../images/hero-1x.jpg';
-import hero2 from '../../images/hero-2x.jpg';
+import heroMobile1 from '../../img/hero-mobile-1x.jpg';
+import heroMobile2 from '../../img/hero-mobile-2x.jpg';
+import heroTablet1 from '../../img/hero-tablet-1x.jpg';
+import heroTablet2 from '../../img/hero-tablet-2x.jpg';
+import hero1 from '../../img/hero-1x.jpg';
+import hero2 from '../../img/hero-2x.jpg';
 
 export const Container = styled.div`
   @media screen and (min-width: 375px) {

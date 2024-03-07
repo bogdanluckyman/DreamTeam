@@ -39,22 +39,21 @@ export const ProductItem = ({ product }) => {
             </AddBtn>
           </TopLineRightWrapper>
         </TopLineWrapper>
-        {isModalOpen && (
-          <>
-            <svg width="16" height="16">
-              <use href={`${sprite}#icon-man-run`}></use>
-            </svg>
-            <ProductName>{product.title}</ProductName>
-            <List>
-              <Term>Calories:</Term>
-              <dd>{product.calories}</dd>
-              <Term>Category:</Term>
-              <dd>{product.category}</dd>
-              <Term>Weight:</Term>
-              <dd>{product.weight}</dd>
-            </List>
-          </>
-        )}
+
+        <>
+          <svg width="16" height="16">
+            <use href={`${sprite}#icon-man-run`}></use>
+          </svg>
+          <ProductName>{product.title}</ProductName>
+          <List>
+            <Term>Calories:</Term>
+            <dd>{product.calories}</dd>
+            <Term>Category:</Term>
+            <dd>{product.category}</dd>
+            <Term>Weight:</Term>
+            <dd>{product.weight}</dd>
+          </List>
+        </>
       </ProductWrapp>
       {isModalOpen && (
         <FormModal

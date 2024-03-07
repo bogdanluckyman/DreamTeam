@@ -8,6 +8,11 @@ body {
   color: #111111;
   width: 100%;
   height: 100vh;
+  margin-right: 16px;
+  width: inherit;
+  display: flex;
+  justify-content: space-between;
+  width: fit-content;
 }
 
 h1,

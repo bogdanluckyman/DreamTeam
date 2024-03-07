@@ -93,6 +93,9 @@ const ExercisesModal = ({ onClose }) => {
   }, [restart, start, time]);
 
   const toCloseWindiw = () => {
+    const timeRes = 3 - time;
+
+    console.log(timeRes);
     setcloseModal(true);
   };
 
@@ -201,8 +204,8 @@ const ExercisesModal = ({ onClose }) => {
       {closeModal && (
         <ExercisesWellDoneModal
           onClose={onClose}
-          time={0}
-          calori={0}
+          time={time}
+          calori={counter}
           background={handleBackgroundClick}
         />
       )}

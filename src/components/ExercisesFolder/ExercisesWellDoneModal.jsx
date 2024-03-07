@@ -13,6 +13,13 @@ import {
 } from './ExercisesWellDoneModal.styles';
 
 const ExercisesWellDoneModal = ({ onClose, time, calori, background }) => {
+  const [minutes, secound] = time.split(':').map(Number);
+  const totalSeconds = minutes * 60 + secound;
+  const res = 180 - totalSeconds;
+  const formattedTime = `${Math.floor(res / 10)}:${res % 10 < 10 ? '0' : ''}${
+    res % 10
+  }`;
+
   return (
     <ExercisesWellDoneBackground onClick={background}>
       <ExercisesWellDoneContainer>
@@ -26,7 +33,7 @@ const ExercisesWellDoneModal = ({ onClose, time, calori, background }) => {
           <ExercisesText>Well done</ExercisesText>
           <ExercisesParagraph>
             Your time:
-            <ExercisesSpan>{time}</ExercisesSpan>
+            <ExercisesSpan>{formattedTime}</ExercisesSpan>
           </ExercisesParagraph>
           <ExercisesParagraph>
             Burned calories:

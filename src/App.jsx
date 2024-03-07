@@ -89,20 +89,7 @@ function App() {
                 <PrivateRoute redirectTo="/" component={<ExercisesPage />} />
               )
             }
-          >
-            {/* <Route
-              index
-              element={<Navigate to="/exercises/Body parts" replace />}
-            />
-            <Route
-              path="/exercises/:filter"
-              element={<ExercisesSubcategoriesList />}
-            />
-            <Route
-              path="/exercises/:filter/:filterList"
-              element={<ExercisesList />}
-            /> */}
-          </Route>
+          ></Route>
           <Route path="/error" element={<ErrorPage />} />
           <Route path="*" element={<Navigate to="/error" />} />
         </Route>

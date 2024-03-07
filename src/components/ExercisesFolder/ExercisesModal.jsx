@@ -20,16 +20,20 @@ import {
 } from './ExercisesModal.styles';
 import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 import ExercisesWellDoneModal from './ExercisesWellDoneModal';
+import { timeCalculation } from './timeCalculation';
+import { useDispatch } from 'react-redux';
+import { addExercises } from '../../redux/diary/operation';
 
-const ExercisesModal = ({ onClose }) => {
+const ExercisesModal = ({ onClose, date }) => {
   const [start, setStart] = useState(false);
   const [isPaused, setIsPaused] = useState(true);
   const [time, setTime] = useState('');
   const [restart, setReStart] = useState(false);
   const [closeModal, setcloseModal] = useState(false);
   const [counter, setCounter] = useState(0);
-  // const [intervalId, setIntervalId] = useState(null);
-  const [seconds, setSeconds] = useState(0);
+  const [seconds, setSeconds] = useState(1);
+  const [overallResult, setOverallResult] = useState(3);
+  const dispatch = useDispatch();
   /////////////////////////////////////////////////////////////
   const exercise = {
     _id: '64f2458d6f67bc34bae4f86d',
@@ -41,12 +45,12 @@ const ExercisesModal = ({ onClose }) => {
     burnedCalories: 164,
     time: 3,
   };
+
   const exercCal = exercise.burnedCalories;
 
   const title = exercise.name.replace(/(^\w|\.\s\w)/g, (char) =>
     char.toUpperCase()
   );
-
   const target = exercise.target.replace(/(^\w|\.\s\w)/g, (char) =>
     char.toUpperCase()
   );
@@ -62,26 +66,39 @@ const ExercisesModal = ({ onClose }) => {
       onClose();
     }
   });
+  // const Formula = (time) => {
+  //   const [minutes, secound] = time.split(':').map(Number);
+  //   const totalSeconds = minutes * 60 + secound;
+  //   const res = 180 - totalSeconds;
+  //   const formattedTime = `${Math.floor(res / 10)}:${res % 10 < 10 ? '0' : ''}${
+  //     res % 10
+  //   }`;
+  //   console.log(formattedTime);
+  //   console.log(overallResult);
+  // };
 
   useEffect(() => {
     const calculateCaloriesBurned = (timeInMinutes) => {
       const caloriesPer3Min = exercCal;
       return (timeInMinutes * caloriesPer3Min) / 3;
     };
+
     let timer;
     if (!isPaused) {
       timer = setInterval(() => {
         setSeconds((prevSeconds) => prevSeconds + 1);
       }, 1000);
     }
+
     const minutes = seconds / 60;
     const calculatedCalories = calculateCaloriesBurned(minutes);
-    setCounter(calculatedCalories.toFixed(2));
+    setCounter(calculatedCalories.toFixed(15));
     return () => clearInterval(timer);
   }, [counter, exercCal, isPaused, seconds]);
 
   useEffect(() => {
     if (time === '' && restart === true) {
+      setOverallResult((prev) => prev + 3);
       setStart(false);
       setReStart(false);
       setIsPaused(true);
@@ -89,13 +106,23 @@ const ExercisesModal = ({ onClose }) => {
     }
 
     return;
-    //  () => clearInterval(intervalId);
   }, [restart, start, time]);
 
   const toCloseWindiw = () => {
-    const timeRes = 3 - time;
+    const valueTime = timeCalculation(overallResult, time);
 
-    console.log(timeRes);
+    const newObject = {
+      date: { date },
+      exercises: {
+        exercisesID: exercise._id,
+        time: valueTime,
+        calories: Math.floor(counter),
+      },
+    };
+    console.log(newObject);
+    dispatch(addExercises(newObject));
+    setStart(false);
+    setIsPaused(true);
     setcloseModal(true);
   };
 
@@ -118,11 +145,11 @@ const ExercisesModal = ({ onClose }) => {
     setIsPaused((prevStart) => !prevStart);
   };
   const handleBackgroundClick = (event) => {
-    if (event.target === event.currentTarget || event.key === 'Escape') {
+    if (event.target === event.currentTarget) {
       onClose();
     }
   };
-
+  ////////////////////////////////////////////////////////////////////////////
   return (
     <>
       {!closeModal && (
@@ -171,7 +198,7 @@ const ExercisesModal = ({ onClose }) => {
                   )}
                 </PlayPause>
                 <BurnedCalories>
-                  Burned calories: <TimeSpan>{counter}</TimeSpan>
+                  Burned calories: <TimeSpan>{Math.floor(counter)}</TimeSpan>
                 </BurnedCalories>
               </TimerDiv>
               <DataContainerDiv>
@@ -205,6 +232,7 @@ const ExercisesModal = ({ onClose }) => {
         <ExercisesWellDoneModal
           onClose={onClose}
           time={time}
+          timeres={overallResult}
           calori={counter}
           background={handleBackgroundClick}
         />

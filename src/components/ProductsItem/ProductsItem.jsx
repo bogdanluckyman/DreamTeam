@@ -62,7 +62,7 @@ export const ProductItem = ({ product }) => {
           date={'06 - 03 - 2024'}
           product={product}
         />
-
+      )}
       {isModalOpen && (
         <ExercisesModal
           onClose={closeModal}
@@ -70,7 +70,6 @@ export const ProductItem = ({ product }) => {
           exercies={''}
         />
       )}
-      
     </>
   );
 };

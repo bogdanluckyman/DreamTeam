@@ -17,7 +17,7 @@ import {
   Input,
 } from './RegisterForm.styled';
 
-import sprite from '../../images/sprite.svg';
+import sprite from '../../img/sprite.svg';
 
 const RegValidateSchema = Yup.object().shape({
   name: Yup.string()

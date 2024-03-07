@@ -34,12 +34,14 @@ export const TopLineRightWrapper = styled.div`
 export const DietMark = styled.div`
   width: 41px;
   height: 24px;
+  padding: 5px 8px;
+
   border-radius: 4px;
   font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 1);
-  background-color: var(--light-grey-color);
+  background-color: rgba(239, 237, 232, 0.05);
 `;
 
 export const RecomendedLight = styled.span`

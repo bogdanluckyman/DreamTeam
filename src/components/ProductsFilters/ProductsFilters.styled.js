@@ -21,6 +21,11 @@ export const TitleInput = styled.input`
   border: 1px solid var(--more-light-grey-color);
   border-radius: 12px;
 
+  &:hover,
+  &:active {
+    border: 1px solid var(--orange-color);
+  }
+
   @media screen and (min-width: 768px) {
     margin-right: 16px;
   }

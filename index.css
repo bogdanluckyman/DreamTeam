@@ -13,6 +13,7 @@ body {
   display: flex;
   justify-content: space-between;
   width: fit-content;
+  padding: 8px 4px;
 }
 
 h1,

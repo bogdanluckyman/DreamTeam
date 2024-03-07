@@ -68,8 +68,15 @@ export const RegisterForm = () => {
       onSubmit={handleSubmit}
       validationSchema={RegValidateSchema}
     >
-      {({ errors, touched, values, handleChange, handleBlur }) => (
-        <Form autoComplete="off">
+      {({
+        errors,
+        touched,
+        values,
+        handleChange,
+        handleBlur,
+        handleSubmit,
+      }) => (
+        <Form autoComplete="off" onSubmit={handleSubmit}>
           <Input
             type="text"
             name="name"

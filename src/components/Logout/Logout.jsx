@@ -1,11 +1,13 @@
-// import { useDispatch } from 'react-redux';
 import sprite from '../../img/symbol-defs.svg';
 import { LogoutLink, Text } from './Logout.styled';
+import { logOut } from '../../redux/auth/operation';
+import { useDispatch } from 'react-redux';
 
 const Logout = () => {
- // *реедакс частина
-//   const dispatch = useDispatch();
- const handleLogOut = () => "діспатч логауту";
+  const dispatch = useDispatch();
+  const handleLogOut = () => {
+    dispatch(logOut());
+  };
 
   return (
     <LogoutLink to="/" onClick={handleLogOut}>

@@ -1,18 +1,19 @@
-import { GlobalStyle } from '../../../GlobalStyle';
 import { lazy, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import { useAuth } from '../../hooks/useAuth';
-import { Layout } from '../../components/Layout/Layout';
-import { RestrictedRoute } from '../../components/RestrictedRoute';
-import { PrivateRoute } from '../../components/PrivateRoute';
-import { LoadingMessage } from '../../App.styled';
-import { refreshUser } from '../../redux/auth/operation';
+import { useAuth } from '../../../hooks/useAuth';
+import { Layout } from '../../../components/Layout/Layout';
+import { RestrictedRoute } from '../../../RestrictedRoute';
+import { PrivateRoute } from '../../../PrivateRoute';
+import { LoadingMessage } from '../../../App.styled';
+import { refreshUser } from '../../../redux/auth/operation';
 
-const HomePage = lazy(() => import('../../pages/Home/Home'));
-const RegisterPage = lazy(() => import('../../pages/SignUp/SignUp'));
-const LoginPage = lazy(() => import('../../pages/SignIn/SignIn'));
-const ProfilePage = lazy(() => import('../../pages/Profile/ProfilePage'));
+const HomePage = lazy(() => import('../../../pages/Home/Home'));
+const RegisterPage = lazy(() => import('../SignUp/SignUp'));
+const LoginPage = lazy(() => import('../SignIn/SignIn'));
+const ProfilePage = lazy(() =>
+  import('../../Authorized/ProfilePage/ProfilePage')
+);
 
 const FirstPage = () => {
   const dispatch = useDispatch();
@@ -56,8 +57,6 @@ const FirstPage = () => {
           <Route path="*" element={<Navigate to="/error" />} />
         </Route>
       </Routes>
-
-      <GlobalStyle />
     </>
   );
 };

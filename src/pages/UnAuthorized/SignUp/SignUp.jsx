@@ -1,4 +1,4 @@
-import { RegisterForm } from '../../components/RegisterForm/RegisterForm';
+import { RegisterForm } from '../../../components/RegisterForm/RegisterForm';
 
 import { SignUpTittle, SignUpText, FormContainer } from './SignUp.styled';
 
@@ -16,8 +16,8 @@ import {
   TitleRunMan,
   SvgRun,
   SpanRun,
-} from '../Home/Home.styled';
-import sprite from '../../img/sprite.svg';
+} from '../../Home/Home.styled';
+import sprite from '../../../img/sprite.svg';
 
 export default function SignUp() {
   return (

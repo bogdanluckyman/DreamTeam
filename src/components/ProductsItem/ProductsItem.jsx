@@ -56,7 +56,13 @@ export const ProductItem = ({ product }) => {
           product={product}
         />
       )} */}
-      {isModalOpen && <ExercisesModal onClose={closeModal} />}
+      {isModalOpen && (
+        <ExercisesModal
+          onClose={closeModal}
+          date={'06 - 03 - 2024'}
+          exercies={''}
+        />
+      )}
     </>
   );
 };

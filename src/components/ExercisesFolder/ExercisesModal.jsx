@@ -20,8 +20,11 @@ import {
 } from './ExercisesModal.styles';
 import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 import ExercisesWellDoneModal from './ExercisesWellDoneModal';
+import { timeCalculation } from './timeCalculation';
+import { useDispatch } from 'react-redux';
+import { addExercises } from '../../redux/diary/operation';
 
-const ExercisesModal = ({ onClose }) => {
+const ExercisesModal = ({ onClose, date }) => {
   const [start, setStart] = useState(false);
   const [isPaused, setIsPaused] = useState(true);
   const [time, setTime] = useState('');
@@ -30,6 +33,7 @@ const ExercisesModal = ({ onClose }) => {
   const [counter, setCounter] = useState(0);
   const [seconds, setSeconds] = useState(1);
   const [overallResult, setOverallResult] = useState(3);
+  const dispatch = useDispatch();
   /////////////////////////////////////////////////////////////
   const exercise = {
     _id: '64f2458d6f67bc34bae4f86d',
@@ -42,7 +46,6 @@ const ExercisesModal = ({ onClose }) => {
     time: 3,
   };
 
-  console.log(overallResult);
   const exercCal = exercise.burnedCalories;
 
   const title = exercise.name.replace(/(^\w|\.\s\w)/g, (char) =>
@@ -73,23 +76,22 @@ const ExercisesModal = ({ onClose }) => {
   //   console.log(formattedTime);
   //   console.log(overallResult);
   // };
-  console.log(counter);
+
   useEffect(() => {
     const calculateCaloriesBurned = (timeInMinutes) => {
       const caloriesPer3Min = exercCal;
       return (timeInMinutes * caloriesPer3Min) / 3;
     };
+
     let timer;
     if (!isPaused) {
       timer = setInterval(() => {
         setSeconds((prevSeconds) => prevSeconds + 1);
       }, 1000);
     }
+
     const minutes = seconds / 60;
-    console.log(minutes);
     const calculatedCalories = calculateCaloriesBurned(minutes);
-    console.log(calculatedCalories);
-    console.log(counter);
     setCounter(calculatedCalories.toFixed(15));
     return () => clearInterval(timer);
   }, [counter, exercCal, isPaused, seconds]);
@@ -100,7 +102,6 @@ const ExercisesModal = ({ onClose }) => {
       setStart(false);
       setReStart(false);
       setIsPaused(true);
-
       return;
     }
 
@@ -108,14 +109,20 @@ const ExercisesModal = ({ onClose }) => {
   }, [restart, start, time]);
 
   const toCloseWindiw = () => {
-    // const newObjekt = {
-    //   date: { date },
-    //   products: {
-    //     productID: { id },
-    //     amount: value,
-    //     calories: getCalories,
-    //   },
-    // };
+    const valueTime = timeCalculation(overallResult, time);
+
+    const newObject = {
+      date: { date },
+      exercises: {
+        exercisesID: exercise._id,
+        time: valueTime,
+        calories: Math.floor(counter),
+      },
+    };
+    console.log(newObject);
+    dispatch(addExercises(newObject));
+    setStart(false);
+    setIsPaused(true);
     setcloseModal(true);
   };
 
@@ -124,11 +131,9 @@ const ExercisesModal = ({ onClose }) => {
     const seconds = remainingTime % 60;
     const res = `${minutes}:${seconds}`;
 
-    console.log('7777777777777');
     if (time === '0:0') {
       setTime('');
       setReStart(true);
-
       return;
     }
 
@@ -140,11 +145,11 @@ const ExercisesModal = ({ onClose }) => {
     setIsPaused((prevStart) => !prevStart);
   };
   const handleBackgroundClick = (event) => {
-    if (event.target === event.currentTarget || event.key === 'Escape') {
+    if (event.target === event.currentTarget) {
       onClose();
     }
   };
-
+  ////////////////////////////////////////////////////////////////////////////
   return (
     <>
       {!closeModal && (

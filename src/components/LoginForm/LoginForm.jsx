@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 import { SignInText, SignInLink } from '../RegisterForm/RegisterForm.styled';
 
-import sprite from '../../images/sprite.svg';
+import sprite from '../../img/sprite.svg';
 import { ButtonIcon, Svg } from '../RegisterForm/RegisterForm.styled';
 export const LoginForm = () => {
   const dispatch = useDispatch();

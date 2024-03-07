@@ -1,4 +1,4 @@
-import { register } from '../../redux/auth/operations';
+import { register } from '../../redux/auth/operation';
 import { Button } from '../LoginForm/LoginForm.styled';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';

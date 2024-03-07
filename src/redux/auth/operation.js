@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://dream-team-backend-10w1.onrender.com/api';
+axios.defaults.baseURL = 'https://dream-team-backend-10w1.onrender.com/';
 
 const setAuthHeader = (token) => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -15,7 +15,7 @@ export const register = createAsyncThunk(
   'auth/register',
   async (credentials, thunkAPI) => {
     try {
-      const res = await axios.post('/users/register', credentials);
+      const res = await axios.post('api/users/register', credentials);
       setAuthHeader(res.data.token);
 
       return res.data;
@@ -29,7 +29,7 @@ export const logIn = createAsyncThunk(
   'auth/login',
   async (credentials, thunkAPI) => {
     try {
-      const res = await axios.post('/users/login', credentials);
+      const res = await axios.post('api/users/login', credentials);
 
       setAuthHeader(res.data.token);
       return res.data;
@@ -51,7 +51,7 @@ export const refreshUser = createAsyncThunk(
 
     try {
       setAuthHeader(persistedToken);
-      const res = await axios.get('/users/current');
+      const res = await axios.get('api/users/current');
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -61,7 +61,7 @@ export const refreshUser = createAsyncThunk(
 
 export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   try {
-    await axios.post('/users/logout');
+    await axios.post('api/users/logout');
     clearAuthHeader();
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);
@@ -72,7 +72,7 @@ export const updateUserInfo = createAsyncThunk(
   'auth/update',
   async (params, thunkAPI) => {
     try {
-      const res = await axios.patch('/users/update', params);
+      const res = await axios.patch('api/users/update', params);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -87,7 +87,7 @@ export const updateAvatar = createAsyncThunk(
       const formData = new FormData();
       formData.append('avatar', file);
 
-      const res = await axios.patch('/users/avatars', formData, {
+      const res = await axios.patch('api/users/avatars', formData, {
         headers: { 'content-type': 'multipart/form-data' },
       });
 

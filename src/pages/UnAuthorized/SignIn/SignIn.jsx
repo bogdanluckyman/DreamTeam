@@ -1,4 +1,4 @@
-import { LoginForm } from '../../components/LoginForm/LoginForm';
+import { LoginForm } from '../../../components/LoginForm/LoginForm';
 
 import {
   RightImageContainer,
@@ -14,8 +14,8 @@ import {
   TitleRunMan,
   SvgRun,
   SpanRun,
-} from '../Home/Home.styled';
-import sprite from '../../img/sprite.svg';
+} from '../../Home/Home.styled';
+import sprite from '../../../img/sprite.svg';
 import {
   SignUpTittle,
   SignUpText,

@@ -1,14 +1,11 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { TitlePage } from '../../components/TitlePage/TitlePage';
+import { useDispatch } from 'react-redux';
+import { TitlePage } from '../../../components/TitlePage/TitlePage';
 import { useEffect } from 'react';
 //import { ProductsFilter } from '../../components/ProductsFilters/ProductsFilters';
-import { ProductsList } from '../../components/ProductsList/ProductsList';
-//import { fetchProducts } from '../../redux/products/operations';
-import { ProductsFilters } from '../../components/ProductsFilters/ProductsFilters';
-import {
-  fetchProducts,
-  getProductCategories,
-} from '../../redux/products/operations';
+import { ProductsList } from '../../../components/ProductsList/ProductsList';
+// import { fetchProducts } from '../../redux/products/operations';
+import { ProductsFilters } from '../../../components/ProductsFilters/ProductsFilters';
+import { getProductCategories } from '../../../redux/products/operations';
 
 export default function ProductsPage() {
   const dispatch = useDispatch();

@@ -10,13 +10,13 @@ import 'react-datepicker/dist/react-datepicker.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter basename="/DreamTeam">
-      <Provider store={store}>
-        <PersistGate loading={null} persistor={persistor}>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <BrowserRouter basename="/DreamTeam">
           <App />
-        </PersistGate>
-      </Provider>
-      <GlobalStyle />
-    </BrowserRouter>
+        </BrowserRouter>
+      </PersistGate>
+    </Provider>
+    <GlobalStyle />
   </React.StrictMode>
 );

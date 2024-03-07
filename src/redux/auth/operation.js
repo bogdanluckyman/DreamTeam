@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://dream-team-backend-10w1.onrender.com';
+axios.defaults.baseURL = 'https://dream-team-backend-10w1.onrender.com/api';
 
 const setAuthHeader = (token) => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -12,11 +12,10 @@ const clearAuthHeader = () => {
 };
 
 export const register = createAsyncThunk(
-  'users/register',
+  'auth/register',
   async (credentials, thunkAPI) => {
     try {
-      const res = await axios.post('/api/users/register', credentials);
-
+      const res = await axios.post('/users/register', credentials);
       setAuthHeader(res.data.token);
 
       return res.data;
@@ -27,10 +26,10 @@ export const register = createAsyncThunk(
 );
 
 export const logIn = createAsyncThunk(
-  'users/login',
+  'auth/login',
   async (credentials, thunkAPI) => {
     try {
-      const res = await axios.post('/api/users/login', credentials);
+      const res = await axios.post('/users/login', credentials);
 
       setAuthHeader(res.data.token);
       return res.data;
@@ -41,7 +40,7 @@ export const logIn = createAsyncThunk(
 );
 
 export const refreshUser = createAsyncThunk(
-  'users/refresh',
+  'auth/refresh',
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
     const persistedToken = state.auth.token;
@@ -60,23 +59,20 @@ export const refreshUser = createAsyncThunk(
   }
 );
 
-export const logOut = createAsyncThunk(
-  'api/users/logout',
-  async (_, thunkAPI) => {
-    try {
-      await axios.post('/api/users/logout');
-      clearAuthHeader();
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
+export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
+  try {
+    await axios.post('/users/logout');
+    clearAuthHeader();
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.message);
   }
-);
+});
 
 export const updateUserInfo = createAsyncThunk(
-  'users/update',
+  'auth/update',
   async (params, thunkAPI) => {
     try {
-      const res = await axios.patch('/api/users/update', params);
+      const res = await axios.patch('/users/update', params);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -85,13 +81,13 @@ export const updateUserInfo = createAsyncThunk(
 );
 
 export const updateAvatar = createAsyncThunk(
-  'users/avatar',
+  'auth/avatar',
   async (file, thunkAPI) => {
     try {
       const formData = new FormData();
       formData.append('avatar', file);
 
-      const res = await axios.patch('/api/users/avatars', formData, {
+      const res = await axios.patch('/users/avatars', formData, {
         headers: { 'content-type': 'multipart/form-data' },
       });
 

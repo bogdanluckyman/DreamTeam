@@ -1,20 +1,17 @@
-import { useState } from 'react';
-import {
-  ExercisesPageContainer,
-  NavgtionContainer,
-  Title,
-  ButtonsContainer,
-  CardContainer,
-  Card,
-  CardList,
-  TabButton,
-  NavigationPanel,
-  CircleButton,
-} from './ExercisesPage.styled';
+
+import React, { useState } from 'react';
+import { ExercisesPageContainer, CardContainer, NavigationPanel, CircleButton } from './ExercisesPage.styled';
+import NavigationContainer from '../../../components/ExercisesNavigation/NavigationContainer';
+import ExercisesCardList from '../../../components/ExercisesCardList/CardList';
 
 export default function ExercisesPage() {
   const [activeTab, setActiveTab] = useState(1);
   const [currentPage, setCurrentPage] = useState(1);
+  const totalCards = {
+    1: 13,
+    2: 13,
+    3: 13,
+  };
 
   const handleTabClick = (tabNumber) => {
     setActiveTab(tabNumber);
@@ -38,63 +35,24 @@ export default function ExercisesPage() {
   };
 
   const cardsPerPage = getCardsPerPage();
-  const totalCards = {
-    1: 13,
-    2: 13,
-    3: 13,
-  };
   const totalPages = Math.ceil(totalCards[activeTab] / cardsPerPage);
 
   return (
     <ExercisesPageContainer>
-      <NavgtionContainer>
-        <Title>Exercises</Title>
-        <ButtonsContainer>
-          <TabButton
-            className={activeTab === 1 ? 'active' : ''}
-            onClick={() => handleTabClick(1)}
-          >
-            Body parts
-          </TabButton>
-          <TabButton
-            className={activeTab === 2 ? 'active' : ''}
-            onClick={() => handleTabClick(2)}
-          >
-            Muscles
-          </TabButton>
-          <TabButton
-            className={activeTab === 3 ? 'active' : ''}
-            onClick={() => handleTabClick(3)}
-          >
-            Equipment
-          </TabButton>
-        </ButtonsContainer>
-      </NavgtionContainer>
+      <NavigationContainer activeTab={activeTab} handleTabClick={handleTabClick} />
       <CardContainer>
-        <CardList>
-          {[...Array(cardsPerPage)].map((_, index) => {
-            const cardNumber =
-              index +
-              (currentPage - 1) * cardsPerPage +
-              (activeTab - 1) * 13 +
-              1;
-            if (cardNumber <= totalCards[activeTab]) {
-              return (
-                <Card key={index + (currentPage - 1) * cardsPerPage}>
-                  <div>{cardNumber}</div>
-                </Card>
-              );
-            }
-            return null;
-          })}
-        </CardList>
+        <ExercisesCardList
+          cardsPerPage={cardsPerPage}
+          currentPage={currentPage}
+          activeTab={activeTab}
+          totalCards={totalCards}
+        />
         {totalPages > 1 && (
           <NavigationPanel>
             {[...Array(totalPages)].map((_, index) => (
               <CircleButton
                 key={index}
                 type="radio"
-                
                 isactive={(index + 1 === currentPage).toString()}
                 onClick={() => handlePageChange(index + 1)}
               >

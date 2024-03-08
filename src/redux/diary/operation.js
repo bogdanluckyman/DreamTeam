@@ -1,7 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 axios.defaults.baseURL = 'https://dream-team-backend-10w1.onrender.com';
-
+// const token =
+//   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZTRlMzJlY2ExNDQ2ZjQ0MzZlMmVmZiIsImlhdCI6MTcwOTY4NTAzNiwiZXhwIjoxNzA5NzY3ODM2fQ.LpCcYcK7uCL_W2kxo6pZ93cDMlyR9qKrxl4cP8JIJpk';
 // const safeToken = (token) => {
 //   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 // };
@@ -14,7 +15,6 @@ export const addCalories = createAsyncThunk(
     try {
       const response = await axios.post('/api/diary/product', {
         ...value,
-        // date: date,
         // product: { productID: 9, amount: amount, calories: calories },
       });
 

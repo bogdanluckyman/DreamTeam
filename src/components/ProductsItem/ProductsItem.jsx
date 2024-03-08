@@ -14,6 +14,7 @@ import {
 import ExercisesModal from '../ExercisesFolder/ExercisesModal';
 
 import sprite from '../../img/symbol-defs.svg';
+import ModalMenu from './ModalMenu';
 
 export const ProductItem = ({ product }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -56,20 +57,21 @@ export const ProductItem = ({ product }) => {
           </>
         )}
       </ProductWrapp>
-      {isModalOpen && (
+      {/* {isModalOpen && (
         <FormModal
           onClose={closeModal}
           date={'06 - 03 - 2024'}
           product={product}
         />
-      )}
-      {isModalOpen && (
+      )} */}
+      {/* {isModalOpen && (
         <ExercisesModal
           onClose={closeModal}
           date={'06 - 03 - 2024'}
           exercies={''}
         />
-      )}
+      )} */}
+      {isModalOpen && <ModalMenu onClose={closeModal} />}
     </>
   );
 };

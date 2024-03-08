@@ -78,9 +78,9 @@ const FormModal = ({ onClose, product, date }) => {
       await ValidationSchema.validate(values, { abortEarly: false });
 
       const newObjekt = {
-        date: { date },
+        date: date,
         products: {
-          productID: { id },
+          productID: id,
           amount: value,
           calories: getCalories,
         },

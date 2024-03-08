@@ -64,14 +64,14 @@ export const ProductItem = ({ product }) => {
           product={product}
         />
       )} */}
-      {/* {isModalOpen && (
+      {isModalOpen && (
         <ExercisesModal
           onClose={closeModal}
           date={'06 - 03 - 2024'}
           exercies={''}
         />
-      )} */}
-      {isModalOpen && <ModalMenu onClose={closeModal} />}
+      )}
+      {/* {isModalOpen && <ModalMenu onClose={closeModal} />} */}
     </>
   );
 };

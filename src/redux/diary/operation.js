@@ -17,7 +17,7 @@ export const addCalories = createAsyncThunk(
         ...value,
         // product: { productID: 9, amount: amount, calories: calories },
       });
-
+      console.log(response.data);
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
@@ -28,12 +28,14 @@ export const addCalories = createAsyncThunk(
 export const addExercises = createAsyncThunk(
   'diary/addExercieses',
   async (value, thunkAPI) => {
-    const { date, time, calories } = value;
+    // const { date, time, calories } = value;
+    console.log(value);
 
     try {
       const response = await axios.post('/api/diary/exercise', {
-        date: date,
-        exercises: { exerciseID: 9, time: time, calories: calories },
+        ...value,
+        // date: date,
+        // exercises: { exerciseID: 9, time: time, calories: calories },
       });
 
       return response.data;

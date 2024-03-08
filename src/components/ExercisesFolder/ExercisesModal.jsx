@@ -110,12 +110,17 @@ const ExercisesModal = ({ onClose, date }) => {
 
   const toCloseWindiw = () => {
     const valueTime = timeCalculation(overallResult, time);
+    const timeValue = valueTime;
+    const [minutes, sekunden] = timeValue.split(':');
+    const formattedTime = `${parseInt(minutes, 10)}.${sekunden}`;
+    console.log(formattedTime);
+    // const cal = Math.floor(counter);
 
     const newObject = {
-      date: { date },
+      date: date,
       exercises: {
-        exercisesID: exercise._id,
-        time: valueTime,
+        exerciseID: exercise._id,
+        time: parseFloat(formattedTime),
         calories: Math.floor(counter),
       },
     };

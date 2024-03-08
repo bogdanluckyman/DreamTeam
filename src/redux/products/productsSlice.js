@@ -24,4 +24,4 @@ const productsSlice = createSlice({
   },
 });
 
-export const productsReduser = productsSlice.reducer;
+export const productsReducer = productsSlice.reducer;

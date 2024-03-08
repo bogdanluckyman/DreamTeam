@@ -18,14 +18,13 @@ import {
 import RadioBtn from '../RadioBtn/RadioBtn';
 import Datapicker from '../Datapicker/Datapicker';
 
- import { selectUser } from '../../redux/auth/selectors';
+import { selectUser } from '../../redux/auth/selectors';
 import { useDispatch, useSelector } from 'react-redux';
-import { updateUserInfo} from '../../redux/auth/operation';
-
+import { updateUserInfo } from '../../redux/auth/operation';
 
 const UserForm = () => {
   // тут буде редакс
-   const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const user = useSelector(selectUser);
 
   // *статичний юзер*
@@ -82,7 +81,7 @@ const UserForm = () => {
     },
   ];
 
-  const formattedDate = parseISO(user.birthday);
+  const formattedDate = user.birthday ? parseISO(user.birthday) : new Date();
   console.log(formattedDate);
 
   const initialValues = {
@@ -131,139 +130,131 @@ const UserForm = () => {
       >
         {(formik) => (
           <Form>
-           
-           <FormContainer>
-            <WrappInput>
-              <Field
-                name="name"
-                type="text"
-                id="name"
-                placeholder="Your name"
-                as={Input}
-              />
-              <label htmlFor="name">Name</label>
-            </WrappInput>
-            <WrappInput>
-              <Input
-                type="text"
-                name="email"
-                id="email"
-                defaultValue={user.email}
-                style={{ color: 'rgba(239, 237, 232, 0.60)' }}
-                readOnly
-                disabled
-              />
-              <label htmlFor="email">Email</label>
-            </WrappInput>
-          </FormContainer>
-
-
-<InfoContainer>
-          <WrapperInputField>
-            <WrappInput>
-              <Field
-                type="number"
-                name="height"
-                id="height"
-                placeholder=""
-                as={InputField}
-              />
-              <label htmlFor="height">Height</label>
-            </WrappInput>
-           
+            <FormContainer>
               <WrappInput>
                 <Field
-                  type="number"
-                  name="currentWeight"
-                  id="currentWeight"
-                  placeholder=""
-                  as={InputField}
+                  name="name"
+                  type="text"
+                  id="name"
+                  placeholder="Your name"
+                  as={Input}
                 />
-                <label htmlFor="currentWeight">Current Weight</label>
+                <label htmlFor="name">Name</label>
               </WrappInput>
-          
-          </WrapperInputField>
-          <WrapperInputField>
-            <WrappInput>
-              <Field
-                type="number"
-                name="desiredWeight"
-                id="desiredWeight"
-                placeholder=""
-                as={InputField}
-              />
-              <label htmlFor="desiredWeight">Desired Weight</label>
-            </WrappInput>
-            
-            <WrappInput>
-            <LabelSpan>Date of birth</LabelSpan>
-            <Datapicker
-            
-            selectedDate={formik.values.birthday}
-            setSelectedDate={date => {
-              const formattedDate = parseISO(date.toISOString());
-              formik.setFieldValue('birthday', formattedDate);
-            }}
-          />
-          
-          </WrappInput>
-          </WrapperInputField>
-          </InfoContainer>
+              <WrappInput>
+                <Input
+                  type="text"
+                  name="email"
+                  id="email"
+                  defaultValue={user.email}
+                  style={{ color: 'rgba(239, 237, 232, 0.60)' }}
+                  readOnly
+                  disabled
+                />
+                <label htmlFor="email">Email</label>
+              </WrappInput>
+            </FormContainer>
 
-              <WrapperRadio>
+            <InfoContainer>
+              <WrapperInputField>
+                <WrappInput>
+                  <Field
+                    type="number"
+                    name="height"
+                    id="height"
+                    placeholder=""
+                    as={InputField}
+                  />
+                  <label htmlFor="height">Height</label>
+                </WrappInput>
+
+                <WrappInput>
+                  <Field
+                    type="number"
+                    name="currentWeight"
+                    id="currentWeight"
+                    placeholder=""
+                    as={InputField}
+                  />
+                  <label htmlFor="currentWeight">Current Weight</label>
+                </WrappInput>
+              </WrapperInputField>
+              <WrapperInputField>
+                <WrappInput>
+                  <Field
+                    type="number"
+                    name="desiredWeight"
+                    id="desiredWeight"
+                    placeholder=""
+                    as={InputField}
+                  />
+                  <label htmlFor="desiredWeight">Desired Weight</label>
+                </WrappInput>
+
+                <WrappInput>
+                  <LabelSpan>Date of birth</LabelSpan>
+                  <Datapicker
+                    selectedDate={formik.values.birthday}
+                    setSelectedDate={(date) => {
+                      const formattedDate = parseISO(date.toISOString());
+                      formik.setFieldValue('birthday', formattedDate);
+                    }}
+                  />
+                </WrappInput>
+              </WrapperInputField>
+            </InfoContainer>
+
+            <WrapperRadio>
+              <div style={{ display: 'flex', marginRight: '20px' }}>
                 <div style={{ display: 'flex', marginRight: '20px' }}>
-                  <div style={{ display: 'flex', marginRight: '20px' }}>
-                    {bloodOptions.map((option) => (
-                      <RadioBtn
-                        key={option.id}
-                        id={option.id}
-                        name="blood"
-                        value={option.value}
-                        checked={formik.values.blood === option.value}
-                        label={option.label}
-                        onChange={() =>
-                          formik.setFieldValue('blood', option.value)
-                        }
-                      />
-                    ))}
-                  </div>
-
-                  <div style={{ display: 'flex' }}>
-                    {sexOptions.map((option) => (
-                      <RadioBtn
-                        key={option.id}
-                        id={option.id}
-                        name="sex"
-                        value={option.value}
-                        checked={formik.values.sex === option.value}
-                        label={option.label}
-                        onChange={() =>
-                          formik.setFieldValue('sex', option.value)
-                        }
-                      />
-                    ))}
-                  </div>
-                </div>
-
-                <WrapperLevel>
-                  {levelOptions.map((option) => (
+                  {bloodOptions.map((option) => (
                     <RadioBtn
                       key={option.id}
                       id={option.id}
-                      name="levelActivity"
+                      name="blood"
                       value={option.value}
-                      checked={formik.values.levelActivity === option.value}
+                      checked={formik.values.blood === option.value}
                       label={option.label}
                       onChange={() =>
-                        formik.setFieldValue('levelActivity', option.value)
+                        formik.setFieldValue('blood', option.value)
                       }
                     />
                   ))}
-                </WrapperLevel>
-              </WrapperRadio>
+                </div>
 
-              <Button type="submit">Save</Button>
-            
+                <div style={{ display: 'flex' }}>
+                  {sexOptions.map((option) => (
+                    <RadioBtn
+                      key={option.id}
+                      id={option.id}
+                      name="sex"
+                      value={option.value}
+                      checked={formik.values.sex === option.value}
+                      label={option.label}
+                      onChange={() => formik.setFieldValue('sex', option.value)}
+                    />
+                  ))}
+                </div>
+              </div>
+
+              <WrapperLevel>
+                {levelOptions.map((option) => (
+                  <RadioBtn
+                    key={option.id}
+                    id={option.id}
+                    name="levelActivity"
+                    value={option.value}
+                    checked={formik.values.levelActivity === option.value}
+                    label={option.label}
+                    onChange={() =>
+                      formik.setFieldValue('levelActivity', option.value)
+                    }
+                  />
+                ))}
+              </WrapperLevel>
+            </WrapperRadio>
+
+            <Button type="submit">Save</Button>
           </Form>
         )}
       </Formik>

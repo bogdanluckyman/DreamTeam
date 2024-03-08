@@ -11,8 +11,15 @@ import {
   ExercisesWellDoneImg,
   InnerExercisesWellDoneContainer,
 } from './ExercisesWellDoneModal.styles';
+import { timeCalculation } from './timeCalculation';
 
-const ExercisesWellDoneModal = ({ onClose, time, calori, background }) => {
+const ExercisesWellDoneModal = ({
+  onClose,
+  time,
+  calori,
+  background,
+  timeres,
+}) => {
   return (
     <ExercisesWellDoneBackground onClick={background}>
       <ExercisesWellDoneContainer>
@@ -26,11 +33,11 @@ const ExercisesWellDoneModal = ({ onClose, time, calori, background }) => {
           <ExercisesText>Well done</ExercisesText>
           <ExercisesParagraph>
             Your time:
-            <ExercisesSpan>{time}</ExercisesSpan>
+            <ExercisesSpan>{timeCalculation(timeres, time)}</ExercisesSpan>
           </ExercisesParagraph>
           <ExercisesParagraph>
             Burned calories:
-            <ExercisesSpan>{calori}</ExercisesSpan>
+            <ExercisesSpan>{Math.floor(calori)}</ExercisesSpan>
           </ExercisesParagraph>
           <ExercisesNextProduct>Next product</ExercisesNextProduct>
           <ExercisesDiaryButton>

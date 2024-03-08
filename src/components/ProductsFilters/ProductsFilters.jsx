@@ -1,19 +1,15 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { setFilters } from '../../redux/products/filtersSlice';
-//import { getProductCategories } from '../../redux/products/operations';
 import { FiltersField } from './ProductsFilters.styled';
-import productsCategories from './productsCategories.json';
+//import productsCategories from './productsCategories.json';
 import { nanoid } from 'nanoid';
-import { selectFilter } from '../../redux/products/selector';
+import { selectCategories } from '../../redux/products/selector';
 
 export const ProductsFilters = () => {
   const dispatch = useDispatch();
-  //const productsCategories = await getProductCategories();
-  //це частина стейту, а потрібен запит на категорії
-  //  const productsCategories = useSelector(selectFilter);
+  const productsCategories = useSelector(selectCategories);
   //console.log(productsCategories);
   return (
-    //ЗРОБИТИ ФОРМІКОМ
     <FiltersField>
       <input
         type="text"

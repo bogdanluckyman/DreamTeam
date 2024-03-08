@@ -9,6 +9,7 @@ export const caloriesInitialState = {
 };
 
 const handleRejected = (state, action) => {
+  console.log('999999999');
   state.isLoading = false;
   state.error = action.payload;
 };
@@ -31,7 +32,9 @@ export const diarySlice = createSlice({
       })
       .addCase(addCalories.rejected, handleRejected)
       .addCase(addExercises.pending, handlePending)
+
       .addCase(addExercises.fulfilled, (state, action) => {
+        console.log(action);
         state.isLoading = false;
         state.error = null;
         state.exerciesesResults.push(action.payload);

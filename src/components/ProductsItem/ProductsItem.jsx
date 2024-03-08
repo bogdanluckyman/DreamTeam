@@ -57,20 +57,20 @@ export const ProductItem = ({ product }) => {
           </>
         )}
       </ProductWrapp>
-      {/* {isModalOpen && (
+      {isModalOpen && (
         <FormModal
           onClose={closeModal}
           date={'06 - 03 - 2024'}
           product={product}
         />
-      )} */}
-      {isModalOpen && (
+      )}
+      {/* {isModalOpen && (
         <ExercisesModal
           onClose={closeModal}
           date={'06 - 03 - 2024'}
           exercies={''}
         />
-      )}
+      )} */}
       {/* {isModalOpen && <ModalMenu onClose={closeModal} />} */}
     </>
   );

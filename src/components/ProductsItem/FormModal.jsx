@@ -15,10 +15,10 @@ import {
   SvgFormModal,
 } from './FormModal.styles';
 import * as Yup from 'yup';
-
+import Notiflix from 'notiflix';
 import { useState } from 'react';
 import WellDoneModal from './WellDoneModal';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addCalories } from '../../redux/diary/operation';
 
 const FormModal = ({ onClose, product, date }) => {
@@ -27,6 +27,7 @@ const FormModal = ({ onClose, product, date }) => {
   const [getFormModal, setFormModal] = useState(true);
   const [getCalories, setCalories] = useState(0);
   const dispatch = useDispatch();
+  const errorValue = useSelector((state) => state.diary.error);
   const id = product._id.$oid;
   const productTitel = product.title;
   const productCalori = product.calories;
@@ -89,6 +90,11 @@ const FormModal = ({ onClose, product, date }) => {
       console.log(newObjekt);
 
       dispatch(addCalories(newObjekt));
+      if (errorValue !== null) {
+        Notiflix.Notify.failure('Sorry, something went wrong. Try again');
+        return;
+      }
+      Notiflix.Notify.success('Data added successfully');
       setShowWellDoneModal(true);
       setFormModal(false);
       resetForm();

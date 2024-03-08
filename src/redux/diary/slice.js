@@ -9,6 +9,7 @@ export const caloriesInitialState = {
 };
 
 const handleRejected = (state, action) => {
+  console.log('999999999');
   state.isLoading = false;
   state.error = action.payload;
 };
@@ -37,7 +38,9 @@ export const diarySlice = createSlice({
         state.productCalories = state.productCalories.filter(calories => calories.id !== removedCaloriesId)
       })
       .addCase(addExercises.pending, handlePending)
+
       .addCase(addExercises.fulfilled, (state, action) => {
+        console.log(action);
         state.isLoading = false;
         state.error = null;
         state.exerciesesResults.push(action.payload);

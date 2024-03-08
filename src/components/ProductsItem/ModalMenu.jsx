@@ -7,6 +7,7 @@ import {
   MenuInnerContainer,
   MenuModalBackground,
   MenuModalContainer,
+  SvgMenuModal,
 } from './ModalMenu.styles';
 
 const ModalMenu = ({ onClose }) => {
@@ -23,24 +24,26 @@ const ModalMenu = ({ onClose }) => {
   return (
     <MenuModalBackground onClick={handleBackgroundClick}>
       <Active>
-        <CloseMenuContainer onClick={onClose}>
-          <svg width="16" height="16">
-            <use href="/src/img/symbol-defs.svg#icon-close-white"></use>
-          </svg>
-        </CloseMenuContainer>
         <MenuInnerContainer>
+          <CloseMenuContainer onClick={onClose}>
+            <svg width="16" height="16">
+              <use href="/src/img/symbol-defs.svg#icon-close-white"></use>
+            </svg>
+          </CloseMenuContainer>
+
           <MenuButtons>
             <MenuButton>Diary</MenuButton>
             <MenuButton>Products</MenuButton>
             <MenuButton>Exercises</MenuButton>
           </MenuButtons>
+
+          <LogoutMenu>
+            <p> Logout</p>
+            <SvgMenuModal width="16" height="16">
+              <SvgMenuModal href="/src/img/symbol-defs.svg#icon-log-out"></SvgMenuModal>
+            </SvgMenuModal>
+          </LogoutMenu>
         </MenuInnerContainer>
-        <LogoutMenu>
-          <p> Logout</p>
-          <svg width="16" height="16">
-            <use href="/src/img/symbol-defs.svg#icon-close-white"></use>
-          </svg>
-        </LogoutMenu>
       </Active>
     </MenuModalBackground>
   );

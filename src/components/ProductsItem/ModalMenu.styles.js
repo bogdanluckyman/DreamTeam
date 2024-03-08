@@ -47,25 +47,22 @@ export const CloseMenuContainer = styled.button`
   background-color: transparent;
   border: none;
   position: absolute;
-  margin-top: 26px;
-
-  @media screen and (min-width: 375px) {
-    margin-left: 160px;
-  }
-  @media screen and (min-width: 768px) {
-    margin-left: 300px;
-  }
+  right: 20px;
+  top: 19px;
 `;
 export const MenuButtons = styled.div`
   width: 114px;
   display: flex;
   flex-direction: column;
   gap: 16px;
+  align-items: center;
 `;
 export const MenuInnerContainer = styled.div`
-  /* padding: 245px 43px; */
   display: flex;
   justify-content: center;
+  width: 100%;
+  height: 100%;
+  align-items: center;
 `;
 
 export const MenuButton = styled.button`
@@ -75,11 +72,23 @@ export const MenuButton = styled.button`
   /* height: 38px; */
   background-color: transparent;
   color: #efede8;
+  width: fit-content;
 `;
 
 export const LogoutMenu = styled.button`
-  width: 72px;
+  /* width: 72px; */
   height: 20px;
   display: flex;
+  gap: 8px;
   position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background-color: transparent;
+  border: none;
+  color: #efede8;
+`;
+export const SvgMenuModal = styled.svg`
+  fill: white;
+  color: white;
+  stroke: white;
 `;

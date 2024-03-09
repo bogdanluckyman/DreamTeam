@@ -3,9 +3,12 @@ import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { authReducer } from './auth/slice';
 import { diaryReducer } from './diary/slice';
-import { categoriesReducer } from './products/categoriesSlice';
 import { productsReducer } from './products/productsSlice';
 import { filtersReducer } from './products/filtersSlice';
+import { categoriesReducer } from './products/categoriesSlice';
+
+import { exercisesReducer } from './exercises/exerciseSlice';
+import { categoriesReducerEx } from './exercises/categoriesSlice';
 
 const authPersistConfig = {
   key: 'auth',
@@ -18,8 +21,10 @@ export const store = configureStore({
     auth: persistReducer(authPersistConfig, authReducer),
     products: productsReducer,
     categories: categoriesReducer,
+    exercises: exercisesReducer,
     filters: filtersReducer,
     diary: diaryReducer,
+    categoriesEx: categoriesReducerEx,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({ serializableCheck: false }),

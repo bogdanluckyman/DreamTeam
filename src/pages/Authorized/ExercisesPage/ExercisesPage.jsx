@@ -1,66 +1,96 @@
+import { useEffect, Suspense } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useLocation, useNavigate, useParams, Outlet } from 'react-router-dom';
 
-import React, { useState } from 'react';
-import { ExercisesPageContainer, CardContainer, NavigationPanel, CircleButton } from './ExercisesPage.styled';
-import NavigationContainer from '../../../components/ExercisesNavigation/NavigationContainer';
-import ExercisesCardList from '../../../components/ExercisesCardList/CardList';
+import { TitlePage } from '../../../components/TitlePage/TitlePage';
+import ExerciseCategories from '../../../components/ExerciseCategories/ExercisesCategories';
 
-export default function ExercisesPage() {
-  const [activeTab, setActiveTab] = useState(1);
-  const [currentPage, setCurrentPage] = useState(1);
-  const totalCards = {
-    1: 13,
-    2: 13,
-    3: 13,
-  };
+import {
+  getError,
+  getIsLoading,
+} from '../../../redux/exercises/categoriesSlice';
 
-  const handleTabClick = (tabNumber) => {
-    setActiveTab(tabNumber);
-    setCurrentPage(1);
-  };
+import sprite from '../../../assets/sprite.svg';
 
-  const handlePageChange = (page) => {
-    setCurrentPage(page);
-  };
+import {
+  ContainerPageExercise,
+  BackButton,
+  CustomBackground,
+  MixContainer,
+  Container,
+} from './ExercisesPage.styled';
 
-  const getCardsPerPage = () => {
-    if (window.innerWidth >= 1440) {
-      return activeTab === 1 ? 10 : 3;
-    } else if (window.innerWidth >= 768 && window.innerWidth < 1440) {
-      return activeTab === 1 ? 9 : 3;
-    } else if (window.innerWidth < 767) {
-      return activeTab === 1 ? 10 : 1;
-    } else {
-      return 1;
-    }
-  };
+import { Loader } from '../../../components/Loader/Loader';
 
-  const cardsPerPage = getCardsPerPage();
-  const totalPages = Math.ceil(totalCards[activeTab] / cardsPerPage);
+import { fetchExercisesCategories } from '../../../redux/exercises/operations';
+
+import { toast } from 'react-hot-toast';
+
+const ExercisesPage = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const error = useSelector(getError);
+  const isLoading = useSelector(getIsLoading);
+  const location = useLocation();
+  const { filter, filterList } = useParams();
+
+  useEffect(() => {
+    const gettingExercisesFilters = async () => {
+      if (filter === undefined) {
+        {
+          toast('We are still awating for data');
+        }
+      } else {
+        dispatch(fetchExercisesCategories({ filter: filter }));
+      }
+    };
+    gettingExercisesFilters();
+  }, [dispatch, filter]);
+
+  function capitalizeFirstLetter(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
 
   return (
-    <ExercisesPageContainer>
-      <NavigationContainer activeTab={activeTab} handleTabClick={handleTabClick} />
-      <CardContainer>
-        <ExercisesCardList
-          cardsPerPage={cardsPerPage}
-          currentPage={currentPage}
-          activeTab={activeTab}
-          totalCards={totalCards}
-        />
-        {totalPages > 1 && (
-          <NavigationPanel>
-            {[...Array(totalPages)].map((_, index) => (
-              <CircleButton
-                key={index}
-                type="radio"
-                isactive={(index + 1 === currentPage).toString()}
-                onClick={() => handlePageChange(index + 1)}
-              >
-              </CircleButton>
-            ))}
-          </NavigationPanel>
-        )}
-      </CardContainer>
-    </ExercisesPageContainer>
+    <CustomBackground>
+      <Container>
+        <MixContainer>
+          {isLoading ? (
+            <Loader />
+          ) : (
+            <div>
+              {filter !== undefined &&
+              location.pathname.endsWith(filter.replace(' ', '%20')) ? null : (
+                <BackButton onClick={() => navigate(-1)}>
+                  <svg style={{ fill: 'none' }}>
+                    <use href={sprite + '#icon-arrow-left'} />
+                  </svg>
+                  Back{' '}
+                </BackButton>
+              )}
+              <ContainerPageExercise>
+                <TitlePage
+                  title={
+                    filterList
+                      ? capitalizeFirstLetter(filterList.split(' ')[0])
+                      : 'Exercises'
+                  }
+                />
+                <ExerciseCategories />
+              </ContainerPageExercise>
+
+              {isLoading && !error && <Loader />}
+              <>
+                <Suspense>
+                  <Outlet />
+                </Suspense>
+              </>
+            </div>
+          )}
+        </MixContainer>
+      </Container>
+    </CustomBackground>
   );
-}
+};
+
+export default ExercisesPage;

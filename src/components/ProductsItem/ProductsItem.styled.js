@@ -104,10 +104,11 @@ export const Definition = styled.dd`
 
 export const AddBtn = styled.button`
   display: flex;
-
   width: 48px;
   height: 18px;
   margin-left: 16px;
+  padding: 0;
+  font-size: 14px;
   color: var(--orange-color);
   background-color: var(--black-color);
   border: none;

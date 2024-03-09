@@ -16,6 +16,7 @@ import {
 import ExercisesModal from '../ExercisesFolder/ExercisesModal';
 
 import sprite from '../../img/symbol-defs.svg';
+import { colors } from '../../styles/colors';
 
 export const ProductItem = ({ product }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -38,7 +39,13 @@ export const ProductItem = ({ product }) => {
             <AddBtn type="button" onClick={openModal}>
               <p>Add</p>
               <svg width="16" height="16">
-                <use href={`${sprite}#icon-next`} width="16"></use>
+                <use
+                  href={`${sprite}#icon-next`}
+                  style={{
+                    stroke: colors.orange,
+                  }}
+                  width="16"
+                ></use>
               </svg>
             </AddBtn>
           </TopLineRightWrapper>

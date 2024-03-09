@@ -9,6 +9,7 @@ import {
   ProductWrapp,
   RecomendedLight,
   Term,
+  TitleWrap,
   TopLineRightWrapper,
   TopLineWrapper,
 } from './ProductsItem.styled';
@@ -35,17 +36,21 @@ export const ProductItem = ({ product }) => {
             <RecomendedLight></RecomendedLight>
             <p>rec</p>
             <AddBtn type="button" onClick={openModal}>
-              Add
-              <img></img>
+              <p>Add</p>
+              <svg width="16" height="16">
+                <use href={`${sprite}#icon-next`} width="16"></use>
+              </svg>
             </AddBtn>
           </TopLineRightWrapper>
         </TopLineWrapper>
 
         <>
-          <svg width="16" height="16">
-            <use href={`${sprite}#icon-man-run`}></use>
-          </svg>
-          <ProductName>{product.title}</ProductName>
+          <TitleWrap>
+            <svg width="24" height="24">
+              <use href={`${sprite}#icon-man-run`}></use>
+            </svg>
+            <ProductName>{product.title}</ProductName>
+          </TitleWrap>
           <List>
             <Term>Calories:</Term>
             <Definition>{product.calories}</Definition>

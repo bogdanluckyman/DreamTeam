@@ -58,6 +58,10 @@ export const RecomendedLight = styled.span`
   }};
 `;
 
+export const TitleWrap = styled.div`
+  display: flex;
+`;
+
 export const ProductName = styled.h3`
   font-size: 20px;
   margin-left: 16px;
@@ -89,7 +93,12 @@ export const Definition = styled.dd`
 `;
 
 export const AddBtn = styled.button`
+  display: flex;
+
+  width: 48px;
+  height: 18px;
   margin-left: 16px;
   color: var(--orange-color);
-  background-color: none;
+  background-color: var(--black-color);
+  border: none;
 `;

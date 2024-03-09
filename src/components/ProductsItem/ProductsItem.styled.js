@@ -7,6 +7,7 @@ export const ProductWrapp = styled.li`
   border: 1px solid rgba(239, 237, 232, 0.2);
   padding: 16px;
   margin-bottom: 20px;
+  background-color: gba(239, 237, 232, 0.05);
 
   @media screen and (min-width: 768px) {
     margin: 0;
@@ -60,12 +61,13 @@ export const RecomendedLight = styled.span`
 
 export const TitleWrap = styled.div`
   display: flex;
+  margin-bottom: 8px;
 `;
 
 export const ProductName = styled.h3`
   font-size: 20px;
   margin-left: 16px;
-  margin-bottom: 8px;
+  margin-bottom: 0;
   color: var(--white-color);
   font-weight: 400;
   display: -webkit-box;

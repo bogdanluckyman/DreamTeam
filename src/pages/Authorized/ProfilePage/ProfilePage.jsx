@@ -1,9 +1,13 @@
+
 import { TitlePage } from '../../../components/TitlePage/TitlePage';
 import UserCard from '../../../components/UserCard/UserCard';
 import UserForm from '../../../components/UserForm/UserForm';
 import { Container, WrapperContent, WrapperForm } from './ProfilePage.styled';
 
+
 const ProfilePage = () => {
+
+
   return (
     <Container>
       <TitlePage title="Profile Settings" />

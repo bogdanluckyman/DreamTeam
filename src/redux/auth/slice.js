@@ -57,6 +57,8 @@ const authSlice = createSlice({
         state.user = action.payload.user;
         state.token = action.payload.token;
         state.bmr = action.payload.bmr;
+        state.dailyActivity = action.payload.dailyActivity;
+
         state.isLoggedIn = true;
         state.isUserParams = checkUserParams(state.user);
       })
@@ -74,6 +76,7 @@ const authSlice = createSlice({
       .addCase(refreshUser.fulfilled, (state, action) => {
         state.user = action.payload.user;
         state.bmr = action.payload.bmr;
+        state.dailyActivity = action.payload.dailyActivity;
         state.isLoggedIn = true;
         state.isRefreshing = false;
         state.isUserParams = checkUserParams(state.user);
@@ -83,9 +86,10 @@ const authSlice = createSlice({
       })
       .addCase(updateUserInfo.pending, (state) => state)
       .addCase(updateUserInfo.fulfilled, (state, action) => {
-        state.user = action.payload;
+        // console.log(action.payload)
+        state.user = action.payload.user;
         state.isLoggedIn = true;
-        state.token = action.payload.token;
+        // state.token = action.payload.token;
       })
       .addCase(updateUserInfo.rejected, (state) => {
         state.isLoggedIn = true;

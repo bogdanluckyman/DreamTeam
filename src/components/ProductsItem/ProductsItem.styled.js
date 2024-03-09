@@ -7,6 +7,8 @@ export const ProductWrapp = styled.li`
   border: 1px solid rgba(239, 237, 232, 0.2);
   padding: 16px;
   margin-bottom: 20px;
+  font-size: 12px;
+
   background-color: gba(239, 237, 232, 0.05);
 
   @media screen and (min-width: 768px) {

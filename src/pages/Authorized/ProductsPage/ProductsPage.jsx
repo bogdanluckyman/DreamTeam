@@ -1,26 +1,27 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { TitlePage } from '../../../components/TitlePage/TitlePage';
 import { useEffect } from 'react';
-//import { ProductsFilter } from '../../components/ProductsFilters/ProductsFilters';
 import { ProductsList } from '../../../components/ProductsList/ProductsList';
-// import { fetchProducts } from '../../redux/products/operations';
 import { ProductsFilters } from '../../../components/ProductsFilters/ProductsFilters';
-import { getProductCategories } from '../../../redux/products/operations';
+import {
+  fetchProducts,
+  getProductCategories,
+} from '../../../redux/products/operations';
 import { selectToken } from '../../../redux/auth/selectors';
+import { selectFilter } from '../../../redux/products/selector';
 
 export default function ProductsPage() {
   const TOKEN = useSelector(selectToken);
+  const selectedFilters = useSelector(selectFilter);
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getProductCategories(TOKEN));
-  }, [dispatch]);
+    dispatch(fetchProducts({ selectedFilters, TOKEN }));
+  }, [dispatch, selectedFilters]);
 
   //  const isLoading = useSelector(selectIsLoading);
   //  const error = useSelector(selectError);
-  //const dispatch = useDispatch();
-  //useEffect(() => {
-  //  dispatch(fetchProducts());
-  //}, [dispatch]);
 
   return (
     <>

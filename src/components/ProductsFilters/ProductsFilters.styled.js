@@ -10,24 +10,32 @@ export const FiltersField = styled.div`
   }
 `;
 
-export const TitleInput = styled.input`
+export const InputWrap = styled.div`
+  display: flex;
   width: inherit;
+  padding: 14px;
 
+  border: 1px solid var(--more-light-grey-color);
+  border-radius: 12px;
   color: var(--white-color);
   background-color: var(--black-color);
   margin-bottom: 16px;
-  padding: 14px;
+
+  @media screen and (min-width: 768px) {
+    margin-right: 16px;
+    margin-bottom: 0;
+  }
+`;
+
+export const TitleInput = styled.input`
   font-size: 14px;
-  border: 1px solid var(--more-light-grey-color);
-  border-radius: 12px;
+  background-color: inherit;
+  border: none;
+  padding: 0;
 
   &:hover,
   &:active {
     border: 1px solid var(--orange-color);
-  }
-
-  @media screen and (min-width: 768px) {
-    margin-right: 16px;
   }
 `;
 

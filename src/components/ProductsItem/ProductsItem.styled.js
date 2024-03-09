@@ -94,6 +94,12 @@ export const Definition = styled.dd`
   &:not(:last-child) {
     margin-right: 16px;
   }
+  max-width: 76px;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  overflow-wrap: break-word;
 `;
 
 export const AddBtn = styled.button`

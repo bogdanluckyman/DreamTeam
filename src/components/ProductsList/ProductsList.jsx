@@ -1,36 +1,38 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { ProductItem } from '../ProductsItem/ProductsItem';
-import filteredProducts from './products.json';
-import { ProductsCatalogue } from './ProductsList.styled';
+//import filteredProducts from './products.json';
+import {
+  ProductsCatalogue,
+  ProductsCatalogueWrap,
+} from './ProductsList.styled';
 import { selectFilter, selectProducts } from '../../redux/products/selector';
 import { fetchProducts } from '../../redux/products/operations';
 import { useEffect } from 'react';
+import { selectToken } from '../../redux/auth/selectors';
 
 export const ProductsList = () => {
-  //const dispatch = useDispatch();
-  //const selectedFilters = useSelector(selectFilter);
+  const TOKEN = useSelector(selectToken);
+  const dispatch = useDispatch();
+  const selectedFilters = useSelector(selectFilter);
 
-  //useEffect(() => {
-  //  dispatch(fetchProducts(selectedFilters));
-  //}, [dispatch]);
+  useEffect(() => {
+    dispatch(fetchProducts({ selectedFilters, TOKEN }));
+  }, [selectedFilters]);
   //поки через json
 
-  //const filteredProducts = useSelector(selectProducts);
-  //const nn = filteredProducts.userSearchProducts;
+  const filteredProducts = useSelector(selectProducts);
   //console.log(filteredProducts);
   return (
-    <ProductsCatalogue>
-      {filteredProducts.map((product) => {
-        return (
+    <ProductsCatalogueWrap>
+      <ProductsCatalogue>
+        {filteredProducts.map((product) => (
           <ProductItem
             product={product}
-            //           key={product._id}
-            //           id={product._id}
-            key={product._id.$oid}
-            id={product._id.$oid}
+            key={product._id}
+            id={product._id}
           ></ProductItem>
-        );
-      })}
-    </ProductsCatalogue>
+        ))}
+      </ProductsCatalogue>
+    </ProductsCatalogueWrap>
   );
 };

@@ -21,8 +21,9 @@ import {
 import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 import ExercisesWellDoneModal from './ExercisesWellDoneModal';
 import { timeCalculation } from './timeCalculation';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addExercises } from '../../redux/diary/operation';
+import Notiflix from 'notiflix';
 
 const ExercisesModal = ({ onClose, date }) => {
   const [start, setStart] = useState(false);
@@ -34,6 +35,7 @@ const ExercisesModal = ({ onClose, date }) => {
   const [seconds, setSeconds] = useState(1);
   const [overallResult, setOverallResult] = useState(3);
   const dispatch = useDispatch();
+  const errorValue = useSelector((state) => state.diary.error);
   /////////////////////////////////////////////////////////////
   const exercise = {
     _id: '64f2458d6f67bc34bae4f86d',
@@ -110,19 +112,29 @@ const ExercisesModal = ({ onClose, date }) => {
 
   const toCloseWindiw = () => {
     const valueTime = timeCalculation(overallResult, time);
+    const timeValue = valueTime;
+    const [minutes, sekunden] = timeValue.split(':');
+    const formattedTime = `${parseInt(minutes, 10)}.${sekunden}`;
 
     const newObject = {
-      date: { date },
+      date: date,
       exercises: {
-        exercisesID: exercise._id,
-        time: valueTime,
+        exerciseID: exercise._id,
+        time: parseFloat(formattedTime),
         calories: Math.floor(counter),
       },
     };
     console.log(newObject);
     dispatch(addExercises(newObject));
+
+    console.log(errorValue);
     setStart(false);
     setIsPaused(true);
+    if (errorValue !== null) {
+      Notiflix.Notify.failure('Sorry, something went wrong. Try again');
+      return;
+    }
+    Notiflix.Notify.success('Data added successfully');
     setcloseModal(true);
   };
 

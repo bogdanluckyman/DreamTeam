@@ -1,108 +1,96 @@
-import { useState } from 'react';
+import { useEffect, Suspense } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useLocation, useNavigate, useParams, Outlet } from 'react-router-dom';
+
+import { TitlePage } from '../../../components/TitlePage/TitlePage';
+import ExerciseCategories from '../../../components/ExerciseCategories/ExercisesCategories';
+
 import {
-  ExercisesPageContainer,
-  NavgtionContainer,
-  Title,
-  ButtonsContainer,
-  CardContainer,
-  Card,
-  CardList,
-  TabButton,
-  NavigationPanel,
-  CircleButton,
+  getError,
+  getIsLoading,
+} from '../../../redux/exercises/categoriesSlice';
+
+import sprite from '../../../assets/sprite.svg';
+
+import {
+  ContainerPageExercise,
+  BackButton,
+  CustomBackground,
+  MixContainer,
+  Container,
 } from './ExercisesPage.styled';
 
-export default function ExercisesPage() {
-  const [activeTab, setActiveTab] = useState(1);
-  const [currentPage, setCurrentPage] = useState(1);
+import { Loader } from '../../../components/Loader/Loader';
 
-  const handleTabClick = (tabNumber) => {
-    setActiveTab(tabNumber);
-    setCurrentPage(1);
-  };
+import { fetchExercisesCategories } from '../../../redux/exercises/operations';
 
-  const handlePageChange = (page) => {
-    setCurrentPage(page);
-  };
+import { toast } from 'react-hot-toast';
 
-  const getCardsPerPage = () => {
-    if (window.innerWidth >= 1440) {
-      return activeTab === 1 ? 10 : 3;
-    } else if (window.innerWidth >= 768 && window.innerWidth < 1440) {
-      return activeTab === 1 ? 9 : 3;
-    } else if (window.innerWidth < 767) {
-      return activeTab === 1 ? 10 : 1;
-    } else {
-      return 1;
-    }
-  };
+const ExercisesPage = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const error = useSelector(getError);
+  const isLoading = useSelector(getIsLoading);
+  const location = useLocation();
+  const { filter, filterList } = useParams();
 
-  const cardsPerPage = getCardsPerPage();
-  const totalCards = {
-    1: 13,
-    2: 13,
-    3: 13,
-  };
-  const totalPages = Math.ceil(totalCards[activeTab] / cardsPerPage);
+  useEffect(() => {
+    const gettingExercisesFilters = async () => {
+      if (filter === undefined) {
+        {
+          toast('We are still awating for data');
+        }
+      } else {
+        dispatch(fetchExercisesCategories({ filter: filter }));
+      }
+    };
+    gettingExercisesFilters();
+  }, [dispatch, filter]);
+
+  function capitalizeFirstLetter(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
 
   return (
-    <ExercisesPageContainer>
-      <NavgtionContainer>
-        <Title>Exercises</Title>
-        <ButtonsContainer>
-          <TabButton
-            className={activeTab === 1 ? 'active' : ''}
-            onClick={() => handleTabClick(1)}
-          >
-            Body parts
-          </TabButton>
-          <TabButton
-            className={activeTab === 2 ? 'active' : ''}
-            onClick={() => handleTabClick(2)}
-          >
-            Muscles
-          </TabButton>
-          <TabButton
-            className={activeTab === 3 ? 'active' : ''}
-            onClick={() => handleTabClick(3)}
-          >
-            Equipment
-          </TabButton>
-        </ButtonsContainer>
-      </NavgtionContainer>
-      <CardContainer>
-        <CardList>
-          {[...Array(cardsPerPage)].map((_, index) => {
-            const cardNumber =
-              index +
-              (currentPage - 1) * cardsPerPage +
-              (activeTab - 1) * 13 +
-              1;
-            if (cardNumber <= totalCards[activeTab]) {
-              return (
-                <Card key={index + (currentPage - 1) * cardsPerPage}>
-                  <div>{cardNumber}</div>
-                </Card>
-              );
-            }
-            return null;
-          })}
-        </CardList>
-        {totalPages > 1 && (
-          <NavigationPanel>
-            {[...Array(totalPages)].map((_, index) => (
-              <CircleButton
-                key={index}
-                type="radio"
-                
-                isactive={(index + 1 === currentPage).toString()}
-                onClick={() => handlePageChange(index + 1)}
-              >
-              </CircleButton>
-            ))}
-          </NavigationPanel>
-        )}
-      </CardContainer>
-    </ExercisesPageContainer>
+    <CustomBackground>
+      <Container>
+        <MixContainer>
+          {isLoading ? (
+            <Loader />
+          ) : (
+            <div>
+              {filter !== undefined &&
+              location.pathname.endsWith(filter.replace(' ', '%20')) ? null : (
+                <BackButton onClick={() => navigate(-1)}>
+                  <svg style={{ fill: 'none' }}>
+                    <use href={sprite + '#icon-arrow-left'} />
+                  </svg>
+                  Back{' '}
+                </BackButton>
+              )}
+              <ContainerPageExercise>
+                <TitlePage
+                  title={
+                    filterList
+                      ? capitalizeFirstLetter(filterList.split(' ')[0])
+                      : 'Exercises'
+                  }
+                />
+                <ExerciseCategories />
+              </ContainerPageExercise>
+
+              {isLoading && !error && <Loader />}
+              <>
+                <Suspense>
+                  <Outlet />
+                </Suspense>
+              </>
+            </div>
+          )}
+        </MixContainer>
+      </Container>
+    </CustomBackground>
   );
-}
+};
+
+export default ExercisesPage;

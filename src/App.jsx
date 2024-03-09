@@ -16,6 +16,9 @@ import SignUp from './pages/UnAuthorized/SignUp/SignUp';
 import Login from './pages/UnAuthorized/SignIn/SignIn';
 import { PrivateRoute } from './PrivateRoute';
 
+import { ExercisesSubcategoriesList } from './components/ExercisesSubcategoriesList/ExercisesSubcategoriesList';
+import { ExercisesList } from './components/ExercisesList/ExercisesList';
+
 const test = import.meta.env.VITE_API_TEST;
 
 function App() {
@@ -90,7 +93,20 @@ function App() {
                 <PrivateRoute redirectTo="/" component={<ExercisesPage />} />
               )
             }
-          ></Route>
+          >
+            <Route
+              index
+              element={<Navigate to="/exercises/Body parts" replace />}
+            />
+            <Route
+              path="/exercises/:filter"
+              element={<ExercisesSubcategoriesList />}
+            />
+            <Route
+              path="/exercises/:filter/:filterList"
+              element={<ExercisesList />}
+            />
+          </Route>
           <Route path="/error" element={<ErrorPage />} />
           <Route path="*" element={<Navigate to="/error" />} />
         </Route>

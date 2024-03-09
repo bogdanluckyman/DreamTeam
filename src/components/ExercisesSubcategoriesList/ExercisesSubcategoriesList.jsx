@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import {
-  getCategories,
+  getCategoriesEx,
   getIsLoading,
   getError,
 } from '../../redux/exercises/categoriesSlice';
@@ -15,7 +15,7 @@ import 'swiper/css/pagination';
 import { Grid, Pagination } from 'swiper/modules';
 
 export const ExercisesSubcategoriesList = () => {
-  const categories = useSelector(getCategories);
+  const categoriesEx = useSelector(getCategoriesEx);
   const isLoading = useSelector(getIsLoading);
   const error = useSelector(getError);
 
@@ -23,8 +23,8 @@ export const ExercisesSubcategoriesList = () => {
     <div>
       {isLoading && !error && <Loader />}
 
-      {!categories ? (
-        <p>we dssso not have any exersise category</p>
+      {!categoriesEx ? (
+        <p>We do not have any exersise category</p>
       ) : (
         <SubCatItems>
           <Swiper
@@ -71,7 +71,7 @@ export const ExercisesSubcategoriesList = () => {
               '--swiper-pagination-bullet-horizontal-gap': '5px',
             }}
           >
-            {categories.map((category) => (
+            {categoriesEx.map((category) => (
               <SwiperSlide key={category._id}>
                 <div>
                   <Link to={`/exercises/${category.filter}/${category.name}`}>

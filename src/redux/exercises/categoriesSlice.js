@@ -11,7 +11,7 @@ const handleRejecting = (state, action) => {
 };
 
 const categoriesSlice = createSlice({
-  name: 'categories',
+  name: 'categoriesEx',
   initialState: {
     items: [],
     isLoading: false,
@@ -29,8 +29,8 @@ const categoriesSlice = createSlice({
   },
 });
 
-export const categoriesReducer = categoriesSlice.reducer;
+export const categoriesReducerEx = categoriesSlice.reducer;
 
-export const getCategories = (state) => state.categories.items;
-export const getIsLoading = (state) => state.categories.isLoading;
-export const getError = (state) => state.categories.error;
+export const getCategoriesEx = (state) => state.categoriesEx.items;
+export const getIsLoading = (state) => state.categoriesEx.isLoading;
+export const getError = (state) => state.categoriesEx.error;

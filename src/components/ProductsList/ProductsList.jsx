@@ -15,7 +15,7 @@ export const ProductsList = () => {
 
   useEffect(() => {
     dispatch(fetchProducts(selectedFilters));
-  }, [dispatch]);
+  }, [selectedFilters]);
   //поки через json
 
   const filteredProducts = useSelector(selectProducts);

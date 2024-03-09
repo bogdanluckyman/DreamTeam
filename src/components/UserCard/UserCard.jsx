@@ -23,16 +23,18 @@ import DailyRate from '../DailyRate/DailyRate';
 import WarningMessage from '../WarningMessage/WarningMessage';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUser } from '../../redux/auth/selectors';
-import { updateAvatar } from '../../redux/auth/operation';
+import {  updateAvatar } from '../../redux/auth/operation';
 
 
 const UserCard= () => {
-// *тут буде редакс*
+
 const dispatch = useDispatch();
 const user = useSelector(selectUser);
+
+// console.log(user)
+
 const [avatar, setAvatar] = useState(user.avatarURL);
-// const user = {avatarURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLDKKGk27KAYuHEOcE4cjcWtTxCmTrDE79Zg&usqp=CAU",
-// name: 'Ang', }
+
 
   const avatarUser = <Photo src={avatar} width="100%" alt="Avatar" />;
   const avatarLogo = (
@@ -84,13 +86,13 @@ const [avatar, setAvatar] = useState(user.avatarURL);
                 color="var(--orange-color)"
                 iconId="icon-fork"
                 text="Daily calorie intake"
-                value="2200"
+                value={user.bmr}
               />
               <DailyRate
                 color="var(--orange-color)"
                 iconId="icon-dumbbell"
                 text="Daily physical activity"
-                value="110 min"
+                value={user.dailyActivity}
               />
             </WrapperDiv>
             <WarningMessage />

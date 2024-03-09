@@ -5,7 +5,6 @@ import sprite from '../../img/symbol-defs.svg';
 
 
 const DailyRate = ({   text, value, iconId }) => {
-  console.log(iconId);
   return (
     
     <Container>
@@ -24,7 +23,7 @@ DailyRate.propTypes = {
   color: PropTypes.string.isRequired,
   iconId: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.number.isRequired,
 };
 
 export default DailyRate;

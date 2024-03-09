@@ -25,20 +25,11 @@ import { updateUserInfo } from '../../redux/auth/operation';
 const UserForm = () => {
   // тут буде редакс
   const dispatch = useDispatch();
+  // dispatch(refreshUser);
   const user = useSelector(selectUser);
+  // const [weight, setBmr] = useState(user.currentWeight);
 
-  // *статичний юзер*
-  // const user = {
-  //   name: 'Ang',
-  //   email: 'data@gmail.com',
-  //   height: 165,
-  //   currentWeight: 60,
-  //   desiredWeight: 55,
-  //   birthday: '1997-01-01',
-  //   blood: 2,
-  //   sex: 'female',
-  //   levelActivity: 2,
-  // };
+ 
 
   const bloodOptions = [
     { id: '1', value: '1', label: '1' },
@@ -82,7 +73,7 @@ const UserForm = () => {
   ];
 
   const formattedDate = user.birthday ? parseISO(user.birthday) : new Date();
-  console.log(formattedDate);
+  // console.log(formattedDate);
 
   const initialValues = {
     name: user.name || 'Name',
@@ -110,15 +101,14 @@ const UserForm = () => {
   });
 
 
-
+  
   
   const handleSubmit = (values) => {
     const UserData = {
       ...values,
     };
-    console.log(UserData);
-    // *тут буде діспатч апдейт параметрів юзера*
     dispatch(updateUserInfo(UserData));
+
   };
 
   return (

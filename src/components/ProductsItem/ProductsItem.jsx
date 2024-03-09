@@ -2,6 +2,7 @@ import { useState } from 'react';
 import FormModal from './FormModal';
 import {
   AddBtn,
+  Definition,
   DietMark,
   List,
   ProductName,
@@ -47,11 +48,11 @@ export const ProductItem = ({ product }) => {
           <ProductName>{product.title}</ProductName>
           <List>
             <Term>Calories:</Term>
-            <dd>{product.calories}</dd>
+            <Definition>{product.calories}</Definition>
             <Term>Category:</Term>
-            <dd>{product.category}</dd>
+            <Definition>{product.category}</Definition>
             <Term>Weight:</Term>
-            <dd>{product.weight}</dd>
+            <Definition>{product.weight}</Definition>
           </List>
         </>
       </ProductWrapp>

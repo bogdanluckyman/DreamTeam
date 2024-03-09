@@ -2,6 +2,8 @@
 
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { useSelector } from 'react-redux';
+import { selectToken } from '../auth/selectors';
 
 const BASEURL = 'https://dream-team-backend-10w1.onrender.com/api';
 //додає токен в запит, але не працює
@@ -10,6 +12,8 @@ const BASEURL = 'https://dream-team-backend-10w1.onrender.com/api';
 //};
 const TOKEN =
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZWExM2Y4ODdmNjgwNDFjNWVhODliOSIsImlhdCI6MTcwOTk3ODkwOSwiZXhwIjoxNzEwMDYxNzA5fQ.tSe9Yoz71t1blEQ90vdbDC8-K8IShK9AzRgx4sm-6RI';
+
+//const TOKEN = useSelector(selectToken);
 
 //запит за категоріями
 export const getProductCategories = createAsyncThunk(

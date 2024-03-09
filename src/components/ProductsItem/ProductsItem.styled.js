@@ -81,6 +81,13 @@ export const Term = styled.dt`
   margin-right: 4px;
 `;
 
+export const Definition = styled.dd`
+  color: var(--white-color);
+  &:not(:last-child) {
+    margin-right: 16px;
+  }
+`;
+
 export const AddBtn = styled.button`
   margin-left: 16px;
   color: var(--orange-color);

@@ -9,7 +9,7 @@ const BASEURL = 'https://dream-team-backend-10w1.onrender.com/api';
 //  axios.defaults.headers.common.Authorization = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZThjYmE3NDVlODFjNzdiYTMzMzEyZiIsImlhdCI6MTcwOTc1NTMwMywiZXhwIjoxNzA5ODM4MTAzfQ.T8nqMePFbHcINtrEt0K_ASKq2HsWL4T3AVI2yJlV9nU`;
 //};
 const TOKEN =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZWExM2Y4ODdmNjgwNDFjNWVhODliOSIsImlhdCI6MTcwOTgzOTM1MiwiZXhwIjoxNzA5OTIyMTUyfQ.8qeW76RK9Wc9vmcyOOEwu__dSIXfo4xzSMZwK_kDcio';
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZWExM2Y4ODdmNjgwNDFjNWVhODliOSIsImlhdCI6MTcwOTk3ODkwOSwiZXhwIjoxNzEwMDYxNzA5fQ.tSe9Yoz71t1blEQ90vdbDC8-K8IShK9AzRgx4sm-6RI';
 
 //запит за категоріями
 export const getProductCategories = createAsyncThunk(

@@ -25,7 +25,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addExercises } from '../../redux/diary/operation';
 import Notiflix from 'notiflix';
 
-const ExercisesModal = ({ onClose, date }) => {
+const ExercisesModal = ({ onClose, date, exercies }) => {
   const [start, setStart] = useState(false);
   const [isPaused, setIsPaused] = useState(true);
   const [time, setTime] = useState('');
@@ -37,29 +37,19 @@ const ExercisesModal = ({ onClose, date }) => {
   const dispatch = useDispatch();
   const errorValue = useSelector((state) => state.diary.error);
   /////////////////////////////////////////////////////////////
-  const exercise = {
-    _id: '64f2458d6f67bc34bae4f86d',
-    bodyPart: 'upper legs',
-    equipment: 'body weight',
-    gifUrl: 'https://ftp.goit.study/img/power-pulse/gifs/0130.gif',
-    name: 'bench hip extension',
-    target: 'glutes',
-    burnedCalories: 164,
-    time: 3,
-  };
 
-  const exercCal = exercise.burnedCalories;
+  const exercCal = exercies.burnedCalories;
 
-  const title = exercise.name.replace(/(^\w|\.\s\w)/g, (char) =>
+  const title = exercies.name.replace(/(^\w|\.\s\w)/g, (char) =>
     char.toUpperCase()
   );
-  const target = exercise.target.replace(/(^\w|\.\s\w)/g, (char) =>
+  const target = exercies.target.replace(/(^\w|\.\s\w)/g, (char) =>
     char.toUpperCase()
   );
-  const equipment = exercise.equipment.replace(/(^\w|\.\s\w)/g, (char) =>
+  const equipment = exercies.equipment.replace(/(^\w|\.\s\w)/g, (char) =>
     char.toUpperCase()
   );
-  const bodyPart = exercise.bodyPart.replace(/(^\w|\.\s\w)/g, (char) =>
+  const bodyPart = exercies.bodyPart.replace(/(^\w|\.\s\w)/g, (char) =>
     char.toUpperCase()
   );
   ////////////////////////////////////////////////////////////
@@ -68,16 +58,6 @@ const ExercisesModal = ({ onClose, date }) => {
       onClose();
     }
   });
-  // const Formula = (time) => {
-  //   const [minutes, secound] = time.split(':').map(Number);
-  //   const totalSeconds = minutes * 60 + secound;
-  //   const res = 180 - totalSeconds;
-  //   const formattedTime = `${Math.floor(res / 10)}:${res % 10 < 10 ? '0' : ''}${
-  //     res % 10
-  //   }`;
-  //   console.log(formattedTime);
-  //   console.log(overallResult);
-  // };
 
   useEffect(() => {
     const calculateCaloriesBurned = (timeInMinutes) => {
@@ -119,7 +99,7 @@ const ExercisesModal = ({ onClose, date }) => {
     const newObject = {
       date: date,
       exercises: {
-        exerciseID: exercise._id,
+        exerciseID: exercies._id,
         time: parseFloat(formattedTime),
         calories: Math.floor(counter),
       },
@@ -175,7 +155,7 @@ const ExercisesModal = ({ onClose, date }) => {
             <ExercisesInnerModalContainer>
               <TimerDiv>
                 <ExercisesModalImg
-                  src={exercise.gifUrl}
+                  src={exercies.gifUrl}
                   alt="Your GIF"
                 ></ExercisesModalImg>
                 <TimerText>Time</TimerText>

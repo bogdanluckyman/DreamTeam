@@ -22,19 +22,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addCalories } from '../../redux/diary/operation';
 
 const FormModal = ({ onClose, product, date }) => {
-  // const [productsInformation, setProductInformation] = useState({});
   const [showWellDoneModal, setShowWellDoneModal] = useState(false);
   const [getFormModal, setFormModal] = useState(true);
   const [getCalories, setCalories] = useState(0);
   const dispatch = useDispatch();
   const errorValue = useSelector((state) => state.diary.error);
-  const id = product._id.$oid;
+  const id = product._id;
   const productTitel = product.title;
   const productCalori = product.calories;
-
-  // console.log(id);
-  // console.log(productTitel);
-  // console.log(date);
 
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') {
@@ -42,12 +37,7 @@ const FormModal = ({ onClose, product, date }) => {
     }
   });
 
-  // useEffect(() => {
-  //   console.log('Calories changed:', getCalories);
-  // }, [getCalories]);
-
   const ValidationSchema = Yup.object().shape({
-    // product: Yup.string(),
     amount: Yup.number()
       .min(1, 'Amount must be at least 1')
       .required('Amount is required'),
@@ -73,7 +63,6 @@ const FormModal = ({ onClose, product, date }) => {
   };
 
   const handleSubmit = async (values, { resetForm }) => {
-    console.log(values);
     const value = values.amount;
     try {
       await ValidationSchema.validate(values, { abortEarly: false });
@@ -87,7 +76,7 @@ const FormModal = ({ onClose, product, date }) => {
         },
       };
 
-      console.log(newObjekt);
+      console.log(errorValue);
 
       dispatch(addCalories(newObjekt));
       if (errorValue !== null) {
@@ -111,7 +100,6 @@ const FormModal = ({ onClose, product, date }) => {
     <>
       <Formik
         initialValues={{
-          // product: '',
           amount: '',
         }}
         onSubmit={handleSubmit}

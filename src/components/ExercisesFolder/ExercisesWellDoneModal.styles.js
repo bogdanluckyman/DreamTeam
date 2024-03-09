@@ -1,14 +1,13 @@
 import styled from 'styled-components';
 
 export const ExercisesWellDoneBackground = styled.div`
-  /* display: none; */
   position: fixed;
   z-index: 100;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: 0 0 5px rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   overflow: auto;
 `;
 export const ExercisesWellDoneContainer = styled.div`
@@ -80,14 +79,6 @@ export const ExercisesNextProduct = styled.button`
   }
 `;
 export const ExercisesDiaryButton = styled.button`
-  /* font-weight: 400;
-  font-size: 14px;
-  padding: 0;
-  color: rgba(239, 237, 232, 0.3);
-  width: 97px;
-  height: 18px;
-  background-color: transparent;
-  border: none; */
   font-weight: 400;
   font-size: 14px;
   padding: 0;

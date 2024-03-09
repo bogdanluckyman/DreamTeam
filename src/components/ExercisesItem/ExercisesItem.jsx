@@ -11,10 +11,20 @@ import {
 import { colors } from '../../styles/colors';
 
 import sprite from '../../assets/sprite.svg';
+import { useState } from 'react';
+import ExercisesModal from '../ExercisesFolder/ExercisesModal';
 
 export const ExercisesItem = ({
   exercise: { burnedCalories, name, bodyPart, target },
+  exercises,
 }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
   return (
     <>
       <>
@@ -34,7 +44,7 @@ export const ExercisesItem = ({
               alignItems: 'center',
             }}
           ></div>
-          <button>
+          <button onClick={openModal}>
             Start
             <SvgWrapper
               style={{
@@ -74,6 +84,13 @@ export const ExercisesItem = ({
             {target}
           </Text>
         </WrapperText>
+        {isModalOpen && (
+          <ExercisesModal
+            onClose={closeModal}
+            date={'06-03-2024'}
+            exercies={exercises}
+          />
+        )}
       </>
     </>
   );

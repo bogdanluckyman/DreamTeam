@@ -1,24 +1,22 @@
-//логіка відкриття модалки
-
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { useSelector } from 'react-redux';
-import { selectToken } from '../auth/selectors';
+//import { useSelector } from 'react-redux';
+//import { selectToken } from '../auth/selectors';
 
 const BASEURL = 'https://dream-team-backend-10w1.onrender.com/api';
 //додає токен в запит, але не працює
 //const setAuthHeader = (token) => {
 //  axios.defaults.headers.common.Authorization = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZThjYmE3NDVlODFjNzdiYTMzMzEyZiIsImlhdCI6MTcwOTc1NTMwMywiZXhwIjoxNzA5ODM4MTAzfQ.T8nqMePFbHcINtrEt0K_ASKq2HsWL4T3AVI2yJlV9nU`;
 //};
-const TOKEN =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZWExM2Y4ODdmNjgwNDFjNWVhODliOSIsImlhdCI6MTcwOTk3ODkwOSwiZXhwIjoxNzEwMDYxNzA5fQ.tSe9Yoz71t1blEQ90vdbDC8-K8IShK9AzRgx4sm-6RI';
+//const TOKEN =
+//  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZWExM2Y4ODdmNjgwNDFjNWVhODliOSIsImlhdCI6MTcwOTk3ODkwOSwiZXhwIjoxNzEwMDYxNzA5fQ.tSe9Yoz71t1blEQ90vdbDC8-K8IShK9AzRgx4sm-6RI';
 
 //const TOKEN = useSelector(selectToken);
 
 //запит за категоріями
 export const getProductCategories = createAsyncThunk(
   'categories/getProductCategories',
-  async (_, thunkAPI) => {
+  async (TOKEN, thunkAPI) => {
     try {
       const response = await axios
         .create({
@@ -43,7 +41,7 @@ export const getProductCategories = createAsyncThunk(
 //запит за відфільтрованим масивом продуктів
 export const fetchProducts = createAsyncThunk(
   'products/fetchProducts',
-  async (selectedFilters, thunkAPI) => {
+  async ({ selectedFilters, TOKEN }, thunkAPI) => {
     try {
       const response = await axios
         .create({
@@ -55,8 +53,6 @@ export const fetchProducts = createAsyncThunk(
         .get(
           `/products/filter?title=${selectedFilters.title}&category=${selectedFilters.category}&filter=${selectedFilters.filter}`
         );
-
-      console.log(response.data);
 
       return response.data;
     } catch (e) {

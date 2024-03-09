@@ -8,18 +8,20 @@ import {
 import { selectFilter, selectProducts } from '../../redux/products/selector';
 import { fetchProducts } from '../../redux/products/operations';
 import { useEffect } from 'react';
+import { selectToken } from '../../redux/auth/selectors';
 
 export const ProductsList = () => {
+  const TOKEN = useSelector(selectToken);
   const dispatch = useDispatch();
   const selectedFilters = useSelector(selectFilter);
 
   useEffect(() => {
-    dispatch(fetchProducts(selectedFilters));
+    dispatch(fetchProducts({ selectedFilters, TOKEN }));
   }, [selectedFilters]);
   //поки через json
 
   const filteredProducts = useSelector(selectProducts);
-  console.log(filteredProducts);
+  //console.log(filteredProducts);
   return (
     <ProductsCatalogueWrap>
       <ProductsCatalogue>

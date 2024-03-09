@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { addCalories, addExercises } from './operation';
+import { addCalories, addExercises, removeCalories } from './operation';
 
 export const caloriesInitialState = {
   productCalories: [{ value: 2 }],
@@ -9,6 +9,7 @@ export const caloriesInitialState = {
 };
 
 const handleRejected = (state, action) => {
+  console.log('999999999');
   state.isLoading = false;
   state.error = action.payload;
 };
@@ -30,13 +31,21 @@ export const diarySlice = createSlice({
         state.productCalories.push(action.payload);
       })
       .addCase(addCalories.rejected, handleRejected)
+      .addCase(removeCalories.pending, handlePending)
+      .addCase(removeCalories.fulfilled, (state,action) => {
+        console.log(action);
+        const removedCaloriesId = action.payload;
+        state.productCalories = state.productCalories.filter(calories => calories.id !== removedCaloriesId)
+      })
       .addCase(addExercises.pending, handlePending)
+
       .addCase(addExercises.fulfilled, (state, action) => {
+        console.log(action);
         state.isLoading = false;
         state.error = null;
         state.exerciesesResults.push(action.payload);
       })
-      .addCase(addExercises.rejected, handleRejected);
+      .addCase(addExercises.rejected, handleRejected)
   },
 });
 

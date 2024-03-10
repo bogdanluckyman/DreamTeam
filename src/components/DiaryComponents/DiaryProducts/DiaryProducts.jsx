@@ -3,8 +3,7 @@ import MediaQuery from 'react-responsive';
 import { useSelector } from 'react-redux';
 import { selectDiaryProducts } from '../../../redux/diary/selectors';
 import { selectUser } from '../../../redux/auth/selectors';
-import sprite from '../../../img/sprite.svg'
-
+import sprite from '../../../img/sprite.svg';
 
 import {
   SectionOfDiary,

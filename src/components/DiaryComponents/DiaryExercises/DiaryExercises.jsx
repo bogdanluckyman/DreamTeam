@@ -1,8 +1,8 @@
-import { useNavigate } from "react-router-dom";
-import MediaQuery from "react-responsive";
-import { useSelector } from "react-redux";
-import { selectDiaryExercises } from "../../../redux/diary/selectors";
-import sprite from '../../../img/sprite.svg'
+import { useNavigate } from 'react-router-dom';
+import MediaQuery from 'react-responsive';
+import { useSelector } from 'react-redux';
+import { selectDiaryExercises } from '../../../redux/diary/selectors';
+import sprite from '../../../img/sprite.svg';
 
 import {
   SectionOfDiary,
@@ -12,15 +12,14 @@ import {
   DiaryTabletTitle,
   DiaryTabletSupTitle,
   EmptyList,
-//   ListOfExercises
-  SvgForRoute
+  //   ListOfExercises
+  SvgForRoute,
 } from '../DiaryComponents.style';
 
 export const DiaryExercises = () => {
-    const navigate = useNavigate()
+  const navigate = useNavigate();
 
-    const exercises = useSelector(selectDiaryExercises)
-
+  const exercises = useSelector(selectDiaryExercises);
 
   return (
     <SectionOfDiary hight="1066px">
@@ -29,11 +28,10 @@ export const DiaryExercises = () => {
         <NavigationLink onClick={() => navigate('/exercises')}>
           Add exercise
           <SvgForRoute>
-              <use href={`${sprite}#icon-arrow-right`}></use>
-            </SvgForRoute>
+            <use href={`${sprite}#icon-arrow-right`}></use>
+          </SvgForRoute>
         </NavigationLink>
       </SectionWrapper>
-
 
       {exercises.length !== 0 ? (
         <>
@@ -43,7 +41,9 @@ export const DiaryExercises = () => {
               <DiaryTabletSupTitle width="132px">Equipment</DiaryTabletSupTitle>
               <DiaryTabletSupTitle width="128px">Name</DiaryTabletSupTitle>
               <DiaryTabletSupTitle width="84px">Target</DiaryTabletSupTitle>
-              <DiaryTabletSupTitle width="78px">Burned Calories</DiaryTabletSupTitle>
+              <DiaryTabletSupTitle width="78px">
+                Burned Calories
+              </DiaryTabletSupTitle>
               <DiaryTabletSupTitle width="72px">Time</DiaryTabletSupTitle>
             </DiaryTabletTitle>
           </MediaQuery>
@@ -53,7 +53,9 @@ export const DiaryExercises = () => {
               <DiaryTabletSupTitle width="157px">Equipment</DiaryTabletSupTitle>
               <DiaryTabletSupTitle width="131px">Name</DiaryTabletSupTitle>
               <DiaryTabletSupTitle width="106px">Target</DiaryTabletSupTitle>
-              <DiaryTabletSupTitle width="91px">Burned Calories</DiaryTabletSupTitle>
+              <DiaryTabletSupTitle width="91px">
+                Burned Calories
+              </DiaryTabletSupTitle>
               <DiaryTabletSupTitle width="82px">Time</DiaryTabletSupTitle>
             </DiaryTabletTitle>
           </MediaQuery>
@@ -64,6 +66,5 @@ export const DiaryExercises = () => {
         <EmptyList>Not found exercises</EmptyList>
       )}
     </SectionOfDiary>
-
   );
 };

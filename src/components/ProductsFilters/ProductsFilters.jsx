@@ -4,18 +4,20 @@ import {
   FiltersField,
   InputWrap,
   OptionSelect,
+  ResetBtn,
   SelectsWrap,
   TitleInput,
 } from './ProductsFilters.styled';
 //import productsCategories from './productsCategories.json';
 import { nanoid } from 'nanoid';
-import { selectCategories } from '../../redux/products/selector';
+import { selectCategories, selectFilter } from '../../redux/products/selector';
 import sprite from '../../img/symbol-defs.svg';
+import { capitalizeFirstLetter } from '../ExercisesSubcategoriesItem/ExercisesSubcategoriesItem';
 
 export const ProductsFilters = () => {
   const dispatch = useDispatch();
   const productsCategories = useSelector(selectCategories);
-  //console.log(productsCategories);
+  const inputValue = useSelector(selectFilter).title;
   return (
     <FiltersField>
       <InputWrap>
@@ -23,8 +25,21 @@ export const ProductsFilters = () => {
           type="text"
           name="title"
           placeholder="Search"
-          onChange={(evt) => dispatch(setFilters({ title: evt.target.value }))}
+          onChange={(evt) => {
+            dispatch(setFilters({ title: evt.target.value.trim() }));
+          }}
         />
+        {inputValue.length > 0 && (
+          <ResetBtn
+            onClick={(evt) => {
+              dispatch(setFilters({ title: '' }));
+            }}
+          >
+            <svg width="18" height="18">
+              <use href={`${sprite}#icon-close`}></use>
+            </svg>
+          </ResetBtn>
+        )}
         <svg width="18" height="18">
           <use href={`${sprite}#icon-search`}></use>
         </svg>
@@ -32,15 +47,15 @@ export const ProductsFilters = () => {
       <SelectsWrap>
         <OptionSelect
           name="category"
-          //onChange={(evt) => console.log(evt.target.value)}
-
           onChange={(evt) =>
             dispatch(setFilters({ category: evt.target.value }))
           }
         >
           <option defaultChecked>Categories</option>
           {productsCategories.map((category) => {
-            return <option key={nanoid()}>{category}</option>;
+            return (
+              <option key={nanoid()}>{capitalizeFirstLetter(category)}</option>
+            );
           })}
         </OptionSelect>
         <OptionSelect

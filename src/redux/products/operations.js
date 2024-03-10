@@ -4,6 +4,10 @@ import axios from 'axios';
 //import { selectToken } from '../auth/selectors';
 
 const BASEURL = 'https://dream-team-backend-10w1.onrender.com/api';
+
+export function littleFirstLetter(str) {
+  return str.charAt(0).toLowerCase() + str.slice(1);
+}
 //додає токен в запит, але не працює
 //const setAuthHeader = (token) => {
 //  axios.defaults.headers.common.Authorization = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZThjYmE3NDVlODFjNzdiYTMzMzEyZiIsImlhdCI6MTcwOTc1NTMwMywiZXhwIjoxNzA5ODM4MTAzfQ.T8nqMePFbHcINtrEt0K_ASKq2HsWL4T3AVI2yJlV9nU`;
@@ -51,7 +55,11 @@ export const fetchProducts = createAsyncThunk(
           },
         })
         .get(
-          `/products/filter?title=${selectedFilters.title}&category=${selectedFilters.category}&filter=${selectedFilters.filter}`
+          `/products/filter?title=${
+            selectedFilters.title
+          }&category=${littleFirstLetter(
+            selectedFilters.category
+          )}&filter=${littleFirstLetter(selectedFilters.filter)}`
         );
 
       return response.data;

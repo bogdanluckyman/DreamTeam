@@ -1,13 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchProducts } from './operations';
-
-const handlePending = (state) => {
-  state.isLoading = true;
-};
-const handleRejected = (state, action) => {
-  state.isLoading = false;
-  state.error = action.payload;
-};
+import { handlePending, handleRejecting } from './categoriesSlice';
 
 const productsSlice = createSlice({
   name: 'products',
@@ -20,7 +13,7 @@ const productsSlice = createSlice({
         state.error = null;
         state.items = action.payload.userSearchProducts;
       })
-      .addCase(fetchProducts.rejected, handleRejected);
+      .addCase(fetchProducts.rejected, handleRejecting);
   },
 });
 

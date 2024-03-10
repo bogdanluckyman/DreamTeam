@@ -17,9 +17,16 @@ import {
 import sprite from '../../img/symbol-defs.svg';
 import { colors } from '../../styles/colors';
 import ModalMenu from './ModalMenu';
+import { useSelector } from 'react-redux';
+import { selectUser } from '../../redux/auth/selectors';
+import { capitalizeFirstLetter } from '../ExercisesSubcategoriesItem/ExercisesSubcategoriesItem';
+
 
 export const ProductItem = ({ product }) => {
+  const userBlood = useSelector(selectUser).blood;
   const [isModalOpen, setIsModalOpen] = useState(false);
+  //console.log(userBlood);
+  //console.log(product.groupBloodNotAllowed[userBlood]);
   const openModal = () => {
     setIsModalOpen(true);
   };
@@ -34,8 +41,22 @@ export const ProductItem = ({ product }) => {
             <p>diet</p>
           </DietMark>
           <TopLineRightWrapper>
-            <RecomendedLight></RecomendedLight>
-            <p>rec</p>
+            {product.groupBloodNotAllowed[userBlood] ? (
+              <>
+                <svg width="14" height="14">
+                  <use href={`${sprite}#icon-checkbox-green`}></use>
+                </svg>
+                <p>Recommended</p>
+              </>
+            ) : (
+              <>
+                <svg width="14" height="14">
+                  <use href={`${sprite}#icon-checkbox-red`}></use>
+                </svg>
+                <p>Not recommended</p>
+              </>
+            )}
+
             <AddBtn type="button" onClick={openModal}>
               <p>Add</p>
               <svg width="16" height="16">
@@ -56,13 +77,13 @@ export const ProductItem = ({ product }) => {
             <svg width="24" height="24">
               <use href={`${sprite}#icon-man-run`}></use>
             </svg>
-            <ProductName>{product.title}</ProductName>
+            <ProductName>{capitalizeFirstLetter(product.title)}</ProductName>
           </TitleWrap>
           <List>
             <Term>Calories:</Term>
             <Definition>{product.calories}</Definition>
             <Term>Category:</Term>
-            <Definition>{product.category}</Definition>
+            <Definition>{capitalizeFirstLetter(product.category)}</Definition>
             <Term>Weight:</Term>
             <Definition>{product.weight}</Definition>
           </List>

@@ -62,7 +62,7 @@ const DaySwitch = ({ onDateChange }) => {
             onDateChange(date);
           }}
           customInput={<CustomInput />}
-          dateFormat={'dd MM yyyy'}
+          dateFormat={'dd-MM-yyyy'}
           calendarStartDay={1}
           formatWeekDay={(day) => day.substr(0, 2)}
           renderCustomHeader={(props) => <CustomHeader {...props} />}

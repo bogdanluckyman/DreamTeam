@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { selectDiaryProducts } from '../../../redux/diary/selectors';
 import { selectUser } from '../../../redux/auth/selectors';
 import sprite from '../../../img/sprite.svg';
+import { Product } from '../Product/Product';
 
 import {
   SectionOfDiary,
@@ -25,15 +26,13 @@ export const DiaryProducts = () => {
   return (
     <SectionOfDiary>
       <SectionWrapper>
-        <SectionTitle>
-          Products
-          <NavigationLink onClick={() => navigate('/products')}>
-            Add product
-            <SvgForRoute>
-              <use href={`${sprite}#icon-arrow-right`}></use>
-            </SvgForRoute>
-          </NavigationLink>
-        </SectionTitle>
+        <SectionTitle>Products</SectionTitle>
+        <NavigationLink onClick={() => navigate('/products')}>
+          Add product
+          <SvgForRoute>
+            <use href={`${sprite}#icon-arrow-right`}></use>
+          </SvgForRoute>
+        </NavigationLink>
       </SectionWrapper>
 
       {products.length !== 0 && user ? (
@@ -57,9 +56,15 @@ export const DiaryProducts = () => {
             </DiaryTabletTitle>
           </MediaQuery>
           <List>
-            {/* {products.map((product) => {
-                return product
-            })} */}
+            {products.map((product) => {
+              return (
+                <Product
+                  product={product}
+                  key={product._id}
+                  blood={user.blood}
+                />
+              );
+            })}
           </List>
         </>
       ) : (

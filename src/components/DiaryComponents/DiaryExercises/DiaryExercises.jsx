@@ -3,7 +3,7 @@ import MediaQuery from 'react-responsive';
 import { useSelector } from 'react-redux';
 import { selectDiaryExercises } from '../../../redux/diary/selectors';
 import sprite from '../../../img/sprite.svg';
-
+import { Exercise } from '../Exercise/Exersise';
 import {
   SectionOfDiary,
   SectionWrapper,
@@ -12,7 +12,7 @@ import {
   DiaryTabletTitle,
   DiaryTabletSupTitle,
   EmptyList,
-  //   ListOfExercises
+  List,
   SvgForRoute,
 } from '../DiaryComponents.style';
 
@@ -59,8 +59,11 @@ export const DiaryExercises = () => {
               <DiaryTabletSupTitle width="82px">Time</DiaryTabletSupTitle>
             </DiaryTabletTitle>
           </MediaQuery>
-          {/* <ListOfExercises>
-          </ListOfExercises> */}
+          <List>
+            {exercises.map((workout) => (
+              <Exercise workout={workout} key={workout._id} />
+            ))}
+          </List>
         </>
       ) : (
         <EmptyList>Not found exercises</EmptyList>

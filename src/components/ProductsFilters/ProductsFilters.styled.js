@@ -51,6 +51,7 @@ export const TitleInput = styled.input`
 export const ResetBtn = styled.button`
   padding: 0;
   margin-right: 8px;
+  margin-left: auto;
   background-color: var(--black-color);
   border: none;
 `;

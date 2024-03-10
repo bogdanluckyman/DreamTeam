@@ -45,14 +45,14 @@ export const ProductItem = ({ product }) => {
                 <svg width="14" height="14">
                   <use href={`${sprite}#icon-circle-green`}></use>
                 </svg>
-                <Text>Recommended</Text>
+                <p>Recommended</p>
               </>
             ) : (
               <>
                 <svg width="14" height="14">
                   <use href={`${sprite}#icon-circle-red`}></use>
                 </svg>
-                <Text>Not recommended</Text>
+                <p>Not recommended</p>
               </>
             )}
 

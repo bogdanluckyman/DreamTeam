@@ -21,6 +21,7 @@
     "date-fns": "^3.3.1",
     "esbuild": "^0.20.1",
     "formik": "^2.4.5",
+    "media-query": "^1.0.0",
     "modern-normalize": "^2.0.0",
     "normalize.css": "^8.0.1",
     "notiflix": "^3.2.7",

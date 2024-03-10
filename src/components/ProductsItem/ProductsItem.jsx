@@ -13,13 +13,13 @@ import {
   TopLineRightWrapper,
   TopLineWrapper,
 } from './ProductsItem.styled';
-import ExercisesModal from '../ExercisesFolder/ExercisesModal';
 
 import sprite from '../../img/symbol-defs.svg';
 import { colors } from '../../styles/colors';
 import ModalMenu from './ModalMenu';
 import { useSelector } from 'react-redux';
 import { selectUser } from '../../redux/auth/selectors';
+import { capitalizeFirstLetter } from '../ExercisesSubcategoriesItem/ExercisesSubcategoriesItem';
 
 export const ProductItem = ({ product }) => {
   const userBlood = useSelector(selectUser).blood;
@@ -43,16 +43,16 @@ export const ProductItem = ({ product }) => {
             {product.groupBloodNotAllowed[userBlood] ? (
               <>
                 <svg width="14" height="14">
-                  <use href={`${sprite}#icon-checkbox-red`}></use>
+                  <use href={`${sprite}#icon-checkbox-green`}></use>
                 </svg>
-                <p>Not recommended</p>
+                <p>Recommended</p>
               </>
             ) : (
               <>
                 <svg width="14" height="14">
-                  <use href={`${sprite}#icon-checkbox-green`}></use>
+                  <use href={`${sprite}#icon-checkbox-red`}></use>
                 </svg>
-                <p>Recommended</p>
+                <p>Not recommended</p>
               </>
             )}
 
@@ -76,7 +76,7 @@ export const ProductItem = ({ product }) => {
             <svg width="24" height="24">
               <use href={`${sprite}#icon-man-run`}></use>
             </svg>
-            <ProductName>{product.title}</ProductName>
+            <ProductName>{capitalizeFirstLetter(product.title)}</ProductName>
           </TitleWrap>
           <List>
             <Term>Calories:</Term>

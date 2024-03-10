@@ -12,6 +12,7 @@ import {
 import { nanoid } from 'nanoid';
 import { selectCategories, selectFilter } from '../../redux/products/selector';
 import sprite from '../../img/symbol-defs.svg';
+import { capitalizeFirstLetter } from '../ExercisesSubcategoriesItem/ExercisesSubcategoriesItem';
 
 export const ProductsFilters = () => {
   const dispatch = useDispatch();
@@ -47,19 +48,19 @@ export const ProductsFilters = () => {
         <OptionSelect
           name="category"
           onChange={(evt) =>
-            dispatch(setFilters({ category: evt.target.value.toLowerCase() }))
+            dispatch(setFilters({ category: evt.target.value }))
           }
         >
           <option defaultChecked>Categories</option>
           {productsCategories.map((category) => {
-            return <option key={nanoid()}>{category}</option>;
+            return (
+              <option key={nanoid()}>{capitalizeFirstLetter(category)}</option>
+            );
           })}
         </OptionSelect>
         <OptionSelect
           name="filter"
-          onChange={(evt) =>
-            dispatch(setFilters({ filter: evt.target.value.toLowerCase }))
-          }
+          onChange={(evt) => dispatch(setFilters({ filter: evt.target.value }))}
         >
           <option defaultChecked>All</option>
 

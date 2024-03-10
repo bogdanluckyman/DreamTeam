@@ -1,11 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { getProductCategories } from './operations';
 
-const handlePending = (state) => {
+export const handlePending = (state) => {
   state.isLoading = true;
 };
 
-const handleRejecting = (state, action) => {
+export const handleRejecting = (state, action) => {
   state.isLoading = false;
   state.error = action.payload;
 };

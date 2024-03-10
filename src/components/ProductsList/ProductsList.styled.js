@@ -24,6 +24,7 @@ export const ProductsCatalogueWrap = styled.div`
     width: 850px;
     height: 488px;
   }
+
 `;
 
 export const ProductsCatalogue = styled.ul`

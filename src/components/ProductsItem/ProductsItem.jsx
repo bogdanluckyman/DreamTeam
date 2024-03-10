@@ -13,12 +13,10 @@ import {
   TopLineRightWrapper,
   TopLineWrapper,
 } from './ProductsItem.styled';
-import ExercisesModal from '../ExercisesFolder/ExercisesModal';
 
 import sprite from '../../img/symbol-defs.svg';
 import { colors } from '../../styles/colors';
 import ModalMenu from './ModalMenu';
-
 
 export const ProductItem = ({ product }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -70,21 +68,11 @@ export const ProductItem = ({ product }) => {
           </List>
         </>
       </ProductWrapp>
-      {isModalOpen && (
-        <FormModal
-          onClose={closeModal}
-          date={'06 - 03 - 2024'}
-          product={product}
-        />
-      )}
       {/* {isModalOpen && (
-        <ExercisesModal
-          onClose={closeModal}
-          date={'06 - 03 - 2024'}
-          exercies={''}
-        />
+        <FormModal onClose={closeModal} date={'06-03-2024'} product={product} />
       )} */}
-      {/* {isModalOpen && <ModalMenu onClose={closeModal} />} */}
+
+      {isModalOpen && <ModalMenu onClose={closeModal} />}
     </>
   );
 };

@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router';
 import { ParagtafDiarty, SvgNext } from '../ProductsItem/WellDoneModal.styles';
 import {
   CloseWellDoneContainer,
@@ -20,6 +21,10 @@ const ExercisesWellDoneModal = ({
   background,
   timeres,
 }) => {
+  const navigate = useNavigate();
+  const linkNav = () => {
+    navigate('/diary');
+  };
   return (
     <ExercisesWellDoneBackground onClick={background}>
       <ExercisesWellDoneContainer>
@@ -39,8 +44,10 @@ const ExercisesWellDoneModal = ({
             Burned calories:
             <ExercisesSpan>{Math.floor(calori)}</ExercisesSpan>
           </ExercisesParagraph>
-          <ExercisesNextProduct>Next product</ExercisesNextProduct>
-          <ExercisesDiaryButton>
+          <ExercisesNextProduct onClick={onClose}>
+            Next product
+          </ExercisesNextProduct>
+          <ExercisesDiaryButton onClick={linkNav}>
             <ParagtafDiarty> To the diary</ParagtafDiarty>
 
             <SvgNext>

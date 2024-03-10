@@ -45,7 +45,7 @@ export const ExercisesList = () => {
             <ExercisesListWrapper>
               {exercises.map((exercise) => (
                 <ProductsItemStyled key={exercise._id}>
-                  <ExercisesItem exercise={exercise} />
+                  <ExercisesItem exercise={exercise} exercises={exercise} />
                 </ProductsItemStyled>
               ))}
             </ExercisesListWrapper>

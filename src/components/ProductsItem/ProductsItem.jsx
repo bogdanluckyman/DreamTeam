@@ -21,6 +21,7 @@ import { useSelector } from 'react-redux';
 import { selectUser } from '../../redux/auth/selectors';
 import { capitalizeFirstLetter } from '../ExercisesSubcategoriesItem/ExercisesSubcategoriesItem';
 
+
 export const ProductItem = ({ product }) => {
   const userBlood = useSelector(selectUser).blood;
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -88,21 +89,11 @@ export const ProductItem = ({ product }) => {
           </List>
         </>
       </ProductWrapp>
-      {isModalOpen && (
-        <FormModal
-          onClose={closeModal}
-          date={'06 - 03 - 2024'}
-          product={product}
-        />
-      )}
       {/* {isModalOpen && (
-        <ExercisesModal
-          onClose={closeModal}
-          date={'06 - 03 - 2024'}
-          exercies={''}
-        />
+        <FormModal onClose={closeModal} date={'06-03-2024'} product={product} />
       )} */}
-      {/* {isModalOpen && <ModalMenu onClose={closeModal} />} */}
+
+      {isModalOpen && <ModalMenu onClose={closeModal} />}
     </>
   );
 };

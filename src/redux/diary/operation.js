@@ -26,6 +26,17 @@ export const addCalories = createAsyncThunk(
 );
 
 
+export const getDiaryList = createAsyncThunk('getDiaryList',
+  async( date, thunkAPI) => {
+    try {
+      const {data} = await axios.get(`/diary/getDiary/${date}`);
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message)
+    }
+  }
+)
+
 export const removeCalories = createAsyncThunk(
   'diary/removeCalories',
   async (caloriesDetails, thunkAPI) => {
@@ -88,3 +99,4 @@ export const deleteProduct = createAsyncThunk(
     }
   }
 );
+

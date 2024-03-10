@@ -15,13 +15,9 @@ export const MenuModalContainer = styled.div`
   border: 1px solid rgba(239, 237, 232, 0.2);
   border-radius: 12px;
 
-  /* top: -100%;
-  
-  margin-left: 100%; */
-
   background: #e6533c;
   height: 100%;
-  /* align-items: center; */
+
   display: flex;
 
   justify-content: center;
@@ -87,7 +83,7 @@ export const LogoutMenu = styled.button`
   border: none;
   color: #efede8;
 `;
-export const SvgMenuModal = styled.svg`
+export const SvgMenuModal = styled.use`
   fill: white;
   color: white;
   stroke: white;

@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const ExercisesModalBackground = styled.div`
-  /* display: none; */
   position: fixed;
   z-index: 100;
   left: 0;

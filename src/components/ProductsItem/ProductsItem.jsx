@@ -21,7 +21,6 @@ import { useSelector } from 'react-redux';
 import { selectUser } from '../../redux/auth/selectors';
 import { capitalizeFirstLetter } from '../ExercisesSubcategoriesItem/ExercisesSubcategoriesItem';
 
-
 export const ProductItem = ({ product }) => {
   const userBlood = useSelector(selectUser).blood;
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -44,14 +43,14 @@ export const ProductItem = ({ product }) => {
             {product.groupBloodNotAllowed[userBlood] ? (
               <>
                 <svg width="14" height="14">
-                  <use href={`${sprite}#icon-checkbox-green`}></use>
+                  <use href={`${sprite}#icon-circle-green`}></use>
                 </svg>
                 <p>Recommended</p>
               </>
             ) : (
               <>
                 <svg width="14" height="14">
-                  <use href={`${sprite}#icon-checkbox-red`}></use>
+                  <use href={`${sprite}#icon-circle-red`}></use>
                 </svg>
                 <p>Not recommended</p>
               </>

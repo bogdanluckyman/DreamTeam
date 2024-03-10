@@ -18,10 +18,14 @@ import ExercisesModal from '../ExercisesFolder/ExercisesModal';
 import sprite from '../../img/symbol-defs.svg';
 import { colors } from '../../styles/colors';
 import ModalMenu from './ModalMenu';
-
+import { useSelector } from 'react-redux';
+import { selectUser } from '../../redux/auth/selectors';
 
 export const ProductItem = ({ product }) => {
+  const userBlood = useSelector(selectUser).blood;
   const [isModalOpen, setIsModalOpen] = useState(false);
+  //console.log(userBlood);
+  //console.log(product.groupBloodNotAllowed[userBlood]);
   const openModal = () => {
     setIsModalOpen(true);
   };
@@ -36,8 +40,22 @@ export const ProductItem = ({ product }) => {
             <p>diet</p>
           </DietMark>
           <TopLineRightWrapper>
-            <RecomendedLight></RecomendedLight>
-            <p>rec</p>
+            {product.groupBloodNotAllowed[userBlood] ? (
+              <>
+                <svg width="14" height="14">
+                  <use href={`${sprite}#icon-checkbox-red`}></use>
+                </svg>
+                <p>Not recommended</p>
+              </>
+            ) : (
+              <>
+                <svg width="14" height="14">
+                  <use href={`${sprite}#icon-checkbox-green`}></use>
+                </svg>
+                <p>Recommended</p>
+              </>
+            )}
+
             <AddBtn type="button" onClick={openModal}>
               <p>Add</p>
               <svg width="16" height="16">

@@ -47,7 +47,7 @@ export const ProductsFilters = () => {
         <OptionSelect
           name="category"
           onChange={(evt) =>
-            dispatch(setFilters({ category: evt.target.value }))
+            dispatch(setFilters({ category: evt.target.value.toLowerCase() }))
           }
         >
           <option defaultChecked>Categories</option>
@@ -57,7 +57,9 @@ export const ProductsFilters = () => {
         </OptionSelect>
         <OptionSelect
           name="filter"
-          onChange={(evt) => dispatch(setFilters({ filter: evt.target.value }))}
+          onChange={(evt) =>
+            dispatch(setFilters({ filter: evt.target.value.toLowerCase }))
+          }
         >
           <option defaultChecked>All</option>
 

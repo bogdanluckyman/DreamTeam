@@ -6,6 +6,8 @@ export const FiltersField = styled.div`
   margin-bottom: 40px;
 
   @media screen and (min-width: 768px) {
+    width: 664px;
+
     display: flex;
     margin-bottom: 32px;
   }
@@ -60,6 +62,12 @@ export const OptionSelect = styled.select`
   font-size: 14px;
   border: 1px solid var(--more-light-grey-color);
   border-radius: 12px;
+
+  @media screen and (min-width: 768px) {
+    &:not(:last-child) {
+      margin-right: 16px;
+    }
+  }
 
   &:hover,
   &:focus {

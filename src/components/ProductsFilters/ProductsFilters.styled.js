@@ -11,6 +11,9 @@ export const FiltersField = styled.div`
     display: flex;
     margin-bottom: 32px;
   }
+  @media screen and (min-width: 1440px) {
+    margin-left: 454px;
+  }
 `;
 
 export const InputWrap = styled.div`

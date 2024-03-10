@@ -4,6 +4,7 @@ import bgImg2 from '../../../img/products-background-meal.@2x.jpg';
 
 export const Container = styled.div`
   display: flex;
+  position: relative;
 `;
 
 export const RightImageContainer = styled.div`
@@ -11,6 +12,9 @@ export const RightImageContainer = styled.div`
 
   @media screen and (min-width: 1440px) {
     display: block;
+    position: absolute;
+    right: 0;
+
     background-size: 100%;
     background-image: url(${bgImg});
 
@@ -29,5 +33,12 @@ export const RightImageContainer = styled.div`
 `;
 
 export const ContentWrap = styled.div`
-  margin-right: 0;
+  margin-right: auto;
+  margin-left: auto;
+`;
+
+export const TopLineWrap = styled.div`
+  @media screen and (min-width: 1440px) {
+    display: flex;
+  }
 `;

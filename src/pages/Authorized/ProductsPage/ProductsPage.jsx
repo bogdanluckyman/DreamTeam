@@ -13,6 +13,7 @@ import {
   Container,
   ContentWrap,
   RightImageContainer,
+  TopLineWrap,
 } from './ProductsPage.styled';
 
 export default function ProductsPage() {
@@ -31,8 +32,10 @@ export default function ProductsPage() {
   return (
     <Container>
       <ContentWrap>
-        <TitlePage title="Products" />
-        <ProductsFilters />
+        <TopLineWrap>
+          <TitlePage title="Products" />
+          <ProductsFilters />
+        </TopLineWrap>
         <ProductsList />
       </ContentWrap>
       <RightImageContainer></RightImageContainer>

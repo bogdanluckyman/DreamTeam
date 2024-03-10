@@ -68,11 +68,9 @@ export const ProductItem = ({ product }) => {
           </List>
         </>
       </ProductWrapp>
-      {/* {isModalOpen && (
+      {isModalOpen && (
         <FormModal onClose={closeModal} date={'06-03-2024'} product={product} />
-      )} */}
-
-      {isModalOpen && <ModalMenu onClose={closeModal} />}
+      )}
     </>
   );
 };

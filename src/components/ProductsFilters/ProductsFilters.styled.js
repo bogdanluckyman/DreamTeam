@@ -13,6 +13,7 @@ export const FiltersField = styled.div`
 
 export const InputWrap = styled.div`
   display: flex;
+  justify-content: space-between;
   width: inherit;
   padding: 14px;
 
@@ -63,10 +64,6 @@ export const OptionSelect = styled.select`
   &:hover,
   &:focus {
     outline: 0;
-  }
-
-  &:not(:last-child) {
-    margin-right: 16px;
   }
 `;
 

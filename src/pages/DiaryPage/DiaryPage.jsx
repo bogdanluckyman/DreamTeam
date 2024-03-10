@@ -1,12 +1,16 @@
 import { DiaryExercises } from '../../components/DiaryComponents/DiaryExercises/DiaryExercises';
 import { DiaryProducts } from '../../components/DiaryComponents/DiaryProducts/DiaryProducts';
 import MediaQuery from 'react-responsive';
-import {TitlePage} from '../../components/TitlePage/TitlePage'
+import { TitlePage } from '../../components/TitlePage/TitlePage';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
-import format from 'date-fns';
+import format from 'date-fns/format';
 import DaySwitch from '../../components/DiaryComponents/DaySwitch/DaySwitch';
-import {DiaryTitleWrap, DiaryActWrap, DiaryContentWrap} from './DiaryPage.style'
+import {
+  DiaryTitleWrap,
+  DiaryActWrap,
+  DiaryContentWrap,
+} from './DiaryPage.style';
 import { Loader } from '../../components/Loader/Loader';
 import { selectIsLoadingDiary } from '../../redux/diary/selectors';
 import { getDiaryList } from '../../redux/diary/operation';
@@ -29,12 +33,12 @@ export const DiaryPage = () => {
   }, [dispatch, selectDate]);
 
   useEffect(() => {
-    dispatch(refreshUser())
-  }, [dispatch])
+    dispatch(refreshUser());
+  }, [dispatch]);
 
   return (
     <>
-      {isLoading && < Loader/>}
+      {isLoading && <Loader />}
       <section>
         <DiaryTitleWrap>
           <TitlePage>Diary</TitlePage>

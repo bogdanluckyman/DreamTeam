@@ -26,7 +26,7 @@ export const ProductsFilters = () => {
           name="title"
           placeholder="Search"
           onChange={(evt) => {
-            dispatch(setFilters({ title: evt.target.value }));
+            dispatch(setFilters({ title: evt.target.value.trim() }));
           }}
         />
         {inputValue.length > 0 && (

@@ -82,7 +82,7 @@ export const ProductItem = ({ product }) => {
             <Term>Calories:</Term>
             <Definition>{product.calories}</Definition>
             <Term>Category:</Term>
-            <Definition>{product.category}</Definition>
+            <Definition>{capitalizeFirstLetter(product.category)}</Definition>
             <Term>Weight:</Term>
             <Definition>{product.weight}</Definition>
           </List>

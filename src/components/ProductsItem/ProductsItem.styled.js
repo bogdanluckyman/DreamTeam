@@ -32,7 +32,7 @@ export const TopLineWrapper = styled.div`
 
 export const TopLineRightWrapper = styled.div`
   display: flex;
-  align-items: baseline;
+  align-items: center;
 `;
 
 export const DietMark = styled.div`
@@ -109,4 +109,8 @@ export const AddBtn = styled.button`
   color: var(--orange-color);
   background-color: var(--black-color);
   border: none;
+`;
+
+export const Text = styled.p`
+  margin-left: 8px;
 `;

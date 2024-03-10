@@ -1,12 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { addCalories, addExercises, removeCalories } from './operation';
 
-export const caloriesInitialState = {
-  productCalories: [{ value: 2 }],
-  exerciesesResults: [],
-  isLoading: false,
-  error: null,
-};
+// export const caloriesInitialState = {
+//   productCalories: [{ value: 2 }],
+//   exerciesesResults: [],
+//   isLoading: false,
+//   error: null,
+// };
 
 const handleRejected = (state, action) => {
   console.log('999999999');
@@ -20,7 +20,12 @@ const handlePending = (state) => {
 
 export const diarySlice = createSlice({
   name: 'diary',
-  initialState: caloriesInitialState,
+  initialState: {
+    productCalories: [{ value: 2 }],
+    exerciesesResults: [],
+    isLoading: false,
+    error: null,
+  },
   extraReducers: (builder) => {
     builder
       .addCase(addCalories.pending, handlePending)

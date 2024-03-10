@@ -24,8 +24,7 @@ import { capitalizeFirstLetter } from '../ExercisesSubcategoriesItem/ExercisesSu
 export const ProductItem = ({ product }) => {
   const userBlood = useSelector(selectUser).blood;
   const [isModalOpen, setIsModalOpen] = useState(false);
-  //console.log(userBlood);
-  //console.log(product.groupBloodNotAllowed[userBlood]);
+
   const openModal = () => {
     setIsModalOpen(true);
   };

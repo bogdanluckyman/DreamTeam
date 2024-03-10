@@ -17,9 +17,9 @@ export const ProductsList = () => {
   const dispatch = useDispatch();
   const selectedFilters = useSelector(selectFilter);
 
-  //  useEffect(() => {
-  //    dispatch(fetchProducts({ selectedFilters, TOKEN }));
-  //  }, [selectedFilters]);
+  useEffect(() => {
+    dispatch(fetchProducts({ selectedFilters, TOKEN }));
+  }, [selectedFilters]);
 
   const filteredProducts = useSelector(selectProducts);
 

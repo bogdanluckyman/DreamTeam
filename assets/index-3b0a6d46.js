@@ -382,7 +382,7 @@ to {
   color: #888;
   font-size: 32px;
   text-align: center;
-`,O4=C.lazy(()=>Sd(()=>import("./Home-6f6926f3.js"),[])),M4=C.lazy(()=>Sd(()=>Promise.resolve().then(()=>g9),void 0)),N4=C.lazy(()=>Sd(()=>Promise.resolve().then(()=>x9),void 0)),R4=C.lazy(()=>Sd(()=>Promise.resolve().then(()=>Lz),void 0)),Qx=()=>{const e=zt(),{isRefreshing:t}=dl();return C.useEffect(()=>{e(Xi())},[e]),t?g.jsx(P4,{children:"Refreshing..."}):g.jsx(g.Fragment,{children:g.jsx(Sk,{children:g.jsxs(it,{path:"/",element:g.jsx(_4,{}),children:[g.jsx(it,{index:!0,element:g.jsx(O4,{})}),g.jsx(it,{path:"/signup",element:g.jsx(ms,{redirectTo:"/profile",component:g.jsx(M4,{})})}),g.jsx(it,{path:"/signin",element:g.jsx(ms,{redirectTo:"/profile",component:g.jsx(N4,{})})}),g.jsx(it,{path:"/profile",element:g.jsx(rs,{redirectTo:"/profile",component:g.jsx(R4,{})})}),g.jsx(it,{path:"*",element:g.jsx(Zr,{to:"/error"})})]})})})},Kx="/DreamTeam/assets/hero-background-mobile-1x-13cc494e.jpg",j4="/DreamTeam/assets/hero-background-mobile-2x-3da7be96.jpg",qp="/DreamTeam/assets/hero-background-tablet-1x-0b19296c.jpg",Zx="/DreamTeam/assets/hero-background-1x-bba9b0f3.jpg",I4="/DreamTeam/assets/hero-background-2x-6f32b58d.jpg",A4=T.div`
+`,O4=C.lazy(()=>Sd(()=>import("./Home-1605c0a9.js"),[])),M4=C.lazy(()=>Sd(()=>Promise.resolve().then(()=>g9),void 0)),N4=C.lazy(()=>Sd(()=>Promise.resolve().then(()=>x9),void 0)),R4=C.lazy(()=>Sd(()=>Promise.resolve().then(()=>Lz),void 0)),Qx=()=>{const e=zt(),{isRefreshing:t}=dl();return C.useEffect(()=>{e(Xi())},[e]),t?g.jsx(P4,{children:"Refreshing..."}):g.jsx(g.Fragment,{children:g.jsx(Sk,{children:g.jsxs(it,{path:"/",element:g.jsx(_4,{}),children:[g.jsx(it,{index:!0,element:g.jsx(O4,{})}),g.jsx(it,{path:"/signup",element:g.jsx(ms,{redirectTo:"/profile",component:g.jsx(M4,{})})}),g.jsx(it,{path:"/signin",element:g.jsx(ms,{redirectTo:"/profile",component:g.jsx(N4,{})})}),g.jsx(it,{path:"/profile",element:g.jsx(rs,{redirectTo:"/profile",component:g.jsx(R4,{})})}),g.jsx(it,{path:"*",element:g.jsx(Zr,{to:"/error"})})]})})})},Kx="/DreamTeam/assets/hero-background-mobile-1x-13cc494e.jpg",j4="/DreamTeam/assets/hero-background-mobile-2x-3da7be96.jpg",qp="/DreamTeam/assets/hero-background-tablet-1x-0b19296c.jpg",Zx="/DreamTeam/assets/hero-background-1x-bba9b0f3.jpg",I4="/DreamTeam/assets/hero-background-2x-6f32b58d.jpg",A4=T.div`
   background:
     linear-gradient(170deg, #040404 3.66%, rgba(4, 4, 4, 0) 19.15%),
     linear-gradient(73deg, #040404 6.11%, rgba(4, 4, 4, 0) 66.68%),
@@ -526,7 +526,7 @@ color: var(--white-color)
     width: 44pxpx;
     height: 17px;
   }
-`,cn="/DreamTeam/assets/symbol-defs-a117cf3a.svg";var BS={exports:{}},Y4="SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",H4=Y4,U4=H4;function YS(){}function HS(){}HS.resetWarningCache=YS;var V4=function(){function e(r,i,o,a,s,l){if(l!==U4){var c=new Error("Calling PropTypes validators directly is not supported by the `prop-types` package. Use PropTypes.checkPropTypes() to call them. Read more at http://fb.me/use-check-prop-types");throw c.name="Invariant Violation",c}}e.isRequired=e;function t(){return e}var n={array:e,bigint:e,bool:e,func:e,number:e,object:e,string:e,symbol:e,any:e,arrayOf:t,element:e,elementType:e,instanceOf:t,node:e,objectOf:t,oneOf:t,oneOfType:t,shape:t,exact:t,checkPropTypes:HS,resetWarningCache:YS};return n.PropTypes=n,n};BS.exports=V4();var G4=BS.exports;const Xt=Rr(G4),q4=T.button`
+`,cn="/DreamTeam/assets/symbol-defs-d61a89ce.svg";var BS={exports:{}},Y4="SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",H4=Y4,U4=H4;function YS(){}function HS(){}HS.resetWarningCache=YS;var V4=function(){function e(r,i,o,a,s,l){if(l!==U4){var c=new Error("Calling PropTypes validators directly is not supported by the `prop-types` package. Use PropTypes.checkPropTypes() to call them. Read more at http://fb.me/use-check-prop-types");throw c.name="Invariant Violation",c}}e.isRequired=e;function t(){return e}var n={array:e,bigint:e,bool:e,func:e,number:e,object:e,string:e,symbol:e,any:e,arrayOf:t,element:e,elementType:e,instanceOf:t,node:e,objectOf:t,oneOf:t,oneOfType:t,shape:t,exact:t,checkPropTypes:HS,resetWarningCache:YS};return n.PropTypes=n,n};BS.exports=V4();var G4=BS.exports;const Xt=Rr(G4),q4=T.button`
   margin-top: 28px;
   display: flex;
   padding: 12px 40px;
@@ -1998,7 +1998,7 @@ Notiflix needs to be appended to the "<`+P+'>" element, but you called it before
   }
 `,l7=T.div`
   display: flex;
-  align-items: baseline;
+  align-items: center;
 `,c7=T.div`
   width: 41px;
   height: 24px;
@@ -2059,7 +2059,9 @@ Notiflix needs to be appended to the "<`+P+'>" element, but you called it before
   color: var(--orange-color);
   background-color: var(--black-color);
   border: none;
-`,h7=T.div`
+`;T.p`
+  margin-left: 8px;
+`;const h7=T.div`
   position: fixed;
   z-index: 50;
   left: 0;
@@ -2178,7 +2180,7 @@ Notiflix needs to be appended to the "<`+P+'>" element, but you called it before
   font-weight: 400;
   font-size: 12px;
   line-height: 1.5;
-`;function Yu(e){return e.charAt(0).toUpperCase()+e.slice(1)}const T7=({category:{filter:e,name:t,imgURL:n}})=>g.jsxs(S7,{style:{backgroundImage:`url(${n})`,backgroundSize:"cover"},children:[g.jsx(E7,{children:Yu(t)}),g.jsx(C7,{children:e})]}),_7=({product:e})=>{const t=je(ul).blood,[n,r]=C.useState(!1),i=()=>{r(!0)},o=()=>{r(!1)};return g.jsxs(g.Fragment,{children:[g.jsxs(a7,{children:[g.jsxs(s7,{children:[g.jsx(c7,{children:g.jsx("p",{children:"diet"})}),g.jsxs(l7,{children:[e.groupBloodNotAllowed[t]?g.jsxs(g.Fragment,{children:[g.jsx("svg",{width:"14",height:"14",children:g.jsx("use",{href:`${cn}#icon-checkbox-green`})}),g.jsx("p",{children:"Recommended"})]}):g.jsxs(g.Fragment,{children:[g.jsx("svg",{width:"14",height:"14",children:g.jsx("use",{href:`${cn}#icon-checkbox-red`})}),g.jsx("p",{children:"Not recommended"})]}),g.jsxs(f7,{type:"button",onClick:i,children:[g.jsx("p",{children:"Add"}),g.jsx("svg",{width:"16",height:"16",children:g.jsx("use",{href:`${cn}#icon-next`,style:{stroke:yt.orange},width:"16"})})]})]})]}),g.jsxs(g.Fragment,{children:[g.jsxs(u7,{children:[g.jsx("svg",{width:"24",height:"24",children:g.jsx("use",{href:`${cn}#icon-man-run`})}),g.jsx(d7,{children:Yu(e.title)})]}),g.jsxs(p7,{children:[g.jsx(xf,{children:"Calories:"}),g.jsx(vf,{children:e.calories}),g.jsx(xf,{children:"Category:"}),g.jsx(vf,{children:Yu(e.category)}),g.jsx(xf,{children:"Weight:"}),g.jsx(vf,{children:e.weight})]})]})]}),n&&g.jsx(k7,{onClose:o})]})},D7=T.div`
+`;function Yu(e){return e.charAt(0).toUpperCase()+e.slice(1)}const T7=({category:{filter:e,name:t,imgURL:n}})=>g.jsxs(S7,{style:{backgroundImage:`url(${n})`,backgroundSize:"cover"},children:[g.jsx(E7,{children:Yu(t)}),g.jsx(C7,{children:e})]}),_7=({product:e})=>{const t=je(ul).blood,[n,r]=C.useState(!1),i=()=>{r(!0)},o=()=>{r(!1)};return g.jsxs(g.Fragment,{children:[g.jsxs(a7,{children:[g.jsxs(s7,{children:[g.jsx(c7,{children:g.jsx("p",{children:"diet"})}),g.jsxs(l7,{children:[e.groupBloodNotAllowed[t]?g.jsxs(g.Fragment,{children:[g.jsx("svg",{width:"14",height:"14",children:g.jsx("use",{href:`${cn}#icon-circle-green`})}),g.jsx(Text,{children:"Recommended"})]}):g.jsxs(g.Fragment,{children:[g.jsx("svg",{width:"14",height:"14",children:g.jsx("use",{href:`${cn}#icon-circle-red`})}),g.jsx(Text,{children:"Not recommended"})]}),g.jsxs(f7,{type:"button",onClick:i,children:[g.jsx("p",{children:"Add"}),g.jsx("svg",{width:"16",height:"16",children:g.jsx("use",{href:`${cn}#icon-next`,style:{stroke:yt.orange},width:"16"})})]})]})]}),g.jsxs(g.Fragment,{children:[g.jsxs(u7,{children:[g.jsx("svg",{width:"24",height:"24",children:g.jsx("use",{href:`${cn}#icon-man-run`})}),g.jsx(d7,{children:Yu(e.title)})]}),g.jsxs(p7,{children:[g.jsx(xf,{children:"Calories:"}),g.jsx(vf,{children:e.calories}),g.jsx(xf,{children:"Category:"}),g.jsx(vf,{children:Yu(e.category)}),g.jsx(xf,{children:"Weight:"}),g.jsx(vf,{children:e.weight})]})]})]}),n&&g.jsx(k7,{onClose:o})]})},D7=T.div`
   @media screen and (min-width: 768px) {
     width: 704px;
     height: 660px;

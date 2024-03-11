@@ -32,7 +32,7 @@ const ExercisesModal = ({ onClose, date, exercies }) => {
   const [restart, setReStart] = useState(false);
   const [closeModal, setcloseModal] = useState(false);
   const [counter, setCounter] = useState(0);
-  const [seconds, setSeconds] = useState(1);
+  const [seconds, setSeconds] = useState(0);
   const [overallResult, setOverallResult] = useState(3);
   const dispatch = useDispatch();
   const errorValue = useSelector((state) => state.diary.error);

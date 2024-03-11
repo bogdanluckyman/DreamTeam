@@ -1,5 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import Notiflix from 'notiflix';
+
 
 axios.defaults.baseURL = 'https://dream-team-backend-10w1.onrender.com/';
 
@@ -73,8 +75,10 @@ export const updateUserInfo = createAsyncThunk(
   async (params, thunkAPI) => {
     try {
       const res = await axios.patch('api/users/update', params);
+      Notiflix.Notify.success('Information is updated.');
       return res.data;
     } catch (error) {
+      Notiflix.Notify.failure('Error! Try again.');
       return thunkAPI.rejectWithValue(error.message);
     }
   }

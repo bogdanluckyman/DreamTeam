@@ -139,3 +139,7 @@ export const SettingImg = styled.img`
   }
 `;
 
+export const LogoButton = styled.a`
+  cursor: pointer;
+`;
+

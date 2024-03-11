@@ -7,7 +7,8 @@ export const Block = styled.div`
   text-align: center;
   width: 280px;
   height: 206px;
-  border: 1px solid white;
+  border: 1px solid;
+  border-color: rgba(255, 255, 255, 0.3);
   border-radius: 5px;
   transform: scale(0.98);
   opacity: 0.8;

@@ -60,3 +60,8 @@ export const TopLineWrap = styled.div`
     z-index: 2;
   }
 `;
+
+export const LoaderWrap = styled.div`
+  margin-right: auto;
+  margin-left: auto;
+`;

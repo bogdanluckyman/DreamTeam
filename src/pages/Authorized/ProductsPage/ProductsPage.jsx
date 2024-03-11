@@ -16,6 +16,7 @@ import {
 import {
   BgWrap,
   Container,
+  LoaderWrap,
   RightImageContainer,
   TopLineWrap,
 } from './ProductsPage.styled';
@@ -42,7 +43,13 @@ const ProductsPage = () => {
           <TitlePage title="Products" />
           <ProductsFilters />
         </TopLineWrap>
-        {isLoading && !error ? <Loader /> : <ProductsList />}
+        {isLoading && !error ? (
+          <LoaderWrap>
+            <Loader />
+          </LoaderWrap>
+        ) : (
+          <ProductsList />
+        )}
       </Container>
 
       {error && <ErrorPage />}

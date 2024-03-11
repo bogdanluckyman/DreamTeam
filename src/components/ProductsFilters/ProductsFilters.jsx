@@ -8,7 +8,6 @@ import {
   SelectsWrap,
   TitleInput,
 } from './ProductsFilters.styled';
-//import productsCategories from './productsCategories.json';
 import { nanoid } from 'nanoid';
 import { selectCategories, selectFilter } from '../../redux/products/selector';
 import sprite from '../../img/symbol-defs.svg';
@@ -19,13 +18,14 @@ export const ProductsFilters = () => {
   const productsCategories = useSelector(selectCategories);
   const inputValue = useSelector(selectFilter).title;
   const selectedCategory = useSelector(selectFilter).category;
+  const selectedFilter = useSelector(selectFilter).filter;
   return (
     <FiltersField>
       <InputWrap>
         <TitleInput
           type="text"
           name="title"
-          value={inputValue}
+          defaultValue={inputValue}
           placeholder="Search"
           onChange={(evt) => {
             dispatch(setFilters({ title: evt.target.value.trim() }));
@@ -65,6 +65,7 @@ export const ProductsFilters = () => {
         </OptionSelect>
         <OptionSelect
           name="filter"
+          value={selectedFilter}
           onChange={(evt) => dispatch(setFilters({ filter: evt.target.value }))}
         >
           <option defaultChecked>All</option>

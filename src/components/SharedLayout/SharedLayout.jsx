@@ -1,17 +1,17 @@
-import { Suspense } from 'react';
-import { Outlet, useLocation } from 'react-router-dom';
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { Outlet } from 'react-router-dom';
 import { Header } from 'components/Header/Header';
 
+import { selectIsLoggedIn } from '../../redux/auth/selectors';
+
 const SharedLayout = () => {
-  const location = useLocation();
-  const isAuthorizedPage = location.pathname !== '/' && location.pathname !== '/signup' && location.pathname !== '/signin';
+  const isLoggedIn = useSelector(selectIsLoggedIn);
 
   return (
     <>
-      {isAuthorizedPage && <Header />}
-      <Suspense fallback={null}>
-        <Outlet />
-      </Suspense>
+      {isLoggedIn && <Header />}
+      <Outlet />
     </>
   );
 };

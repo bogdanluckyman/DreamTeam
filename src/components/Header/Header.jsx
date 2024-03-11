@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { HeaderContainer, Navigation, StyledLink, HeaderLogo, LogoSvg, BurgerSvg, BurgerMenu, SettingsMenu, SettingsSvg, Avatar } from './Header.styled';
+import { HeaderContainer, Navigation, StyledLink, HeaderLogo, LogoSvg, BurgerSvg, BurgerMenu, SettingsMenu, SettingsSvg, Avatar, SettingImg } from './Header.styled';
 import sprite from '../../img/sprite.svg';
 import ModalMenu from '../ProductsItem/ModalMenu';
 import { useMediaQuery } from '@react-hook/media-query'; 
+import settingsImg from '../../img/settings-01.png';
 
 export const Header = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -33,14 +34,13 @@ export const Header = () => {
       </HeaderLogo>
       <Navigation>
         
-        <StyledLink to="/profile">Profile</StyledLink>
+        <StyledLink to="/diary">Diary</StyledLink>
         <StyledLink to="/products">Products</StyledLink>
         <StyledLink to="/exercises">Exercises</StyledLink>
 
         <SettingsMenu onClick={() => navigate('/profile')}>
-          <SettingsSvg>
-            <use xlinkHref={`${sprite}#icon-settings`}/>
-          </SettingsSvg>
+
+          <SettingImg src={settingsImg} alt="Settings" />
         </SettingsMenu>
 
         <Avatar src={avatarUrl} alt="User Avatar" />

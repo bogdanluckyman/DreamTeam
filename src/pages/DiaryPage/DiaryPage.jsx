@@ -41,7 +41,7 @@ export const DiaryPage = () => {
       {isLoading && <Loader />}
       <section>
         <DiaryTitleWrap>
-          <TitlePage>Diary</TitlePage>
+          <TitlePage title={'Diary'}>Diary</TitlePage>
           <DaySwitch onChangeDate={handleDateChange} />
         </DiaryTitleWrap>
         <MediaQuery maxWidth={765}></MediaQuery>

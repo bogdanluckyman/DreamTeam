@@ -1,7 +1,8 @@
 import styled from 'styled-components';
+import { colors } from '../../styles/colors';
 
 export const Title = styled.h2`
-  color: var(--white-color);
+  color: ${colors.white};
   font-family: Roboto;
   font-size: 24px;
   font-style: normal;

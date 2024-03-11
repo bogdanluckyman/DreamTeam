@@ -1,21 +1,26 @@
 import { createGlobalStyle, styled } from 'styled-components';
 
-export const IconSvg = styled.svg`
+export const Wrapper = styled.div`
   position: absolute;
-  top: 14px;
-  right: 14px;
+  left: -50%;
+  top: 90%;
+  transform: translate(0%, 0%);
+  z-index: 999;
 `;
 
-
-export const InputField = styled.input`
-  width: 165px;
-  padding: 14px;
+export const TitleWrapper = styled.button`
+  width: 195px;
+  color: #ffffff;
+  background: inherit;
+  border-radius: 8px;
+  font-weight: 700;
+  line-height: 18px;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 8px 12px;
+  font-size: 16px;
+  justify-content: space-around;
   align-items: center;
-  gap: 10px;
-  border-radius: 12px;
-  border: 1px solid rgba(239, 237, 232, 0.3);
-  background-color: transparent;
-  color: #efede8;
 `;
 export const CalendarGlobalStyles = createGlobalStyle`
  .react-datepicker__wrapper {

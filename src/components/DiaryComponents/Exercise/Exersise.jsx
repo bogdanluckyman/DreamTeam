@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { deleteExercise } from '../../../redux/diary/operation';
+import { deleteDiaryExercise } from '../../../redux/diary/operation';
 import { selectDiaryDate } from '../../../redux/diary/selectors';
 import {
   Card,
@@ -31,7 +31,7 @@ export const Exercise = ({ exercise }) => {
   const dispatch = useDispatch();
 
   const deleteExerciseItem = (exerciseDetails) => {
-    dispatch(deleteExercise(exerciseDetails));
+    dispatch(deleteDiaryExercise(exerciseDetails));
   };
 
   return (

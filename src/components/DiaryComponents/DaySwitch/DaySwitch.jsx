@@ -1,75 +1,115 @@
-import { format, subDays, addDays } from "date-fns";
-import { useState, forwardRef } from "react";
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
-import sprite from '../../../img/sprite.svg';
-import {CalendarGlobalStyles, ButtonWrapper, CalendarWrapper, Icon, CalendarIcon, HeaderWrapper, HeaderIcon, DataHeader, CircleWrapper} from './DaySwitch.style'
+import { useState } from 'react';
+import { format } from 'date-fns';
 
-const DaySwitch = ({ onDateChange }) => {
-    const [startDate, setStartDate] = useState(new Date());
-  
-    const CustomInput = forwardRef(function CustomInput({ onClick }, ref) {
-      return (
-        <CalendarWrapper>
-          <ButtonWrapper onClick={onClick} ref={ref}>
-            {format(startDate, 'dd/MM/yyyy')}
-            <CalendarIcon onClick={onClick} ref={ref}>
-              <use href={`${sprite}#icon-calendar-orange`} />
-            </CalendarIcon>
-          </ButtonWrapper>
-  
-          <Icon onClick={() => handleDateChange(subDays(startDate, 1))}>
-            <use href={`${sprite}#icon-calendar-left`} />
-          </Icon>
-          <Icon onClick={() => handleDateChange(addDays(startDate, 1))}>
-            <use href={`${sprite}#icon-calendar-right`} />
-          </Icon>
-        </CalendarWrapper>
-      );
-    });
-  
-    const handleDateChange = (newDate) => {
-      setStartDate(newDate);
-      if (onDateChange) {
-        onDateChange(newDate);
-      }
-    };
-  
-    const CustomHeader = ({ date, decreaseMonth, increaseMonth }) => {
-      return (
-        <HeaderWrapper>
-          <CircleWrapper onClick={decreaseMonth}>
-            <HeaderIcon>
-              <use href={`${sprite}#icon-calendar-left`} />
-            </HeaderIcon>
-          </CircleWrapper>
-          <DataHeader>{format(date, 'MMMM yyyy')}</DataHeader>
-          <CircleWrapper onClick={increaseMonth}>
-            <HeaderIcon>
-              <use href={`${sprite}#icon-calendar-right`} />
-            </HeaderIcon>
-          </CircleWrapper>
-        </HeaderWrapper>
-      );
-    };
-  
-    return (
-      <>
-        <DatePicker
-          selected={startDate}
-          onChange={(date) => {
-            setStartDate(date);
-            onDateChange(date);
-          }}
-          customInput={<CustomInput />}
-          dateFormat={'dd-MM-yyyy'}
-          calendarStartDay={1}
-          formatWeekDay={(day) => day.substr(0, 2)}
-          renderCustomHeader={(props) => <CustomHeader {...props} />}
-        />
-        <CalendarGlobalStyles />
-      </>
-    );
+import sprite from '../../../img/sprite.svg';
+
+import {
+  BtnNext,
+  BtnPrev,
+  CalenderBtn,
+  CalenderIconSvg,
+  DateLabel,
+  SvgPrev,
+  SvgNext,
+  ContainerWrap,
+} from './DaySwitch.style';
+
+import Datepicker from '../../Datapicker/Datapicker';
+import { toast } from 'react-toastify';
+
+const DaySwitch = ({ currentDate, setCurrentDate, userDateRegistration }) => {
+  const [selectedDate, setSelectedDate] = useState(currentDate);
+  const [isCalendarOpen, setCalendarOpen] = useState(false);
+
+  const [isActivePrev, setIsActivePrev] = useState(false);
+
+  const [isActiveNext, setIsActiveNext] = useState(false);
+
+  const changeDate = (date) => {
+    const dateObject = new Date(date);
+    const day = String(dateObject.getDate()).padStart(2, '0');
+    const month = String(dateObject.getMonth() + 1).padStart(2, '0');
+    const year = dateObject.getFullYear();
+    return `${day}-${month}-${year}`;
   };
-  
-  export default DaySwitch;
+
+  const openCalendar = () => {
+    setCalendarOpen(!isCalendarOpen);
+  };
+
+  const goToPreviousDay = () => {
+    setIsActivePrev(true);
+    const previousDay = new Date(currentDate);
+    const formattedPreviousDay = changeDate(previousDay);
+    if (formattedPreviousDay > userDateRegistration) {
+      previousDay.setDate(previousDay.getDate() - 1);
+      setCurrentDate(previousDay);
+      setSelectedDate(previousDay);
+      setIsActivePrev(false);
+    } else {
+      toast.error(
+        `However, we don't have any data to show you. Selected date cannot be earlier than the registration date: ${userDateRegistration}.`,
+        {
+          theme: 'dark',
+        }
+      );
+      setIsActivePrev(true);
+    }
+  };
+
+  const goToNextDay = () => {
+    setIsActiveNext(true);
+    const today = changeDate(new Date());
+    const nextDay = new Date(selectedDate);
+    nextDay.setDate(selectedDate.getDate() + 1);
+    if (nextDay > new Date()) {
+      toast.error(
+        `However, we don't have any data to show you. Selected date cannot be later than today's date: ${today}.`,
+        {
+          theme: 'dark',
+        }
+      );
+      setIsActiveNext(true);
+    } else {
+      setCurrentDate(nextDay);
+      setSelectedDate(nextDay);
+      setIsActiveNext(false);
+    }
+  };
+
+  const closeCalendar = () => {
+    setCalendarOpen(false);
+  };
+
+  return (
+    <ContainerWrap>
+      <CalenderBtn onClick={openCalendar}>
+        <DateLabel>{format(selectedDate, 'dd/MM/yyyy')}</DateLabel>
+        <CalenderIconSvg>
+          <use href={sprite + '#icon-calendar'} />
+        </CalenderIconSvg>
+      </CalenderBtn>
+      <BtnPrev type="button" onClick={goToPreviousDay}>
+        <SvgPrev className={isActivePrev ? 'passivePrev' : ''}>
+          <use href={sprite + '#icon-chevron-left'} />
+        </SvgPrev>
+      </BtnPrev>
+      <BtnNext type="button" onClick={goToNextDay}>
+        <SvgNext className={isActiveNext ? 'passiveNext' : ''}>
+          <use href={sprite + '#icon-chevron-right'} />
+        </SvgNext>
+      </BtnNext>
+
+      <Datepicker
+        selectedDate={selectedDate}
+        setSelectedDate={setSelectedDate}
+        isOpen={isCalendarOpen}
+        onClose={closeCalendar}
+        setCurrentDate={setCurrentDate}
+        userDateRegistration={userDateRegistration}
+      />
+    </ContainerWrap>
+  );
+};
+
+export default DaySwitch;

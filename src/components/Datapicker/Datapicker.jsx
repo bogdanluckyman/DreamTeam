@@ -1,49 +1,63 @@
 // import { forwardRef, useState } from "react";
 // import { format } from "date-fns";
-import DatePicker from "react-datepicker";
+import 'react-datepicker/dist/react-datepicker-cssmodules.css';
+import DatePicker from 'react-datepicker';
+import { toast } from 'react-toastify';;
 
-import "react-datepicker/dist/react-datepicker-cssmodules.css";
-
-import { CalendarGlobalStyles, IconSvg, InputField } from "./Datapicker.styled";
-import sprite from '../../img/symbol-defs.svg';
-
+import { CalendarGlobalStyles, Wrapper } from "./Datapicker.styled";
 
 
-const StyledDatepicker = ({ selectedDate, setSelectedDate }) => {
-  const handleDateChange = date => {
-    setSelectedDate(date);
+
+const Datepicker = ({
+  selectedDate,
+  setSelectedDate,
+  isOpen,
+  onClose,
+  setCurrentDate,
+  userDateRegistration,
+}) => {
+
+  const changeDate = (date) => {
+    const dateObject = new Date(date);
+    const day = String(dateObject.getDate()).padStart(2, '0');
+    const month = String(dateObject.getMonth() + 1).padStart(2, '0');
+    const year = dateObject.getFullYear();
+    return `${day}-${month}-${year}`;
   };
 
-   
+  const today = changeDate(new Date());
+
+  const handleDateChange = (date) => {
+    const formattedDate = changeDate(date);
+    if (today >= formattedDate && formattedDate >= userDateRegistration) {
+      setSelectedDate(date);
+      setCurrentDate(date);
+      onClose();
+    } else {
+      toast.error(
+        `However, we don't have any data to show you. You can review the information from the day of your registration: ${userDateRegistration} up to today: ${today}. `,
+        {
+          theme: 'dark',
+        }
+      );
+    }
+  };
 
   return (
-    <>
-
-      <div style={{ position: 'relative' }}>
-        <IconSvg width="18" height="18">
-          <use href={`${sprite}#icon-calendar`}></use>
-        </IconSvg>
-
-     <DatePicker
+    <Wrapper>
+      <DatePicker
         selected={selectedDate}
-        onChange={(date) => {
-          handleDateChange(date);
-        }}
-        // customInput={<CustomInput />}
-        customInput={<InputField style={{ cursor: 'pointer' }} />}
-
-        dateFormat={"dd.MM.yyyy"}
+        dateFormat="dd/MM/yyyy"
         calendarStartDay={1}
-        formatWeekDay={(day) => day.substr(0, 2)}
-        
+        formatWeekDay={(day) => day.substr(0, 1)}
+        open={isOpen}
+        customInput={<div style={{ display: 'none' }} />}
+        onChange={handleDateChange}
+        minDate={new Date(userDateRegistration)}
+        maxDate={new Date(today)}
       />
       <CalendarGlobalStyles />
-   
-    </div>
-    </>
-     
-      
+    </Wrapper>
   );
 };
-
-export default StyledDatepicker;
+export default Datepicker;

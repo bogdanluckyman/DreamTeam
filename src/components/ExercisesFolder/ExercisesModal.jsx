@@ -22,7 +22,7 @@ import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 import ExercisesWellDoneModal from './ExercisesWellDoneModal';
 import { timeCalculation } from './timeCalculation';
 import { useDispatch, useSelector } from 'react-redux';
-import { addExercises } from '../../redux/diary/operation';
+import { addDiaryExercise } from '../../redux/diary/operation';
 import Notiflix from 'notiflix';
 
 const ExercisesModal = ({ onClose, date, exercies }) => {
@@ -105,7 +105,7 @@ const ExercisesModal = ({ onClose, date, exercies }) => {
       },
     };
     console.log(newObject);
-    dispatch(addExercises(newObject));
+    dispatch(addDiaryExercise(newObject));
 
     console.log(errorValue);
     setStart(false);

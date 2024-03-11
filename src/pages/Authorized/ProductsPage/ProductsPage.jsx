@@ -9,6 +9,12 @@ import {
 } from '../../../redux/products/operations';
 import { selectToken } from '../../../redux/auth/selectors';
 import { selectFilter } from '../../../redux/products/selector';
+import {
+  BgWrap,
+  Container,
+  RightImageContainer,
+  TopLineWrap,
+} from './ProductsPage.styled';
 
 const ProductsPage = () => {
   const TOKEN = useSelector(selectToken);
@@ -24,11 +30,16 @@ const ProductsPage = () => {
   //  const error = useSelector(selectError);
 
   return (
-    <>
-      <TitlePage title="Products" />
-      <ProductsFilters />
-      <ProductsList />
-    </>
+    <BgWrap>
+      <Container>
+        <TopLineWrap>
+          <TitlePage title="Products" />
+          <ProductsFilters />
+        </TopLineWrap>
+        <ProductsList />
+      </Container>
+      <RightImageContainer></RightImageContainer>
+    </BgWrap>
   );
 };
 // повне версія

@@ -33,7 +33,6 @@ import {
   deleteDiaryProduct,
   getAllDiaryInformation,
 } from '../../../redux/diary/operation';
-// import { toast } from 'react-toastify';
 import Notiflix from 'notiflix';
 import { selectDiaryError } from '../../../redux/diary/selectors';
 
@@ -91,6 +90,7 @@ const DayProducts = ({ productsArray, date }) => {
           <Table>
             <WrapperForItemsArray>
               {productsArray.map((product) => {
+                console.log(product);
                 const type = product.productId.groupBloodNotAllowed[
                   userBloodType
                 ]

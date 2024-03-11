@@ -23,6 +23,7 @@ export const addDiaryProduct = createAsyncThunk(
     try {
       const response = await axios.post(`api/diary/product`, data);
 
+      console.log('add', response.data);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -34,7 +35,7 @@ export const deleteDiaryProduct = createAsyncThunk(
   '/diary/deleteDiaryProduct',
   async (productId, thunkAPI) => {
     try {
-      const response = await axios.delete(`/diary/products/${productId}`);
+      const response = await axios.delete(`/diary/product/${productId}`);
       return response.data;
     } catch (error) {
       Notiflix.Notify.failure(
@@ -65,7 +66,7 @@ export const deleteDiaryExercise = createAsyncThunk(
   '/diary/deleteDiaryExercise',
   async (exerciseId, thunkAPI) => {
     try {
-      const response = await axios.delete(`/diary/exercises/${exerciseId}`);
+      const response = await axios.delete(`/diary/exercise/${exerciseId}`);
       return response.data;
     } catch (error) {
       Notiflix.Notify.failure(

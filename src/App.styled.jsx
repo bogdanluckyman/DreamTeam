@@ -4,6 +4,7 @@ export const AppWrapper = styled.div`
   height: 100%;
   width: 100%;
   background-color: var(--black-color);
+  height: 100%;
 `;
 
 export const Container = styled.div`

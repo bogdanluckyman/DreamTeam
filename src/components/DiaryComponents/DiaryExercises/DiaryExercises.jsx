@@ -1,73 +1,233 @@
-import { useNavigate } from 'react-router-dom';
-import MediaQuery from 'react-responsive';
-import { useSelector } from 'react-redux';
-import { selectDiaryExercises } from '../../../redux/diary/selectors';
+import { NavLink } from 'react-router-dom';
+import { useMediaQuery } from '@mui/material';
+import { toast } from 'react-toastify';
+import { useDispatch, useSelector } from 'react-redux';
+
 import sprite from '../../../img/sprite.svg';
-import { Exercise } from '../Exercise/Exersise';
+
+import { colors } from '../../../styles/colors';
+
 import {
-  SectionOfDiary,
-  SectionWrapper,
-  SectionTitle,
-  NavigationLink,
-  DiaryTabletTitle,
-  DiaryTabletSupTitle,
-  EmptyList,
-  List,
-  SvgForRoute,
-} from '../DiaryComponents.style';
+  TableWrapper,
+  TitleNav,
+  TitleText,
+  NavBlock,
+  NavText,
+  Nothing,
+  Table,
+  WrapperForItemsArray,
+  MobileItemsHolder1,
+  MobileItemsHolder2,
+  MobileItemsHolder3,
+  MobileItemsHolder4,
+  TableDeleteButton,
+  SvgTableStyled,
+  ListMobileArray,
+} from '../DiaryProducts/DiaryProducts.style';
 
-export const DiaryExercises = () => {
-  const navigate = useNavigate();
+import {
+  HeaderArray,
+  ExerciseListArray,
+  ExerciseListArrayItemMobile,
+  HeaderItem,
+  ExerciseListArrayItem,
+} from './DiaryExercises.style';
 
-  const exercises = useSelector(selectDiaryExercises);
+import { selectDiaryError } from '../../../redux/diary/selectors';
+
+import {
+  deleteDiaryExercise,
+  getAllDiaryInformation,
+} from '../../../redux/diary/operation';
+
+const DayExercises = ({ exercisesArray, date }) => {
+  const isMobile = useMediaQuery('(max-width:768px)');
+  const error = useSelector(selectDiaryError);
+  const dispatch = useDispatch();
+
+  const formattedTitle = (exerciseTitle) => {
+    return (
+      exerciseTitle[0].toUpperCase() + exerciseTitle.slice(1).toLowerCase()
+    );
+  };
+
+  const handleDelete = async (id) => {
+    try {
+      await dispatch(deleteDiaryExercise(id));
+      await dispatch(getAllDiaryInformation(date));
+    } catch (error) {
+      console.log(error);
+      toast.error('Sorry, something went wrong, please try again', {
+        theme: 'dark',
+      });
+    }
+  };
 
   return (
-    <SectionOfDiary hight="1066px">
-      <SectionWrapper>
-        <SectionTitle>Exercises</SectionTitle>
-        <NavigationLink onClick={() => navigate('/exercises')}>
-          Add exercise
-          <SvgForRoute>
-            <use href={`${sprite}#icon-arrow-right`}></use>
-          </SvgForRoute>
-        </NavigationLink>
-      </SectionWrapper>
+    <TableWrapper>
+      <TitleNav>
+        <TitleText>Exercises</TitleText>
+        <NavBlock>
+          <NavLink
+            to="/exercises"
+            style={{ display: 'flex', alignItems: 'center' }}
+          >
+            <NavText>Add exercises</NavText>
+            <svg
+              style={{
+                width: '16px',
+                height: '16px',
+                marginLeft: '8px',
+                stroke: colors.orange,
+              }}
+            >
+              <use href={sprite + '#icon-arrow'} />
+            </svg>
+          </NavLink>
+        </NavBlock>
+      </TitleNav>
 
-      {exercises.length !== 0 ? (
-        <>
-          <MediaQuery minWidth={768} maxWidth={1439}>
-            <DiaryTabletTitle>
-              <DiaryTabletSupTitle width="90px">Body Part</DiaryTabletSupTitle>
-              <DiaryTabletSupTitle width="132px">Equipment</DiaryTabletSupTitle>
-              <DiaryTabletSupTitle width="128px">Name</DiaryTabletSupTitle>
-              <DiaryTabletSupTitle width="84px">Target</DiaryTabletSupTitle>
-              <DiaryTabletSupTitle width="78px">
-                Burned Calories
-              </DiaryTabletSupTitle>
-              <DiaryTabletSupTitle width="72px">Time</DiaryTabletSupTitle>
-            </DiaryTabletTitle>
-          </MediaQuery>
-          <MediaQuery minWidth={1440}>
-            <DiaryTabletTitle>
-              <DiaryTabletSupTitle width="115px">Body Part</DiaryTabletSupTitle>
-              <DiaryTabletSupTitle width="157px">Equipment</DiaryTabletSupTitle>
-              <DiaryTabletSupTitle width="131px">Name</DiaryTabletSupTitle>
-              <DiaryTabletSupTitle width="106px">Target</DiaryTabletSupTitle>
-              <DiaryTabletSupTitle width="91px">
-                Burned Calories
-              </DiaryTabletSupTitle>
-              <DiaryTabletSupTitle width="82px">Time</DiaryTabletSupTitle>
-            </DiaryTabletTitle>
-          </MediaQuery>
-          <List>
-            {exercises.map((workout) => (
-              <Exercise workout={workout} key={workout._id} />
-            ))}
-          </List>
-        </>
+      {exercisesArray && exercisesArray.length > 0 && !error ? (
+        isMobile ? (
+          <Table>
+            <WrapperForItemsArray>
+              {exercisesArray.map((exercise) => (
+                <ExerciseListArray key={exercise._id}>
+                  <ExerciseListArrayItemMobile>
+                    Body Part
+                  </ExerciseListArrayItemMobile>
+                  <ExerciseListArrayItemMobile>
+                    {formattedTitle(exercise.exerciseId.bodyPart)}
+                  </ExerciseListArrayItemMobile>
+
+                  <ExerciseListArrayItemMobile>
+                    Equipment
+                  </ExerciseListArrayItemMobile>
+                  <ExerciseListArrayItemMobile>
+                    {formattedTitle(exercise.exerciseId.equipment)}
+                  </ExerciseListArrayItemMobile>
+                  <ExerciseListArrayItemMobile>
+                    Name
+                  </ExerciseListArrayItemMobile>
+                  <ExerciseListArrayItemMobile>
+                    {formattedTitle(exercise.exerciseId.name)}
+                  </ExerciseListArrayItemMobile>
+                  <ListMobileArray>
+                    <MobileItemsHolder1
+                      style={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                      }}
+                    >
+                      <ExerciseListArrayItemMobile>
+                        Target
+                      </ExerciseListArrayItemMobile>
+                      <ExerciseListArrayItemMobile>
+                        {formattedTitle(exercise.exerciseId.target)}
+                      </ExerciseListArrayItemMobile>
+                    </MobileItemsHolder1>
+                    <MobileItemsHolder2
+                      style={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                      }}
+                    >
+                      <ExerciseListArrayItemMobile>
+                        Burned Calories
+                      </ExerciseListArrayItemMobile>
+                      <ExerciseListArrayItemMobile>
+                        {exercise.calories}
+                      </ExerciseListArrayItemMobile>
+                    </MobileItemsHolder2>
+                    <MobileItemsHolder3
+                      style={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                      }}
+                    >
+                      <ExerciseListArrayItemMobile>
+                        Time
+                      </ExerciseListArrayItemMobile>
+                      <ExerciseListArrayItemMobile>
+                        {exercise.time}
+                      </ExerciseListArrayItemMobile>
+                    </MobileItemsHolder3>
+                    <MobileItemsHolder4
+                      style={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                      }}
+                    >
+                      <ExerciseListArrayItemMobile>
+                        {''}
+                      </ExerciseListArrayItemMobile>
+                      <ExerciseListArrayItemMobile>
+                        <TableDeleteButton
+                          type="button"
+                          onClick={() => handleDelete(exercise._id)}
+                        >
+                          <SvgTableStyled>
+                            <use href={sprite + '#icon-trash-03'}></use>
+                          </SvgTableStyled>
+                        </TableDeleteButton>
+                      </ExerciseListArrayItemMobile>
+                    </MobileItemsHolder4>
+                  </ListMobileArray>
+                </ExerciseListArray>
+              ))}
+            </WrapperForItemsArray>
+          </Table>
+        ) : (
+          <Table>
+            <HeaderArray>
+              <HeaderItem>Body Part</HeaderItem>
+              <HeaderItem>Equipment</HeaderItem>
+              <HeaderItem>Name</HeaderItem>
+              <HeaderItem>Target</HeaderItem>
+              <HeaderItem>Burned Calories</HeaderItem>
+              <HeaderItem>Time</HeaderItem>
+              <HeaderItem>{''}</HeaderItem>
+            </HeaderArray>
+
+            <WrapperForItemsArray>
+              {exercisesArray.map((exercise) => (
+                <ExerciseListArray key={exercise._id}>
+                  <ExerciseListArrayItem>
+                    {formattedTitle(exercise.exerciseId.bodyPart)}
+                  </ExerciseListArrayItem>
+                  <ExerciseListArrayItem>
+                    {formattedTitle(exercise.exerciseId.equipment)}
+                  </ExerciseListArrayItem>
+                  <ExerciseListArrayItem>
+                    {formattedTitle(exercise.exerciseId.name)}
+                  </ExerciseListArrayItem>
+                  <ExerciseListArrayItem>
+                    {formattedTitle(exercise.exerciseId.target)}
+                  </ExerciseListArrayItem>
+                  <ExerciseListArrayItem>
+                    {exercise.calories}
+                  </ExerciseListArrayItem>
+                  <ExerciseListArrayItem>{exercise.time}</ExerciseListArrayItem>
+                  <ExerciseListArrayItem>
+                    <TableDeleteButton
+                      type="button"
+                      onClick={() => handleDelete(exercise._id)}
+                    >
+                      <SvgTableStyled>
+                        <use href={sprite + '#icon-trash-03'}></use>
+                      </SvgTableStyled>
+                    </TableDeleteButton>
+                  </ExerciseListArrayItem>
+                </ExerciseListArray>
+              ))}
+            </WrapperForItemsArray>
+          </Table>
+        )
       ) : (
-        <EmptyList>Not found exercises</EmptyList>
+        <Nothing>Not found exercises</Nothing>
       )}
-    </SectionOfDiary>
+    </TableWrapper>
   );
 };
+
+export default DayExercises;

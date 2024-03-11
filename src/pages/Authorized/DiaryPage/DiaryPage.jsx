@@ -1,65 +1,102 @@
-import { DiaryExercises } from '../../../components/DiaryComponents/DiaryExercises/DiaryExercises';
-import { DiaryProducts } from '../../../components/DiaryComponents/DiaryProducts/DiaryProducts';
-import MediaQuery from 'react-responsive';
-// import { TitlePage } from '../../../components/TitlePage/TitlePage';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useState, useEffect } from 'react';
-import format from 'date-fns';
+
 import DaySwitch from '../../../components/DiaryComponents/DaySwitch/DaySwitch';
-import {
-  Title,
-  DiaryTitleWrap,
-  DiaryActWrap,
-  DiaryContentWrap,
-} from './DiaryPage.style';
+import { TitlePage } from '../../../components/TitlePage/TitlePage';
+import DiaryProducts from '../../../components/DiaryComponents/DiaryProducts/DiaryProducts';
+import DiaryExercises from '../../../components/DiaryComponents/DiaryExercises/DiaryExercises';
+import DayDashboard from '../../../components/DiaryWidgets/DayDashboard';
 import { Loader } from '../../../components/Loader/Loader';
-import { selectIsLoadingDiary } from '../../../redux/diary/selectors';
-import { getDiaryList } from '../../../redux/diary/operation';
+
+import {
+  selectDiaryInformation,
+  selectDiaryIsLoading,
+} from '../../../redux/diary/selectors';
+import { getAllDiaryInformation } from '../../../redux/diary/operation';
+
+import {
+  DiaryCont,
+  InfoContainer,
+  ProdAndExercise,
+  TitleAndSwitch,
+  Container,
+} from './DiaryPage.style';
+
+import { toast } from 'react-toastify';
+import {
+  selectBmr,
+  selectIsRefreshing,
+  selectUser,
+} from '../../../redux/auth/selectors';
+
 import { refreshUser } from '../../../redux/auth/operation';
-import { DiaryWidgets } from '../../../components/DiaryWidgets/DiaryWidgets';
-import {Section} from '../../../components/DiaryComponents/Section/Section'
 
 export const DiaryPage = () => {
   const dispatch = useDispatch();
-  const [selectDate, setSelectDate] = useState(
-    format(new Date(), 'dd-MM-yyyy')
-  );
-  const isLoading = useSelector(selectIsLoadingDiary);
-
-  const handleDateChange = (date) => {
-    const newDate = format(date, 'dd-MM-yyyy');
-    setSelectDate(newDate);
+  const userData = useSelector(selectDiaryInformation);
+  const isLoading = useSelector(selectDiaryIsLoading);
+  const isRefreshing = useSelector(selectIsRefreshing);
+  const bmr = useSelector(selectBmr);
+  const { addProducts, addExercises } = userData;
+  const [currentDate, setCurrentDate] = useState(new Date());
+  const user = useSelector(selectUser);
+  const userDataRegistration = user.createdAt;
+  const changeDate = (date) => {
+    const dateObject = new Date(date);
+    const day = String(dateObject.getDate()).padStart(2, '0');
+    const month = String(dateObject.getMonth() + 1).padStart(2, '0');
+    const year = dateObject.getFullYear();
+    return `${day}-${month}-${year}`;
   };
 
-  useEffect(() => {
-    dispatch(getDiaryList(selectDate));
-  }, [dispatch, selectDate]);
+  const formattedCurrentDate = changeDate(currentDate);
+  const formattedUserDateRegistration = changeDate(userDataRegistration);
 
   useEffect(() => {
-    dispatch(refreshUser());
-  }, [dispatch]);
+    const fetchData = async () => {
+      try {
+        await dispatch(refreshUser());
+        await dispatch(getAllDiaryInformation(formattedCurrentDate));
+      } catch (error) {
+        toast.error('Sorry, something went wrong, please try again', {
+          theme: 'dark',
+        });
+      }
+    };
+    fetchData();
+  }, [dispatch, formattedCurrentDate, currentDate]);
 
   return (
-    <>
-      {isLoading && <Loader />}
-      <Section>
-        <DiaryTitleWrap>
-          <Title>Diary</Title>
-          <DaySwitch onChangeDate={handleDateChange} />
-        </DiaryTitleWrap>
-        <MediaQuery maxWidth={765}>
-          <DiaryWidgets/>
-        </MediaQuery>
-        <DiaryContentWrap>
-          <DiaryActWrap>
-            <DiaryProducts />
-            <DiaryExercises />
-          </DiaryActWrap>
-          <MediaQuery minWidth={768}>
-          <DiaryWidgets/>
-          </MediaQuery>
-        </DiaryContentWrap>
-      </Section>
-    </>
+    <Container>
+      {isLoading || isRefreshing ? (
+        <Loader />
+      ) : (
+        <DiaryCont>
+          <TitleAndSwitch>
+            <TitlePage title="Diary" />
+            <DaySwitch
+              currentDate={currentDate}
+              setCurrentDate={setCurrentDate}
+              userDateRegistration={formattedUserDateRegistration}
+            />
+          </TitleAndSwitch>
+          <InfoContainer>
+            <DayDashboard userDiaryInformation={userData} bmr={bmr} />
+            <ProdAndExercise>
+              <DiaryProducts
+                productsArray={addProducts}
+                date={formattedCurrentDate}
+              />
+              <DiaryExercises
+                exercisesArray={addExercises}
+                date={formattedCurrentDate}
+              />
+            </ProdAndExercise>
+          </InfoContainer>
+        </DiaryCont>
+      )}
+    </Container>
   );
 };
+
+// export default DiaryPage;

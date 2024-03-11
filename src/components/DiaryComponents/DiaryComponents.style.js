@@ -19,7 +19,7 @@ export const SectionOfDiary = styled.section `
     @media screen and (min-width: 768px) {
     min-width: 704px;
     min-height: 236px;
-    height: 236px;
+    /* height: 236px; */
     gap: 16px;
   }
 

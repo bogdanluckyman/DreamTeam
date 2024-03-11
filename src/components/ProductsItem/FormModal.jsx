@@ -19,7 +19,7 @@ import Notiflix from 'notiflix';
 import { useState } from 'react';
 import WellDoneModal from './WellDoneModal';
 import { useDispatch, useSelector } from 'react-redux';
-import { addCalories } from '../../redux/diary/operation';
+import { addDiaryProduct } from '../../redux/diary/operation';
 
 const FormModal = ({ onClose, product, date }) => {
   const [showWellDoneModal, setShowWellDoneModal] = useState(false);
@@ -78,7 +78,7 @@ const FormModal = ({ onClose, product, date }) => {
 
       console.log(errorValue);
 
-      dispatch(addCalories(newObjekt));
+      dispatch(addDiaryProduct(newObjekt));
       if (errorValue !== null) {
         Notiflix.Notify.failure('Sorry, something went wrong. Try again');
         return;

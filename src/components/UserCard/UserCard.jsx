@@ -23,18 +23,15 @@ import DailyRate from '../DailyRate/DailyRate';
 import WarningMessage from '../WarningMessage/WarningMessage';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUser } from '../../redux/auth/selectors';
-import {  updateAvatar } from '../../redux/auth/operation';
+import { updateAvatar } from '../../redux/auth/operation';
 
+const UserCard = () => {
+  const dispatch = useDispatch();
+  const user = useSelector(selectUser);
 
-const UserCard= () => {
+  // console.log(user)
 
-const dispatch = useDispatch();
-const user = useSelector(selectUser);
-
-// console.log(user)
-
-const [avatar, setAvatar] = useState(user.avatarURL);
-
+  const [avatar, setAvatar] = useState(user.avatarURL);
 
   const avatarUser = <Photo src={avatar} width="100%" alt="Avatar" />;
   const avatarLogo = (
@@ -43,8 +40,7 @@ const [avatar, setAvatar] = useState(user.avatarURL);
     </SvgLogoUser>
   );
 
-
-  const handleAvatarChange = event => {
+  const handleAvatarChange = (event) => {
     const file = event.target.files[0];
     if (file) {
       const blob = new Blob([file]);
@@ -62,7 +58,7 @@ const [avatar, setAvatar] = useState(user.avatarURL);
 
   return (
     <Wrapper>
-      <Avatar>{ avatar ? avatarUser : avatarLogo}</Avatar>
+      <Avatar>{avatar ? avatarUser : avatarLogo}</Avatar>
       <form id="upload-form">
         <input
           type="file"
@@ -82,29 +78,24 @@ const [avatar, setAvatar] = useState(user.avatarURL);
       <TitleName>{user.name}</TitleName>
       <Subtitle>User</Subtitle>
       <WrapperDiv>
-              <DailyRate
-                color="var(--orange-color)"
-                iconId="icon-fork"
-                text="Daily calorie intake"
-                value={user.bmr}
-              />
-              <DailyRate
-                color="var(--orange-color)"
-                iconId="icon-dumbbell"
-                text="Daily physical activity"
-                value={user.dailyActivity}
-              />
-            </WrapperDiv>
-            <WarningMessage />
-            <WrapperLogOut>
-            <Logout
-            />
-
-            </WrapperLogOut>
-           
-            
-            </Wrapper>
-
+        <DailyRate
+          color="var(--orange-color)"
+          iconId="icon-fork"
+          text="Daily calorie intake"
+          value={user.bmr}
+        />
+        <DailyRate
+          color="var(--orange-color)"
+          iconId="icon-dumbbell"
+          text="Daily physical activity"
+          value={user.dailyActivity}
+        />
+      </WrapperDiv>
+      <WarningMessage />
+      <WrapperLogOut>
+        <Logout />
+      </WrapperLogOut>
+    </Wrapper>
   );
 };
 

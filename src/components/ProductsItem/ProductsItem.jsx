@@ -2,12 +2,13 @@ import { useState } from 'react';
 import FormModal from './FormModal';
 import {
   AddBtn,
+  CategoryDefinition,
   Definition,
   DietMark,
   List,
   ProductName,
   ProductWrapp,
-  RecomendedLight,
+  Recommended,
   Term,
   TitleWrap,
   TopLineRightWrapper,
@@ -44,14 +45,14 @@ export const ProductItem = ({ product }) => {
                 <svg width="14" height="14">
                   <use href={`${sprite}#icon-circle-green`}></use>
                 </svg>
-                <p>Recommended</p>
+                <Recommended>Recommended</Recommended>
               </>
             ) : (
               <>
                 <svg width="14" height="14">
                   <use href={`${sprite}#icon-circle-red`}></use>
                 </svg>
-                <p>Not recommended</p>
+                <Recommended>Not recommended</Recommended>
               </>
             )}
 
@@ -81,7 +82,9 @@ export const ProductItem = ({ product }) => {
             <Term>Calories:</Term>
             <Definition>{product.calories}</Definition>
             <Term>Category:</Term>
-            <Definition>{capitalizeFirstLetter(product.category)}</Definition>
+            <CategoryDefinition>
+              {capitalizeFirstLetter(product.category)}
+            </CategoryDefinition>
             <Term>Weight:</Term>
             <Definition>{product.weight}</Definition>
           </List>

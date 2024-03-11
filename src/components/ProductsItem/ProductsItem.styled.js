@@ -91,6 +91,13 @@ export const Definition = styled.dd`
   &:not(:last-child) {
     margin-right: 16px;
   }
+`;
+
+export const CategoryDefinition = styled.dd`
+  color: var(--white-color);
+  &:not(:last-child) {
+    margin-right: 16px;
+  }
   max-width: 76px;
   display: -webkit-box;
   -webkit-line-clamp: 1;
@@ -111,6 +118,6 @@ export const AddBtn = styled.button`
   border: none;
 `;
 
-export const Text = styled.p`
+export const Recommended = styled.p`
   margin-left: 8px;
 `;

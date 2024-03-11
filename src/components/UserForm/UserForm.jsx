@@ -27,6 +27,7 @@ const UserForm = () => {
   const dispatch = useDispatch();
   // dispatch(refreshUser);
   const user = useSelector(selectUser);
+  console.log(user)
   // const [weight, setBmr] = useState(user.currentWeight);
 
  
@@ -85,6 +86,7 @@ const UserForm = () => {
     sex: user.sex || 'male',
     levelActivity: (user.levelActivity ?? '1').toString() || '1',
   };
+  
 
   const validationSchema = Yup.object({
     name: Yup.string().required('Name is required'),
@@ -104,12 +106,23 @@ const UserForm = () => {
   
   
   const handleSubmit = (values) => {
+    console.log(values)
     const UserData = {
       ...values,
     };
     dispatch(updateUserInfo(UserData));
 
   };
+ 
+
+  // const SignupForm = () => {
+  //   const formik = useFormik({
+  //     initialValues: {
+  //       firstName: '',
+  //       lastName: '',
+  //       email: '',
+  //     }})};
+
 
   return (
     <Wrapper>
@@ -244,7 +257,13 @@ const UserForm = () => {
               </WrapperLevel>
             </WrapperRadio>
 
-            <Button type="submit">Save</Button>
+
+           
+            if  (!values.name ===  user.name) {
+             <Button type="submit"  >Save</Button>
+            }
+ 
+            
           </Form>
         )}
       </Formik>

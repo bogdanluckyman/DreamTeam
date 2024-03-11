@@ -16,7 +16,7 @@ import { selectIsLoadingDiary } from '../../redux/diary/selectors';
 import { getDiaryList } from '../../redux/diary/operation';
 import { refreshUser } from '../../redux/auth/operation';
 
-export const DiaryPage = () => {
+const DiaryPage = () => {
   const dispatch = useDispatch();
   const [selectDate, setSelectDate] = useState(
     format(new Date(), 'dd-MM-yyyy')
@@ -56,3 +56,5 @@ export const DiaryPage = () => {
     </>
   );
 };
+
+export default DiaryPage;

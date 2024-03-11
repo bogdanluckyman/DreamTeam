@@ -19,7 +19,7 @@ import {
 } from '../../Home/Home.styled';
 import sprite from '../../../img/sprite.svg';
 
-export default function SignUp() {
+const SignUp = () => {
   return (
     <Container>
       <FormContainer>
@@ -57,4 +57,6 @@ export default function SignUp() {
       </RightImageContainer>
     </Container>
   );
-}
+};
+
+export default SignUp;

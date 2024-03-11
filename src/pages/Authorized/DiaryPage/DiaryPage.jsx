@@ -31,7 +31,7 @@ import {
 
 import { refreshUser } from '../../../redux/auth/operation';
 
-export const DiaryPage = () => {
+const DiaryPage = () => {
   const dispatch = useDispatch();
   const userData = useSelector(selectDiaryInformation);
   const isLoading = useSelector(selectDiaryIsLoading);
@@ -99,4 +99,4 @@ export const DiaryPage = () => {
   );
 };
 
-// export default DiaryPage;
+export default DiaryPage;

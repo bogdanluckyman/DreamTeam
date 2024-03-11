@@ -20,7 +20,7 @@ import {
 import { AuthNav } from '../../components/AuthNav/AuthNav';
 import sprite from '../../img/sprite.svg';
 
-export default function Home() {
+const Home = () => {
   return (
     <Container>
       <HomeCont>
@@ -61,4 +61,6 @@ export default function Home() {
       </RightImageContainer>
     </Container>
   );
-}
+};
+
+export default Home;

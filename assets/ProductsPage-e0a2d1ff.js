@@ -1,4 +1,4 @@
-import{u as t,A as V,B as v,c as U,j as e,W as _,J as Y,K as q,M as K,Q as G,T as J,S as Q,U as X,V as Z,X as H,Y as ee,Z as te,r as x,b as k,n as d,F as ie,$ as re,k as F,o as oe,x as l,i as ne,a0 as j,a1 as h,a2 as ae,a3 as se,a4 as de,L as ce}from"./index-693d81ac.js";import{T as le}from"./TitlePage-7f0a2adf.js";import{c as pe,b as he}from"./index.esm-ae1a521f.js";import xe from"./ErrorPage-62dbeee7.js";import"./index-da02c0c6.js";const ge=t.div`
+import{u as t,A as V,B as v,c as U,j as e,W as _,J as Y,K as q,M as K,Q as G,T as J,S as Q,U as X,V as Z,X as H,Y as ee,Z as te,r as x,b as k,n as d,F as ie,$ as re,k as F,o as oe,x as l,i as ne,a0 as j,a1 as h,a2 as ae,a3 as se,a4 as de,L as ce}from"./index-2eea320f.js";import{T as le}from"./TitlePage-09f24dd5.js";import{c as pe,b as he}from"./index.esm-943e59c0.js";import xe from"./ErrorPage-fa52b7c8.js";import"./index-36aac414.js";const ge=t.div`
   border: 1px solid rgba(239, 237, 232, 0.2);
   border-radius: 12px;
   background: #10100f;
@@ -362,6 +362,10 @@ import{u as t,A as V,B as v,c as U,j as e,W as _,J as Y,K as q,M as K,Q as G,T a
   &:hover,
   &:focus {
     outline: 0;
+  }
+
+  option {
+    background-color: #1c1c1c;
   }
 `,Je=t.div`
   width: inherit;

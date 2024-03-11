@@ -119,6 +119,7 @@ export const Avatar = styled.img`
   height: 32px;
   border-radius: 50%;
   margin-right: 8px;
+
 `;
 
 
@@ -143,3 +144,16 @@ export const LogoButton = styled.a`
   cursor: pointer;
 `;
 
+export const Photo = styled.img`
+`;
+export const DefauldtUserSvg = styled.svg`
+  width: 46px;
+  height: 46px;
+  border-radius: 25px;
+  border: 1px #E6533C solid;
+
+  @media (max-width: 764px) {
+    width: 37px;
+    height: 37px;
+  };
+`;

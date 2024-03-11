@@ -8,13 +8,20 @@ import {
   getProductCategories,
 } from '../../../redux/products/operations';
 import { selectToken } from '../../../redux/auth/selectors';
-import { selectFilter } from '../../../redux/products/selector';
+import {
+  selectError,
+  selectFilter,
+  selectIsLoading,
+} from '../../../redux/products/selector';
 import {
   BgWrap,
   Container,
+  LoaderWrap,
   RightImageContainer,
   TopLineWrap,
 } from './ProductsPage.styled';
+import { Loader } from '../../../components/Loader/Loader';
+import ErrorPage from '../../ErrorPage/ErrorPage';
 
 const ProductsPage = () => {
   const TOKEN = useSelector(selectToken);
@@ -26,8 +33,8 @@ const ProductsPage = () => {
     dispatch(fetchProducts({ selectedFilters, TOKEN }));
   }, [dispatch, selectedFilters]);
 
-  //  const isLoading = useSelector(selectIsLoading);
-  //  const error = useSelector(selectError);
+  const isLoading = useSelector(selectIsLoading);
+  const error = useSelector(selectError);
 
   return (
     <BgWrap>
@@ -36,8 +43,16 @@ const ProductsPage = () => {
           <TitlePage title="Products" />
           <ProductsFilters />
         </TopLineWrap>
-        <ProductsList />
+        {isLoading && !error ? (
+          <LoaderWrap>
+            <Loader />
+          </LoaderWrap>
+        ) : (
+          <ProductsList />
+        )}
       </Container>
+
+      {error && <ErrorPage />}
       <RightImageContainer></RightImageContainer>
     </BgWrap>
   );

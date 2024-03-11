@@ -33,7 +33,8 @@ import {
   deleteDiaryProduct,
   getAllDiaryInformation,
 } from '../../../redux/diary/operation';
-import { toast } from 'react-toastify';
+// import { toast } from 'react-toastify';
+import Notiflix from 'notiflix';
 import { selectDiaryError } from '../../../redux/diary/selectors';
 
 const DayProducts = ({ productsArray, date }) => {
@@ -56,7 +57,7 @@ const DayProducts = ({ productsArray, date }) => {
       await dispatch(deleteDiaryProduct(id));
       await dispatch(getAllDiaryInformation(date));
     } catch (error) {
-      toast.error('Sorry, something went wrong, please try again', {
+      Notiflix.Notify.failure('Sorry, something went wrong, please try again', {
         theme: 'dark',
       });
     }

@@ -1,12 +1,12 @@
 import { lazy, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import { useAuth } from '../../../hooks/useAuth';
 import { Layout } from '../../../components/Layout/Layout';
 import { RestrictedRoute } from '../../../RestrictedRoute';
 import { PrivateRoute } from '../../../PrivateRoute';
-import { LoadingMessage } from '../../../App.styled';
 import { refreshUser } from '../../../redux/auth/operation';
+import { Loader } from '../../../components/Loader/Loader';
 
 const HomePage = lazy(() => import('../../../pages/Home/Home'));
 const RegisterPage = lazy(() => import('../SignUp/SignUp'));
@@ -18,13 +18,15 @@ const ProfilePage = lazy(() =>
 const FirstPage = () => {
   const dispatch = useDispatch();
   const { isRefreshing } = useAuth();
+  const location = useLocation();
 
   useEffect(() => {
     dispatch(refreshUser());
-  }, [dispatch]);
+    window.localStorage.setItem('lastPath', location.pathname);
+  }, [dispatch, location.pathname]);
 
   return isRefreshing ? (
-    <LoadingMessage>Refreshing...</LoadingMessage>
+    <Loader />
   ) : (
     <>
       <Routes>

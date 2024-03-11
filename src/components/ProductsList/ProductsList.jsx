@@ -7,20 +7,9 @@ import {
   ProductsCatalogue,
   ProductsCatalogueWrap,
 } from './ProductsList.styled';
-import { selectFilter, selectProducts } from '../../redux/products/selector';
-import { fetchProducts } from '../../redux/products/operations';
-import { useEffect } from 'react';
-import { selectToken } from '../../redux/auth/selectors';
+import { selectProducts } from '../../redux/products/selector';
 
 export const ProductsList = () => {
-  const TOKEN = useSelector(selectToken);
-  const dispatch = useDispatch();
-  const selectedFilters = useSelector(selectFilter);
-
-  useEffect(() => {
-    dispatch(fetchProducts({ selectedFilters, TOKEN }));
-  }, [selectedFilters]);
-
   const filteredProducts = useSelector(selectProducts);
 
   return (

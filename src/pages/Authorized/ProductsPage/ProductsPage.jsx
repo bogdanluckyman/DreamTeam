@@ -26,8 +26,8 @@ const ProductsPage = () => {
     dispatch(fetchProducts({ selectedFilters, TOKEN }));
   }, [dispatch, selectedFilters]);
 
-  //  const isLoading = useSelector(selectIsLoading);
-  //  const error = useSelector(selectError);
+  const isLoading = useSelector(selectIsLoading);
+  const error = useSelector(selectError);
 
   return (
     <BgWrap>

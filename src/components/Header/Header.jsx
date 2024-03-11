@@ -6,13 +6,15 @@ import sprite from '../../img/sprite.svg';
 import ModalMenu from '../ProductsItem/ModalMenu';
 import { useMediaQuery } from '@react-hook/media-query'; 
 import settingsImg from '../../img/settings-01.png';
+import Logout from '../Logout/Logout';
 
 import { selectIsLoggedIn } from '../../redux/auth/selectors';
 
 export const Header = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
-  const isWideScreen = useMediaQuery('(min-width: 765px)'); 
+  const isWideScreen = useMediaQuery('(min-width: 765px)');
+  const isLargeScreen = useMediaQuery('(min-width: 1440px)');
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const avatarUrl = useSelector((state) => state.user?.avatarURL);
 
@@ -49,6 +51,7 @@ export const Header = () => {
           </BurgerSvg>
         </BurgerMenu>
         {isModalOpen && <ModalMenu onClose={closeModal} sprite={sprite} />}
+        {isLargeScreen && <Logout />}
       </Navigation>
     </HeaderContainer>
   );

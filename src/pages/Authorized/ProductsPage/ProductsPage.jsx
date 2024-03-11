@@ -10,7 +10,7 @@ import {
 import { selectToken } from '../../../redux/auth/selectors';
 import { selectFilter } from '../../../redux/products/selector';
 
-export default function ProductsPage() {
+const ProductsPage = () => {
   const TOKEN = useSelector(selectToken);
   const selectedFilters = useSelector(selectFilter);
 
@@ -30,7 +30,7 @@ export default function ProductsPage() {
       <ProductsList />
     </>
   );
-}
+};
 // повне версія
 //  <>
 //    <TitlePage title="Products" />
@@ -39,3 +39,5 @@ export default function ProductsPage() {
 // {error && <p>Sorry! {error}. Try again!</p>}
 //<ProductsList />;
 // </>
+
+export default ProductsPage;

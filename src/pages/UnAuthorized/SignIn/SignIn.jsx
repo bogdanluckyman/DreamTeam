@@ -22,7 +22,7 @@ import {
   FormContainer,
 } from '../SignUp/SignUp.styled';
 
-export default function Login() {
+const Login = () => {
   return (
     <Container>
       <FormContainer>
@@ -58,4 +58,6 @@ export default function Login() {
       </RightImageContainer>
     </Container>
   );
-}
+};
+
+export default Login;

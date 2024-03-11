@@ -15,7 +15,8 @@ import {
 } from './DaySwitch.style';
 
 import Datepicker from '../../Datapicker/Datapicker';
-import { toast } from 'react-toastify';
+// import { toast } from 'react-toastify';
+import Notiflix from 'notiflix';
 
 const DaySwitch = ({ currentDate, setCurrentDate, userDateRegistration }) => {
   const [selectedDate, setSelectedDate] = useState(currentDate);
@@ -47,7 +48,7 @@ const DaySwitch = ({ currentDate, setCurrentDate, userDateRegistration }) => {
       setSelectedDate(previousDay);
       setIsActivePrev(false);
     } else {
-      toast.error(
+      Notiflix.Notify.failure(
         `However, we don't have any data to show you. Selected date cannot be earlier than the registration date: ${userDateRegistration}.`,
         {
           theme: 'dark',
@@ -63,7 +64,7 @@ const DaySwitch = ({ currentDate, setCurrentDate, userDateRegistration }) => {
     const nextDay = new Date(selectedDate);
     nextDay.setDate(selectedDate.getDate() + 1);
     if (nextDay > new Date()) {
-      toast.error(
+      Notiflix.Notify.failure(
         `However, we don't have any data to show you. Selected date cannot be later than today's date: ${today}.`,
         {
           theme: 'dark',

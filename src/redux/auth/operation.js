@@ -2,7 +2,6 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import Notiflix from 'notiflix';
 
-
 axios.defaults.baseURL = 'https://dream-team-backend-10w1.onrender.com/';
 
 const setAuthHeader = (token) => {
@@ -18,10 +17,10 @@ export const register = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const res = await axios.post('api/users/register', credentials);
-      setAuthHeader(res.data.token);
+      setAuthHeader(res.data.data.token);
 
-      console.log(res.data);
-      return res.data;
+      console.log(res.data.data);
+      return res.data.data;
     } catch (error) {
       console.log(error);
       return thunkAPI.rejectWithValue(error);

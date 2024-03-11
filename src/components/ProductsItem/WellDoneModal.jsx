@@ -14,10 +14,14 @@ import {
   WellDoneContainer,
   WellDoneImg,
 } from './WellDoneModal.styles';
+import { useNavigate } from 'react-router';
 
-const WellDoneModal = ({ Calories, onClose, toFormModal, Background }) => {
-  const diaryProductValue = useSelector((state) => state.diary.productCalories);
-  console.log(diaryProductValue);
+const WellDoneModal = ({ Calories, onClose, Background }) => {
+  const navigate = useNavigate();
+
+  const linkNav = () => {
+    navigate('/diary');
+  };
 
   return (
     <WellDoneBackground onClick={Background}>
@@ -33,8 +37,8 @@ const WellDoneModal = ({ Calories, onClose, toFormModal, Background }) => {
           <Paragraph>
             Calories: <Span>{Calories}</Span>
           </Paragraph>
-          <NextProduct onClick={toFormModal}>Next product</NextProduct>
-          <DiaryButton onClick={onClose}>
+          <NextProduct onClick={onClose}>Next product</NextProduct>
+          <DiaryButton onClick={linkNav}>
             <ParagtafDiarty> To the diary</ParagtafDiarty>
 
             <SvgNext>

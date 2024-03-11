@@ -1,3 +1,11 @@
-export const selectDiaryExercises = (state) => state.diary.exercises;
-export const selectDiaryProducts = (state) => state.diary.products;
-export const selectDiaryDate = (state) => state.diary.date
+export const selectDiaryInformation = (state) => state.diary.allDiaryInformation;
+
+export const selectConsumedProducts = (state) => state.diary.consumedProductsArray;
+
+export const selectCompletedExercisesArray = (state) => state.diary.completedExercisesArray;
+
+export const selectDiaryIsLoading = (state) => state.diary.isLoading;
+
+export const selectDiaryError = (state) => state.diary.error;
+
+

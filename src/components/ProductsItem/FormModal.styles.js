@@ -25,7 +25,6 @@ export const InnerContainer = styled.div`
 `;
 
 export const FormModalBackground = styled(Form)`
-  /* display: none; */
   position: fixed;
   z-index: 100;
   left: 0;
@@ -141,9 +140,6 @@ export const Button = styled.button`
     background: #e6533c;
   }
 `;
-// export const Active = styled.button`
-//   background: #e6533c;
-// `;
 
 export const PlaceholderText = styled.span`
   position: absolute;

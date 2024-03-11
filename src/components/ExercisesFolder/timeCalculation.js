@@ -1,7 +1,6 @@
 export const timeCalculation = (timeres, time) => {
   const number = timeres - 3;
   const formattedTimer = `${number}:00`;
-  console.log(formattedTimer);
 
   const [minutes, secound] = time.split(':').map(Number);
   const totalSeconds = minutes * 60 + secound;
@@ -13,12 +12,6 @@ export const timeCalculation = (timeres, time) => {
   const formattedTime = `${formatMinutes}:${
     formatSeconds < 10 ? '0' : ''
   }${formatSeconds}`;
-  console.log(formattedTime); // Виведе "0:10"
-
-  // const formattedTime = `${Math.floor(res / 10)}:${res % 10 < 10 ? '0' : ''}${
-  //   res % 10
-  // }`;
-  // console.log(formattedTime);
 
   const time1 = formattedTimer;
   const time2 = formattedTime;
@@ -33,6 +26,5 @@ export const timeCalculation = (timeres, time) => {
   const formattedSeconds = totalSecond.toString().padStart(2, '0');
   const totalFormattedTime = `${formattedMinutes}:${formattedSeconds}`;
 
-  console.log(totalFormattedTime);
   return totalFormattedTime;
 };

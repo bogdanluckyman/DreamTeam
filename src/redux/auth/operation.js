@@ -34,7 +34,6 @@ export const logIn = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const res = await axios.post('api/users/login', credentials);
-// console.log(res.data.token)
       setAuthHeader(res.data.token);
       return res.data;
     } catch (error) {
@@ -47,15 +46,13 @@ export const logIn = createAsyncThunk(
 export const refreshUser = createAsyncThunk(
   'auth/refresh',
   async (_, thunkAPI) => {
-    const state = thunkAPI.getState();
-    const persistedToken = state.auth.token;
+    const { token } = thunkAPI.getState().auth;
 
-    if (persistedToken === null) {
+    if (!token) {
       return thunkAPI.rejectWithValue('Unable to fetch user');
     }
-
     try {
-      // setAuthHeader(persistedToken);
+      setAuthHeader(token);
       const res = await axios.get('api/users/current');
       return res.data;
     } catch (error) {
@@ -106,7 +103,6 @@ export const updateAvatar = createAsyncThunk(
   }
 );
 
-
-export const instance = () => {
-  
-}
+export const instance = axios.create({
+  baseURL: 'https://leader-code-team-power-pulse-back-end.onrender.com/',
+});

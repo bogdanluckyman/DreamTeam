@@ -23,6 +23,7 @@ export const TopLineWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   margin-bottom: 40px;
+  color: var(--white-color);
 
   @media screen and (min-width: 768px) {
     margin-bottom: 28px;
@@ -31,7 +32,7 @@ export const TopLineWrapper = styled.div`
 
 export const TopLineRightWrapper = styled.div`
   display: flex;
-  align-items: baseline;
+  align-items: center;
 `;
 
 export const DietMark = styled.div`
@@ -52,12 +53,8 @@ export const RecomendedLight = styled.span`
   height: 14px;
   border-radius: 50%;
   margin-right: 8px;
-  background-color: ${(props) => {
-    if (props.$status) {
-      return 'green';
-    } else {
-      return 'red';
-    }
+  background-color: ${(props) => (props.$status === 'true' ? 'red' : 'green')};
+
   }};
 `;
 
@@ -112,4 +109,8 @@ export const AddBtn = styled.button`
   color: var(--orange-color);
   background-color: var(--black-color);
   border: none;
+`;
+
+export const Text = styled.p`
+  margin-left: 8px;
 `;

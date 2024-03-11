@@ -5,7 +5,7 @@ import {
 
 
 export const SectionOfDiary = styled.section `
-    width: 100%;
+    min-width: 335px;
     display: flex;
     flex-direction: column;
     min-height: 335px;
@@ -17,8 +17,9 @@ export const SectionOfDiary = styled.section `
     color: ${colors.white};
 
     @media screen and (min-width: 768px) {
+    min-width: 704px;
     min-height: 236px;
-    height: 236px;
+    /* height: 236px; */
     gap: 16px;
   }
 
@@ -30,7 +31,7 @@ export const SectionOfDiary = styled.section `
 
 
 export const SectionWrapper = styled.div `
- width: 100%;
+  width: 100%;
   display: flex;                
   justify-content: space-between;
   align-items: center;
@@ -42,6 +43,9 @@ export const SectionWrapper = styled.div `
 `
 
 export const SectionTitle = styled.h3 `
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
     color: rgba(239, 237, 232, 0.5);
     font-weight: 400;
     line-height: 1.29;

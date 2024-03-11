@@ -24,6 +24,7 @@ export const ProductsCatalogueWrap = styled.div`
     width: 850px;
     height: 488px;
   }
+
 `;
 
 export const ProductsCatalogue = styled.ul`
@@ -33,4 +34,21 @@ export const ProductsCatalogue = styled.ul`
     row-gap: 32px;
     column-gap: 16px;
   }
+`;
+
+export const EmptyListWrap = styled.div`
+  width: 335px;
+  margin-top: 24px;
+  font-size: 14px;
+  color: var(--more-light-grey-color);
+
+  @media screen and (min-width: 768px) {
+    width: 580px;
+    font-size: 16px;
+    margin-top: 100px;
+  }
+`;
+
+export const Accent = styled.span`
+  color: var(--orange-color);
 `;

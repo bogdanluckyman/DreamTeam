@@ -15,13 +15,9 @@ export const MenuModalContainer = styled.div`
   border: 1px solid rgba(239, 237, 232, 0.2);
   border-radius: 12px;
 
-  /* top: -100%;
-  
-  margin-left: 100%; */
-
   background: #e6533c;
   height: 100%;
-  /* align-items: center; */
+
   display: flex;
 
   justify-content: center;
@@ -42,14 +38,54 @@ export const Active = styled(MenuModalContainer)`
 `;
 
 export const CloseMenuContainer = styled.button`
-  width: 22px;
-  height: 22px;
-  background-color: transparent;
-  border: none;
-  position: absolute;
+  background: none;
+  border: 0;
+  box-sizing: border-box;
+  color: transparent;
+  cursor: pointer;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 18px;
   right: 20px;
-  top: 19px;
+  top: 20px;
+  transform: translate(50%, -50%);
+  outline: none;
+  overflow: hidden;
+  padding: 10px 0 0;
+  position: absolute;
+  text-transform: uppercase;
+  transition: all 0.2s ease-in;
+  width: 24px;
+  height: 24px;
+
+  
+  &:before,
+  &:after {
+    background-color: white;
+    content: '';
+    display: block;
+    height: 3px;
+    left: 0;
+    position: absolute;
+    transform-origin: center left;
+    transition: all 0.2s ease-in;
+    width: 33.9411px; /* Approximation of sqrt(24^2 + 24^2) for diagonal length */
+    z-index: -1;
+  }
+
+  &:before {
+    top: 0;
+    transform: rotate(45deg);
+  }
+
+  &:after {
+    bottom: 0;
+    transform: rotate(-45deg);
+  }
+
+
 `;
+
+
 export const MenuButtons = styled.div`
   width: 114px;
   display: flex;
@@ -87,7 +123,7 @@ export const LogoutMenu = styled.button`
   border: none;
   color: #efede8;
 `;
-export const SvgMenuModal = styled.svg`
+export const SvgMenuModal = styled.use`
   fill: white;
   color: white;
   stroke: white;

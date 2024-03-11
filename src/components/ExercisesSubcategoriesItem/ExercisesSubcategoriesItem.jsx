@@ -4,13 +4,12 @@ import {
   CategoryTitle,
 } from './ExercisesSubcategoriesItem.styled';
 
+export function capitalizeFirstLetter(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
 export const ExercisesSubcategoriesItem = ({
   category: { filter, name, imgURL },
 }) => {
-  function capitalizeFirstLetter(str) {
-    return str.charAt(0).toUpperCase() + str.slice(1);
-  }
-
   return (
     <Block
       style={{ backgroundImage: `url(${imgURL})`, backgroundSize: 'cover' }}

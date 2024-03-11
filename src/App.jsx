@@ -4,7 +4,7 @@ import FirstPage from './pages/UnAuthorized/FirstPage/FirstPage';
 import ErrorPage from './pages/ErrorPage/ErrorPage';
 import { AppWrapper } from './App.styled';
 import ProfilePage from './pages/Authorized/ProfilePage/ProfilePage';
-// import DiaryPage from './pages/Authorized/DiaryPage/DiaryPage';
+import { DiaryPage } from './pages/Authorized/DiaryPage/DiaryPage';
 import ProductsPage from './pages/Authorized/ProductsPage/ProductsPage';
 import ExercisesPage from './pages/Authorized/ExercisesPage/ExercisesPage';
 import { useAuth } from './hooks/useAuth';
@@ -70,7 +70,7 @@ function App() {
               isUserParams ? (
                 <Navigate to="/profile" replace />
               ) : (
-                <PrivateRoute redirectTo="/" component={<ProfilePage />} />
+                <PrivateRoute redirectTo="/" component={<DiaryPage />} />
               )
             }
           />

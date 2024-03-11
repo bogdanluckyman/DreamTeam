@@ -21,15 +21,10 @@ export const addDiaryProduct = createAsyncThunk(
   '/diary/addDiaryProduct',
   async (data, thunkAPI) => {
     try {
-      const response = await axios.post(`/diary/products`, data);
+      const response = await axios.post(`api/diary/product`, data);
+
       return response.data;
     } catch (error) {
-      Notiflix.Notify.failure(
-        `Sorry, something went wrong, please try again!`,
-        {
-          theme: 'dark',
-        }
-      );
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -57,15 +52,10 @@ export const addDiaryExercise = createAsyncThunk(
   '/diary/addDiaryExercise',
   async (data, thunkAPI) => {
     try {
-      const response = await axios.post(`/diary/exercises`, data);
+      const response = await axios.post(`api/diary/exercise`, data);
+      console.log(data);
       return response.data;
     } catch (error) {
-      Notiflix.Notify.failure(
-        `Sorry, something went wrong, please try again!`,
-        {
-          theme: 'dark',
-        }
-      );
       return thunkAPI.rejectWithValue(error.message);
     }
   }

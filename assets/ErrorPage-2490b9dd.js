@@ -1,4 +1,4 @@
-import{u as t,i as p,j as e,c as l,k as h}from"./index-97afe6b1.js";import{P as o}from"./index-69c78349.js";const r="/DreamTeam/assets/hero-background-mobile-1x-13cc494e.jpg",x="/DreamTeam/assets/hero-background-mobile-2x-3da7be96.jpg",a="/DreamTeam/assets/hero-background-tablet-1x-0b19296c.jpg",d="/DreamTeam/assets/hero-background-1x-bba9b0f3.jpg",m="/DreamTeam/assets/hero-background-2x-6f32b58d.jpg",b=t.div`
+import{u as t,a5 as p,j as e,c as l,x as h}from"./index-9c9c40a9.js";import{P as o}from"./index-17db0396.js";const r="/DreamTeam/assets/hero-background-mobile-1x-13cc494e.jpg",x="/DreamTeam/assets/hero-background-mobile-2x-3da7be96.jpg",n="/DreamTeam/assets/hero-background-tablet-1x-0b19296c.jpg",d="/DreamTeam/assets/hero-background-1x-bba9b0f3.jpg",m="/DreamTeam/assets/hero-background-2x-6f32b58d.jpg",b=t.div`
   background:
     linear-gradient(170deg, #040404 3.66%, rgba(4, 4, 4, 0) 19.15%),
     linear-gradient(73deg, #040404 6.11%, rgba(4, 4, 4, 0) 66.68%),
@@ -39,10 +39,10 @@ import{u as t,i as p,j as e,c as l,k as h}from"./index-97afe6b1.js";import{P as 
     height: 1005px;
     background-color: rgba(0, 0, 0, 1);
 
-    background-image: url(${a});
+    background-image: url(${n});
     background-image: -webkit-image-set(
-      url(${a}) ; 1x,
-      url(${a}) ; 2x
+      url(${n}) ; 1x,
+      url(${n}) ; 2x
     );
     background-position: bottom 0 right 0%;
   }
@@ -169,4 +169,4 @@ color: var(--white-color)
     font-size: 20px;
     line-height: 1.2;
   }
-`,s=({className:i="",text:n,type:g,onClick:c})=>e.jsx(j,{className:i,type:g,onClick:c,children:n});s.propTypes={text:o.string.isRequired,type:o.string,className:o.string,onClick:o.func};const $=()=>{const i=l(),n=()=>{i("/")};return e.jsx(b,{children:e.jsxs(u,{children:[e.jsxs(v,{to:"/",children:[e.jsx(y,{children:e.jsx("use",{href:`${h}#icon-logo-white`})}),"PowerPulse"]}),e.jsxs(w,{children:[e.jsx(f,{children:"404"}),e.jsx(k,{children:"Sorry, you have reached a page that we could not find. It seems that you are lost among the numbers and letters of our virtual space. Perhaps this page went on vacation or decided to disappear into another dimension. We apologize for this inconvenience."}),e.jsx(s,{className:"Button",text:"Go Home",type:"button",onClick:n})]})]})})};export{$ as default};
+`,s=({className:i="",text:a,type:g,onClick:c})=>e.jsx(j,{className:i,type:g,onClick:c,children:a});s.propTypes={text:o.string.isRequired,type:o.string,className:o.string,onClick:o.func};const $=()=>{const i=l(),a=()=>{i("/")};return e.jsx(b,{children:e.jsxs(u,{children:[e.jsxs(v,{to:"/",children:[e.jsx(y,{children:e.jsx("use",{href:`${h}#icon-logo-white`})}),"PowerPulse"]}),e.jsxs(w,{children:[e.jsx(f,{children:"404"}),e.jsx(k,{children:"Sorry, you have reached a page that we could not find. It seems that you are lost among the numbers and letters of our virtual space. Perhaps this page went on vacation or decided to disappear into another dimension. We apologize for this inconvenience."}),e.jsx(s,{className:"Button",text:"Go Home",type:"button",onClick:a})]})]})})};export{$ as default};

@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { useMediaQuery } from '@mui/material';
-import { toast } from 'react-toastify';
+// import { toast } from 'react-toastify';
+import Notiflix from 'notiflix';
 import { useDispatch, useSelector } from 'react-redux';
 
 import sprite from '../../../img/sprite.svg';
@@ -57,7 +58,7 @@ const DayExercises = ({ exercisesArray, date }) => {
       await dispatch(getAllDiaryInformation(date));
     } catch (error) {
       console.log(error);
-      toast.error('Sorry, something went wrong, please try again', {
+      Notiflix.Notify.failure('Sorry, something went wrong, please try again', {
         theme: 'dark',
       });
     }

@@ -1,6 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-import toast from 'react-hot-toast';
+// import toast from 'react-hot-toast';
+import Notiflix from 'notiflix';
 
 
 export const getAllDiaryInformation = createAsyncThunk(
@@ -10,7 +11,7 @@ export const getAllDiaryInformation = createAsyncThunk(
       const response = await axios.get(`/diary/${date}`);
       return response.data;
     } catch (error) {
-      toast.error(`${error.response.data.message}`, {
+      Notiflix.Notify.failure(`${error.response.data.message}`, {
         theme: 'dark',
       });
       return thunkAPI.rejectWithValue(error.message);
@@ -27,7 +28,7 @@ export const addDiaryProduct = createAsyncThunk(
       const response = await axios.post(`/diary/products`, data)
       return response.data;
     } catch (error) {
-      toast.error(`Sorry, something went wrong, please try again!`, {
+      Notiflix.Notify.failure(`Sorry, something went wrong, please try again!`, {
         theme: 'dark',
       })
       return thunkAPI.rejectWithValue(error.message)
@@ -43,7 +44,7 @@ export const deleteDiaryProduct = createAsyncThunk(
       const response = await axios.delete(`/diary/products/${productId}`)
       return response.data
     } catch (error) {
-      toast.error(`Sorry, something went wrong, please try again!`,{
+      Notiflix.Notify.failure(`Sorry, something went wrong, please try again!`,{
         theme: 'dark',
       })
       return thunkAPI.rejectWithValue(error.message)
@@ -59,7 +60,7 @@ export const addDiaryExercise = createAsyncThunk(
       const response = await axios.post(`/diary/exercises`, data)
       return response.data
     } catch (error) {
-      toast.error(`Sorry, something went wrong, please try again!`, {
+      Notiflix.Notify.failure(`Sorry, something went wrong, please try again!`, {
         theme: 'dark'
       })
       return thunkAPI.rejectWithValue(error.message)
@@ -75,7 +76,7 @@ export const deleteDiaryExercise = createAsyncThunk(
       const response = await axios.delete(`/diary/exercises/${exerciseId}`)
       return response.data;
     } catch (error) {
-      toast.error(`Sorry, something went wrong, please try again!`, {
+      Notiflix.Notify.failure(`Sorry, something went wrong, please try again!`, {
         theme:'dark',
       })
       return thunkAPI.rejectWithValue(error.message)

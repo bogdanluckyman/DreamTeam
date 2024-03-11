@@ -1,13 +1,13 @@
-import{u as t,h as p,j as e,b as l}from"./index-4de89ac5.js";import{s as h}from"./symbol-defs-69a37fef.js";import{P as o}from"./index-98f472f6.js";const a="/DreamTeam/assets/hero-background-mobile-1x-13cc494e.jpg",x="/DreamTeam/assets/hero-background-mobile-2x-3da7be96.jpg",n="/DreamTeam/assets/hero-background-tablet-1x-0b19296c.jpg",d="/DreamTeam/assets/hero-background-1x-bba9b0f3.jpg",m="/DreamTeam/assets/hero-background-2x-6f32b58d.jpg",b=t.div`
+import{u as t,h as p,j as e,b as l,i as h}from"./index-5a4a36f5.js";import{P as o}from"./index-80b28384.js";const r="/DreamTeam/assets/hero-background-mobile-1x-13cc494e.jpg",x="/DreamTeam/assets/hero-background-mobile-2x-3da7be96.jpg",a="/DreamTeam/assets/hero-background-tablet-1x-0b19296c.jpg",d="/DreamTeam/assets/hero-background-1x-bba9b0f3.jpg",m="/DreamTeam/assets/hero-background-2x-6f32b58d.jpg",b=t.div`
   background:
     linear-gradient(170deg, #040404 3.66%, rgba(4, 4, 4, 0) 19.15%),
     linear-gradient(73deg, #040404 6.11%, rgba(4, 4, 4, 0) 66.68%),
     lightgray 50% / cover no-repeat;
 
   position: relative;
-  background-image: url(${a});
+  background-image: url(${r});
   background-image: -webkit-image-set(
-    url(${a}) ; 1x,
+    url(${r}) ; 1x,
     url(${x}) ; 2x
   );
   color: #efede8;
@@ -39,10 +39,10 @@ import{u as t,h as p,j as e,b as l}from"./index-4de89ac5.js";import{s as h}from"
     height: 1005px;
     background-color: rgba(0, 0, 0, 1);
 
-    background-image: url(${n});
+    background-image: url(${a});
     background-image: -webkit-image-set(
-      url(${n}) ; 1x,
-      url(${n}) ; 2x
+      url(${a}) ; 1x,
+      url(${a}) ; 2x
     );
     background-position: bottom 0 right 0%;
   }
@@ -81,9 +81,9 @@ import{u as t,h as p,j as e,b as l}from"./index-4de89ac5.js";import{s as h}from"
     width: 669px;
     padding: 32px 96px;
   }
-`,f=t.div`
+`,w=t.div`
   margin-bottom: auto;
-`,w=t.h1`
+`,f=t.h1`
 
 color: var(--white-color)
 font-family: Roboto;
@@ -169,4 +169,4 @@ color: var(--white-color)
     font-size: 20px;
     line-height: 1.2;
   }
-`,s=({className:i="",text:r,type:g,onClick:c})=>e.jsx(j,{className:i,type:g,onClick:c,children:r});s.propTypes={text:o.string.isRequired,type:o.string,className:o.string,onClick:o.func};const P=()=>{const i=l(),r=()=>{i("/")};return e.jsx(b,{children:e.jsxs(u,{children:[e.jsxs(v,{to:"/",children:[e.jsx(y,{children:e.jsx("use",{href:`${h}#icon-logo-white`})}),"PowerPulse"]}),e.jsxs(f,{children:[e.jsx(w,{children:"404"}),e.jsx(k,{children:"Sorry, you have reached a page that we could not find. It seems that you are lost among the numbers and letters of our virtual space. Perhaps this page went on vacation or decided to disappear into another dimension. We apologize for this inconvenience."}),e.jsx(s,{className:"Button",text:"Go Home",type:"button",onClick:r})]})]})})};export{P as default};
+`,s=({className:i="",text:n,type:g,onClick:c})=>e.jsx(j,{className:i,type:g,onClick:c,children:n});s.propTypes={text:o.string.isRequired,type:o.string,className:o.string,onClick:o.func};const $=()=>{const i=l(),n=()=>{i("/")};return e.jsx(b,{children:e.jsxs(u,{children:[e.jsxs(v,{to:"/",children:[e.jsx(y,{children:e.jsx("use",{href:`${h}#icon-logo-white`})}),"PowerPulse"]}),e.jsxs(w,{children:[e.jsx(f,{children:"404"}),e.jsx(k,{children:"Sorry, you have reached a page that we could not find. It seems that you are lost among the numbers and letters of our virtual space. Perhaps this page went on vacation or decided to disappear into another dimension. We apologize for this inconvenience."}),e.jsx(s,{className:"Button",text:"Go Home",type:"button",onClick:n})]})]})})};export{$ as default};

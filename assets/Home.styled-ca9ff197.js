@@ -1,4 +1,4 @@
-import{u as i}from"./index-4de89ac5.js";const e="/DreamTeam/assets/hero-mobile-1x-7330b8b1.jpg",n="/DreamTeam/assets/hero-mobile-2x-ab16df10.jpg",t="/DreamTeam/assets/hero-tablet-1x-42f7b539.jpg",a="/DreamTeam/assets/hero-tablet-2x-420aaa93.jpg",p="/DreamTeam/assets/hero-1x-96488495.jpg",d="/DreamTeam/assets/hero-2x-a0acb64c.jpg",r=i.div`
+import{u as i}from"./index-5a4a36f5.js";const e="/DreamTeam/assets/hero-mobile-1x-7330b8b1.jpg",n="/DreamTeam/assets/hero-mobile-2x-ab16df10.jpg",t="/DreamTeam/assets/hero-tablet-1x-42f7b539.jpg",a="/DreamTeam/assets/hero-tablet-2x-420aaa93.jpg",p="/DreamTeam/assets/hero-1x-96488495.jpg",d="/DreamTeam/assets/hero-2x-a0acb64c.jpg",r=i.div`
   @media screen and (min-width: 375px) {
     width: 375px;
     margin: 0 auto;

@@ -43,8 +43,10 @@ const authSlice = createSlice({
         state.isRefreshing = true;
       })
       .addCase(register.fulfilled, (state, action) => {
+        state.user = action.payload.user;
         state.token = action.payload.token;
         state.isLoggedIn = true;
+        state.isUserParams = checkUserParams(action.payload.user);
       })
       .addCase(register.rejected, (state) => {
         state.isRefreshing = false;

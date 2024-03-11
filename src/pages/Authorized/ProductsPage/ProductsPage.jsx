@@ -12,7 +12,6 @@ import { selectFilter } from '../../../redux/products/selector';
 import {
   BgWrap,
   Container,
-  ContentWrap,
   RightImageContainer,
   TopLineWrap,
 } from './ProductsPage.styled';

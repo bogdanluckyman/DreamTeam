@@ -9,7 +9,7 @@ export const ProductWrapp = styled.li`
   margin-bottom: 20px;
   font-size: 12px;
 
-  background-color: gba(239, 237, 232, 0.05);
+  background-color: rgba(239, 237, 232, 0.05);
 
   @media screen and (min-width: 768px) {
     margin: 0;
@@ -107,7 +107,7 @@ export const AddBtn = styled.button`
   padding: 0;
   font-size: 14px;
   color: var(--orange-color);
-  background-color: var(--black-color);
+  background-color: inherit;
   border: none;
 `;
 

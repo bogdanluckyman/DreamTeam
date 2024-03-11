@@ -71,10 +71,8 @@ export const OptionSelect = styled.select`
   &:not(:last-child) {
     margin-right: 16px;
   }
-  @media screen and (min-width: 768px) {
-    &:not(:last-child) {
-      margin-right: 16px;
-    }
+  @media screen and (min-width: 1440px) {
+    background-color: rgba(0, 0, 0, 0);
   }
 
   &:hover,

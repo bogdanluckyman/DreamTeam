@@ -38,7 +38,7 @@ export const Header = () => {
   const closeModal = () => {
     setIsModalOpen(false);
   };
-  console.log(avatarUrl);
+
   const avatarUser = avatarUrl ? (
     <Avatar src={avatarUrl} width="100%" alt="Avatar" />
   ) : (

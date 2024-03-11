@@ -18,12 +18,14 @@ export const ProductsFilters = () => {
   const dispatch = useDispatch();
   const productsCategories = useSelector(selectCategories);
   const inputValue = useSelector(selectFilter).title;
+  const selectedCategory = useSelector(selectFilter).category;
   return (
     <FiltersField>
       <InputWrap>
         <TitleInput
           type="text"
           name="title"
+          value={inputValue}
           placeholder="Search"
           onChange={(evt) => {
             dispatch(setFilters({ title: evt.target.value.trim() }));
@@ -47,6 +49,7 @@ export const ProductsFilters = () => {
       <SelectsWrap>
         <OptionSelect
           name="category"
+          value={selectedCategory}
           onChange={(evt) =>
             dispatch(setFilters({ category: evt.target.value }))
           }
@@ -54,7 +57,9 @@ export const ProductsFilters = () => {
           <option defaultChecked>Categories</option>
           {productsCategories.map((category) => {
             return (
-              <option key={nanoid()}>{capitalizeFirstLetter(category)}</option>
+              <option key={nanoid()} value={category}>
+                {capitalizeFirstLetter(category)}
+              </option>
             );
           })}
         </OptionSelect>

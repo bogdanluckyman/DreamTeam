@@ -6,7 +6,7 @@ export const getAllDiaryInformation = createAsyncThunk(
   '/diary/getAllDiaryInformation',
   async (date, thunkAPI) => {
     try {
-      const response = await axios.get(`/diary/${date}`);
+      const response = await axios.get(`/diary/entry/${date}`);
       return response.data;
     } catch (error) {
       Notiflix.Notify.failure(`${error.response.data.message}`, {

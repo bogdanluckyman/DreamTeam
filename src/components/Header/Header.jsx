@@ -29,7 +29,7 @@ export const Header = () => {
   const isWideScreen = useMediaQuery('(min-width: 765px)');
   const isLargeScreen = useMediaQuery('(min-width: 1440px)');
   const isLoggedIn = useSelector(selectIsLoggedIn);
-  const avatarUrl = useSelector((state) => state.user?.avatarURL);
+  const avatarUrl = useSelector((state) => state.auth.user.avatarURL);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -38,7 +38,7 @@ export const Header = () => {
   const closeModal = () => {
     setIsModalOpen(false);
   };
-
+  console.log(avatarUrl);
   const avatarUser = avatarUrl ? (
     <Avatar src={avatarUrl} width="100%" alt="Avatar" />
   ) : (

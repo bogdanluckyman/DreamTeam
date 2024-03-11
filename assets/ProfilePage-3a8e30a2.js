@@ -1,4 +1,4 @@
-import{u as i,h as S,a as j,j as e,l as z,m as k,n as q,r as D,x as L,F as $,y as C,z as g,A}from"./index-ba41261f.js";import{T as I}from"./TitlePage-3376a416.js";import{s as h}from"./symbol-defs-cffd9f11.js";import{P as o}from"./index-24a24549.js";import{c as U,a as O,b as f,d as T}from"./index.esm-2a20c79a.js";import{p as w,D as V}from"./Datapicker-0f898eb4.js";const N=i(S)`
+import{u as i,h as S,a as j,j as e,l as z,n as k,o as q,r as D,y as L,F as $,z as C,A as g,B as A}from"./index-4de89ac5.js";import{T as I}from"./TitlePage-8e8df7cf.js";import{s as h}from"./symbol-defs-69a37fef.js";import{P as o}from"./index-98f472f6.js";import{c as U,a as O,b as f,d as T}from"./index.esm-e74ce186.js";import{p as w,D as V}from"./Datapicker-3e6f84aa.js";const B=i(S)`
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -8,9 +8,9 @@ import{u as i,h as S,a as j,j as e,l as z,m as k,n as q,r as D,x as L,F as $,y a
   // @media screen and (min-width: 768px) and (max-width: 1440px;) {
   //   margin-right: 150px;
   // }
-`,P=i.span`
+`,N=i.span`
   margin-right: 8px;
-`,B=()=>{const n=j(),r=()=>{n(z())};return e.jsxs(N,{to:"/",onClick:r,children:[e.jsx(P,{children:"Logout"}),e.jsx("svg",{width:"24",height:"24",children:e.jsx("use",{href:`${h}#icon-log-out`})})]})},M=i.div`
+`,P=()=>{const n=j(),r=()=>{n(z())};return e.jsxs(B,{to:"/",onClick:r,children:[e.jsx(N,{children:"Logout"}),e.jsx("svg",{width:"24",height:"24",children:e.jsx("use",{href:`${h}#icon-log-out`})})]})},M=i.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -196,7 +196,7 @@ font-feature-settings: 'clig' off, 'liga' off;
   }
 
  
-`,se=()=>e.jsx(ae,{children:e.jsxs(ne,{children:[e.jsx(oe,{children:e.jsx("svg",{width:"24",height:"24",children:e.jsx("use",{href:`${h}#icon-warning`})})}),e.jsx(le,{children:"We understand that each individual is unique, so the entire approach to diet is relative and tailored to your unique body and goals."})]})}),de=()=>{const n=j(),r=k(q),[l,p]=D.useState(r.avatarURL),c=e.jsx(Y,{src:l,width:"100%",alt:"Avatar"}),x=e.jsx(J,{fill:"var(--light-grey-color)",width:"68",height:"68",children:e.jsx("use",{href:`${h}#icon-big-user`})}),u=v=>{const s=v.target.files[0];if(s){const a=new Blob([s]),t=URL.createObjectURL(a);p(t)}try{n(L(s)),console.log(s)}catch(a){console.error(a.message)}};return e.jsxs(M,{children:[e.jsx(H,{children:l?c:x}),e.jsxs("form",{id:"upload-form",children:[e.jsx("input",{type:"file",id:"file-input",name:"file",style:{display:"none"},onChange:u}),e.jsx("label",{htmlFor:"file-input",children:e.jsx(G,{children:e.jsx(K,{children:e.jsx("use",{href:`${h}#icon-plus`})})})})]}),e.jsx(Q,{children:r.name}),e.jsx(X,{children:"User"}),e.jsxs(E,{children:[e.jsx(y,{color:"var(--orange-color)",iconId:"icon-fork",text:"Daily calorie intake",value:r.bmr}),e.jsx(y,{color:"var(--orange-color)",iconId:"icon-dumbbell",text:"Daily physical activity",value:r.dailyActivity})]}),e.jsx(se,{}),e.jsx(Z,{children:e.jsx(B,{})})]})},pe=i.div`
+`,se=()=>e.jsx(ae,{children:e.jsxs(ne,{children:[e.jsx(oe,{children:e.jsx("svg",{width:"24",height:"24",children:e.jsx("use",{href:`${h}#icon-warning`})})}),e.jsx(le,{children:"We understand that each individual is unique, so the entire approach to diet is relative and tailored to your unique body and goals."})]})}),de=()=>{const n=j(),r=k(q),[l,p]=D.useState(r.avatarURL),c=e.jsx(Y,{src:l,width:"100%",alt:"Avatar"}),x=e.jsx(J,{fill:"var(--light-grey-color)",width:"68",height:"68",children:e.jsx("use",{href:`${h}#icon-big-user`})}),u=v=>{const s=v.target.files[0];if(s){const a=new Blob([s]),t=URL.createObjectURL(a);p(t)}try{n(L(s)),console.log(s)}catch(a){console.error(a.message)}};return e.jsxs(M,{children:[e.jsx(H,{children:l?c:x}),e.jsxs("form",{id:"upload-form",children:[e.jsx("input",{type:"file",id:"file-input",name:"file",style:{display:"none"},onChange:u}),e.jsx("label",{htmlFor:"file-input",children:e.jsx(G,{children:e.jsx(K,{children:e.jsx("use",{href:`${h}#icon-plus`})})})})]}),e.jsx(Q,{children:r.name}),e.jsx(X,{children:"User"}),e.jsxs(E,{children:[e.jsx(y,{color:"var(--orange-color)",iconId:"icon-fork",text:"Daily calorie intake",value:r.bmr}),e.jsx(y,{color:"var(--orange-color)",iconId:"icon-dumbbell",text:"Daily physical activity",value:r.dailyActivity})]}),e.jsx(se,{}),e.jsx(Z,{children:e.jsx(P,{})})]})},pe=i.div`
   display: flex;
   justify-content: center;
   align-items: center;

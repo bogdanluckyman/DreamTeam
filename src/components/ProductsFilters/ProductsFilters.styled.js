@@ -62,6 +62,7 @@ export const ResetBtn = styled.button`
 `;
 
 export const OptionSelect = styled.select`
+  width: 100%;
   color: var(--white-color);
   background-color: var(--black-color);
   padding: 14px;

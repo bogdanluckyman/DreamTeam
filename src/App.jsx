@@ -11,8 +11,6 @@ import { ExercisesSubcategoriesList } from './components/ExercisesSubcategoriesL
 import { ExercisesList } from './components/ExercisesList/ExercisesList';
 import { Loader } from './components/Loader/Loader';
 
-const test = import.meta.env.VITE_API_TEST;
-
 const FirstPage = lazy(() =>
   import('./pages/UnAuthorized/FirstPage/FirstPage')
 );
@@ -38,7 +36,6 @@ const SignUp = lazy(() => import('./pages/UnAuthorized/SignUp/SignUp'));
 const Login = lazy(() => import('./pages/UnAuthorized/SignIn/SignIn'));
 
 function App() {
-  console.log(test);
   const { isLoggedIn, isUserParams } = useAuth();
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);

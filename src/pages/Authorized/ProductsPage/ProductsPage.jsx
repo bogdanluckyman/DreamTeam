@@ -10,6 +10,7 @@ import {
 import { selectToken } from '../../../redux/auth/selectors';
 import { selectFilter } from '../../../redux/products/selector';
 import {
+  BgWrap,
   Container,
   ContentWrap,
   RightImageContainer,
@@ -30,16 +31,16 @@ export default function ProductsPage() {
   //  const error = useSelector(selectError);
 
   return (
-    <Container>
-      <ContentWrap>
+    <BgWrap>
+      <Container>
         <TopLineWrap>
           <TitlePage title="Products" />
           <ProductsFilters />
         </TopLineWrap>
         <ProductsList />
-      </ContentWrap>
+      </Container>
       <RightImageContainer></RightImageContainer>
-    </Container>
+    </BgWrap>
   );
 }
 // повне версія

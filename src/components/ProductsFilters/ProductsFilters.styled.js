@@ -12,8 +12,6 @@ export const FiltersField = styled.div`
     margin-bottom: 32px;
   }
   @media screen and (min-width: 1440px) {
-    position: absolute;
-    right: 40px;
     margin-left: 454px;
   }
 `;

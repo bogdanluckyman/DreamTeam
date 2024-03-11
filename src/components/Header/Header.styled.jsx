@@ -91,10 +91,11 @@ border: none;
 `;
 
 export const SettingsMenu = styled.a`
-    background-color: white;
+    margin-top: -5px;
     width: 24px;
     height: 24px;
     border: none;
+    cursor: pointer;
 `;
 
 export const BurgerSvg = styled.svg`
@@ -119,3 +120,22 @@ export const Avatar = styled.img`
   border-radius: 50%;
   margin-right: 8px;
 `;
+
+
+
+export const SettingImg = styled.img`
+  width: 28px;
+  height: 28px;
+  @media (max-width: 764px) {
+    width: 24px;
+    height: 24px;
+  };
+  
+  
+  transition: transform 1s;
+  &:hover,
+  &:focus {
+    transform: rotate(180deg);
+  }
+`;
+

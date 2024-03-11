@@ -38,7 +38,6 @@ const ModalMenu = ({ onClose, sprite }) => {
             <svg width="16" height="16">
               <use xlinkHref={`${sprite}#icon-close-white`} />
             </svg>
-            <h1>X</h1>
           </CloseMenuContainer>
           <MenuButtons>
             <MenuButton onClick={() => navigate('/diary')}>Diary</MenuButton>

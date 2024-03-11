@@ -80,6 +80,10 @@ export const OptionSelect = styled.select`
   &:focus {
     outline: 0;
   }
+
+  option {
+    background-color: #1c1c1c;
+  }
 `;
 
 export const SelectsWrap = styled.div`

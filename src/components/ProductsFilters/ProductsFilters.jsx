@@ -50,9 +50,13 @@ export const ProductsFilters = () => {
         <OptionSelect
           name="category"
           value={selectedCategory}
-          onChange={(evt) =>
-            dispatch(setFilters({ category: evt.target.value }))
-          }
+          onChange={(evt) => {
+            if (evt.target.value === 'Categories') {
+              dispatch(setFilters({ category: '' }));
+            } else {
+              dispatch(setFilters({ category: evt.target.value }));
+            }
+          }}
         >
           <option defaultChecked>Categories</option>
           {productsCategories.map((category) => {

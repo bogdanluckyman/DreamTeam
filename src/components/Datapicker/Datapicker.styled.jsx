@@ -8,6 +8,12 @@ export const Wrapper = styled.div`
   z-index: 999;
 `;
 
+export const IconSvg = styled.svg`
+  position: absolute;
+  top: 14px;
+  right: 14px;
+`;
+
 export const TitleWrapper = styled.button`
   width: 195px;
   color: #ffffff;

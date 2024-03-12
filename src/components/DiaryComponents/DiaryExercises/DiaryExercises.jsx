@@ -194,16 +194,27 @@ const DayExercises = ({ exercisesArray, date }) => {
               {exercisesArray.map((exercise) => (
                 <ExerciseListArray key={exercise._id}>
                   <ExerciseListArrayItem>
-                    {formattedTitle(exercise.exerciseId.bodyPart)}
+                    {/* {formattedTitle(exercise.exerciseId.bodyPart)} */}
+                    {exercise.exerciseId &&
+                      formattedTitle(exercise.exerciseId.bodyPart)}
                   </ExerciseListArrayItem>
                   <ExerciseListArrayItem>
-                    {formattedTitle(exercise.exerciseId.equipment)}
+                    {/* {formattedTitle(exercise.exerciseId.equipment)} */}
+                    {exercise.exerciseId
+                      ? formattedTitle(exercise.exerciseId.equipment)
+                      : ''}
                   </ExerciseListArrayItem>
                   <ExerciseListArrayItem>
-                    {formattedTitle(exercise.exerciseId.name)}
+                    {/* {formattedTitle(exercise.exerciseId.name)} */}
+                    {exercise.exerciseId
+                      ? formattedTitle(exercise.exerciseId.name)
+                      : ''}
                   </ExerciseListArrayItem>
                   <ExerciseListArrayItem>
-                    {formattedTitle(exercise.exerciseId.target)}
+                    {/* {formattedTitle(exercise.exerciseId.target)} */}
+                    {exercise.exerciseId
+                      ? formattedTitle(exercise.exerciseId.target)
+                      : ''}
                   </ExerciseListArrayItem>
                   <ExerciseListArrayItem>
                     {exercise.calories}

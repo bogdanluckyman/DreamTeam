@@ -28,12 +28,6 @@ const UserForm = () => {
 
   const formattedDate = user.birthday ? parseISO(user.birthday) : new Date();
 
-  // const [nameLocal, setNameLocal] = useState(user.name);
-  // const [heightLocal, setHeightLocal] = useState(user.height);
-  // const [currentWeightLocal, setCurrentWeightLocal] = useState(user.currentWeight);
-  // const [desiredWeightLocal, setDesiredWeightLocal] = useState(user.desiredWeight);
-  // const [birthdayLocal, setBirthdayLocal] = useState(formattedDate);
-
   const bloodOptions = [
     { id: '1', value: '1', label: '1' },
     { id: '2', value: '2', label: '2' },
@@ -75,8 +69,10 @@ const UserForm = () => {
     },
   ];
 
+
   // const formattedDate = user.birthday ? parseISO(user.birthday) : new Date();
   // console.log(formattedDate);
+
 
   const initialValues = {
     name: user.name || 'Name',
@@ -110,11 +106,7 @@ const UserForm = () => {
     dispatch(updateUserInfo(UserData));
   };
 
-  // const isDisabled = nameLocal !== user.name ||
-  // heightLocal !== user.height ||
-  // currentWeightLocal !== user.currentWeight||
-  // desiredWeightLocal !== user.desiredWeight
-  // console.log(isDisabled)
+
   return (
     <Wrapper>
       <Formik
@@ -151,7 +143,6 @@ const UserForm = () => {
                 <label htmlFor="email">Email</label>
               </WrappInput>
             </FormContainer>
-
             <InfoContainer>
               <WrapperInputField>
                 <WrappInput>
@@ -204,7 +195,6 @@ const UserForm = () => {
                 </WrappInput>
               </WrapperInputField>
             </InfoContainer>
-
             <WrapperRadio>
               <div style={{ display: 'flex', marginRight: '20px' }}>
                 <div style={{ display: 'flex', marginRight: '20px' }}>
@@ -254,6 +244,7 @@ const UserForm = () => {
                 ))}
               </WrapperLevel>
             </WrapperRadio>
+
             <Button type="submit">Save</Button>
             {/* <Button type="submit" disabled={isDisabled ? true : false } >Save</Button> */}
             {/* className={someCondition ? someClass : someOtherClass}
@@ -261,6 +252,7 @@ const UserForm = () => {
           
  
              */}
+
           </Form>
         )}
       </Formik>

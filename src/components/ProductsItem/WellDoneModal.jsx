@@ -1,4 +1,3 @@
-import { useSelector } from 'react-redux';
 import { SvgFormModal } from './FormModal.styles';
 import {
   CloseWellDoneContainer,

@@ -17,7 +17,7 @@ import {
 
 import sprite from '../../img/symbol-defs.svg';
 import { colors } from '../../styles/colors';
-import ModalMenu from './ModalMenu';
+
 import { useSelector } from 'react-redux';
 import { selectUser } from '../../redux/auth/selectors';
 import { capitalizeFirstLetter } from '../ExercisesSubcategoriesItem/ExercisesSubcategoriesItem';
@@ -90,9 +90,7 @@ export const ProductItem = ({ product }) => {
           </List>
         </>
       </ProductWrapp>
-      {isModalOpen && (
-        <FormModal onClose={closeModal} date={'06-03-2024'} product={product} />
-      )}
+      {isModalOpen && <FormModal onClose={closeModal} product={product} />}
     </>
   );
 };

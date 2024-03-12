@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { format } from 'date-fns';
 import sprite from '../../../img/sprite.svg';
 import Datepicker from '../../Datapicker/Datapicker';
-// import Notiflix from 'notiflix';
 import {
   BtnNext,
   BtnPrev,

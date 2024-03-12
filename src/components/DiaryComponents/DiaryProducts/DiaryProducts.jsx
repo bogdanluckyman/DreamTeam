@@ -36,7 +36,7 @@ import {
 import Notiflix from 'notiflix';
 import { selectDiaryError } from '../../../redux/diary/selectors';
 
-const DayProducts = ({ productsArray, date }) => {
+const DiaryProducts = ({ productsArray, date }) => {
   console.log(productsArray);
   const dispatch = useDispatch();
   const currentUser = useSelector(selectUser);
@@ -310,4 +310,4 @@ const DayProducts = ({ productsArray, date }) => {
   );
 };
 
-export default DayProducts;
+export default DiaryProducts;

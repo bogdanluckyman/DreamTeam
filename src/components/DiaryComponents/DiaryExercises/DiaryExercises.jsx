@@ -135,14 +135,16 @@ const handleDelete = async (id) => {
                       <ExerciseListArrayItemMobile>
                         {''}
                       </ExerciseListArrayItemMobile>
-                      <TableDeleteButton
-                        type="button"
-                        onClick={() => handleDelete(exercise._id)}
-                      >
-                        <SvgTableStyled>
-                          <use href={sprite + '#icon-trash-03'} />
-                        </SvgTableStyled>
-                      </TableDeleteButton>
+                      <ExerciseListArrayItemMobile>
+                        <TableDeleteButton
+                          type="button"
+                          onClick={() => handleDelete(exercise._id)}
+                        >
+                          <SvgTableStyled>
+                            <use href={sprite + '#icon-trash'}></use>
+                          </SvgTableStyled>
+                        </TableDeleteButton>
+                      </ExerciseListArrayItemMobile>
                     </MobileItemsHolder4>
                   </ListMobileArray>
                 </ExerciseListArray>
@@ -193,7 +195,7 @@ const handleDelete = async (id) => {
                       onClick={() => handleDelete(exercise._id)}
                     >
                       <SvgTableStyled>
-                        <use href={sprite + '#icon-trash-03'} />
+                        <use href={sprite + '#icon-trash'}></use>
                       </SvgTableStyled>
                     </TableDeleteButton>
                   </ExerciseListArrayItem>

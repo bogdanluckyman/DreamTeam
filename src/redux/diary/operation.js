@@ -76,7 +76,7 @@ export const deleteDiaryExercise = createAsyncThunk(
   '/diary/deleteDiaryExercise',
   async (workoutId, thunkAPI) => {
     try {
-      const response = await axios.delete(`api/diary/exercise/${workoutId}`);
+      const response = await axios.delete(`api/diary/exercise/${exerciseId}`);
       return response.data;
     } catch (error) {
       Notiflix.Notify.failure(

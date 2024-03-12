@@ -15,7 +15,7 @@ import sprite from '../../img/sprite.svg';
 import { useState } from 'react';
 import ExercisesModal from '../ExercisesFolder/ExercisesModal';
 
-export function capitalizeFirstLetter(str) {
+function capitalizeFirstLetter(str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
 

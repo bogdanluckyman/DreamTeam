@@ -164,7 +164,7 @@ const ExercisesModal = ({ onClose, exercies }) => {
           <ExercisesModalContainer>
             <CloseExercisesContainer onClick={onClose}>
               <svg width="13" height="13">
-                <use href="/src/img/symbol-defs.svg#icon-close-white"></use>
+                <use href="/DreamTeam/src/img/symbol-defs.svg#icon-close-white"></use>
               </svg>
             </CloseExercisesContainer>
             <ExercisesInnerModalContainer>
@@ -196,11 +196,11 @@ const ExercisesModal = ({ onClose, exercies }) => {
                 <PlayPause onClick={toStartTimer}>
                   {start ? (
                     <svg width="32" height="32">
-                      <use href="/src/img/symbol-defs.svg#icon-pause"></use>
+                      <use href="/DreamTeam/src/img/symbol-defs.svg#icon-pause"></use>
                     </svg>
                   ) : (
                     <svg width="32" height="32">
-                      <use href="/src/img/symbol-defs.svg#icon-play"></use>
+                      <use href="/DreamTeam/src/img/symbol-defs.svg#icon-play"></use>
                     </svg>
                   )}
                 </PlayPause>

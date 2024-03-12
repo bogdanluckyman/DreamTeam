@@ -27,7 +27,7 @@ const WellDoneModal = ({ Calories, onClose, Background }) => {
       <WellDoneContainer>
         <CloseWellDoneContainer onClick={onClose}>
           <SvgFormModal width="13" height="13">
-            <use href="/src/img/symbol-defs.svg#icon-close-white"></use>
+            <use href="/DreamTeam/src/img/symbol-defs.svg#icon-close-white"></use>
           </SvgFormModal>
         </CloseWellDoneContainer>
         <InnerWellDoneContainer>
@@ -42,7 +42,7 @@ const WellDoneModal = ({ Calories, onClose, Background }) => {
 
             <SvgNext>
               <use
-                href="/src/img/symbol-defs.svg#icon-next"
+                href="/DreamTeam/src/img/symbol-defs.svg#icon-next"
                 width="25"
                 height="25"
               ></use>

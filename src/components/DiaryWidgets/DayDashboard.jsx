@@ -22,12 +22,13 @@ const DayDashboard = ({ userDiaryInformation, bmr }) => {
   const {
     burnedCalories,
     consumedCalories,
-    remainingCalories,
+    // remainingCalories,
     remainingSports,
   } = userDiaryInformation;
 
   const [isOverCalories, setIsOverCalories] = useState(false);
   const [isOverSports, setIsOverSports] = useState(false);
+  const remainingCalories = Math.round(consumedCalories - burnedCalories, 0);
 
   const error = useSelector(selectDiaryError);
 
@@ -86,7 +87,11 @@ const DayDashboard = ({ userDiaryInformation, bmr }) => {
           </TitleStyledWrapper>
           <DataValue>{burnedCalories && !error ? burnedCalories : 0}</DataValue>
         </ItemListStyled>
-        <ItemListStyled className={isOverCalories ? 'redBg' : ''}>
+        <ItemListStyled
+          className={
+            isOverCalories ? 'greenBg' : remainingCalories < 0 ? 'redBg' : ''
+          }
+        >
           <TitleStyledWrapper>
             <SvgStyled>
               <use href={sprite + '#icon-bubble'}></use>

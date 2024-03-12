@@ -516,7 +516,6 @@ export const MobileItemsHolder4 = styled.div `
 `;
 
 export const TableDeleteButton = styled.button `
-  /* width: 100%; */
   height: 100%;
   border: none;
   background-color: transparent;

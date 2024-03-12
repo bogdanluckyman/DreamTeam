@@ -25,7 +25,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addDiaryExercise } from '../../redux/diary/operation';
 import Notiflix from 'notiflix';
 
-const ExercisesModal = ({ onClose, date, exercies }) => {
+const ExercisesModal = ({ onClose, exercies }) => {
   const [start, setStart] = useState(false);
   const [isPaused, setIsPaused] = useState(true);
   const [time, setTime] = useState('');
@@ -34,6 +34,7 @@ const ExercisesModal = ({ onClose, date, exercies }) => {
   const [counter, setCounter] = useState(0);
   const [seconds, setSeconds] = useState(0);
   const [overallResult, setOverallResult] = useState(3);
+
   const dispatch = useDispatch();
   const errorValue = useSelector((state) => state.diary.error);
   /////////////////////////////////////////////////////////////
@@ -114,10 +115,11 @@ const ExercisesModal = ({ onClose, date, exercies }) => {
           calories: Math.floor(counter),
         },
       };
-      console.log(newObject);
+
       const res = await dispatch(addDiaryExercise(newObject));
       setStart(false);
       setIsPaused(true);
+
       if (errorValue !== null) {
         Notiflix.Notify.failure('Sorry, something went wrong. Try again');
         return;
@@ -225,7 +227,14 @@ const ExercisesModal = ({ onClose, date, exercies }) => {
                     <ExercisesBlockResalts>{equipment}</ExercisesBlockResalts>
                   </ExercisesBlock>
                 </DataDiv>
-                <ExercisesBlockButton onClick={toCloseWindiw}>
+                <ExercisesBlockButton
+                  onClick={toCloseWindiw}
+                  disabled={counter < 1}
+                  style={{
+                    background: counter < 1 ? '#660000' : '#e6533c',
+                    color: counter < 1 ? 'rgba(239, 237, 232, 0.3)' : '#efede8',
+                  }}
+                >
                   Add to diary
                 </ExercisesBlockButton>
               </DataContainerDiv>

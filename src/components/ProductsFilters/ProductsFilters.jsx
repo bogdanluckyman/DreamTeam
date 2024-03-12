@@ -2,7 +2,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setFilters } from '../../redux/products/filtersSlice';
 import {
   FiltersField,
+  FiltersMark,
   InputWrap,
+  Option,
   OptionSelect,
   ResetBtn,
   SelectsWrap,
@@ -12,6 +14,7 @@ import { nanoid } from 'nanoid';
 import { selectCategories, selectFilter } from '../../redux/products/selector';
 import sprite from '../../img/symbol-defs.svg';
 import { capitalizeFirstLetter } from '../ExercisesSubcategoriesItem/ExercisesSubcategoriesItem';
+import { useEffect } from 'react';
 
 export const ProductsFilters = () => {
   const dispatch = useDispatch();
@@ -19,13 +22,14 @@ export const ProductsFilters = () => {
   const inputValue = useSelector(selectFilter).title;
   const selectedCategory = useSelector(selectFilter).category;
   const selectedFilter = useSelector(selectFilter).filter;
+
   return (
     <FiltersField>
       <InputWrap>
         <TitleInput
           type="text"
           name="title"
-          defaultValue={inputValue}
+          value={inputValue}
           placeholder="Search"
           onChange={(evt) => {
             dispatch(setFilters({ title: evt.target.value.trim() }));
@@ -33,7 +37,7 @@ export const ProductsFilters = () => {
         />
         {inputValue.length > 0 && (
           <ResetBtn
-            onClick={(evt) => {
+            onClick={() => {
               dispatch(setFilters({ title: '' }));
             }}
           >
@@ -47,6 +51,7 @@ export const ProductsFilters = () => {
         </svg>
       </InputWrap>
       <SelectsWrap>
+        <FiltersMark>Filters</FiltersMark>
         <OptionSelect
           name="category"
           value={selectedCategory}
@@ -58,12 +63,12 @@ export const ProductsFilters = () => {
             }
           }}
         >
-          <option defaultChecked>Categories</option>
+          <Option defaultChecked>Categories</Option>
           {productsCategories.map((category) => {
             return (
-              <option key={nanoid()} value={category}>
+              <Option key={nanoid()} value={category}>
                 {capitalizeFirstLetter(category)}
-              </option>
+              </Option>
             );
           })}
         </OptionSelect>

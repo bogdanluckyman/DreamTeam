@@ -64,6 +64,10 @@ img {
 button {
   cursor: pointer;
 }
+dl {
+    margin: 0;
+
+}
 dd {
   margin-left: 0;
 }

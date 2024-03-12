@@ -34,16 +34,19 @@ import {
 import { refreshUser } from '../../../redux/auth/operation';
 
 const DiaryPage = () => {
+  const [allDiaryInformation, setallDiaryInformation] = useState([]);
+  const [consumedProductsArray, setconsumedProductsArray] = useState([]);
+  const [completedExercisesArray, setcompletedExercisesArray] = useState([]);
   const dispatch = useDispatch();
-  const userData = useSelector(selectDiaryInformation);
+  // const userData = useSelector(selectDiaryInformation);
 
   const isLoading = useSelector(selectDiaryIsLoading);
   const isRefreshing = useSelector(selectIsRefreshing);
   const bmr = useSelector(selectBmr);
-  const consumedProductsArray = useSelector(selectConsumedProducts);
-  console.log(consumedProductsArray);
-  const completedExercisesArray = useSelector(selectCompletedExercisesArray);
-  const allDiaryInformation = userData?.allDiaryInformation || {};
+  // const consumedProductsArray = useSelector(selectConsumedProducts);
+
+  // const completedExercisesArray = useSelector(selectCompletedExercisesArray);
+  // const allDiaryInformation = userData?.allDiaryInformation || {};
   const [currentDate, setCurrentDate] = useState(new Date());
   const user = useSelector(selectUser);
   const userDataRegistration = user.createdAt;
@@ -71,6 +74,16 @@ const DiaryPage = () => {
     };
     fetchData();
   }, [dispatch, formattedCurrentDate, currentDate]);
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await dispatch(getAllDiaryInformation('06-03-2024'));
+      setallDiaryInformation(res.payload);
+      setconsumedProductsArray(res.payload.products);
+      setcompletedExercisesArray(res.payload.exercises);
+    };
+
+    fetchData();
+  }, [dispatch]);
 
   return (
     <Container>

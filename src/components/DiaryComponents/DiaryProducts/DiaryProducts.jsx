@@ -94,7 +94,7 @@ const DayProducts = ({ productsArray, date }) => {
           <Table>
             <WrapperForItemsArray>
               {productsArray.map((product) => {
-                const type = product.productId.groupBloodNotAllowed[
+                const type = product.productID.groupBloodNotAllowed[
                   userBloodType
                 ]
                   ? 'Yes'
@@ -106,13 +106,13 @@ const DayProducts = ({ productsArray, date }) => {
                       Title
                     </ProductListArrayItemMobile>
                     <ProductListArrayItemMobile>
-                      {formattedTitle(product.productId.title)}
+                      {formattedTitle(product.productID?.title)}
                     </ProductListArrayItemMobile>
                     <ProductListArrayItemMobile>
                       Category
                     </ProductListArrayItemMobile>
                     <ProductListArrayItemMobile>
-                      {formattedTitle(product.productId.category)}
+                      {formattedTitle(product.productID?.category)}
                     </ProductListArrayItemMobile>
                     <ListMobileArray>
                       <MobileItemsHolder1
@@ -228,19 +228,18 @@ const DayProducts = ({ productsArray, date }) => {
 
             <WrapperForItemsArray>
               {productsArray.map((product) => {
-                console.log(product);
-                const type = product.productId?.groupBloodNotAllowed[
+                const type = product.productID?.groupBloodNotAllowed[
                   userBloodType
                 ]
-                  ? 'Yes'
-                  : 'No';
+                  ? (FoodRecommended = 'Yes')
+                  : (FoodRecommended = 'No');
                 return (
                   <ProductListArray key={product._id}>
                     <ProductListArrayItem>
-                      {formattedTitle(product.productId?.title)}
+                      {formattedTitle(product.productID?.title)}
                     </ProductListArrayItem>
                     <ProductListArrayItem>
-                      {formattedTitle(product.productId?.category)}
+                      {formattedTitle(product.productID?.category)}
                     </ProductListArrayItem>
                     <ProductListArrayItem>
                       {product.calories}

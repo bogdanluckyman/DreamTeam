@@ -46,6 +46,7 @@ export const TitleInput = styled.input`
   background-color: inherit;
   border: none;
   padding: 0;
+  width: 240px;
 
   &:hover,
   &:focus {

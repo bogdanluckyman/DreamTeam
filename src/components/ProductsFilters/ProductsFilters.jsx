@@ -14,6 +14,7 @@ import { nanoid } from 'nanoid';
 import { selectCategories, selectFilter } from '../../redux/products/selector';
 import sprite from '../../img/symbol-defs.svg';
 import { capitalizeFirstLetter } from '../ExercisesSubcategoriesItem/ExercisesSubcategoriesItem';
+import { useEffect } from 'react';
 
 export const ProductsFilters = () => {
   const dispatch = useDispatch();
@@ -21,13 +22,14 @@ export const ProductsFilters = () => {
   const inputValue = useSelector(selectFilter).title;
   const selectedCategory = useSelector(selectFilter).category;
   const selectedFilter = useSelector(selectFilter).filter;
+
   return (
     <FiltersField>
       <InputWrap>
         <TitleInput
           type="text"
           name="title"
-          defaultValue={inputValue}
+          value={inputValue}
           placeholder="Search"
           onChange={(evt) => {
             dispatch(setFilters({ title: evt.target.value.trim() }));
@@ -35,7 +37,7 @@ export const ProductsFilters = () => {
         />
         {inputValue.length > 0 && (
           <ResetBtn
-            onClick={(evt) => {
+            onClick={() => {
               dispatch(setFilters({ title: '' }));
             }}
           >

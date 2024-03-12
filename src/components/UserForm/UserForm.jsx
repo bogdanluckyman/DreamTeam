@@ -23,12 +23,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { updateUserInfo } from '../../redux/auth/operation';
 
 const UserForm = () => {
-  // тут буде редакс
   const dispatch = useDispatch();
-  // dispatch(refreshUser);
   const user = useSelector(selectUser);
-  // console.log(user);
-  // const [weight, setBmr] = useState(user.currentWeight);
+
+  const formattedDate = user.birthday ? parseISO(user.birthday) : new Date();
 
   const bloodOptions = [
     { id: '1', value: '1', label: '1' },
@@ -71,7 +69,10 @@ const UserForm = () => {
     },
   ];
 
-  const formattedDate = user.birthday ? parseISO(user.birthday) : new Date();
+
+  // const formattedDate = user.birthday ? parseISO(user.birthday) : new Date();
+  // console.log(formattedDate);
+
 
   const initialValues = {
     name: user.name || 'Name',
@@ -99,20 +100,12 @@ const UserForm = () => {
   });
 
   const handleSubmit = (values) => {
-    console.log(values);
     const UserData = {
       ...values,
     };
     dispatch(updateUserInfo(UserData));
   };
 
-  // const SignupForm = () => {
-  //   const formik = useFormik({
-  //     initialValues: {
-  //       firstName: '',
-  //       lastName: '',
-  //       email: '',
-  //     }})};
 
   return (
     <Wrapper>
@@ -131,6 +124,10 @@ const UserForm = () => {
                   id="name"
                   placeholder="Your name"
                   as={Input}
+
+                  // onBlur={(e) => {
+                  //   setNameLocal(e.currentTarget.value)
+                  //   }}
                 />
                 <label htmlFor="name">Name</label>
               </WrappInput>
@@ -142,7 +139,6 @@ const UserForm = () => {
                   defaultValue={user.email}
                   style={{ color: 'rgba(239, 237, 232, 0.60)' }}
                   readOnly
-                  disabled
                 />
                 <label htmlFor="email">Email</label>
               </WrappInput>
@@ -156,6 +152,9 @@ const UserForm = () => {
                     id="height"
                     placeholder=""
                     as={InputField}
+                    // onBlur={(e) => {
+                    //   setHeightLocal(e.currentTarget.value)
+                    //   }}
                   />
                   <label htmlFor="height">Height</label>
                 </WrappInput>
@@ -188,6 +187,7 @@ const UserForm = () => {
                   <Datapicker
                     selectedDate={formik.values.birthday}
                     setSelectedDate={(date) => {
+                      console.log(parseISO(date));
                       const formattedDate = parseISO(date.toISOString());
                       formik.setFieldValue('birthday', formattedDate);
                     }}
@@ -244,8 +244,15 @@ const UserForm = () => {
                 ))}
               </WrapperLevel>
             </WrapperRadio>
-            if (!values.name === user.name){' '}
-            {<Button type="submit">Save</Button>}
+
+            <Button type="submit">Save</Button>
+            {/* <Button type="submit" disabled={isDisabled ? true : false } >Save</Button> */}
+            {/* className={someCondition ? someClass : someOtherClass}
+             { isDisabled ? <Button type="submit" >Save</Button> : <Button type="submit" style={ {color: "#efede899"}} disabled  >Save</Button> }
+          
+ 
+             */}
+
           </Form>
         )}
       </Formik>

@@ -71,7 +71,6 @@ export const InputField = styled.input`
     border-color: var(--orange-color);
     outline: 0;
   }
- 
 `;
 export const WrappInput = styled.div`
   position: relative;
@@ -89,7 +88,6 @@ export const WrappInput = styled.div`
       left 0.2s,
       transform 0.2s;
     color: var(--light-grey-color);
-    
   }
 
   // span {
@@ -104,15 +102,14 @@ export const WrappInput = styled.div`
 `;
 
 export const LabelSpan = styled.label`
-position: absolute;
-font-size: 14px;
-bottom: 55px;
-left: 1px;
+  position: absolute;
+  font-size: 14px;
+  bottom: 55px;
+  left: 1px;
 
-pointer-events: none;
-color: var(--light-grey-color);
+  pointer-events: none;
+  color: var(--light-grey-color);
 `;
-
 
 export const Label = styled.label`
   color: --light-grey-color;
@@ -207,7 +204,7 @@ export const Button = styled.button`
   border-radius: 12px;
   border-color: var(--orange-color);
   background: var(--orange-color);
-  color: rgba(239, 237, 232, 0.6);
+  color: var(--white-color);
 
   @media screen and (min-width: 768px) {
     margin: 40px 0px 64px 0;
@@ -224,5 +221,3 @@ export const WrapperLevel = styled.div`
     gap: 8px;
   }
 `;
-
-

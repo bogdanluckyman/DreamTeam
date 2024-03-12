@@ -91,13 +91,23 @@ const ExercisesModal = ({ onClose, date, exercies }) => {
   }, [restart, start, time]);
 
   const toCloseWindiw = () => {
+    function getFormattedDate() {
+      const today = new Date();
+      const day = String(today.getDate()).padStart(2, '0');
+      const month = String(today.getMonth() + 1).padStart(2, '0');
+      const year = today.getFullYear();
+      return `${day}-${month}-${year}`;
+    }
+
+    const formattedDate = getFormattedDate();
+    console.log(formattedDate);
     const valueTime = timeCalculation(overallResult, time);
     const timeValue = valueTime;
     const [minutes, sekunden] = timeValue.split(':');
     const formattedTime = `${parseInt(minutes, 10)}.${sekunden}`;
 
     const newObject = {
-      date: date,
+      date: formattedDate,
       exercises: {
         exerciseID: exercies._id,
         time: parseFloat(formattedTime),

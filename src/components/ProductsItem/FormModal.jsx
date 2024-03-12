@@ -63,12 +63,22 @@ const FormModal = ({ onClose, product, date }) => {
   };
 
   const handleSubmit = async (values, { resetForm }) => {
+    function getFormattedDate() {
+      const today = new Date();
+      const day = String(today.getDate()).padStart(2, '0');
+      const month = String(today.getMonth() + 1).padStart(2, '0');
+      const year = today.getFullYear();
+      return `${day}-${month}-${year}`;
+    }
+
+    const formattedDate = getFormattedDate();
+    console.log(formattedDate);
     const value = values.amount;
     try {
       await ValidationSchema.validate(values, { abortEarly: false });
 
       const newObjekt = {
-        date: date,
+        date: formattedDate,
         products: {
           productID: id,
           amount: value,

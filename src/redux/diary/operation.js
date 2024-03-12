@@ -74,7 +74,7 @@ export const addDiaryExercise = createAsyncThunk(
 
 export const deleteDiaryExercise = createAsyncThunk(
   '/diary/deleteDiaryExercise',
-  async (workoutId, thunkAPI) => {
+  async (exerciseId, thunkAPI) => {
     try {
       const response = await axios.delete(`api/diary/exercise/${exerciseId}`);
       return response.data;

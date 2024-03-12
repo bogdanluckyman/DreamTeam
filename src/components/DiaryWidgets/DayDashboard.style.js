@@ -78,6 +78,7 @@ export const ItemListStyled = styled.li `
 
   &.greenBg {
     border: 1px solid #3cbf61;
+    background-color: #3cbf80;
   }
 `;
 

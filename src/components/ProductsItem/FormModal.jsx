@@ -21,13 +21,13 @@ import WellDoneModal from './WellDoneModal';
 import { useDispatch, useSelector } from 'react-redux';
 import { addDiaryProduct } from '../../redux/diary/operation';
 
-const FormModal = ({ onClose, product, date }) => {
+const FormModal = ({ onClose, product }) => {
   const [showWellDoneModal, setShowWellDoneModal] = useState(false);
   const [getFormModal, setFormModal] = useState(true);
   const [getCalories, setCalories] = useState(0);
   const dispatch = useDispatch();
   const errorValue = useSelector((state) => state.diary.error);
-  const isLoadingValue = useSelector((state) => state.diary.isLoading);
+
   const id = product._id;
   const productTitel = product.title;
   const productCalori = product.calories;
@@ -73,7 +73,7 @@ const FormModal = ({ onClose, product, date }) => {
     }
 
     const formattedDate = getFormattedDate();
-    console.log(formattedDate);
+
     const value = values.amount;
     try {
       await ValidationSchema.validate(values, { abortEarly: false });
@@ -87,9 +87,8 @@ const FormModal = ({ onClose, product, date }) => {
         },
       };
 
-      console.log(errorValue);
       const res = await dispatch(addDiaryProduct(newObjekt));
-      console.log(res.meta.requestStatus);
+
       if (errorValue !== null) {
         Notiflix.Notify.failure('Sorry, something went wrong. Try again');
         return;

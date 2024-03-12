@@ -24,6 +24,7 @@ import { timeCalculation } from './timeCalculation';
 import { useDispatch, useSelector } from 'react-redux';
 import { addDiaryExercise } from '../../redux/diary/operation';
 import Notiflix from 'notiflix';
+import sprite from '../../img/symbol-defs.svg';
 
 const ExercisesModal = ({ onClose, exercies }) => {
   const [start, setStart] = useState(false);
@@ -164,7 +165,8 @@ const ExercisesModal = ({ onClose, exercies }) => {
           <ExercisesModalContainer>
             <CloseExercisesContainer onClick={onClose}>
               <svg width="13" height="13">
-                <use href="/DreamTeam/src/img/symbol-defs.svg#icon-close-white"></use>
+                {/* <use href="/DreamTeam/src/img/symbol-defs.svg#icon-close-white"></use> */}
+                <use href={sprite + '#icon-close-white'}></use>
               </svg>
             </CloseExercisesContainer>
             <ExercisesInnerModalContainer>
@@ -196,11 +198,13 @@ const ExercisesModal = ({ onClose, exercies }) => {
                 <PlayPause onClick={toStartTimer}>
                   {start ? (
                     <svg width="32" height="32">
-                      <use href="/DreamTeam/src/img/symbol-defs.svg#icon-pause"></use>
+                      {/* <use href="/DreamTeam/src/img/symbol-defs.svg#icon-pause"></use> */}
+                      <use href={sprite + '#icon-pause'}></use>
                     </svg>
                   ) : (
                     <svg width="32" height="32">
-                      <use href="/DreamTeam/src/img/symbol-defs.svg#icon-play"></use>
+                      {/* <use href="/DreamTeam/src/img/symbol-defs.svg#icon-play"></use> */}
+                      <use href={sprite + '#icon-play'}></use>
                     </svg>
                   )}
                 </PlayPause>

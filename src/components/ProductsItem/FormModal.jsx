@@ -20,6 +20,7 @@ import { useState } from 'react';
 import WellDoneModal from './WellDoneModal';
 import { useDispatch, useSelector } from 'react-redux';
 import { addDiaryProduct } from '../../redux/diary/operation';
+import sprite from '../../img/symbol-defs.svg';
 
 const FormModal = ({ onClose, product }) => {
   const [showWellDoneModal, setShowWellDoneModal] = useState(false);
@@ -122,7 +123,8 @@ const FormModal = ({ onClose, product }) => {
               <FormModalContainer>
                 <CloseModal onClick={onClose}>
                   <SvgFormModal width="13" height="13">
-                    <use href="/DreamTeam/src/img/symbol-defs.svg#icon-close-white"></use>
+                    {/* <use href="/DreamTeam/src/img/symbol-defs.svg#icon-close-white"></use> */}
+                    <use href={sprite + '#icon-close-white'}></use>
                   </SvgFormModal>
                 </CloseModal>
 

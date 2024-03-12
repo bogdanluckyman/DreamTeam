@@ -40,7 +40,7 @@ export const ExercisesWellDoneImg = styled.div`
   width: 117px;
   height: 73px;
   margin-bottom: 27px;
-  background-image: url('/DreamTeam/src/img/Thumb_up.png');
+  background-image: url('../../img/Thumb_up.png');
 `;
 export const ExercisesText = styled.h2`
   font-weight: 700;

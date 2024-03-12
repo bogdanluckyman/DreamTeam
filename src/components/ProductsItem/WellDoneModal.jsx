@@ -14,6 +14,7 @@ import {
   WellDoneImg,
 } from './WellDoneModal.styles';
 import { useNavigate } from 'react-router';
+import sprite from '../../img/symbol-defs.svg';
 
 const WellDoneModal = ({ Calories, onClose, Background }) => {
   const navigate = useNavigate();
@@ -27,7 +28,8 @@ const WellDoneModal = ({ Calories, onClose, Background }) => {
       <WellDoneContainer>
         <CloseWellDoneContainer onClick={onClose}>
           <SvgFormModal width="13" height="13">
-            <use href="/DreamTeam/src/img/symbol-defs.svg#icon-close-white"></use>
+            {/* <use href="/DreamTeam/src/img/symbol-defs.svg#icon-close-white"></use> */}
+            <use href={sprite + '#icon-close-white'}></use>
           </SvgFormModal>
         </CloseWellDoneContainer>
         <InnerWellDoneContainer>
@@ -42,7 +44,8 @@ const WellDoneModal = ({ Calories, onClose, Background }) => {
 
             <SvgNext>
               <use
-                href="/DreamTeam/src/img/symbol-defs.svg#icon-next"
+                // href="/DreamTeam/src/img/symbol-defs.svg#icon-next"
+                href={sprite + '#icon-next'}
                 width="25"
                 height="25"
               ></use>

@@ -5,8 +5,10 @@ import Notiflix from 'notiflix';
 export const getAllDiaryInformation = createAsyncThunk(
   '/diary/getAllDiaryInformation',
   async (date, thunkAPI) => {
+    const day = '11-03-2024';
     try {
-      const response = await axios.get(`api/diary/entry/${date}`);
+      const response = await axios.get(`api/diary/entry/${day}`);
+      console.log(response.data);
       return response.data;
     } catch (error) {
       Notiflix.Notify.failure(`${error.response.data.message}`, {

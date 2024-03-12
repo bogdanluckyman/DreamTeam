@@ -34,11 +34,13 @@ import { refreshUser } from '../../../redux/auth/operation';
 const DiaryPage = () => {
   const dispatch = useDispatch();
   const userData = useSelector(selectDiaryInformation);
+
   const isLoading = useSelector(selectDiaryIsLoading);
   const isRefreshing = useSelector(selectIsRefreshing);
   const bmr = useSelector(selectBmr);
-  const consumedProductsArray = userData?.consumedProductsArray || [];
-  const completedExercisesArray = userData?.completedExercisesArray || [];
+  const consumedProductsArray = userData?.products || [];
+  console.log(consumedProductsArray);
+  const completedExercisesArray = userData?.exercises || [];
   const allDiaryInformation = userData?.allDiaryInformation || {};
   const [currentDate, setCurrentDate] = useState(new Date());
   const user = useSelector(selectUser);

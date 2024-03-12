@@ -4,6 +4,7 @@ import {
   FiltersField,
   FiltersMark,
   InputWrap,
+  Option,
   OptionSelect,
   ResetBtn,
   SelectsWrap,
@@ -60,12 +61,12 @@ export const ProductsFilters = () => {
             }
           }}
         >
-          <option defaultChecked>Categories</option>
+          <Option defaultChecked>Categories</Option>
           {productsCategories.map((category) => {
             return (
-              <option key={nanoid()} value={category}>
+              <Option key={nanoid()} value={category}>
                 {capitalizeFirstLetter(category)}
-              </option>
+              </Option>
             );
           })}
         </OptionSelect>

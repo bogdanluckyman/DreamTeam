@@ -72,6 +72,11 @@ export const OptionSelect = styled.select`
   &:not(:last-child) {
     margin-right: 16px;
   }
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+  }
+
   @media screen and (min-width: 1440px) {
     background-color: rgba(0, 0, 0, 0);
   }
@@ -82,6 +87,14 @@ export const OptionSelect = styled.select`
   }
 
   option {
+    background-color: #1c1c1c;
+    color: var(--white-color);
+  }
+`;
+
+export const Option = styled.option`
+  &:hover,
+  &:focus {
     background-color: #1c1c1c;
   }
 `;
@@ -95,7 +108,7 @@ export const SelectsWrap = styled.div`
 export const FiltersMark = styled.p`
   display: none;
   font-size: 14px;
-  line-height: 0.78;
+  ine-height: 0.78;
   color: var(--light-grey-color);
   position: absolute;
   right: 0;

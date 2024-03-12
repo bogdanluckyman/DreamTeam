@@ -27,10 +27,8 @@ const UserForm = () => {
   const dispatch = useDispatch();
   // dispatch(refreshUser);
   const user = useSelector(selectUser);
-  console.log(user)
+  // console.log(user);
   // const [weight, setBmr] = useState(user.currentWeight);
-
- 
 
   const bloodOptions = [
     { id: '1', value: '1', label: '1' },
@@ -74,7 +72,6 @@ const UserForm = () => {
   ];
 
   const formattedDate = user.birthday ? parseISO(user.birthday) : new Date();
-  // console.log(formattedDate);
 
   const initialValues = {
     name: user.name || 'Name',
@@ -86,7 +83,6 @@ const UserForm = () => {
     sex: user.sex || 'male',
     levelActivity: (user.levelActivity ?? '1').toString() || '1',
   };
-  
 
   const validationSchema = Yup.object({
     name: Yup.string().required('Name is required'),
@@ -102,18 +98,13 @@ const UserForm = () => {
     birthday: Yup.date().required('Birthday is required'),
   });
 
-
-  
-  
   const handleSubmit = (values) => {
-    console.log(values)
+    console.log(values);
     const UserData = {
       ...values,
     };
     dispatch(updateUserInfo(UserData));
-
   };
- 
 
   // const SignupForm = () => {
   //   const formik = useFormik({
@@ -122,7 +113,6 @@ const UserForm = () => {
   //       lastName: '',
   //       email: '',
   //     }})};
-
 
   return (
     <Wrapper>
@@ -157,7 +147,6 @@ const UserForm = () => {
                 <label htmlFor="email">Email</label>
               </WrappInput>
             </FormContainer>
-
             <InfoContainer>
               <WrapperInputField>
                 <WrappInput>
@@ -206,7 +195,6 @@ const UserForm = () => {
                 </WrappInput>
               </WrapperInputField>
             </InfoContainer>
-
             <WrapperRadio>
               <div style={{ display: 'flex', marginRight: '20px' }}>
                 <div style={{ display: 'flex', marginRight: '20px' }}>
@@ -256,14 +244,8 @@ const UserForm = () => {
                 ))}
               </WrapperLevel>
             </WrapperRadio>
-
-
-           
-            if  (!values.name ===  user.name) {
-             <Button type="submit"  >Save</Button>
-            }
- 
-            
+            if (!values.name === user.name){' '}
+            {<Button type="submit">Save</Button>}
           </Form>
         )}
       </Formik>

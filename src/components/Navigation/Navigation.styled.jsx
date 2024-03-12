@@ -4,9 +4,9 @@ import { NavLink } from 'react-router-dom';
 export const LinkNav = styled(NavLink)`
   display: inline-block;
   text-decoration: none;
-  padding: 12px;
+  /* padding: 12px; */
   font-weight: 700;
-  color: darkblue;
+
   font-size: 20px;
 
   &:hover {
@@ -18,7 +18,19 @@ export const LinkNav = styled(NavLink)`
 `;
 
 export const Nav = styled.nav`
-  margin-right: auto;
+  /* max-width: 375px; */
+  /* margin: 0 auto; */
+  padding: 25px 18px;
+
+  @media screen and (min-width: 768px) {
+    max-width: 768px;
+    padding: 32px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    max-width: 1440px;
+    padding: 32px 96px;
+  }
 `;
 
 export const Svg = styled.svg`

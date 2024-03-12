@@ -1,12 +1,11 @@
 import styled from 'styled-components';
 
 export const Header = styled.header`
-  width: 100%;
-  display: flex;
+  /* width: 100%; */
   justify-content: center;
   align-items: center;
-  padding: 25px 18px;
   margin: 0 auto;
+  /* padding: 25px 18px; */
 
   @media screen and (min-width: 375px) {
     width: 375px;
@@ -14,7 +13,8 @@ export const Header = styled.header`
   }
 
   @media screen and (min-width: 768px) {
-    padding: 32px 32px;
+    /* padding-left: 32px; */
+    /* padding-top: 32px; */
     width: 768px;
   }
 

@@ -90,7 +90,7 @@ const ExercisesModal = ({ onClose, date, exercies }) => {
     return;
   }, [restart, start, time]);
 
-  const toCloseWindiw = () => {
+  const toCloseWindiw = async () => {
     function getFormattedDate() {
       const today = new Date();
       const day = String(today.getDate()).padStart(2, '0');
@@ -98,32 +98,36 @@ const ExercisesModal = ({ onClose, date, exercies }) => {
       const year = today.getFullYear();
       return `${day}-${month}-${year}`;
     }
+    try {
+      const formattedDate = getFormattedDate();
 
-    const formattedDate = getFormattedDate();
-    console.log(formattedDate);
-    const valueTime = timeCalculation(overallResult, time);
-    const timeValue = valueTime;
-    const [minutes, sekunden] = timeValue.split(':');
-    const formattedTime = `${parseInt(minutes, 10)}.${sekunden}`;
+      const valueTime = timeCalculation(overallResult, time);
+      const timeValue = valueTime;
+      const [minutes, sekunden] = timeValue.split(':');
+      const formattedTime = `${parseInt(minutes, 10)}.${sekunden}`;
 
-    const newObject = {
-      date: formattedDate,
-      exercises: {
-        exerciseID: exercies._id,
-        time: parseFloat(formattedTime),
-        calories: Math.floor(counter),
-      },
-    };
-    console.log(newObject);
-    dispatch(addDiaryExercise(newObject));
-
-    console.log(errorValue);
-    setStart(false);
-    setIsPaused(true);
-    if (errorValue !== null) {
-      Notiflix.Notify.failure('Sorry, something went wrong. Try again');
-      return;
-
+      const newObject = {
+        date: formattedDate,
+        exercises: {
+          exerciseID: exercies._id,
+          time: parseFloat(formattedTime),
+          calories: Math.floor(counter),
+        },
+      };
+      console.log(newObject);
+      const res = await dispatch(addDiaryExercise(newObject));
+      setStart(false);
+      setIsPaused(true);
+      if (errorValue !== null) {
+        Notiflix.Notify.failure('Sorry, something went wrong. Try again');
+        return;
+      }
+      if (res.meta.requestStatus === 'fulfilled') {
+        Notiflix.Notify.success('Data added successfully');
+        setcloseModal(true);
+      }
+    } catch (error) {
+      console.log(error);
     }
   };
 

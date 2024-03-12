@@ -5,7 +5,16 @@ import Notiflix from 'notiflix';
 export const getAllDiaryInformation = createAsyncThunk(
   '/diary/getAllDiaryInformation',
   async (date, thunkAPI) => {
-    const day = '11-03-2024';
+    function getFormattedDate() {
+      const today = new Date();
+      const day = String(today.getDate()).padStart(2, '0');
+      const month = String(today.getMonth() + 1).padStart(2, '0');
+      const year = today.getFullYear();
+      return `${day}-${month}-${year}`;
+    }
+
+    const formattedDate = getFormattedDate();
+    const day = formattedDate;
     try {
       const response = await axios.get(`api/diary/entry/${day}`);
       console.log(response.data);

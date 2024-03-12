@@ -42,6 +42,7 @@ import {
 } from '../../../redux/diary/operation';
 
 const DayExercises = ({ exercisesArray, date }) => {
+  console.log(exercisesArray);
   const isMobile = useMediaQuery('(max-width:768px)');
   const error = useSelector(selectDiaryError);
   const dispatch = useDispatch();
@@ -98,20 +99,20 @@ const DayExercises = ({ exercisesArray, date }) => {
                     Body Part
                   </ExerciseListArrayItemMobile>
                   <ExerciseListArrayItemMobile>
-                    {formattedTitle(exercise.exerciseId.bodyPart)}
+                    {formattedTitle(exercise.exerciseID?.bodyPart)}
                   </ExerciseListArrayItemMobile>
 
                   <ExerciseListArrayItemMobile>
                     Equipment
                   </ExerciseListArrayItemMobile>
                   <ExerciseListArrayItemMobile>
-                    {formattedTitle(exercise.exerciseId.equipment)}
+                    {formattedTitle(exercise.exerciseID?.equipment)}
                   </ExerciseListArrayItemMobile>
                   <ExerciseListArrayItemMobile>
                     Name
                   </ExerciseListArrayItemMobile>
                   <ExerciseListArrayItemMobile>
-                    {formattedTitle(exercise.exerciseId.name)}
+                    {formattedTitle(exercise.exerciseID?.name)}
                   </ExerciseListArrayItemMobile>
                   <ListMobileArray>
                     <MobileItemsHolder1
@@ -124,7 +125,7 @@ const DayExercises = ({ exercisesArray, date }) => {
                         Target
                       </ExerciseListArrayItemMobile>
                       <ExerciseListArrayItemMobile>
-                        {formattedTitle(exercise.exerciseId.target)}
+                        {formattedTitle(exercise.exerciseID?.target)}
                       </ExerciseListArrayItemMobile>
                     </MobileItemsHolder1>
                     <MobileItemsHolder2
@@ -194,27 +195,16 @@ const DayExercises = ({ exercisesArray, date }) => {
               {exercisesArray.map((exercise) => (
                 <ExerciseListArray key={exercise._id}>
                   <ExerciseListArrayItem>
-                    {/* {formattedTitle(exercise.exerciseId.bodyPart)} */}
-                    {exercise.exerciseId &&
-                      formattedTitle(exercise.exerciseId.bodyPart)}
+                    {formattedTitle(exercise.exerciseID.bodyPart)}
                   </ExerciseListArrayItem>
                   <ExerciseListArrayItem>
-                    {/* {formattedTitle(exercise.exerciseId.equipment)} */}
-                    {exercise.exerciseId
-                      ? formattedTitle(exercise.exerciseId.equipment)
-                      : ''}
+                    {formattedTitle(exercise.exerciseID.equipment)}
                   </ExerciseListArrayItem>
                   <ExerciseListArrayItem>
-                    {/* {formattedTitle(exercise.exerciseId.name)} */}
-                    {exercise.exerciseId
-                      ? formattedTitle(exercise.exerciseId.name)
-                      : ''}
+                    {formattedTitle(exercise.exerciseID.name)}
                   </ExerciseListArrayItem>
                   <ExerciseListArrayItem>
-                    {/* {formattedTitle(exercise.exerciseId.target)} */}
-                    {exercise.exerciseId
-                      ? formattedTitle(exercise.exerciseId.target)
-                      : ''}
+                    {formattedTitle(exercise.exerciseID.target)}
                   </ExerciseListArrayItem>
                   <ExerciseListArrayItem>
                     {exercise.calories}

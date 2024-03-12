@@ -1,6 +1,5 @@
 import { NavLink } from 'react-router-dom';
 import { useMediaQuery } from '@mui/material';
-// import { toast } from 'react-toastify';
 import Notiflix from 'notiflix';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -41,7 +40,7 @@ import {
   getAllDiaryInformation,
 } from '../../../redux/diary/operation';
 
-const DayExercises = ({ exercisesArray, date }) => {
+const DiaryExercises = ({ exercisesArray, date }) => {
   console.log(exercisesArray);
   const isMobile = useMediaQuery('(max-width:768px)');
   const error = useSelector(selectDiaryError);
@@ -169,7 +168,7 @@ const DayExercises = ({ exercisesArray, date }) => {
                           onClick={() => handleDelete(exercise._id)}
                         >
                           <SvgTableStyled>
-                            <use href={sprite + '#icon-trash-03'}></use>
+                            <use href={sprite + '#icon-trash'}></use>
                           </SvgTableStyled>
                         </TableDeleteButton>
                       </ExerciseListArrayItemMobile>
@@ -216,7 +215,7 @@ const DayExercises = ({ exercisesArray, date }) => {
                       onClick={() => handleDelete(exercise._id)}
                     >
                       <SvgTableStyled>
-                        <use href={sprite + '#icon-trash-03'}></use>
+                        <use href={sprite + '#icon-trash'}></use>
                       </SvgTableStyled>
                     </TableDeleteButton>
                   </ExerciseListArrayItem>
@@ -232,4 +231,4 @@ const DayExercises = ({ exercisesArray, date }) => {
   );
 };
 
-export default DayExercises;
+export default DiaryExercises;

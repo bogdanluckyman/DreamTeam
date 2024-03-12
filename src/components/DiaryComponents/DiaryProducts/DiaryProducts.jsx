@@ -36,7 +36,7 @@ import {
 import Notiflix from 'notiflix';
 import { selectDiaryError } from '../../../redux/diary/selectors';
 
-const DayProducts = ({ productsArray, date }) => {
+const DiaryProducts = ({ productsArray, date }) => {
   console.log(productsArray);
   const dispatch = useDispatch();
   const currentUser = useSelector(selectUser);
@@ -48,7 +48,7 @@ const DayProducts = ({ productsArray, date }) => {
 
   const formattedTitle = (productTitle) => {
     if (typeof productTitle !== 'string' || productTitle.length === 0) {
-      return ''; // Повернути пустий рядок, якщо productTitle не є рядком або є пустим
+      return '';
     }
     return productTitle[0].toUpperCase() + productTitle.slice(1).toLowerCase();
   };
@@ -167,7 +167,7 @@ const DayProducts = ({ productsArray, date }) => {
                             >
                               {type === 'Yes' ? (
                                 <use
-                                  href={sprite + '#icon-Ellipse-82'}
+                                  href={sprite + '#icon-bubble'}
                                   style={{
                                     fill: `${colors.green}`,
                                     stroke: colors.green,
@@ -175,7 +175,7 @@ const DayProducts = ({ productsArray, date }) => {
                                 />
                               ) : (
                                 <use
-                                  href={sprite + '#icon-Ellipse-82'}
+                                  href={sprite + '#icon-bubble'}
                                   style={{
                                     fill: colors.red,
                                     stroke: colors.red,
@@ -204,7 +204,7 @@ const DayProducts = ({ productsArray, date }) => {
                             onClick={() => handleDelete(product._id)}
                           >
                             <SvgTableStyled>
-                              <use href={sprite + '#icon-trash-03'}></use>
+                              <use href={sprite + '#icon-trash'}></use>
                             </SvgTableStyled>
                           </TableDeleteButton>
                         </ProductListArrayItemMobile>
@@ -264,7 +264,7 @@ const DayProducts = ({ productsArray, date }) => {
                         >
                           {type === 'Yes' ? (
                             <use
-                              href={sprite + '#icon-Ellipse-82'}
+                              href={sprite + '#icon-bubble'}
                               style={{
                                 fill: colors.green,
                                 stroke: colors.green,
@@ -272,7 +272,7 @@ const DayProducts = ({ productsArray, date }) => {
                             />
                           ) : (
                             <use
-                              href={sprite + '#icon-Ellipse-82'}
+                              href={sprite + '#icon-bubble'}
                               style={{
                                 fill: colors.red,
                                 stroke: colors.red,
@@ -306,4 +306,4 @@ const DayProducts = ({ productsArray, date }) => {
   );
 };
 
-export default DayProducts;
+export default DiaryProducts;

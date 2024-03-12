@@ -1,4 +1,6 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
+import {
+  createAsyncThunk
+} from '@reduxjs/toolkit';
 import axios from 'axios';
 import Notiflix from 'notiflix';
 
@@ -45,12 +47,11 @@ export const deleteDiaryProduct = createAsyncThunk(
   '/diary/deleteDiaryProduct',
   async (productId, thunkAPI) => {
     try {
-      const response = await axios.delete(`/diary/product/${productId}`);
+      const response = await axios.delete(`api/diary/product/${productId}`);
       return response.data;
     } catch (error) {
       Notiflix.Notify.failure(
-        `Sorry, something went wrong, please try again!`,
-        {
+        `Sorry, something went wrong, please try again!`, {
           theme: 'dark',
         }
       );
@@ -64,7 +65,6 @@ export const addDiaryExercise = createAsyncThunk(
   async (data, thunkAPI) => {
     try {
       const response = await axios.post(`api/diary/exercise`, data);
-
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -76,12 +76,11 @@ export const deleteDiaryExercise = createAsyncThunk(
   '/diary/deleteDiaryExercise',
   async (exerciseId, thunkAPI) => {
     try {
-      const response = await axios.delete(`/diary/exercise/${exerciseId}`);
+      const response = await axios.delete(`api/diary/exercise/${exerciseId}`);
       return response.data;
     } catch (error) {
       Notiflix.Notify.failure(
-        `Sorry, something went wrong, please try again!`,
-        {
+        `Sorry, something went wrong, please try again!`, {
           theme: 'dark',
         }
       );

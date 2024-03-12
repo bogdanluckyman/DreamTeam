@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setFilters } from '../../redux/products/filtersSlice';
 import {
   FiltersField,
+  FiltersMark,
   InputWrap,
   OptionSelect,
   ResetBtn,
@@ -47,6 +48,7 @@ export const ProductsFilters = () => {
         </svg>
       </InputWrap>
       <SelectsWrap>
+        <FiltersMark>Filters</FiltersMark>
         <OptionSelect
           name="category"
           value={selectedCategory}

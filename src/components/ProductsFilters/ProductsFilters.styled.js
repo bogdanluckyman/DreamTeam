@@ -91,3 +91,16 @@ export const SelectsWrap = styled.div`
   display: flex;
   justify-content: space-between;
 `;
+
+export const FiltersMark = styled.p`
+  display: none;
+  font-size: 14px;
+  line-height: 0.78;
+  color: var(--light-grey-color);
+  position: absolute;
+  right: 0;
+  top: -26px;
+  @media screen and (min-width: 1440px) {
+    display: flex;
+  }
+`;

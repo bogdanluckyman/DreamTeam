@@ -37,13 +37,10 @@ import Notiflix from 'notiflix';
 import { selectDiaryError } from '../../../redux/diary/selectors';
 
 const DiaryProducts = ({ productsArray, date }) => {
-  console.log(productsArray);
   const dispatch = useDispatch();
   const currentUser = useSelector(selectUser);
   const userBloodType = currentUser.blood;
-
   const error = useSelector(selectDiaryError);
-
   const isMobile = useMediaQuery('(max-width:768px)');
 
   const formattedTitle = (productTitle) => {

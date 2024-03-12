@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import {
-    colors
+  colors
 } from '../../../styles/colors';
 
 export const HeaderArray = styled.ul `
@@ -319,3 +319,12 @@ export const ExerciseListArrayItem = styled.li `
     }
   }
 `;
+
+export const NextIconWrapper = styled.svg `
+width: 16px;
+height: 16px;
+fill: none;
+stroke: ${colors.orange};
+display: inline - block;
+transition: stroke 0.3s ease-in-out;
+`

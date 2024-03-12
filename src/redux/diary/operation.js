@@ -1,13 +1,14 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
+import {
+  createAsyncThunk
+} from '@reduxjs/toolkit';
 import axios from 'axios';
 import Notiflix from 'notiflix';
 
 export const getAllDiaryInformation = createAsyncThunk(
   '/diary/getAllDiaryInformation',
   async (date, thunkAPI) => {
-    const day = '11-03-2024';
     try {
-      const response = await axios.get(`api/diary/entry/${day}`);
+      const response = await axios.get(`api/diary/entry/${date}`);
       console.log(response.data);
       return response.data;
     } catch (error) {
@@ -40,8 +41,7 @@ export const deleteDiaryProduct = createAsyncThunk(
       return response.data;
     } catch (error) {
       Notiflix.Notify.failure(
-        `Sorry, something went wrong, please try again!`,
-        {
+        `Sorry, something went wrong, please try again!`, {
           theme: 'dark',
         }
       );
@@ -71,8 +71,7 @@ export const deleteDiaryExercise = createAsyncThunk(
       return response.data;
     } catch (error) {
       Notiflix.Notify.failure(
-        `Sorry, something went wrong, please try again!`,
-        {
+        `Sorry, something went wrong, please try again!`, {
           theme: 'dark',
         }
       );

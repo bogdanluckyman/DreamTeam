@@ -24,6 +24,7 @@ import {
   MobileItemsHolder3,
   MobileItemsHolder4,
   ListMobileArray,
+  NextIconWrapper,
 } from './DiaryProducts.style';
 
 import { colors } from '../../../styles/colors';
@@ -76,16 +77,9 @@ const DayProducts = ({ productsArray, date }) => {
             style={{ display: 'flex', alignItems: 'center' }}
           >
             <NavText>Add product</NavText>
-            <svg
-              style={{
-                width: '16px',
-                height: '16px',
-                marginLeft: '8px',
-                stroke: colors.orange,
-              }}
-            >
-              <use href={sprite + '#icon-arrow'} />
-            </svg>
+            <NextIconWrapper>
+              <use href={`${sprite}#icon-arrow`} />
+            </NextIconWrapper>
           </NavLink>
         </NavBlock>
       </TitleNav>

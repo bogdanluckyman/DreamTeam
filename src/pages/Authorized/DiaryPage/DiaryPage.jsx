@@ -58,19 +58,20 @@ const DiaryPage = () => {
   const formattedCurrentDate = changeDate(currentDate);
   const formattedUserDateRegistration = changeDate(userDataRegistration);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        await dispatch(refreshUser());
-        await dispatch(getAllDiaryInformation(formattedCurrentDate));
-      } catch (error) {
-        toast.error('Sorry, something went wrong, please try again', {
-          theme: 'dark',
-        });
-      }
-    };
-    fetchData();
-  }, [dispatch, formattedCurrentDate, currentDate]);
+useEffect(() => {
+  const fetchData = async () => {
+    try {
+      await dispatch(refreshUser());
+      const formattedCurrentDate = changeDate(currentDate); // Оновлюємо форматовану дату
+      await dispatch(getAllDiaryInformation(formattedCurrentDate));
+    } catch (error) {
+      toast.error('Sorry, something went wrong, please try again', {
+        theme: 'dark',
+      });
+    }
+  };
+  fetchData();
+}, [dispatch, currentDate]);
 
   return (
     <Container>

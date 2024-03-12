@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import sprite from '../../../img/sprite.svg';
 
-import { colors } from '../../../styles/colors';
+// import { colors } from '../../../styles/colors';
 
 import {
   TableWrapper,
@@ -24,6 +24,7 @@ import {
   TableDeleteButton,
   SvgTableStyled,
   ListMobileArray,
+  NextIconWrapper,
 } from '../DiaryProducts/DiaryProducts.style';
 
 import {
@@ -74,16 +75,9 @@ const DayExercises = ({ exercisesArray, date }) => {
             style={{ display: 'flex', alignItems: 'center' }}
           >
             <NavText>Add exercises</NavText>
-            <svg
-              style={{
-                width: '16px',
-                height: '16px',
-                marginLeft: '8px',
-                stroke: colors.orange,
-              }}
-            >
-              <use href={sprite + '#icon-arrow'} />
-            </svg>
+            <NextIconWrapper>
+              <use href={`${sprite}#icon-arrow`} />
+            </NextIconWrapper>
           </NavLink>
         </NavBlock>
       </TitleNav>

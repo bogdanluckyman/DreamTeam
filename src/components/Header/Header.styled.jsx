@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export const HeaderContainer = styled.div`
   display: flex;
   align-items: center;
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   right: 0;

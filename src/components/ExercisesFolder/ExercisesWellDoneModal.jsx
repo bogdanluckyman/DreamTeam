@@ -30,7 +30,7 @@ const ExercisesWellDoneModal = ({
       <ExercisesWellDoneContainer>
         <CloseWellDoneContainer onClick={onClose}>
           <svg width="13" height="13">
-            <use href="/src/img/symbol-defs.svg#icon-close-white"></use>
+            <use href="/DreamTeam/src/img/symbol-defs.svg#icon-close-white"></use>
           </svg>
         </CloseWellDoneContainer>
         <InnerExercisesWellDoneContainer>
@@ -52,7 +52,7 @@ const ExercisesWellDoneModal = ({
 
             <SvgNext>
               <use
-                href="/src/img/symbol-defs.svg#icon-next"
+                href="/DreamTeam/src/img/symbol-defs.svg#icon-next"
                 width="25"
                 height="25"
               ></use>

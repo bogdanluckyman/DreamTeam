@@ -42,7 +42,7 @@ export const InnerWellDoneContainer = styled.div`
 export const WellDoneImg = styled.div`
   width: 123px;
   height: 84px;
-  background-image: url('/src/img/3D Food Icon by @Odafe_UI.png');
+  background-image: url('/DreamTeam/src/img/3D Food Icon by @Odafe_UI.png');
   @media screen and (min-width: 768px) {
     margin-bottom: 16px;
   }

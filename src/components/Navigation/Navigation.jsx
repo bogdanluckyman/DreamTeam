@@ -1,10 +1,10 @@
-// import { useAuth } from '../../hooks/useAuth';
+import { useAuth } from '../../hooks/useAuth';
 import { LinkNav, Svg, Nav } from './Navigation.styled';
 
 import sprite from '../../img/sprite.svg';
 
 export const Navigation = () => {
-  // const { isLoggedIn } = useAuth();
+  const { isLoggedIn } = useAuth();
 
   return (
     <Nav>
@@ -13,7 +13,7 @@ export const Navigation = () => {
           <use href={`${sprite}#icon-logo`}></use>
         </Svg>
       </LinkNav>
-      {/* {isLoggedIn && <LinkNav to="/contacts">Profile Settings</LinkNav>} */}
+      {isLoggedIn && <LinkNav to="/profile"></LinkNav>}
     </Nav>
   );
 };

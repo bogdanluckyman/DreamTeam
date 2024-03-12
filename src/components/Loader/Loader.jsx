@@ -1,3 +1,6 @@
+import { LoaderCont } from './Loader.styled';
+import { Heart } from 'react-spinners-css';
+
 export const Loader = () => {
-  return <div style={{ color: 'white' }}>LOADING...</div>;
+  return <LoaderCont>{<Heart color={'#e6533c'} />}</LoaderCont>;
 };

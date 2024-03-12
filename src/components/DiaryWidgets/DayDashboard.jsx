@@ -15,8 +15,8 @@ import {
 } from './DayDashboard.style';
 
 import sprite from '../../img/sprite.svg';
-import { selectDiaryError } from '../../redux/diary/selectors';
 import { useSelector } from 'react-redux';
+import { selectDiaryError } from '../../redux/diary/selectors';
 
 const DayDashboard = ({ userDiaryInformation, bmr }) => {
   const {
@@ -26,15 +26,24 @@ const DayDashboard = ({ userDiaryInformation, bmr }) => {
     remainingSports,
   } = userDiaryInformation;
 
-  const [isOverThan, setIsOverThan] = useState(false);
+  const [isOverCalories, setIsOverCalories] = useState(false);
+  const [isOverSports, setIsOverSports] = useState(false);
 
   const error = useSelector(selectDiaryError);
 
   useEffect(() => {
     if (remainingCalories < 0) {
-      setIsOverThan(true);
+      setIsOverCalories(true);
+    } else {
+      setIsOverCalories(false);
     }
-  }, [remainingCalories]);
+
+    if (remainingSports < 0) {
+      setIsOverSports(true);
+    } else {
+      setIsOverSports(false);
+    }
+  }, [remainingCalories, remainingSports]);
 
   return (
     <ContainerWrap>
@@ -42,9 +51,9 @@ const DayDashboard = ({ userDiaryInformation, bmr }) => {
         <ItemListStyled>
           <TitleStyledWrapper>
             <SvgStyled>
-              <use href={sprite + '#icon-fluent_food-24-filled'}></use>
+              <use href={`${sprite}#icon-fork-knife`}></use>
             </SvgStyled>
-            <TitleStyled>Daily calory intake</TitleStyled>
+            <TitleStyled>Daily calorie intake</TitleStyled>
           </TitleStyledWrapper>
           <DataValue>{bmr && bmr !== null && bmr !== 0 ? bmr : 2200}</DataValue>
         </ItemListStyled>
@@ -60,7 +69,7 @@ const DayDashboard = ({ userDiaryInformation, bmr }) => {
         <ItemListStyled>
           <TitleStyledWrapper>
             <SvgStyled>
-              <use href={sprite + '#icon-fluent_food-apple-20-filled'}></use>
+              <use href={sprite + '#icon-apple'}></use>
             </SvgStyled>
             <TitleStyled>Calories consumed</TitleStyled>
           </TitleStyledWrapper>
@@ -71,13 +80,13 @@ const DayDashboard = ({ userDiaryInformation, bmr }) => {
         <ItemListStyled>
           <TitleStyledWrapper>
             <SvgStyled>
-              <use href={sprite + '#icon-calories-1'}></use>
+              <use href={sprite + '#icon-fire'}></use>
             </SvgStyled>
             <TitleStyled>Calories burned</TitleStyled>
           </TitleStyledWrapper>
           <DataValue>{burnedCalories && !error ? burnedCalories : 0}</DataValue>
         </ItemListStyled>
-        <ItemListStyled className={isOverThan ? 'redBg' : ''}>
+        <ItemListStyled className={isOverCalories ? 'redBg' : ''}>
           <TitleStyledWrapper>
             <SvgStyled>
               <use href={sprite + '#icon-bubble'}></use>
@@ -88,7 +97,7 @@ const DayDashboard = ({ userDiaryInformation, bmr }) => {
             {remainingCalories && !error ? remainingCalories : bmr ? bmr : 0}
           </DataValue>
         </ItemListStyled>
-        <ItemListStyled className={isOverThan ? 'greenBg' : ''}>
+        <ItemListStyled className={isOverSports ? 'greenBg' : ''}>
           <TitleStyledWrapper>
             <SvgStyled>
               <use href={sprite + '#icon-running-figure'}></use>

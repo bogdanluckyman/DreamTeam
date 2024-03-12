@@ -24,6 +24,18 @@ body {
   width: 100%;
   height: 100vh;
   margin: 0;
+  background-color: #040404;
+
+
+&::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #000000, #EF8964, #000000);
+    border-radius: 12px;
+  }
+
 }
 
 

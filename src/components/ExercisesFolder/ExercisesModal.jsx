@@ -32,7 +32,7 @@ const ExercisesModal = ({ onClose, date, exercies }) => {
   const [restart, setReStart] = useState(false);
   const [closeModal, setcloseModal] = useState(false);
   const [counter, setCounter] = useState(0);
-  const [seconds, setSeconds] = useState(1);
+  const [seconds, setSeconds] = useState(0);
   const [overallResult, setOverallResult] = useState(3);
   const dispatch = useDispatch();
   const errorValue = useSelector((state) => state.diary.error);
@@ -90,32 +90,45 @@ const ExercisesModal = ({ onClose, date, exercies }) => {
     return;
   }, [restart, start, time]);
 
-  const toCloseWindiw = () => {
-    const valueTime = timeCalculation(overallResult, time);
-    const timeValue = valueTime;
-    const [minutes, sekunden] = timeValue.split(':');
-    const formattedTime = `${parseInt(minutes, 10)}.${sekunden}`;
-
-    const newObject = {
-      date: date,
-      exercises: {
-        exerciseID: exercies._id,
-        time: parseFloat(formattedTime),
-        calories: Math.floor(counter),
-      },
-    };
-    console.log(newObject);
-    dispatch(addDiaryExercise(newObject));
-
-    console.log(errorValue);
-    setStart(false);
-    setIsPaused(true);
-    if (errorValue !== null) {
-      Notiflix.Notify.failure('Sorry, something went wrong. Try again');
-      return;
+  const toCloseWindiw = async () => {
+    function getFormattedDate() {
+      const today = new Date();
+      const day = String(today.getDate()).padStart(2, '0');
+      const month = String(today.getMonth() + 1).padStart(2, '0');
+      const year = today.getFullYear();
+      return `${day}-${month}-${year}`;
     }
-    Notiflix.Notify.success('Data added successfully');
-    setcloseModal(true);
+    try {
+      const formattedDate = getFormattedDate();
+
+      const valueTime = timeCalculation(overallResult, time);
+      const timeValue = valueTime;
+      const [minutes, sekunden] = timeValue.split(':');
+      const formattedTime = `${parseInt(minutes, 10)}.${sekunden}`;
+
+      const newObject = {
+        date: formattedDate,
+        exercises: {
+          exerciseID: exercies._id,
+          time: parseFloat(formattedTime),
+          calories: Math.floor(counter),
+        },
+      };
+      console.log(newObject);
+      const res = await dispatch(addDiaryExercise(newObject));
+      setStart(false);
+      setIsPaused(true);
+      if (errorValue !== null) {
+        Notiflix.Notify.failure('Sorry, something went wrong. Try again');
+        return;
+      }
+      if (res.meta.requestStatus === 'fulfilled') {
+        Notiflix.Notify.success('Data added successfully');
+        setcloseModal(true);
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const renderTime = ({ remainingTime }) => {
@@ -233,143 +246,3 @@ const ExercisesModal = ({ onClose, date, exercies }) => {
   );
 };
 export default ExercisesModal;
-
-// import { useEffect, useRef, useState } from 'react';
-// import {
-//   BurnedCalories,
-//   DataContainerDiv,
-//   DataDiv,
-//   ExercisesBlock,
-//   ExercisesBlockButton,
-//   ExercisesBlockResalts,
-//   ExercisesBlockText,
-//   ExercisesModalBackground,
-//   ExercisesModalContainer,
-//   ExercisesModalGif,
-//   ExercisesModalImg,
-//   PlayPause,
-//   TimeSpan,
-//   TimerDiv,
-//   TimerText,
-// } from './ExercisesModal.styles';
-// import { CountdownCircleTimer } from 'react-countdown-circle-timer';
-
-// const ExercisesModal = ({ onClose }) => {
-//   const [start, setStart] = useState(false);
-//   const [time, setTime] = useState('');
-//   const countRef = useRef(0);
-
-//   useEffect(() => {
-//     console.log(start);
-//     console.log(countRef.current);
-//     console.log('00000000000');
-//   }, [time, start]);
-
-//   const toCloseWindow = () => {
-//     onClose();
-//   };
-
-//   const renderTime = ({ remainingTime }) => {
-//     const oneRef = useRef(remainingTime);
-
-//     countRef.current = oneRef.current; // Оновлюємо значення рефа
-//     if (remainingTime !== 0) {
-//       const minutes = Math.floor(remainingTime / 60);
-//       const seconds = remainingTime % 60;
-//       const res = `${minutes}:${seconds}`;
-//       if (res !== '0:0') {
-//         console.log('7777777');
-//         console.log(res);
-//         setTime(res);
-//         return time;
-//       }
-//     }
-//     console.log(remainingTime);
-//     if (remainingTime === 0 && start === true) {
-//       console.log('ddddddddd');
-//       const minutes = Math.floor(countRef.current / 60);
-//       const seconds = countRef.current % 60;
-//       const res = `${minutes}:${seconds}`;
-
-//       console.log('7777777');
-//       console.log(res);
-//       setTime(res);
-//       return time;
-//     }
-
-//     console.log('888888');
-
-//     return time;
-//   };
-
-//   const handleBackgroundClick = (event) => {
-//     if (event.target === event.currentTarget || event.key === 'Escape') {
-//       onClose();
-//     }
-//   };
-
-//   return (
-//     <ExercisesModalBackground onClick={handleBackgroundClick}>
-//       <ExercisesModalContainer>
-//         <TimerDiv>
-//           <ExercisesModalImg></ExercisesModalImg>
-//           <TimerText>Time</TimerText>
-//           <ExercisesModalGif>
-//             <CountdownCircleTimer
-//               isPlaying={start}
-//               duration={5}
-//               colors="#e6533c"
-//               size={124}
-//               strokeWidth={4}
-//               shouldRepeat={true}
-//               rotation="anticlockwise"
-//               strokeLinecap="round"
-//               trailStrokeWidth={6}
-//               trailColor="rgba(239, 237, 232, 0.05)"
-//               onComplete={() => {
-//                 setStart(false);
-//                 setTime('0:0');
-//                 console.log('Timer complete');
-//                 return { shouldRepeat: true, delay: 0 };
-//               }}
-//             >
-//               {renderTime}
-//             </CountdownCircleTimer>
-//           </ExercisesModalGif>
-//           <PlayPause onClick={() => setStart((prevStart) => !prevStart)}>
-//             <svg width="32" height="32"></svg>
-//             <svg width="32" height="32"></svg>
-//           </PlayPause>
-//           <BurnedCalories>
-//             Burned calories: <TimeSpan>{time}</TimeSpan>
-//           </BurnedCalories>
-//         </TimerDiv>
-//         <DataContainerDiv>
-//           <DataDiv>
-//             <ExercisesBlock>
-//               <ExercisesBlockText>Name</ExercisesBlockText>
-//               <ExercisesBlockResalts>Air bike</ExercisesBlockResalts>
-//             </ExercisesBlock>
-//             <ExercisesBlock>
-//               <ExercisesBlockText>Target</ExercisesBlockText>
-//               <ExercisesBlockResalts>Abs</ExercisesBlockResalts>
-//             </ExercisesBlock>
-//             <ExercisesBlock>
-//               <ExercisesBlockText>Body Part</ExercisesBlockText>
-//               <ExercisesBlockResalts>Waist</ExercisesBlockResalts>
-//             </ExercisesBlock>
-//             <ExercisesBlock>
-//               <ExercisesBlockText>Equipment</ExercisesBlockText>
-//               <ExercisesBlockResalts>Body weight</ExercisesBlockResalts>
-//             </ExercisesBlock>
-//           </DataDiv>
-//           <ExercisesBlockButton onClick={toCloseWindow}>
-//             Add to diary
-//           </ExercisesBlockButton>
-//         </DataContainerDiv>
-//       </ExercisesModalContainer>
-//     </ExercisesModalBackground>
-//   );
-// };
-
-// export default ExercisesModal;

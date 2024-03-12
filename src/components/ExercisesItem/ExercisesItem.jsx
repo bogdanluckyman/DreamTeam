@@ -6,13 +6,18 @@ import {
   TextCategory,
   Text,
   Span,
+  Button,
 } from './ExercisesItem.styled';
 
 import { colors } from '../../styles/colors';
 
-import sprite from '../../assets/sprite.svg';
+import sprite from '../../img/sprite.svg';
 import { useState } from 'react';
 import ExercisesModal from '../ExercisesFolder/ExercisesModal';
+
+function capitalizeFirstLetter(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
 
 export const ExercisesItem = ({
   exercise: { burnedCalories, name, bodyPart, target },
@@ -44,7 +49,7 @@ export const ExercisesItem = ({
               alignItems: 'center',
             }}
           ></div>
-          <button onClick={openModal}>
+          <Button onClick={openModal}>
             Start
             <SvgWrapper
               style={{
@@ -53,13 +58,13 @@ export const ExercisesItem = ({
               }}
             >
               <use
-                href={sprite + '#icon-arrow'}
+                href={sprite + '#icon-arrow-right'}
                 style={{
                   stroke: colors.orange,
                 }}
               />
             </SvgWrapper>
-          </button>
+          </Button>
         </div>
 
         <WrapperTitle>
@@ -67,7 +72,7 @@ export const ExercisesItem = ({
             <use href={sprite + '#icon-running-stick-figure-svgrepo-com-1'} />
           </svg>
 
-          <Title>{name}</Title>
+          <Title>{capitalizeFirstLetter(name)}</Title>
         </WrapperTitle>
 
         <WrapperText>

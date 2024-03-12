@@ -43,7 +43,7 @@ function App() {
   useEffect(() => {
     dispatch(refreshUser());
     setLoading(false);
-  }, [dispatch]);
+  }, [dispatch, isLoggedIn]);
 
   useEffect(() => {
     if (!isLoggedIn) {

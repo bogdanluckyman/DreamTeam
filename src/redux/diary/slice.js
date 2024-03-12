@@ -78,10 +78,7 @@ const diarySlice = createSlice({
       .addCase(addDiaryProduct.fulfilled, handleAddDiaryProductsFulfilled)
       .addCase(addDiaryProduct.rejected, handleRejected)
       .addCase(deleteDiaryProduct.pending, handlePending)
-      .addCase(
-        deleteDiaryProduct.fulfilled,
-        handleDeleteDiaryProductsFulfilled
-      )
+      .addCase(deleteDiaryProduct.fulfilled, handleDeleteDiaryProductsFulfilled)
       .addCase(deleteDiaryProduct.rejected, handleRejected)
       .addCase(addDiaryExercise.pending, handlePending)
       .addCase(addDiaryExercise.fulfilled, handleAddDiaryExerciseFulfilled)

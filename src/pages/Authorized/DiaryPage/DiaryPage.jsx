@@ -9,7 +9,6 @@ import DayDashboard from '../../../components/DiaryWidgets/DayDashboard';
 import { Loader } from '../../../components/Loader/Loader';
 
 import {
-  selectDiaryInformation,
   selectDiaryIsLoading,
 } from '../../../redux/diary/selectors';
 import { getAllDiaryInformation } from '../../../redux/diary/operation';
@@ -32,12 +31,15 @@ import {
 import { refreshUser } from '../../../redux/auth/operation';
 
 const DiaryPage = () => {
+  const [allDiaryInformation, setallDiaryInformation] = useState([]);
+  const [consumedProductsArray, setconsumedProductsArray] = useState([]);
+  const [completedExercisesArray, setcompletedExercisesArray] = useState([]);
   const dispatch = useDispatch();
-  const userData = useSelector(selectDiaryInformation);
+
   const isLoading = useSelector(selectDiaryIsLoading);
   const isRefreshing = useSelector(selectIsRefreshing);
   const bmr = useSelector(selectBmr);
-  const { addProducts, addExercises } = userData;
+
   const [currentDate, setCurrentDate] = useState(new Date());
   const user = useSelector(selectUser);
   const userDataRegistration = user.createdAt;
@@ -65,6 +67,16 @@ const DiaryPage = () => {
     };
     fetchData();
   }, [dispatch, formattedCurrentDate, currentDate]);
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await dispatch(getAllDiaryInformation('06-03-2024'));
+      setallDiaryInformation(res.payload);
+      setconsumedProductsArray(res.payload.products);
+      setcompletedExercisesArray(res.payload.exercises);
+    };
+
+    fetchData();
+  }, [dispatch]);
 
   return (
     <Container>
@@ -73,7 +85,7 @@ const DiaryPage = () => {
       ) : (
         <DiaryCont>
           <TitleAndSwitch>
-            <TitlePage title="Diary" />
+            <TitlePage title="Diary " />
             <DaySwitch
               currentDate={currentDate}
               setCurrentDate={setCurrentDate}
@@ -81,14 +93,17 @@ const DiaryPage = () => {
             />
           </TitleAndSwitch>
           <InfoContainer>
-            <DayDashboard userDiaryInformation={userData} bmr={bmr} />
+            <DayDashboard
+              userDiaryInformation={allDiaryInformation}
+              bmr={bmr}
+            />
             <ProdAndExercise>
               <DiaryProducts
-                productsArray={addProducts}
+                productsArray={consumedProductsArray}
                 date={formattedCurrentDate}
               />
               <DiaryExercises
-                exercisesArray={addExercises}
+                exercisesArray={completedExercisesArray}
                 date={formattedCurrentDate}
               />
             </ProdAndExercise>

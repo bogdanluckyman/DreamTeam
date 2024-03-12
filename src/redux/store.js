@@ -6,7 +6,6 @@ import { diaryReducer } from './diary/slice';
 import { productsReducer } from './products/productsSlice';
 import { filtersReducer } from './products/filtersSlice';
 import { categoriesReducer } from './products/categoriesSlice';
-
 import { exercisesReducer } from './exercises/exerciseSlice';
 import { categoriesReducerEx } from './exercises/categoriesSlice';
 

@@ -9,7 +9,7 @@ export const ProductWrapp = styled.li`
   margin-bottom: 20px;
   font-size: 12px;
 
-  background-color: gba(239, 237, 232, 0.05);
+  background-color: rgba(239, 237, 232, 0.05);
 
   @media screen and (min-width: 768px) {
     margin: 0;
@@ -43,19 +43,10 @@ export const DietMark = styled.div`
   border-radius: 4px;
   font-size: 12px;
   font-weight: 700;
+  line-height: 1.17;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 1);
   background-color: rgba(239, 237, 232, 0.05);
-`;
-
-export const RecomendedLight = styled.span`
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  margin-right: 8px;
-  background-color: ${(props) => (props.$status === 'true' ? 'red' : 'green')};
-
-  }};
 `;
 
 export const TitleWrap = styled.div`
@@ -65,6 +56,7 @@ export const TitleWrap = styled.div`
 
 export const ProductName = styled.h3`
   font-size: 20px;
+  line-height: 1.33;
   margin-left: 16px;
   margin-bottom: 0;
   color: var(--white-color);
@@ -82,12 +74,25 @@ export const List = styled.dl`
 `;
 
 export const Term = styled.dt`
+  line-height: 1.5;
+
   color: rgba(239, 237, 232, 0.4);
   margin-right: 4px;
 `;
 
 export const Definition = styled.dd`
   color: var(--white-color);
+  line-height: 1.5;
+
+  &:not(:last-child) {
+    margin-right: 16px;
+  }
+`;
+
+export const CategoryDefinition = styled.dd`
+  color: var(--white-color);
+  line-height: 1.5;
+
   &:not(:last-child) {
     margin-right: 16px;
   }
@@ -101,16 +106,19 @@ export const Definition = styled.dd`
 
 export const AddBtn = styled.button`
   display: flex;
+  align-items: center;
   width: 48px;
   height: 18px;
   margin-left: 16px;
   padding: 0;
   font-size: 14px;
+  line-height: 1.5;
   color: var(--orange-color);
-  background-color: var(--black-color);
+  background-color: inherit;
   border: none;
 `;
 
-export const Text = styled.p`
+export const Recommended = styled.p`
   margin-left: 8px;
+  line-height: 1.5;
 `;

@@ -23,8 +23,8 @@ export const ProductsCatalogueWrap = styled.div`
   @media screen and (min-width: 1440px) {
     width: 850px;
     height: 488px;
+    margin-bottom: 0;
   }
-
 `;
 
 export const ProductsCatalogue = styled.ul`

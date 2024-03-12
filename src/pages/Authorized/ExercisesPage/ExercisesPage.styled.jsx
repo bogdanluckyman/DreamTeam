@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 // ............................
-import bgImage from '../../../assets/exercises/trainingGym-1.jpg';
-import bgImage2 from '../../../assets/exercises/trainingGym-1@2x.jpg';
+import bgImage from '../../../img/hero-background-gym-1.jpg';
+import bgImage2 from '../../../img/hero-background-gym-2x.jpg';
 // .....................................
 
 export const Container = styled.div`

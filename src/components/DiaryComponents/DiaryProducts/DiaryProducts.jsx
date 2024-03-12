@@ -33,20 +33,20 @@ import {
   deleteDiaryProduct,
   getAllDiaryInformation,
 } from '../../../redux/diary/operation';
-// import { toast } from 'react-toastify';
 import Notiflix from 'notiflix';
 import { selectDiaryError } from '../../../redux/diary/selectors';
 
-const DayProducts = ({ productsArray, date }) => {
+const DiaryProducts = ({ productsArray, date }) => {
   const dispatch = useDispatch();
   const currentUser = useSelector(selectUser);
   const userBloodType = currentUser.blood;
-
   const error = useSelector(selectDiaryError);
-
   const isMobile = useMediaQuery('(max-width:768px)');
 
   const formattedTitle = (productTitle) => {
+    if (typeof productTitle !== 'string' || productTitle.length === 0) {
+      return '';
+    }
     return productTitle[0].toUpperCase() + productTitle.slice(1).toLowerCase();
   };
 
@@ -56,7 +56,11 @@ const DayProducts = ({ productsArray, date }) => {
     try {
       await dispatch(deleteDiaryProduct(id));
       await dispatch(getAllDiaryInformation(date));
+      Notiflix.Notify.success('Product deleted successfully!', {
+        theme: 'light',
+      });
     } catch (error) {
+      console.log(error);
       Notiflix.Notify.failure('Sorry, something went wrong, please try again', {
         theme: 'dark',
       });
@@ -81,7 +85,7 @@ const DayProducts = ({ productsArray, date }) => {
                 stroke: colors.orange,
               }}
             >
-              <use href={sprite + '#icon-arrow'} />
+              <use href={sprite + '#icon-arrow-right'} />
             </svg>
           </NavLink>
         </NavBlock>
@@ -91,11 +95,11 @@ const DayProducts = ({ productsArray, date }) => {
           <Table>
             <WrapperForItemsArray>
               {productsArray.map((product) => {
-                const type = product.productId.groupBloodNotAllowed[
+                const type = product.productID.groupBloodNotAllowed[
                   userBloodType
                 ]
-                  ? (FoodRecommended = 'Yes')
-                  : (FoodRecommended = 'No');
+                  ? 'Yes'
+                  : 'No';
 
                 return (
                   <ProductListArray key={product._id}>
@@ -103,13 +107,13 @@ const DayProducts = ({ productsArray, date }) => {
                       Title
                     </ProductListArrayItemMobile>
                     <ProductListArrayItemMobile>
-                      {formattedTitle(product.productId.title)}
+                      {formattedTitle(product.productID?.title)}
                     </ProductListArrayItemMobile>
                     <ProductListArrayItemMobile>
                       Category
                     </ProductListArrayItemMobile>
                     <ProductListArrayItemMobile>
-                      {formattedTitle(product.productId.category)}
+                      {formattedTitle(product.productID?.category)}
                     </ProductListArrayItemMobile>
                     <ListMobileArray>
                       <MobileItemsHolder1
@@ -164,15 +168,15 @@ const DayProducts = ({ productsArray, date }) => {
                             >
                               {type === 'Yes' ? (
                                 <use
-                                  href={sprite + '#icon-Ellipse-82'}
+                                  href={sprite + '#icon-bubble'}
                                   style={{
-                                    fill: colors.green,
+                                    fill: `${colors.green}`,
                                     stroke: colors.green,
                                   }}
                                 />
                               ) : (
                                 <use
-                                  href={sprite + '#icon-Ellipse-82'}
+                                  href={sprite + '#icon-bubble'}
                                   style={{
                                     fill: colors.red,
                                     stroke: colors.red,
@@ -201,7 +205,7 @@ const DayProducts = ({ productsArray, date }) => {
                             onClick={() => handleDelete(product._id)}
                           >
                             <SvgTableStyled>
-                              <use href={sprite + '#icon-trash-03'}></use>
+                              <use href={sprite + '#icon-trash'}></use>
                             </SvgTableStyled>
                           </TableDeleteButton>
                         </ProductListArrayItemMobile>
@@ -225,7 +229,7 @@ const DayProducts = ({ productsArray, date }) => {
 
             <WrapperForItemsArray>
               {productsArray.map((product) => {
-                const type = product.productId.groupBloodNotAllowed[
+                const type = product.productID?.groupBloodNotAllowed[
                   userBloodType
                 ]
                   ? (FoodRecommended = 'Yes')
@@ -233,10 +237,10 @@ const DayProducts = ({ productsArray, date }) => {
                 return (
                   <ProductListArray key={product._id}>
                     <ProductListArrayItem>
-                      {formattedTitle(product.productId.title)}
+                      {formattedTitle(product.productID?.title)}
                     </ProductListArrayItem>
                     <ProductListArrayItem>
-                      {formattedTitle(product.productId.category)}
+                      {formattedTitle(product.productID?.category)}
                     </ProductListArrayItem>
                     <ProductListArrayItem>
                       {product.calories}
@@ -261,7 +265,7 @@ const DayProducts = ({ productsArray, date }) => {
                         >
                           {type === 'Yes' ? (
                             <use
-                              href={sprite + '#icon-Ellipse-82'}
+                              href={sprite + '#icon-bubble'}
                               style={{
                                 fill: colors.green,
                                 stroke: colors.green,
@@ -269,7 +273,7 @@ const DayProducts = ({ productsArray, date }) => {
                             />
                           ) : (
                             <use
-                              href={sprite + '#icon-Ellipse-82'}
+                              href={sprite + '#icon-bubble'}
                               style={{
                                 fill: colors.red,
                                 stroke: colors.red,
@@ -286,7 +290,7 @@ const DayProducts = ({ productsArray, date }) => {
                         onClick={() => handleDelete(product._id)}
                       >
                         <SvgTableStyled>
-                          <use href={sprite + '#icon-trash-03'}></use>
+                          <use href={sprite + '#icon-trash'}></use>
                         </SvgTableStyled>
                       </TableDeleteButton>
                     </ProductListArrayItem>
@@ -303,4 +307,4 @@ const DayProducts = ({ productsArray, date }) => {
   );
 };
 
-export default DayProducts;
+export default DiaryProducts;

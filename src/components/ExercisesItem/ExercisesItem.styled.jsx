@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Field, Form } from 'formik';
-import thumbUp from '../../assets/exercises/thumbUp.png';
+import thumbUp from '../../img/Thumb_up.png';
 
 export const Input = styled(Field)`
   border: 2px solid gray;
@@ -361,4 +361,44 @@ export const TextCategory = styled.p`
 
 export const Span = styled.p`
   color: white;
+  width: 71px;
+  height: 24px;
+  padding: 5px 8px;
+
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 1);
+  background-color: rgba(239, 237, 232, 0.05);
+`;
+
+export const Button = styled.button`
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: #E6533C;
+  gap: 8px;
+  width: 49px;
+  height: 18px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: transparent;
+
+  font-size: 14px;
+  line-height: 1.2857;
+  word-wrap: break-word;
+
+  @media (min-width: 768px) {
+    width: 53px;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: #E6533C};
+  }
 `;

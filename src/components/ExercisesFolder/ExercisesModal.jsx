@@ -90,37 +90,40 @@ const ExercisesModal = ({ onClose, date, exercies }) => {
     return;
   }, [restart, start, time]);
 
-  const toCloseWindiw = async () => {
-    try {
-      const valueTime = timeCalculation(overallResult, time);
-      const timeValue = valueTime;
-      const [minutes, sekunden] = timeValue.split(':');
-      const formattedTime = `${parseInt(minutes, 10)}.${sekunden}`;
+  const toCloseWindiw = () => {
+    function getFormattedDate() {
+      const today = new Date();
+      const day = String(today.getDate()).padStart(2, '0');
+      const month = String(today.getMonth() + 1).padStart(2, '0');
+      const year = today.getFullYear();
+      return `${day}-${month}-${year}`;
+    }
 
-      const newObject = {
-        date: '11-03-2024',
-        exercises: {
-          exerciseID: exercies._id,
-          time: parseFloat(formattedTime),
-          calories: Math.floor(counter),
-        },
-      };
+    const formattedDate = getFormattedDate();
+    console.log(formattedDate);
+    const valueTime = timeCalculation(overallResult, time);
+    const timeValue = valueTime;
+    const [minutes, sekunden] = timeValue.split(':');
+    const formattedTime = `${parseInt(minutes, 10)}.${sekunden}`;
 
-      const res = await dispatch(addDiaryExercise(newObject));
+    const newObject = {
+      date: formattedDate,
+      exercises: {
+        exerciseID: exercies._id,
+        time: parseFloat(formattedTime),
+        calories: Math.floor(counter),
+      },
+    };
+    console.log(newObject);
+    dispatch(addDiaryExercise(newObject));
 
-      console.log(errorValue);
-      setStart(false);
-      setIsPaused(true);
-      if (errorValue !== null) {
-        Notiflix.Notify.failure('Sorry, something went wrong. Try again');
-        return;
-      }
-      if (res.meta.requestStatus === 'fulfilled') {
-        Notiflix.Notify.success('Data added successfully');
-        setcloseModal(true);
-      }
-    } catch (error) {
-      console.error('Message:', error.errors[0]);
+    console.log(errorValue);
+    setStart(false);
+    setIsPaused(true);
+    if (errorValue !== null) {
+      Notiflix.Notify.failure('Sorry, something went wrong. Try again');
+      return;
+
     }
   };
 

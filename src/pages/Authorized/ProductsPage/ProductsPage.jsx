@@ -12,6 +12,7 @@ import {
   selectError,
   selectFilter,
   selectIsLoading,
+  selectCategoriesIsLoading,
 } from '../../../redux/products/selector';
 import {
   BgWrap,
@@ -30,27 +31,34 @@ const ProductsPage = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getProductCategories(TOKEN));
+  }, [dispatch]);
+
+  useEffect(() => {
     dispatch(fetchProducts({ selectedFilters, TOKEN }));
   }, [dispatch, selectedFilters]);
-
+  const categoriesIsLoading = useSelector(selectCategoriesIsLoading);
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
 
   return (
     <BgWrap>
-      <Container>
-        <TopLineWrap>
-          <TitlePage title="Products" />
-          <ProductsFilters />
-        </TopLineWrap>
-        {isLoading && !error ? (
-          <LoaderWrap>
-            <Loader />
-          </LoaderWrap>
-        ) : (
-          <ProductsList />
-        )}
-      </Container>
+      {categoriesIsLoading ? (
+        <Loader />
+      ) : (
+        <Container>
+          <TopLineWrap>
+            <TitlePage title="Products" />
+            <ProductsFilters />
+          </TopLineWrap>
+          {isLoading && !error ? (
+            <LoaderWrap>
+              <Loader />
+            </LoaderWrap>
+          ) : (
+            <ProductsList />
+          )}
+        </Container>
+      )}
 
       {error && <ErrorPage />}
       <RightImageContainer></RightImageContainer>

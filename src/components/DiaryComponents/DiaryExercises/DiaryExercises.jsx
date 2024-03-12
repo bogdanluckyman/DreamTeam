@@ -1,13 +1,9 @@
 import { NavLink } from 'react-router-dom';
 import { useMediaQuery } from '@mui/material';
-// import { toast } from 'react-toastify';
 import Notiflix from 'notiflix';
 import { useDispatch, useSelector } from 'react-redux';
-
 import sprite from '../../../img/sprite.svg';
-
 import { colors } from '../../../styles/colors';
-
 import {
   TableWrapper,
   TitleNav,
@@ -25,7 +21,6 @@ import {
   SvgTableStyled,
   ListMobileArray,
 } from '../DiaryProducts/DiaryProducts.style';
-
 import {
   HeaderArray,
   ExerciseListArray,
@@ -33,37 +28,35 @@ import {
   HeaderItem,
   ExerciseListArrayItem,
 } from './DiaryExercises.style';
-
 import { selectDiaryError } from '../../../redux/diary/selectors';
-
 import {
   deleteDiaryExercise,
   getAllDiaryInformation,
 } from '../../../redux/diary/operation';
 
-const DayExercises = ({ exercisesArray, date }) => {
-  console.log(exercisesArray);
+const DiaryExercises = ({ exercisesArray, date }) => {
   const isMobile = useMediaQuery('(max-width:768px)');
   const error = useSelector(selectDiaryError);
   const dispatch = useDispatch();
 
-  const formattedTitle = (exerciseTitle) => {
-    return (
-      exerciseTitle[0].toUpperCase() + exerciseTitle.slice(1).toLowerCase()
-    );
+  const formattedTitle = (title) => {
+    return title.charAt(0).toUpperCase() + title.slice(1).toLowerCase();
   };
 
-  const handleDelete = async (id) => {
-    try {
-      await dispatch(deleteDiaryExercise(id));
-      await dispatch(getAllDiaryInformation(date));
-    } catch (error) {
-      console.log(error);
-      Notiflix.Notify.failure('Sorry, something went wrong, please try again', {
-        theme: 'dark',
-      });
-    }
-  };
+const handleDelete = async (id) => {
+  try {
+    await dispatch(deleteDiaryExercise(id));
+    await dispatch(getAllDiaryInformation(date));
+    Notiflix.Notify.success('Exercise deleted successfully!', {
+      theme: 'light',
+    });
+  } catch (error) {
+    console.log(error);
+    Notiflix.Notify.failure('Sorry, something went wrong, please try again', {
+      theme: 'dark',
+    });
+  }
+};
 
   return (
     <TableWrapper>
@@ -101,7 +94,6 @@ const DayExercises = ({ exercisesArray, date }) => {
                   <ExerciseListArrayItemMobile>
                     {formattedTitle(exercise.exerciseID?.bodyPart)}
                   </ExerciseListArrayItemMobile>
-
                   <ExerciseListArrayItemMobile>
                     Equipment
                   </ExerciseListArrayItemMobile>
@@ -115,12 +107,7 @@ const DayExercises = ({ exercisesArray, date }) => {
                     {formattedTitle(exercise.exerciseID?.name)}
                   </ExerciseListArrayItemMobile>
                   <ListMobileArray>
-                    <MobileItemsHolder1
-                      style={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                      }}
-                    >
+                    <MobileItemsHolder1>
                       <ExerciseListArrayItemMobile>
                         Target
                       </ExerciseListArrayItemMobile>
@@ -128,12 +115,7 @@ const DayExercises = ({ exercisesArray, date }) => {
                         {formattedTitle(exercise.exerciseID?.target)}
                       </ExerciseListArrayItemMobile>
                     </MobileItemsHolder1>
-                    <MobileItemsHolder2
-                      style={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                      }}
-                    >
+                    <MobileItemsHolder2>
                       <ExerciseListArrayItemMobile>
                         Burned Calories
                       </ExerciseListArrayItemMobile>
@@ -141,12 +123,7 @@ const DayExercises = ({ exercisesArray, date }) => {
                         {exercise.calories}
                       </ExerciseListArrayItemMobile>
                     </MobileItemsHolder2>
-                    <MobileItemsHolder3
-                      style={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                      }}
-                    >
+                    <MobileItemsHolder3>
                       <ExerciseListArrayItemMobile>
                         Time
                       </ExerciseListArrayItemMobile>
@@ -154,25 +131,18 @@ const DayExercises = ({ exercisesArray, date }) => {
                         {exercise.time}
                       </ExerciseListArrayItemMobile>
                     </MobileItemsHolder3>
-                    <MobileItemsHolder4
-                      style={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                      }}
-                    >
+                    <MobileItemsHolder4>
                       <ExerciseListArrayItemMobile>
                         {''}
                       </ExerciseListArrayItemMobile>
-                      <ExerciseListArrayItemMobile>
-                        <TableDeleteButton
-                          type="button"
-                          onClick={() => handleDelete(exercise._id)}
-                        >
-                          <SvgTableStyled>
-                            <use href={sprite + '#icon-trash-03'}></use>
-                          </SvgTableStyled>
-                        </TableDeleteButton>
-                      </ExerciseListArrayItemMobile>
+                      <TableDeleteButton
+                        type="button"
+                        onClick={() => handleDelete(exercise._id)}
+                      >
+                        <SvgTableStyled>
+                          <use href={sprite + '#icon-trash-03'} />
+                        </SvgTableStyled>
+                      </TableDeleteButton>
                     </MobileItemsHolder4>
                   </ListMobileArray>
                 </ExerciseListArray>
@@ -194,29 +164,36 @@ const DayExercises = ({ exercisesArray, date }) => {
             <WrapperForItemsArray>
               {exercisesArray.map((exercise) => (
                 <ExerciseListArray key={exercise._id}>
+                  {/* Body Part */}
                   <ExerciseListArrayItem>
                     {formattedTitle(exercise.exerciseID.bodyPart)}
                   </ExerciseListArrayItem>
+                  {/* Equipment */}
                   <ExerciseListArrayItem>
                     {formattedTitle(exercise.exerciseID.equipment)}
                   </ExerciseListArrayItem>
+                  {/* Name */}
                   <ExerciseListArrayItem>
                     {formattedTitle(exercise.exerciseID.name)}
                   </ExerciseListArrayItem>
+                  {/* Target */}
                   <ExerciseListArrayItem>
                     {formattedTitle(exercise.exerciseID.target)}
                   </ExerciseListArrayItem>
+                  {/* Burned Calories */}
                   <ExerciseListArrayItem>
                     {exercise.calories}
                   </ExerciseListArrayItem>
+                  {/* Time */}
                   <ExerciseListArrayItem>{exercise.time}</ExerciseListArrayItem>
+                  {/* Delete Button */}
                   <ExerciseListArrayItem>
                     <TableDeleteButton
                       type="button"
                       onClick={() => handleDelete(exercise._id)}
                     >
                       <SvgTableStyled>
-                        <use href={sprite + '#icon-trash-03'}></use>
+                        <use href={sprite + '#icon-trash-03'} />
                       </SvgTableStyled>
                     </TableDeleteButton>
                   </ExerciseListArrayItem>
@@ -232,4 +209,4 @@ const DayExercises = ({ exercisesArray, date }) => {
   );
 };
 
-export default DayExercises;
+export default DiaryExercises;

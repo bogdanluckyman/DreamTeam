@@ -37,6 +37,7 @@ import Notiflix from 'notiflix';
 import { selectDiaryError } from '../../../redux/diary/selectors';
 
 const DayProducts = ({ productsArray, date }) => {
+  console.log(productsArray);
   const dispatch = useDispatch();
   const currentUser = useSelector(selectUser);
   const userBloodType = currentUser.blood;
@@ -46,6 +47,9 @@ const DayProducts = ({ productsArray, date }) => {
   const isMobile = useMediaQuery('(max-width:768px)');
 
   const formattedTitle = (productTitle) => {
+    if (typeof productTitle !== 'string' || productTitle.length === 0) {
+      return ''; // Повернути пустий рядок, якщо productTitle не є рядком або є пустим
+    }
     return productTitle[0].toUpperCase() + productTitle.slice(1).toLowerCase();
   };
 
@@ -90,12 +94,11 @@ const DayProducts = ({ productsArray, date }) => {
           <Table>
             <WrapperForItemsArray>
               {productsArray.map((product) => {
-                console.log(product);
                 const type = product.productId.groupBloodNotAllowed[
                   userBloodType
                 ]
-                  ? (FoodRecommended = 'Yes')
-                  : (FoodRecommended = 'No');
+                  ? 'Yes'
+                  : 'No';
 
                 return (
                   <ProductListArray key={product._id}>
@@ -225,18 +228,19 @@ const DayProducts = ({ productsArray, date }) => {
 
             <WrapperForItemsArray>
               {productsArray.map((product) => {
-                const type = product.productId.groupBloodNotAllowed[
+                console.log(product);
+                const type = product.productId?.groupBloodNotAllowed[
                   userBloodType
                 ]
-                  ? (FoodRecommended = 'Yes')
-                  : (FoodRecommended = 'No');
+                  ? 'Yes'
+                  : 'No';
                 return (
                   <ProductListArray key={product._id}>
                     <ProductListArrayItem>
-                      {formattedTitle(product.productId.title)}
+                      {formattedTitle(product.productId?.title)}
                     </ProductListArrayItem>
                     <ProductListArrayItem>
-                      {formattedTitle(product.productId.category)}
+                      {formattedTitle(product.productId?.category)}
                     </ProductListArrayItem>
                     <ProductListArrayItem>
                       {product.calories}

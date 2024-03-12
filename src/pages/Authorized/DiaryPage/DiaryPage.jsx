@@ -9,6 +9,8 @@ import DayDashboard from '../../../components/DiaryWidgets/DayDashboard';
 import { Loader } from '../../../components/Loader/Loader';
 
 import {
+  selectCompletedExercisesArray,
+  selectConsumedProducts,
   selectDiaryInformation,
   selectDiaryIsLoading,
 } from '../../../redux/diary/selectors';
@@ -34,11 +36,13 @@ import { refreshUser } from '../../../redux/auth/operation';
 const DiaryPage = () => {
   const dispatch = useDispatch();
   const userData = useSelector(selectDiaryInformation);
+
   const isLoading = useSelector(selectDiaryIsLoading);
   const isRefreshing = useSelector(selectIsRefreshing);
   const bmr = useSelector(selectBmr);
-  const consumedProductsArray = userData?.consumedProductsArray || [];
-  const completedExercisesArray = userData?.completedExercisesArray || [];
+  const consumedProductsArray = useSelector(selectConsumedProducts);
+  console.log(consumedProductsArray);
+  const completedExercisesArray = useSelector(selectCompletedExercisesArray);
   const allDiaryInformation = userData?.allDiaryInformation || {};
   const [currentDate, setCurrentDate] = useState(new Date());
   const user = useSelector(selectUser);

@@ -37,7 +37,7 @@ export const ExercisesList = () => {
         {isLoading && !error && <Loader />}
 
         {!exercises ? (
-          <p>you do not have any exersise category</p>
+          <p>You do not have any exersise category</p>
         ) : isLoading ? (
           <Loader />
         ) : (

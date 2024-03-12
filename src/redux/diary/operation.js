@@ -5,8 +5,10 @@ import Notiflix from 'notiflix';
 export const getAllDiaryInformation = createAsyncThunk(
   '/diary/getAllDiaryInformation',
   async (date, thunkAPI) => {
+    const day = '11-03-2024';
     try {
-      const response = await axios.get(`api/diary/entry/${date}`);
+      const response = await axios.get(`api/diary/entry/${day}`);
+      console.log(response.data);
       return response.data;
     } catch (error) {
       Notiflix.Notify.failure(`${error.response.data.message}`, {
@@ -23,7 +25,6 @@ export const addDiaryProduct = createAsyncThunk(
     try {
       const response = await axios.post(`api/diary/product`, data);
 
-      console.log('add', response.data);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -54,7 +55,7 @@ export const addDiaryExercise = createAsyncThunk(
   async (data, thunkAPI) => {
     try {
       const response = await axios.post(`api/diary/exercise`, data);
-      console.log(data);
+
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

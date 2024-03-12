@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import {
-    colors
+  colors
 } from '../../../styles/colors';
 
 export const TableWrapper = styled.div `
@@ -214,7 +214,7 @@ export const ProductListArrayItemMobile = styled.li `
     &:nth-of-type(2) {
       color: ${colors.white};
       border-radius: 12px;
-      border: 1px solid ${colors.green};
+      border: 1px solid rgba(239, 237, 232, 0.3);
       font-size: 14px;
       line-height: 1.2857;
       padding: 8px 14px;
@@ -236,7 +236,7 @@ export const ProductListArrayItemMobile = styled.li `
     &:nth-of-type(4) {
         color: ${colors.white};
       border-radius: 12px;
-      border: 1px solid ${colors.green};
+      border: 1px solid rgba(239, 237, 232, 0.3);
       font-size: 14px;
       line-height: 1.2857;
       padding: 8px 14px;
@@ -262,7 +262,7 @@ export const ProductListArrayItemMobile = styled.li `
     &:nth-of-type(2) {
         color: ${colors.white};
       border-radius: 12px;
-      border: 1px solid ${colors.green};
+      border: 1 px solid rgba(239, 237, 232, 0.3);
       font-size: 14px;
       line-height: 1.2857;
       padding: 8px 14px;
@@ -285,7 +285,7 @@ export const ProductListArrayItemMobile = styled.li `
     &:nth-of-type(4) {
         color: ${colors.white};
       border-radius: 12px;
-      border: 1px solid ${colors.green};
+      border: 1px solid rgba(239, 237, 232, 0.3);
       font-size: 14px;
       line-height: 1.2857;
       padding: 8px 14px;
@@ -303,7 +303,7 @@ export const ProductListArrayItem = styled.li `
   @media screen and (min-width: 768px) {
     color: ${colors.white};
       border-radius: 12px;
-      border: 1px solid ${colors.green};
+      border: 1px solid rgba(239, 237, 232, 0.3);
     padding: 8px 14px;
     height: 38px;
 
@@ -394,7 +394,7 @@ export const MobileItemsHolder1 = styled.div `
       &:nth-of-type(2) {
         color: ${colors.white};
       border-radius: 12px;
-      border: 1px solid ${colors.green};
+      border: 1px solid rgba(239, 237, 232, 0.3);
         font-size: 14px;
         line-height: 1.2857;
         padding: 8px 14px;
@@ -429,7 +429,7 @@ export const MobileItemsHolder2 = styled.div `
       &:nth-of-type(2) {
         color: ${colors.white};
       border-radius: 12px;
-      border: 1px solid ${colors.green};
+      border: 1px solid rgba(239, 237, 232, 0.3);
         font-size: 14px;
         line-height: 1.2857;
         padding: 8px 14px;
@@ -461,7 +461,7 @@ export const MobileItemsHolder3 = styled.div `
       &:nth-of-type(2) {
         color: ${colors.white};
       border-radius: 12px;
-      border: 1px solid ${colors.green};
+      border: 1px solid rgba(239, 237, 232, 0.3);
         font-size: 14px;
         line-height: 1.2857;
         padding: 8px 14px;
@@ -538,6 +538,7 @@ export const SvgTableStyled = styled.svg `
   top: 50%;
   transform: translateY(-50%);
   transition: stroke 0.3s ease;
+
 `;
 
 export const TypeRecommendSpan = styled.span `

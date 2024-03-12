@@ -83,7 +83,7 @@ const DayExercises = ({ exercisesArray, date }) => {
                 stroke: colors.orange,
               }}
             >
-              <use href={sprite + '#icon-arrow'} />
+              <use href={sprite + '#icon-arrow-right'} />
             </svg>
           </NavLink>
         </NavBlock>

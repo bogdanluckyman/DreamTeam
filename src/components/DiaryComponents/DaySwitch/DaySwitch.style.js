@@ -1,7 +1,9 @@
 import styled from 'styled-components';
-import { colors} from '../../../styles/colors';
+import {
+  colors
+} from '../../../styles/colors';
 
-export const ContainerWrap = styled.div`
+export const ContainerWrap = styled.div `
   position: relative;
   display: flex;
   align-items: center;
@@ -13,7 +15,7 @@ export const ContainerWrap = styled.div`
   }
 `;
 
-export const BtnNext = styled.button`
+export const BtnNext = styled.button `
   display: flex;
   margin: 0;
   padding: 0;
@@ -29,7 +31,7 @@ export const BtnNext = styled.button`
   }
 `;
 
-export const DateLabel = styled.p`
+export const DateLabel = styled.p `
   font-size: 24px;
   line-height: 1.33;
   margin: 0;
@@ -48,7 +50,7 @@ export const DateLabel = styled.p`
   }
 `;
 
-export const CalenderIconSvg = styled.svg`
+export const CalenderIconSvg = styled.svg `
   width: 20px;
   height: 20px;
   stroke: ${colors.orange};
@@ -61,11 +63,11 @@ export const CalenderIconSvg = styled.svg`
   }
 `;
 
-export const CalenderBtn = styled.button`
+export const CalenderBtn = styled.button `
   display: flex;
   align-items: center;
   padding: 0;
-  margin-right: 40px;
+  /* margin-right: 40px; */
   background-color: transparent;
   gap: 8px;
   border: none;
@@ -82,7 +84,7 @@ export const CalenderBtn = styled.button`
   }
 `;
 
-export const BtnPrev = styled.button`
+export const BtnPrev = styled.button `
   display: flex;
   margin: 0 6px 0 0;
   padding: 0;
@@ -98,7 +100,7 @@ export const BtnPrev = styled.button`
   }
 `;
 
-export const SvgPrev = styled.svg`
+export const SvgPrev = styled.svg `
   width: 100%;
   height: 100%;
   fill: ${colors.white};
@@ -109,7 +111,7 @@ export const SvgPrev = styled.svg`
   }
 `;
 
-export const SvgNext = styled.svg`
+export const SvgNext = styled.svg `
   width: 100%;
   height: 100%;
   fill: ${colors.white};

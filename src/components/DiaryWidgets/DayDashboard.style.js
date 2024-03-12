@@ -1,7 +1,9 @@
 import styled from 'styled-components';
-import { colors } from '../../styles/colors';
+import {
+  colors
+} from '../../styles/colors';
 
-export const ContainerWrap = styled.div`
+export const ContainerWrap = styled.div `
   @media screen and (max-width: 767px) {
     margin-bottom: 40px;
   }
@@ -15,7 +17,7 @@ export const ContainerWrap = styled.div`
   }
 `;
 
-export const ListStyled = styled.ul`
+export const ListStyled = styled.ul `
   margin-bottom: 20px;
   display: flex;
   justify-content: center;
@@ -48,11 +50,11 @@ export const ListStyled = styled.ul`
   }
 `;
 
-export const ItemListStyled = styled.li`
+export const ItemListStyled = styled.li `
   display: block;
   width: 157px;
   padding: 14px;
-  background-color: ${colors.beige};
+  background-color: ${colors.black};
   border-radius: 12px;
   border: 1px solid #efede833;
 
@@ -79,17 +81,17 @@ export const ItemListStyled = styled.li`
   }
 `;
 
-export const TitleStyledWrapper = styled.div`
+export const TitleStyledWrapper = styled.div `
   display: flex;
   align-items: center;
   gap: 8px;
   margin-bottom: 28px;
 `;
 
-export const TitleStyled = styled.h2`
+export const TitleStyled = styled.h2 `
   font-size: 12px;
   line-height: 16px;
-  color: rgba(239, 237, 232, 0.8);
+  color: ${colors.white};
 
   @media screen and (min-width: 768px) {
     text-wrap: nowrap;
@@ -97,10 +99,12 @@ export const TitleStyled = styled.h2`
   }
 `;
 
-export const DataValue = styled.p`
+export const DataValue = styled.p `
   font-weight: 700;
   font-size: 18px;
   line-height: 20px;
+  color: ${colors.white};
+
 
   @media screen and (min-width: 768px) {
     font-size: 24px;
@@ -108,7 +112,7 @@ export const DataValue = styled.p`
   }
 `;
 
-export const TextWrapper = styled.div`
+export const TextWrapper = styled.div `
   display: flex;
   gap: 8px;
 
@@ -117,28 +121,28 @@ export const TextWrapper = styled.div`
   }
 `;
 
-export const SvgWrapperText = styled.div`
+export const SvgWrapperText = styled.div `
   width: 24px;
   height: 24px;
   background-color: ${colors.beige};
   border-radius: 50%;
 `;
 
-export const SvgStyled = styled.svg`
+export const SvgStyled = styled.svg `
   width: 20px;
   height: 20px;
   fill: ${colors.orangeSecond};
 `;
 
-export const ExclamationSvg = styled.svg`
+export const ExclamationSvg = styled.svg `
   width: 24px;
   height: 24px;
 `;
 
-export const TextStyled = styled.p`
+export const TextStyled = styled.p `
   font-size: 14px;
   line-height: 18px;
-  color: ${colors.green};
+  color: rgba(239, 237, 232, 0.3);
 
   @media screen and (max-width: 374px) {
     max-width: calc(100% - 72px);

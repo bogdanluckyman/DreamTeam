@@ -84,7 +84,7 @@ const DayProducts = ({ productsArray, date }) => {
                 stroke: colors.orange,
               }}
             >
-              <use href={sprite + '#icon-arrow'} />
+              <use href={sprite + '#icon-arrow-right'} />
             </svg>
           </NavLink>
         </NavBlock>
@@ -169,7 +169,7 @@ const DayProducts = ({ productsArray, date }) => {
                                 <use
                                   href={sprite + '#icon-Ellipse-82'}
                                   style={{
-                                    fill: colors.green,
+                                    fill: `${colors.green}`,
                                     stroke: colors.green,
                                   }}
                                 />
@@ -289,7 +289,7 @@ const DayProducts = ({ productsArray, date }) => {
                         onClick={() => handleDelete(product._id)}
                       >
                         <SvgTableStyled>
-                          <use href={sprite + '#icon-trash-03'}></use>
+                          <use href={sprite + '#icon-trash'}></use>
                         </SvgTableStyled>
                       </TableDeleteButton>
                     </ProductListArrayItem>

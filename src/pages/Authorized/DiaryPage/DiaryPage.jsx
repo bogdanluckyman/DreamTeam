@@ -9,9 +9,9 @@ import DayDashboard from '../../../components/DiaryWidgets/DayDashboard';
 import { Loader } from '../../../components/Loader/Loader';
 
 import {
-  selectCompletedExercisesArray,
-  selectConsumedProducts,
-  selectDiaryInformation,
+  // selectCompletedExercisesArray,
+  // selectConsumedProducts,
+  // selectDiaryInformation,
   selectDiaryIsLoading,
 } from '../../../redux/diary/selectors';
 import { getAllDiaryInformation } from '../../../redux/diary/operation';

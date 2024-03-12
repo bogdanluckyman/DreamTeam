@@ -1,4 +1,4 @@
-import{u as t,a5 as e}from"./index-2eea320f.js";const o=t.form`
+import{u as t,a5 as e}from"./index-b6f0a8c4.js";const o=t.form`
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;

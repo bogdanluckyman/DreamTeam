@@ -46,8 +46,7 @@ export const TitleInput = styled.input`
   background-color: inherit;
   border: none;
   padding: 0;
-  width: 240px;
-
+  width: 140px;
   &:hover,
   &:focus {
     outline: 0;
@@ -73,17 +72,18 @@ export const OptionSelect = styled.select`
   &:not(:last-child) {
     margin-right: 16px;
   }
-  &:last-child {
-    margin-right: 16px;
-    width: max-content;
-  }
 
   @media screen and (min-width: 768px) {
     font-size: 16px;
+    width: auto;
   }
 
   @media screen and (min-width: 1440px) {
     background-color: rgba(0, 0, 0, 0);
+  }
+
+  &:last-child {
+    width: max-content;
   }
 
   &:hover,

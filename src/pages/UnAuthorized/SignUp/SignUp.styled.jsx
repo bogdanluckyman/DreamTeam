@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const FormContainer = styled.div`
   width: 335px;
   margin: 77px 20px 0px;
+  position: relative;
   @media screen and (min-width: 768px) {
     max-width: 240px;
     margin: 128px 32px;
@@ -14,7 +15,7 @@ export const FormContainer = styled.div`
   }
 `;
 
-export const SignUpTittle = styled.h1`
+export const SignUpTittle = styled.h2`
   font-size: 24px;
   line-height: 1.37;
   margin-bottom: 14px;
@@ -35,5 +36,6 @@ export const SignUpText = styled.p`
   @media screen and (min-width: 768px) {
     width: 496px;
     margin-bottom: 32px;
+    font-size: 16px;
   }
 `;

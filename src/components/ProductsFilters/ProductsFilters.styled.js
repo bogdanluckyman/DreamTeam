@@ -73,6 +73,10 @@ export const OptionSelect = styled.select`
   &:not(:last-child) {
     margin-right: 16px;
   }
+  &:last-child {
+    margin-right: 16px;
+    width: max-content;
+  }
 
   @media screen and (min-width: 768px) {
     font-size: 16px;
@@ -94,6 +98,8 @@ export const OptionSelect = styled.select`
 `;
 
 export const Option = styled.option`
+  background-color: #1c1c1c;
+  color: var(--white-color);
   &:hover,
   &:focus {
     background-color: #1c1c1c;

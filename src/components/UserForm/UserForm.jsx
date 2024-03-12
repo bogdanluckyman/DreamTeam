@@ -104,7 +104,6 @@ const UserForm = () => {
   });
 
   const handleSubmit = (values) => {
-    console.log(values);
     const UserData = {
       ...values,
     };

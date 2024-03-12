@@ -36,6 +36,7 @@ const ProductsPage = () => {
   useEffect(() => {
     dispatch(fetchProducts({ selectedFilters, TOKEN }));
   }, [dispatch, selectedFilters]);
+
   const categoriesIsLoading = useSelector(selectCategoriesIsLoading);
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);

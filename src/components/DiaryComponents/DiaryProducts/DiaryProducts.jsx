@@ -59,7 +59,11 @@ const DiaryProducts = ({ productsArray, date }) => {
     try {
       await dispatch(deleteDiaryProduct(id));
       await dispatch(getAllDiaryInformation(date));
+      Notiflix.Notify.success('Product deleted successfully!', {
+        theme: 'light',
+      });
     } catch (error) {
+      console.log(error);
       Notiflix.Notify.failure('Sorry, something went wrong, please try again', {
         theme: 'dark',
       });

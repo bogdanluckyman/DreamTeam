@@ -6,7 +6,7 @@ import Notiflix from 'notiflix';
 
 export const getAllDiaryInformation = createAsyncThunk(
   '/diary/getAllDiaryInformation',
-  async (date, thunkAPI) => {
+  async (_, thunkAPI) => {
     function getFormattedDate() {
       const today = new Date();
       const day = String(today.getDate()).padStart(2, '0');
@@ -74,7 +74,7 @@ export const addDiaryExercise = createAsyncThunk(
 
 export const deleteDiaryExercise = createAsyncThunk(
   '/diary/deleteDiaryExercise',
-  async (exerciseId, thunkAPI) => {
+  async (workoutId, thunkAPI) => {
     try {
       const response = await axios.delete(`api/diary/exercise/${exerciseId}`);
       return response.data;

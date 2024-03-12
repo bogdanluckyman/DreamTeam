@@ -85,7 +85,7 @@ const DiaryPage = () => {
       ) : (
         <DiaryCont>
           <TitleAndSwitch>
-            <TitlePage title="Diary" />
+            <TitlePage title="Diary " />
             <DaySwitch
               currentDate={currentDate}
               setCurrentDate={setCurrentDate}

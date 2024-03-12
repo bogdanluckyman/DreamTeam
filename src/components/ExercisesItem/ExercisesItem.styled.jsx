@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Field, Form } from 'formik';
-import thumbUp from '../../assets/exercises/thumbUp.png';
+import thumbUp from '../../img/Thumb_up.png';
 
 export const Input = styled(Field)`
   border: 2px solid gray;

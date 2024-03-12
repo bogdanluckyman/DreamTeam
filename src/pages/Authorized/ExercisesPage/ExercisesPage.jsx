@@ -10,7 +10,7 @@ import {
   getIsLoading,
 } from '../../../redux/exercises/categoriesSlice';
 
-import sprite from '../../../assets/sprite.svg';
+import sprite from '../../../img/sprite.svg';
 
 import {
   ContainerPageExercise,

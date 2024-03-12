@@ -24,7 +24,7 @@ body {
   width: 100%;
   height: 100vh;
   margin: 0;
-  background-color: black;
+  background-color: #040404;
 
 
 &::-webkit-scrollbar {

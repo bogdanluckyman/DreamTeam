@@ -27,6 +27,7 @@ const FormModal = ({ onClose, product, date }) => {
   const [getCalories, setCalories] = useState(0);
   const dispatch = useDispatch();
   const errorValue = useSelector((state) => state.diary.error);
+  const isLoadingValue = useSelector((state) => state.diary.isLoading);
   const id = product._id;
   const productTitel = product.title;
   const productCalori = product.calories;
@@ -77,16 +78,18 @@ const FormModal = ({ onClose, product, date }) => {
       };
 
       console.log(errorValue);
-
-      dispatch(addDiaryProduct(newObjekt));
+      const res = await dispatch(addDiaryProduct(newObjekt));
+      console.log(res.meta.requestStatus);
       if (errorValue !== null) {
         Notiflix.Notify.failure('Sorry, something went wrong. Try again');
         return;
       }
-      Notiflix.Notify.success('Data added successfully');
-      setShowWellDoneModal(true);
-      setFormModal(false);
-      resetForm();
+      if (res.meta.requestStatus === 'fulfilled') {
+        Notiflix.Notify.success('Data added successfully');
+        setShowWellDoneModal(true);
+        setFormModal(false);
+        resetForm();
+      }
     } catch (error) {
       console.error('Message:', error.errors[0]);
     }

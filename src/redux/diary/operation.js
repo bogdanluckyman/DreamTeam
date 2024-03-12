@@ -23,7 +23,6 @@ export const addDiaryProduct = createAsyncThunk(
     try {
       const response = await axios.post(`api/diary/product`, data);
 
-      console.log('add', response.data);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -54,7 +53,7 @@ export const addDiaryExercise = createAsyncThunk(
   async (data, thunkAPI) => {
     try {
       const response = await axios.post(`api/diary/exercise`, data);
-      console.log(data);
+
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

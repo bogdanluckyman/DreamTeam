@@ -1,15 +1,14 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
 import DaySwitch from '../../../components/DiaryComponents/DaySwitch/DaySwitch';
 import { TitlePage } from '../../../components/TitlePage/TitlePage';
 import DiaryProducts from '../../../components/DiaryComponents/DiaryProducts/DiaryProducts';
 import DiaryExercises from '../../../components/DiaryComponents/DiaryExercises/DiaryExercises';
 import DayDashboard from '../../../components/DiaryWidgets/DayDashboard';
 import { Loader } from '../../../components/Loader/Loader';
-
 import { selectDiaryIsLoading } from '../../../redux/diary/selectors';
 import { getAllDiaryInformation } from '../../../redux/diary/operation';
+import Notiflix from 'notiflix';
 
 import {
   DiaryCont,
@@ -18,15 +17,19 @@ import {
   TitleAndSwitch,
   Container,
 } from './DiaryPage.style';
-
-import { toast } from 'react-toastify';
 import {
   selectBmr,
   selectIsRefreshing,
   selectUser,
 } from '../../../redux/auth/selectors';
 
-import { refreshUser } from '../../../redux/auth/operation';
+const formatDate = (date) => {
+  const dateObject = new Date(date);
+  const day = String(dateObject.getDate()).padStart(2, '0');
+  const month = String(dateObject.getMonth() + 1).padStart(2, '0');
+  const year = dateObject.getFullYear();
+  return `${day}-${month}-${year}`;
+};
 
 const DiaryPage = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
@@ -40,50 +43,40 @@ const DiaryPage = () => {
   const bmr = useSelector(selectBmr);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        await dispatch(refreshUser());
-        await dispatch(getAllDiaryInformation(formattedCurrentDate));
-      } catch (error) {
-        toast.error('Sorry! Something went wrong, try latter!', {
-          theme: 'dark',
-        });
-      }
-    };
+    try {
+      const fetchData = async () => {
+        const formattedCurrentDate = formatDate(currentDate);
+        const res = await dispatch(
+          getAllDiaryInformation(formattedCurrentDate)
+        );
+        if (res.payload) {
+          setAllDiaryInformation(res.payload);
+          setConsumedProductsArray(res.payload.products);
+          setCompletedExercisesArray(res.payload.exercises);
+        }
+      };
 
-    const formattedCurrentDate = formatDate(currentDate);
-
-    fetchData();
+      fetchData();
+    } catch (error) {
+      console.log(error);
+      Notiflix.Notify.failure('Sorry, something went wrong, please try again', {
+        theme: 'dark',
+      });
+    }
   }, [dispatch, currentDate]);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const formattedDate = '06-03-2024'; // Поставте потрібну вам дату
-      const res = await dispatch(getAllDiaryInformation(formattedDate));
-      if (res.payload) {
-        setAllDiaryInformation(res.payload);
-        setConsumedProductsArray(res.payload.products);
-        setCompletedExercisesArray(res.payload.exercises);
-      }
-    };
-
-    fetchData();
-  }, [dispatch]);
-
-  const formatDate = (date) => {
-    const dateObject = new Date(date);
-    const day = String(dateObject.getDate()).padStart(2, '0');
-    const month = String(dateObject.getMonth() + 1).padStart(2, '0');
-    const year = dateObject.getFullYear();
-    return `${day}-${month}-${year}`;
-  };
+  const formattedCurrentDate = useMemo(
+    () => formatDate(currentDate),
+    [currentDate]
+  );
+  const formattedUserDateRegistration = useMemo(
+    () => formatDate(userDataRegistration),
+    [userDataRegistration]
+  );
 
   const [allDiaryInformation, setAllDiaryInformation] = useState([]);
   const [consumedProductsArray, setConsumedProductsArray] = useState([]);
   const [completedExercisesArray, setCompletedExercisesArray] = useState([]);
-
-  const formattedCurrentDate = formatDate(currentDate);
-  const formattedUserDateRegistration = formatDate(userDataRegistration);
 
   return (
     <Container>

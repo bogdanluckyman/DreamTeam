@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-
+import img from '../../img/3D Food Icon by @Odafe_UI.png';
 export const WellDoneBackground = styled.div`
   position: fixed;
   z-index: 100;
@@ -42,7 +42,7 @@ export const InnerWellDoneContainer = styled.div`
 export const WellDoneImg = styled.div`
   width: 123px;
   height: 84px;
-  background-image: url('../../img/3D Food Icon by @Odafe_UI.png');
+  background-image: url(${img});
   @media screen and (min-width: 768px) {
     margin-bottom: 16px;
   }

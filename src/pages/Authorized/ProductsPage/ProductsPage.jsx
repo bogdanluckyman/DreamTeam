@@ -66,13 +66,5 @@ const ProductsPage = () => {
     </BgWrap>
   );
 };
-// повне версія
-//  <>
-//    <TitlePage title="Products" />
-// <ProductsFilter />
-// {isLoading && !error && <h1>зробити лодер</h1>}
-// {error && <p>Sorry! {error}. Try again!</p>}
-//<ProductsList />;
-// </>
 
 export default ProductsPage;

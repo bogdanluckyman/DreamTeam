@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import img from '../../img/3D Food Icon by @Odafe_UI.png';
+import img from '../../img/3DFood.png';
 export const WellDoneBackground = styled.div`
   position: fixed;
   z-index: 100;

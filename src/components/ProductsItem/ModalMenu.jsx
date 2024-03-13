@@ -1,4 +1,3 @@
-import React from 'react';
 import { useNavigate } from 'react-router';
 import {
   Active,
@@ -12,7 +11,6 @@ import {
 } from './ModalMenu.styles';
 import { useDispatch } from 'react-redux';
 import { logOut } from '../../redux/auth/operation';
-
 
 const ModalMenu = ({ onClose, sprite }) => {
   const navigate = useNavigate();
@@ -41,8 +39,12 @@ const ModalMenu = ({ onClose, sprite }) => {
           </CloseMenuContainer>
           <MenuButtons>
             <MenuButton onClick={() => navigate('/diary')}>Diary</MenuButton>
-            <MenuButton onClick={() => navigate('/products')}>Products</MenuButton>
-            <MenuButton onClick={() => navigate('/exercises')}>Exercises</MenuButton>
+            <MenuButton onClick={() => navigate('/products')}>
+              Products
+            </MenuButton>
+            <MenuButton onClick={() => navigate('/exercises')}>
+              Exercises
+            </MenuButton>
           </MenuButtons>
           <LogoutMenu onClick={logout}>
             <p> Logout</p>

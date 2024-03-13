@@ -1,5 +1,9 @@
-import React from 'react';
-import { NavgtionContainer, Title, ButtonsContainer, TabButton } from '../../pages/Authorized/ExercisesPage/ExercisesPage.styled';
+import {
+  NavgtionContainer,
+  Title,
+  ButtonsContainer,
+  TabButton,
+} from '../../pages/Authorized/ExercisesPage/ExercisesPage.styled';
 
 export default function NavigationContainer({ activeTab, handleTabClick }) {
   return (

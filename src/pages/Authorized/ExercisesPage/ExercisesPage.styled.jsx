@@ -7,7 +7,7 @@ import bgImage2 from '../../../img/hero-background-gym-2x.jpg';
 export const Container = styled.div`
   @media screen and (min-width: 320px) {
     width: 100%;
-    padding: 0 20px;
+    padding: 0 19px;
     margin: 0 auto;
   }
 

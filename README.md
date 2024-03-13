@@ -53,10 +53,9 @@
 - JS,
 - Axios,
 - React,
-- Redux,
 - ReduxToolkit,
 - Persist,
-- Pagination.
+- Styled-Components
 
 Бекенд:
 
@@ -73,3 +72,4 @@
 - Vite,
 - Figma,
 - Git/GitHub.
+- Postman

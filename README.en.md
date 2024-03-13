@@ -51,10 +51,9 @@ Frontend:
 - JS,
 - Axios,
 - React,
-- Redux,
 - ReduxToolkit,
 - Persist,
-- Pagination.
+- Styled-Components.
 
 Backend:
 
@@ -71,3 +70,4 @@ Utils:
 - Vite,
 - Figma,
 - Git/GitHub.
+- Postman

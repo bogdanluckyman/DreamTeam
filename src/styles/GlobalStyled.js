@@ -13,6 +13,10 @@ export const GlobalStyle = createGlobalStyle`
   --light-grey-color: rgba(239, 237, 232, 0.5);
   --more-light-grey-color: rgba(239, 237, 232, 0.30); }
 
+.no-scroll {
+  overflow: hidden;
+}
+
 body {
   background-size: auto 100%;
   background-position: center center;

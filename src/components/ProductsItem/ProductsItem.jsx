@@ -28,9 +28,11 @@ export const ProductItem = ({ product }) => {
 
   const openModal = () => {
     setIsModalOpen(true);
+    document.body.classList.add('no-scroll');
   };
   const closeModal = () => {
     setIsModalOpen(false);
+    document.body.classList.remove('no-scroll');
   };
   return (
     <>

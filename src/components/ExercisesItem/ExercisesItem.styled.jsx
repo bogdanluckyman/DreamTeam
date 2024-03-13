@@ -93,7 +93,7 @@ export const SuccesModal = styled.div`
   @media (max-width: 335px) {
     width: 100%;
     height: 100%;
-    padding: 20px;
+    padding: 20x;
   }
 
   @media (min-width: 768px) {
@@ -294,13 +294,14 @@ export const WrapperTitle = styled.div`
   }
 `;
 
-export const Title = styled.h2`
+export const Title = styled.h3`
   color: #ffffff;
   font-size: 20px;
   line-height: 1.2;
   word-wrap: break-word;
   white-space: nowrap;
-  overflow: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
   @media (min-width: 768px) {
     font-size: 24px;

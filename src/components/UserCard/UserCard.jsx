@@ -50,7 +50,7 @@ const UserCard = () => {
 
     try {
       dispatch(updateAvatar(file));
-      console.log(file);
+      // console.log(file);
     } catch (error) {
       console.error(error.message);
     }

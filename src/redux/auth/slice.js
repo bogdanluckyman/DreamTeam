@@ -100,7 +100,7 @@ const authSlice = createSlice({
         state.isRefreshing = true;
       })
       .addCase(updateAvatar.fulfilled, (state, action) => {
-        state.user = action.payload;
+        state.user.avatarURL = action.payload.data.avatarURL;
         state.isLoggedIn = true;
         state.isRefreshing = false;
       }),

@@ -1,4 +1,4 @@
-import{u as o,h as i,j as e}from"./index-82e39815.js";const n=o.h2`
+import{u as o,h as i,j as e}from"./index-e0235b57.js";const n=o.h2`
   color: ${i.white};
   font-family: Roboto;
   font-size: 24px;

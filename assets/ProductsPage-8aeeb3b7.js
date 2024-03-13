@@ -1,4 +1,4 @@
-import{u as t,A as K,B as y,b as G,j as e,W as J,J as Q,K as X,x as l,M as Z,Q as H,T as ee,S as te,U as ie,V as oe,X as re,Y as ne,Z as ae,r as h,a as C,k as d,F as se,$ as de,q as S,m as ce,h as le,a0 as k,a1 as x,a2 as pe,a3 as he,a4 as xe,L as z}from"./index-82e39815.js";import{T as ge}from"./TitlePage-38a128fd.js";import{c as me,b as ue}from"./index.esm-00ebfebf.js";import fe from"./ErrorPage-60f87751.js";import"./index-33d090e4.js";const we=t.div`
+import{u as t,A as K,B as y,b as G,j as e,W as J,J as Q,K as X,x as l,M as Z,Q as H,T as ee,S as te,U as ie,V as oe,X as re,Y as ne,Z as ae,r as h,a as C,k as d,F as se,$ as de,q as S,m as ce,h as le,a0 as k,a1 as x,a2 as pe,a3 as he,a4 as xe,L as z}from"./index-e0235b57.js";import{T as ge}from"./TitlePage-2cdc55e9.js";import{c as me,b as ue}from"./index.esm-976d97d8.js";import fe from"./ErrorPage-1239558d.js";import"./index-cdc91e8c.js";const we=t.div`
   border: 1px solid rgba(239, 237, 232, 0.2);
   border-radius: 12px;
   background: #10100f;
@@ -333,8 +333,7 @@ import{u as t,A as K,B as y,b as G,j as e,W as J,J as Q,K as X,x as l,M as Z,Q a
   background-color: inherit;
   border: none;
   padding: 0;
-  width: 240px;
-
+  width: 140px;
   &:hover,
   &:focus {
     outline: 0;
@@ -359,10 +358,15 @@ import{u as t,A as K,B as y,b as G,j as e,W as J,J as Q,K as X,x as l,M as Z,Q a
 
   @media screen and (min-width: 768px) {
     font-size: 16px;
+    width: auto;
   }
 
   @media screen and (min-width: 1440px) {
     background-color: rgba(0, 0, 0, 0);
+  }
+
+  &:last-child {
+    width: max-content;
   }
 
   &:hover,
@@ -375,6 +379,8 @@ import{u as t,A as K,B as y,b as G,j as e,W as J,J as Q,K as X,x as l,M as Z,Q a
     color: var(--white-color);
   }
 `,T=t.option`
+  background-color: #1c1c1c;
+  color: var(--white-color);
   &:hover,
   &:focus {
     background-color: #1c1c1c;

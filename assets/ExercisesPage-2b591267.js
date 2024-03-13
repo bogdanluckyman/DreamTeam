@@ -1,4 +1,4 @@
-import{u as e,a5 as w,a7 as l,d as h,j as i,a as u,b as f,k as x,a8 as b,a9 as v,r as c,L as m,s as k,O as j,aa as y}from"./index-d4fc82e4.js";import{T as E}from"./TitlePage-1e37b65c.js";import{n as F}from"./index-0433343a.js";const C=e.ul`
+import{u as e,a5 as w,a7 as l,d as h,j as i,a as u,b as f,k as x,a8 as b,a9 as v,r as c,L as m,s as k,O as j,aa as y}from"./index-13970d38.js";import{T as E}from"./TitlePage-bad3e05b.js";import{n as F}from"./index-9b111458.js";const C=e.ul`
   display: flex;
   margin-top: 28px;
   gap: 28px;
@@ -39,7 +39,7 @@ import{u as e,a5 as w,a7 as l,d as h,j as i,a as u,b as f,k as x,a8 as b,a9 as v
 `,L=()=>{const t=["Body parts","Muscles","Equipment"],{filter:r}=l(),d=h(),o=r;return i.jsx(i.Fragment,{children:i.jsx(C,{children:t.map(a=>i.jsx("li",{children:i.jsx(z,{to:`/exercises/${a}`,state:{from:d},isactive:a===o?"true":"false",children:a})},a))})})},$="/DreamTeam/assets/hero-background-gym-1-78b576d3.jpg",D="/DreamTeam/assets/hero-background-gym-2x-7f8d3593.jpg",B=e.div`
   @media screen and (min-width: 320px) {
     width: 100%;
-    padding: 0 20px;
+    padding: 0 19px;
     margin: 0 auto;
   }
 

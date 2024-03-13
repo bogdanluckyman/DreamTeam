@@ -1,17 +1,30 @@
-import{u as t,a5 as e}from"./index-671d384a.js";const o=t.form`
+import{u as i,a5 as t}from"./index-3dc26e8c.js";const n=i.div`
   display: flex;
   flex-direction: column;
-  margin-bottom: 20px;
+  gap: 20px;
+  width: max-content;
   @media screen and (min-width: 375px) {
-    width: 335px;
   }
-`,n=t.input`
+`,o=i.div`
+  position: relative;
+  display: inline-block;
+  width: max-content;
+`,r=i.form`
   display: flex;
+  flex-direction: column;
+`,p=i.input`
+  width: 335px;
+  height: 46px;
+  font-size: 14px;
   padding: 14px;
   position: relative;
-  margin-bottom: 20px;
-  align-items: center;
-  gap: 10px;
+
+  @media screen and (min-width: 768px) {
+    width: 364px;
+    height: 52px;
+    font-size: 16px;
+  }
+
   border-radius: 12px;
   border: 1px solid rgba(239, 237, 232, 0.3);
   outline: rgba(239, 237, 232, 0.3) solid 1px;
@@ -31,32 +44,23 @@ import{u as t,a5 as e}from"./index-671d384a.js";const o=t.form`
   }
 
   &.success {
-    border-color: #3cbf61; /* Зелений колір для успішного введення */
+    border-color: #3cbf61;
   }
 
   &.error {
-    border-color: #f80505; /* Червоний колір для помилки */
+    border-color: #f80505;
   }
-`,r=t.button`
-  @media screen and (min-width: 768px) {
-    width: 190px;
-    height: 56px;
-    letter-spacing: 0px;
-    padding: 16px 60px;
-    font-size: 20px;
-    line-height: 1.2;
-    border-radius: 12px;
-    margin-top: 64px;
-  }
-  width: 136px;
+`,a=i.button`
+  width: 130px;
   height: 42px;
+  border-radius: 12px;
+  margin-top: 28px;
   box-sizing: border-box;
-  max-width: 196px;
+  /* max-width: 196px; */
   margin-bottom: 12px;
-  white-space: nowrap;
-  outline: none;
+  /* white-space: nowrap;
+  outline: none; */
   letter-spacing: 0.04em;
-  cursor: pointer;
   display: flex;
   padding: 12px 40px;
   justify-content: center;
@@ -71,20 +75,45 @@ import{u as t,a5 as e}from"./index-671d384a.js";const o=t.form`
   line-height: calc(1.125);
   border: 1px solid rgba(239, 237, 232, 0.3);
   transition: background 0.3s ease-out 0s;
-`,p=t.form`
+
+  @media screen and (min-width: 768px) {
+    width: 182px;
+    height: 56px;
+    font-size: 20px;
+    margin-top: 64px;
+  }
+`,s=i.div`
   display: flex;
   flex-direction: column;
-  margin-bottom: 20px;
+  /* gap: 20px; */
+  width: max-content;
   @media screen and (min-width: 375px) {
+  }
+`,d=i.div`
+  position: relative;
+  display: inline-block;
+  width: max-content;
+`,x=i.form`
+  @media screen and (min-width: 375px) {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
     width: 335px;
   }
-`,a=t.input`
-  display: flex;
+`,l=i.input`
+  width: 335px;
+  height: 46px;
+  font-size: 14px;
   padding: 14px;
   position: relative;
-  /* margin-bottom: 20px; */
-  align-items: center;
-  gap: 10px;
+  margin: 4px;
+
+  @media screen and (min-width: 768px) {
+    width: 364px;
+    height: 52px;
+    font-size: 16px;
+  }
+
   border-radius: 12px;
   border: 1px solid rgba(239, 237, 232, 0.3);
   outline: rgba(239, 237, 232, 0.3) solid 1px;
@@ -105,60 +134,46 @@ import{u as t,a5 as e}from"./index-671d384a.js";const o=t.form`
   }
 
   &.success {
-    border-color: #3cbf61; /* Зелений колір для успішного введення */
+    border-color: #3cbf61;
   }
 
   &.error {
-    border-color: #f80505; /* Червоний колір для помилки */
+    border-color: #f80505;
   }
-`,s=t.p`
+`,c=i.p`
   color: rgba(239, 237, 232, 0.6);
 
-  font-size: 12px;
+  /* font-size: 12px; */
   font-style: normal;
   font-weight: 400;
   line-height: 18px;
-`,d=t(e)`
+`,h=i(t)`
   color: #efede8;
   font-size: 12px;
   font-weight: 400;
   line-height: 18px;
   text-decoration-line: underline;
-`,x=t.button`
-  /* position: absolute; */
-  top: 50%; /* Розміщуємо по середині вертикалі */
-  right: 8px; /* Відступ від правого краю інпута */
-  transform: translateY(-180%);
-  margin-left: auto;
-  width: 25px;
-  height: 25px;
-  cursor: pointer;
-  z-index: 1; /* Розміщуємо поверх інпута */
+`,g=i.button`
+  position: absolute;
+  top: 45%;
+  width: 30px;
+  height: 30px;
+  right: 15px;
+
+  transform: translateY(-50%);
   background-color: transparent;
   border: none;
-
-  svg {
-    width: 100%;
-    height: 100%;
-    stroke: #efede8;
-  }
-
+  cursor: pointer;
+  /* 
   @media screen and (min-width: 768px) {
-    width: 53px;
-    height: 53px;
-    right: 30px;
-
     width: 30px;
     height: 30px;
     right: 40px;
-  }
-`,g=t.svg`
-  width: 25px;
-  height: 25px;
-  /* margin-top: 6px; */
-  margin-right: 5px;
-  stroke: #efede8;
-`,l=t.div`
+  } */
+`,m=i.svg`
+  width: 20px;
+  height: 20px;
+`,f=i.div`
   display: flex;
   width: 100%;
   align-items: center;
@@ -169,13 +184,13 @@ import{u as t,a5 as e}from"./index-671d384a.js";const o=t.form`
   padding-left: 12px;
   font-size: 12px;
   font-weight: 400;
-  padding-top: 5px;
-`,c=t.svg`
+  /* margin: 5px; */
+`,b=i.svg`
   width: 16px;
   height: 16px;
   margin-right: 10px;
   stroke: #3cbf61;
-`,h=t.div`
+`,u=i.div`
   display: flex;
   width: 100%;
   padding-left: 12px;
@@ -186,24 +201,45 @@ import{u as t,a5 as e}from"./index-671d384a.js";const o=t.form`
   color: rgba(248, 5, 5, 0.973);
   font-size: 12px;
   font-weight: 400;
-`,f=t.svg`
+  /* margin: 5px; */
+`,w=i.svg`
   width: 16px;
   height: 16px;
   margin-right: 10px;
 
   vertical-align: middle;
-`,m=t.div`
-  margin-top: 152px;
-  /* margin-left: 96px; */
-`,b=t.h1`
-  font-size: 32px;
+`,v=i.div`
+  width: 335px;
+  margin: 77px 20px 0px;
+  position: relative;
+  @media screen and (min-width: 768px) {
+    max-width: 240px;
+    margin: 128px 32px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    max-width: 1440px;
+    margin-left: 96px;
+  }
+`,z=i.h2`
+  font-size: 24px;
   line-height: 1.37;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
   color: white;
-`,u=t.p`
-  width: 496px;
-  font-size: 16px;
+  @media screen and (min-width: 768px) {
+    font-size: 32px;
+    margin-bottom: 16px;
+  }
+`,y=i.p`
+  width: 335px;
+  font-size: 14px;
   line-height: 1.5;
-  margin-bottom: 32px;
+  margin-bottom: 28px;
   color: rgba(239, 237, 232, 0.3);
-`;export{x as B,h as E,p as F,l as G,a as I,c as S,f as a,g as b,r as c,s as d,d as e,m as f,b as g,u as h,o as i,n as j};
+
+  @media screen and (min-width: 768px) {
+    width: 496px;
+    margin-bottom: 32px;
+    font-size: 16px;
+  }
+`;export{g as B,u as E,x as F,f as G,l as I,b as S,s as a,w as b,d as c,m as d,a as e,c as f,h as g,v as h,z as i,y as j,r as k,n as l,p as m,o as n};

@@ -1,12 +1,12 @@
-import{u as i}from"./index-671d384a.js";const e="/DreamTeam/assets/hero-mobile-1x-7330b8b1.jpg",n="/DreamTeam/assets/hero-mobile-2x-ab16df10.jpg",t="/DreamTeam/assets/hero-tablet-1x-42f7b539.jpg",a="/DreamTeam/assets/hero-tablet-2x-420aaa93.jpg",p="/DreamTeam/assets/hero-1x-96488495.jpg",d="/DreamTeam/assets/hero-2x-a0acb64c.jpg",r=i.div`
-  @media screen and (min-width: 375px) {
-    width: 375px;
-    margin: 0 auto;
-    /* display: flex; */
-  }
+import{u as i}from"./index-3dc26e8c.js";const e="/DreamTeam/assets/hero-mobile-1x-7330b8b1.jpg",t="/DreamTeam/assets/hero-mobile-2x-ab16df10.jpg",n="/DreamTeam/assets/hero-tablet-1x-42f7b539.jpg",a="/DreamTeam/assets/hero-tablet-2x-420aaa93.jpg",p="/DreamTeam/assets/hero-1x-96488495.jpg",o="/DreamTeam/assets/hero-2x-a0acb64c.jpg",r=i.div`
+  width: 375px;
+  height: 812px;
+  margin: 0 auto;
+  /* padding: 20px; */
 
   @media screen and (min-width: 768px) {
     width: 768px;
+
     display: flex;
   }
 
@@ -14,7 +14,6 @@ import{u as i}from"./index-671d384a.js";const e="/DreamTeam/assets/hero-mobile-1
     width: 1440px;
   }
 `,x=i.section`
-  /* max-width: 1400px; */
   margin: 0 20px;
 
   @media screen and (min-width: 768px) {
@@ -23,6 +22,7 @@ import{u as i}from"./index-671d384a.js";const e="/DreamTeam/assets/hero-mobile-1
     margin: 0 32px;
   }
   @media screen and (min-width: 1440px) {
+    margin: 0 96px;
     /* margin-left: 96px; */
   }
 `,s=i.div`
@@ -33,23 +33,27 @@ import{u as i}from"./index-671d384a.js";const e="/DreamTeam/assets/hero-mobile-1
   background-size: contain;
   width: 298px;
   height: 669px;
-  margin-top: 180px;
+  /* margin-top: 180px; */
+  background-position-y: bottom;
+  height: 681px;
+  margin-top: -242px;
+  margin-left: 77px;
 
   @media (min-device-pixel-ratio: 2),
     (-webkit-min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
-    background-image: url(${n});
+    background-image: url(${t});
   }
 
   @media screen and (min-width: 375px) {
-    background-position-y: bottom;
+    /* background-position-y: bottom;
     height: 681px;
     margin-top: -242px;
-    margin-left: 77px;
+    margin-left: 77px; */
   }
   @media screen and (min-width: 768px) {
-    background-image: url(${t});
+    background-image: url(${n});
     @media (min-device-pixel-ratio: 2),
       (-webkit-min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
@@ -70,15 +74,15 @@ import{u as i}from"./index-671d384a.js";const e="/DreamTeam/assets/hero-mobile-1
       (-webkit-min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
-      background-image: url(${d});
+      background-image: url(${o});
     }
 
     width: 670px;
     height: 800px;
-    margin-left: 76px;
+    margin-left: 309px;
     margin-top: -85px;
   }
-`,h=i.div`
+`,m=i.div`
   display: flex;
   flex-direction: column;
 
@@ -90,25 +94,27 @@ import{u as i}from"./index-671d384a.js";const e="/DreamTeam/assets/hero-mobile-1
   @media screen and (min-width: 1440px) {
     gap: 39px;
   }
-`,m=i.div`
+`,h=i.div`
   display: flex;
-  /* flex-direction: column; */
   align-items: center;
   gap: 12px;
-  /* padding: 20px; */
   border-radius: 12px;
   background: #303030;
-  /* margin-left: 42px; */
-  margin-top: 432px;
+  margin-top: 380px;
+
   width: 146px;
   height: 66px;
+
+  @media screen and (min-width: 375px) {
+    margin-top: 480px;
+  }
 
   @media screen and (min-width: 768px) {
     flex-direction: row;
     width: 206px;
     height: 96px;
     margin-left: 64px;
-    margin-top: 582px;
+    margin-top: 583px;
   }
 
   @media screen and (min-width: 1440px) {
@@ -126,6 +132,7 @@ import{u as i}from"./index-671d384a.js";const e="/DreamTeam/assets/hero-mobile-1
   margin-left: 16px;
   /* padding: 9px; */
   background-color: #ef8964;
+  background-color: var(--);
 
   @media screen and (min-width: 768px) {
     width: 40px;
@@ -239,14 +246,21 @@ import{u as i}from"./index-671d384a.js";const e="/DreamTeam/assets/hero-mobile-1
     line-height: 1.04;
   }
 `,y=i.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  max-width: 770px;
+
+  margin-top: 90px;
   @media screen and (min-width: 375px) {
-    position: relative;
+    /* position: relative;
     display: flex;
     flex-direction: column;
     gap: 40px;
     max-width: 770px;
 
-    margin-top: 90px;
+    margin-top: 90px; */
   }
   @media screen and (min-width: 768px) {
     margin-top: 140px;
@@ -288,4 +302,4 @@ import{u as i}from"./index-671d384a.js";const e="/DreamTeam/assets/hero-mobile-1
     width: 185px;
     height: 67px;
   }
-`;export{h as B,r as C,x as H,g as I,s as R,c as S,k as T,m as V,l as a,w as b,f as c,u as d,b as e,v as f,y as g,z as h,T as i};
+`;export{m as B,r as C,x as H,g as I,s as R,c as S,k as T,h as V,l as a,w as b,f as c,u as d,b as e,v as f,y as g,z as h,T as i};

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+import img from '../../img/Thumb_up.png';
 export const ExercisesWellDoneBackground = styled.div`
   position: fixed;
   z-index: 100;
@@ -40,7 +41,7 @@ export const ExercisesWellDoneImg = styled.div`
   width: 117px;
   height: 73px;
   margin-bottom: 27px;
-  background-image: url('../../img/Thumb_up.png');
+  background-image: url(${img});
 `;
 export const ExercisesText = styled.h2`
   font-weight: 700;

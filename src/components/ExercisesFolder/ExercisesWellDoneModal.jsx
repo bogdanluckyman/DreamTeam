@@ -13,6 +13,7 @@ import {
   InnerExercisesWellDoneContainer,
 } from './ExercisesWellDoneModal.styles';
 import { timeCalculation } from './timeCalculation';
+import sprite from '../../img/symbol-defs.svg';
 
 const ExercisesWellDoneModal = ({
   onClose,
@@ -30,7 +31,8 @@ const ExercisesWellDoneModal = ({
       <ExercisesWellDoneContainer>
         <CloseWellDoneContainer onClick={onClose}>
           <svg width="13" height="13">
-            <use href="/DreamTeam/src/img/symbol-defs.svg#icon-close-white"></use>
+            {/* <use href="/DreamTeam/src/img/symbol-defs.svg#icon-close-white"></use> */}
+            <use href={sprite + '#icon-close-white'}></use>
           </svg>
         </CloseWellDoneContainer>
         <InnerExercisesWellDoneContainer>
@@ -52,7 +54,8 @@ const ExercisesWellDoneModal = ({
 
             <SvgNext>
               <use
-                href="/DreamTeam/src/img/symbol-defs.svg#icon-next"
+                // href="/DreamTeam/src/img/symbol-defs.svg#icon-next"
+                href={sprite + '#icon-next'}
                 width="25"
                 height="25"
               ></use>

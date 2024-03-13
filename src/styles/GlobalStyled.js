@@ -1,6 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
 import 'modern-normalize';
-// import { colors } from './colors';
 
 export const GlobalStyle = createGlobalStyle`
 :root {

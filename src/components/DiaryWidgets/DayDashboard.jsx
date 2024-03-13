@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-
 import {
   ContainerWrap,
   ListStyled,
@@ -13,37 +12,24 @@ import {
   TextWrapper,
   DataValue,
 } from './DayDashboard.style';
-
 import sprite from '../../img/sprite.svg';
 import { useSelector } from 'react-redux';
 import { selectDiaryError } from '../../redux/diary/selectors';
 
 const DayDashboard = ({ userDiaryInformation, bmr }) => {
-  const {
-    burnedCalories,
-    consumedCalories,
-    // remainingCalories,
-    remainingSports,
-  } = userDiaryInformation;
+  const { burnedCalories, consumedCalories, remainingSports } =
+    userDiaryInformation;
 
   const [isOverCalories, setIsOverCalories] = useState(false);
   const [isOverSports, setIsOverSports] = useState(false);
+  // userDiaryInformation.consumedCalories = Math.round(consumedCalories,0)
   const remainingCalories = Math.round(consumedCalories - burnedCalories, 0);
 
   const error = useSelector(selectDiaryError);
 
   useEffect(() => {
-    if (remainingCalories < 0) {
-      setIsOverCalories(true);
-    } else {
-      setIsOverCalories(false);
-    }
-
-    if (remainingSports < 0) {
-      setIsOverSports(true);
-    } else {
-      setIsOverSports(false);
-    }
+    setIsOverCalories(remainingCalories < 0);
+    setIsOverSports(remainingSports < 0);
   }, [remainingCalories, remainingSports]);
 
   return (
@@ -56,7 +42,7 @@ const DayDashboard = ({ userDiaryInformation, bmr }) => {
             </SvgStyled>
             <TitleStyled>Daily calorie intake</TitleStyled>
           </TitleStyledWrapper>
-          <DataValue>{bmr && bmr !== null && bmr !== 0 ? bmr : 2200}</DataValue>
+          <DataValue>{bmr || 2200}</DataValue>
         </ItemListStyled>
         <ItemListStyled>
           <TitleStyledWrapper>
@@ -74,9 +60,7 @@ const DayDashboard = ({ userDiaryInformation, bmr }) => {
             </SvgStyled>
             <TitleStyled>Calories consumed</TitleStyled>
           </TitleStyledWrapper>
-          <DataValue>
-            {consumedCalories && !error ? consumedCalories : 0}
-          </DataValue>
+          <DataValue>{Math.round(consumedCalories, 0) || 0}</DataValue>
         </ItemListStyled>
         <ItemListStyled>
           <TitleStyledWrapper>
@@ -85,7 +69,7 @@ const DayDashboard = ({ userDiaryInformation, bmr }) => {
             </SvgStyled>
             <TitleStyled>Calories burned</TitleStyled>
           </TitleStyledWrapper>
-          <DataValue>{burnedCalories && !error ? burnedCalories : 0}</DataValue>
+          <DataValue>{burnedCalories || 0}</DataValue>
         </ItemListStyled>
         <ItemListStyled
           className={
@@ -98,9 +82,7 @@ const DayDashboard = ({ userDiaryInformation, bmr }) => {
             </SvgStyled>
             <TitleStyled>The rest of the calories</TitleStyled>
           </TitleStyledWrapper>
-          <DataValue>
-            {remainingCalories && !error ? remainingCalories : bmr ? bmr : 0}
-          </DataValue>
+          <DataValue>{remainingCalories || bmr || 0}</DataValue>
         </ItemListStyled>
         <ItemListStyled className={isOverSports ? 'greenBg' : ''}>
           <TitleStyledWrapper>
@@ -109,9 +91,7 @@ const DayDashboard = ({ userDiaryInformation, bmr }) => {
             </SvgStyled>
             <TitleStyled>The rest of sports</TitleStyled>
           </TitleStyledWrapper>
-          <DataValue>
-            {remainingSports && !error ? remainingSports : 110} min
-          </DataValue>
+          <DataValue>{remainingSports || 110} min</DataValue>
         </ItemListStyled>
       </ListStyled>
 

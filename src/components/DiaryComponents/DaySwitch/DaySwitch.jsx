@@ -46,7 +46,7 @@ const DaySwitch = ({ currentDate, setCurrentDate, userDateRegistration }) => {
       <CalenderBtn onClick={openCalendar}>
         <DateLabel>{format(selectedDate, 'dd/MM/yyyy')}</DateLabel>
         <CalenderIconSvg>
-          <use href={`${sprite}#icon-calendar`} />
+          <use href={`${sprite}#icon-calendar-orange`} />
         </CalenderIconSvg>
       </CalenderBtn>
       <BtnPrev type="button" onClick={goToPreviousDay}>

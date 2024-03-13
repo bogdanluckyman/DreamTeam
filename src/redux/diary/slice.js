@@ -41,10 +41,15 @@ const handleDeleteDiaryProductsFulfilled = (state, action) => {
   state.isLoading = false;
   state.error = null;
 
+  // Знаходимо індекс видаляємого продукту у масиві
   const index = state.consumedProductsArray.findIndex(
     (product) => product._id === action.payload._id
   );
-  state.consumedProductsArray.splice(index, 1);
+
+  // Якщо індекс знайдено, видаляємо продукт із масиву
+  if (index !== -1) {
+    state.consumedProductsArray.splice(index, 1);
+  }
 };
 
 const handleAddDiaryExerciseFulfilled = (state, action) => {

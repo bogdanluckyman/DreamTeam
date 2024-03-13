@@ -35,9 +35,16 @@ import {
 } from '../../../redux/diary/operation';
 import Notiflix from 'notiflix';
 import { selectDiaryError } from '../../../redux/diary/selectors';
-
+import { useEffect, useState } from 'react';
 
 const DiaryProducts = ({ productsArray, date }) => {
+  const [currentProductsArray, setCurrentProductsArray] = useState([]);
+
+  useEffect(() => {
+    if (productsArray) {
+      setCurrentProductsArray(productsArray); // оновлення currentProductsArray при кожному оновленні productsArray
+    }
+  }, [productsArray]);
 
   const dispatch = useDispatch();
   const currentUser = useSelector(selectUser);
@@ -57,6 +64,10 @@ const DiaryProducts = ({ productsArray, date }) => {
   const handleDelete = async (id) => {
     try {
       await dispatch(deleteDiaryProduct(id));
+      const updatedProductsArray = currentProductsArray.filter(
+        (product) => product._id !== id
+      );
+      setCurrentProductsArray(updatedProductsArray);
       await dispatch(getAllDiaryInformation(date));
       Notiflix.Notify.success('Product deleted successfully!', {
         theme: 'light',
@@ -92,11 +103,11 @@ const DiaryProducts = ({ productsArray, date }) => {
           </NavLink>
         </NavBlock>
       </TitleNav>
-      {productsArray && productsArray.length > 0 && !error ? (
+      {currentProductsArray && currentProductsArray.length > 0 && !error ? (
         isMobile ? (
           <Table>
             <WrapperForItemsArray>
-              {productsArray.map((product) => {
+              {currentProductsArray.map((product) => {
                 const type = product.productID.groupBloodNotAllowed[
                   userBloodType
                 ]

@@ -43,6 +43,22 @@ on categories and equipment.
 
 # Our development team :
 
+- [Bohdan Tyshchenko](https://github.com/bogdanluckyman) **Front end Team
+  Lead**,
+- [Artem Semeniuk](https://github.com/ArtemGit1) **Scrum Master**,
+- [Anzhelika Lisovetska](https://github.com/Just-Ang) **Front End Developer** ,
+- [Anastasiia Kalashnikova](https://github.com/AnastasiiaKalashnikova) **Front
+  End Developer** ,
+- [Yurii Kulchytskyi](https://github.com/YuriiKulchytskyi) **Front End
+  Developer** ,
+- [Andrii Kapushchak](https://github.com/vndriy) **Front End Developer** ,
+- [Chernokur Nadia](https://github.com/NadiiaChernokur) **Front End Developer**,
+- [Yurii Gapirov](https://github.com/YGapirov) **Front End Developer** ,
+
+- [Pavlo Dereniuk](https://github.com/PavloDereniuk) **Back end Team Lead**,
+- [Vasylaki Oleksandr](https://github.com/AVasilaki) **Back end Developer**,
+- [Oleksandr Shepel](https://github.com/fhlare) **Back end Developer**.
+
 # Technologies used:
 
 Frontend:

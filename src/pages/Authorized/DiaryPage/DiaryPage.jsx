@@ -8,9 +8,7 @@ import DiaryExercises from '../../../components/DiaryComponents/DiaryExercises/D
 import DayDashboard from '../../../components/DiaryWidgets/DayDashboard';
 import { Loader } from '../../../components/Loader/Loader';
 
-import {
-  selectDiaryIsLoading,
-} from '../../../redux/diary/selectors';
+import { selectDiaryIsLoading } from '../../../redux/diary/selectors';
 import { getAllDiaryInformation } from '../../../redux/diary/operation';
 
 import {
@@ -31,28 +29,15 @@ import {
 import { refreshUser } from '../../../redux/auth/operation';
 
 const DiaryPage = () => {
-  const [allDiaryInformation, setallDiaryInformation] = useState([]);
-  const [consumedProductsArray, setconsumedProductsArray] = useState([]);
-  const [completedExercisesArray, setcompletedExercisesArray] = useState([]);
+  const [currentDate, setCurrentDate] = useState(new Date());
+  const user = useSelector(selectUser);
+  const userDataRegistration = user.createdAt;
+
   const dispatch = useDispatch();
 
   const isLoading = useSelector(selectDiaryIsLoading);
   const isRefreshing = useSelector(selectIsRefreshing);
   const bmr = useSelector(selectBmr);
-
-  const [currentDate, setCurrentDate] = useState(new Date());
-  const user = useSelector(selectUser);
-  const userDataRegistration = user.createdAt;
-  const changeDate = (date) => {
-    const dateObject = new Date(date);
-    const day = String(dateObject.getDate()).padStart(2, '0');
-    const month = String(dateObject.getMonth() + 1).padStart(2, '0');
-    const year = dateObject.getFullYear();
-    return `${day}-${month}-${year}`;
-  };
-
-  const formattedCurrentDate = changeDate(currentDate);
-  const formattedUserDateRegistration = changeDate(userDataRegistration);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -60,23 +45,45 @@ const DiaryPage = () => {
         await dispatch(refreshUser());
         await dispatch(getAllDiaryInformation(formattedCurrentDate));
       } catch (error) {
-        toast.error('Sorry, something went wrong, please try again', {
+        toast.error('Sorry! Something went wrong, try latter!', {
           theme: 'dark',
         });
       }
     };
+
+    const formattedCurrentDate = formatDate(currentDate);
+
     fetchData();
-  }, [dispatch, formattedCurrentDate, currentDate]);
+  }, [dispatch, currentDate]);
+
   useEffect(() => {
     const fetchData = async () => {
-      const res = await dispatch(getAllDiaryInformation('06-03-2024'));
-      setallDiaryInformation(res.payload);
-      setconsumedProductsArray(res.payload.products);
-      setcompletedExercisesArray(res.payload.exercises);
+      const formattedDate = '06-03-2024'; // Поставте потрібну вам дату
+      const res = await dispatch(getAllDiaryInformation(formattedDate));
+      if (res.payload) {
+        setAllDiaryInformation(res.payload);
+        setConsumedProductsArray(res.payload.products);
+        setCompletedExercisesArray(res.payload.exercises);
+      }
     };
 
     fetchData();
   }, [dispatch]);
+
+  const formatDate = (date) => {
+    const dateObject = new Date(date);
+    const day = String(dateObject.getDate()).padStart(2, '0');
+    const month = String(dateObject.getMonth() + 1).padStart(2, '0');
+    const year = dateObject.getFullYear();
+    return `${day}-${month}-${year}`;
+  };
+
+  const [allDiaryInformation, setAllDiaryInformation] = useState([]);
+  const [consumedProductsArray, setConsumedProductsArray] = useState([]);
+  const [completedExercisesArray, setCompletedExercisesArray] = useState([]);
+
+  const formattedCurrentDate = formatDate(currentDate);
+  const formattedUserDateRegistration = formatDate(userDataRegistration);
 
   return (
     <Container>

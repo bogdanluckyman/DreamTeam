@@ -10,6 +10,7 @@ export const SignupOrange = styled(NavLink)`
   font-size: 16px;
   font-weight: 400;
   line-height: 1.33;
+  margin-right: 16px;
 
   padding: 10px 27px;
   color: white;
@@ -59,7 +60,7 @@ export const SignIn = styled(NavLink)`
   }
   @media screen and (min-width: 375px) {
     width: 136px;
-    heigth: 42px;
+    height: 42px;
   }
 
   @media screen and (min-width: 768px) {

@@ -8,14 +8,14 @@ import hero1 from '../../img/hero-1x.jpg';
 import hero2 from '../../img/hero-2x.jpg';
 
 export const Container = styled.div`
-  @media screen and (min-width: 375px) {
-    width: 375px;
-    margin: 0 auto;
-    /* display: flex; */
-  }
+  width: 375px;
+  height: 812px;
+  margin: 0 auto;
+  /* padding: 20px; */
 
   @media screen and (min-width: 768px) {
     width: 768px;
+
     display: flex;
   }
 
@@ -25,7 +25,6 @@ export const Container = styled.div`
 `;
 
 export const HomeCont = styled.section`
-  /* max-width: 1400px; */
   margin: 0 20px;
 
   @media screen and (min-width: 768px) {
@@ -34,6 +33,7 @@ export const HomeCont = styled.section`
     margin: 0 32px;
   }
   @media screen and (min-width: 1440px) {
+    margin: 0 96px;
     /* margin-left: 96px; */
   }
 `;
@@ -46,7 +46,11 @@ export const RightImageContainer = styled.div`
   background-size: contain;
   width: 298px;
   height: 669px;
-  margin-top: 180px;
+  /* margin-top: 180px; */
+  background-position-y: bottom;
+  height: 681px;
+  margin-top: -242px;
+  margin-left: 77px;
 
   @media (min-device-pixel-ratio: 2),
     (-webkit-min-device-pixel-ratio: 2),
@@ -56,10 +60,10 @@ export const RightImageContainer = styled.div`
   }
 
   @media screen and (min-width: 375px) {
-    background-position-y: bottom;
+    /* background-position-y: bottom;
     height: 681px;
     margin-top: -242px;
-    margin-left: 77px;
+    margin-left: 77px; */
   }
   @media screen and (min-width: 768px) {
     background-image: url(${heroTablet1});
@@ -88,7 +92,7 @@ export const RightImageContainer = styled.div`
 
     width: 670px;
     height: 800px;
-    margin-left: 76px;
+    margin-left: 309px;
     margin-top: -85px;
   }
 `;
@@ -109,23 +113,25 @@ export const BlockContainer = styled.div`
 
 export const VideoTutorial = styled.div`
   display: flex;
-  /* flex-direction: column; */
   align-items: center;
   gap: 12px;
-  /* padding: 20px; */
   border-radius: 12px;
   background: #303030;
-  /* margin-left: 42px; */
-  margin-top: 432px;
+  margin-top: 380px;
+
   width: 146px;
   height: 66px;
+
+  @media screen and (min-width: 375px) {
+    margin-top: 480px;
+  }
 
   @media screen and (min-width: 768px) {
     flex-direction: row;
     width: 206px;
     height: 96px;
     margin-left: 64px;
-    margin-top: 582px;
+    margin-top: 583px;
   }
 
   @media screen and (min-width: 1440px) {
@@ -145,6 +151,7 @@ export const IconPlay = styled.div`
   margin-left: 16px;
   /* padding: 9px; */
   background-color: #ef8964;
+  background-color: var(--);
 
   @media screen and (min-width: 768px) {
     width: 40px;
@@ -276,14 +283,21 @@ export const TitleRunMan = styled.h3`
 `;
 
 export const TitleContainer = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  max-width: 770px;
+
+  margin-top: 90px;
   @media screen and (min-width: 375px) {
-    position: relative;
+    /* position: relative;
     display: flex;
     flex-direction: column;
     gap: 40px;
     max-width: 770px;
 
-    margin-top: 90px;
+    margin-top: 90px; */
   }
   @media screen and (min-width: 768px) {
     margin-top: 140px;

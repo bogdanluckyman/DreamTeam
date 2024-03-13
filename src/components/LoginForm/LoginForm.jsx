@@ -1,6 +1,12 @@
 import { useDispatch } from 'react-redux';
 import { logIn } from '../../redux/auth/operation';
-import { Form, Input, Button } from './LoginForm.styled';
+import {
+  FormContainer,
+  InputButtonCont,
+  Form,
+  Input,
+  Button,
+} from './LoginForm.styled';
 import { useState } from 'react';
 
 import { SignInText, SignInLink } from '../RegisterForm/RegisterForm.styled';
@@ -30,28 +36,30 @@ export const LoginForm = () => {
 
   return (
     <Form onSubmit={handleSubmit} autoComplete="off">
-      <Input type="email" name="email" placeholder="Email" />
+      <FormContainer>
+        <Input type="email" name="email" placeholder="Email" />
+        <InputButtonCont>
+          <Input
+            type={passwordVisible ? 'text' : 'password'}
+            name="password"
+            placeholder="Password"
+          />
 
-      <Input
-        type={passwordVisible ? 'text' : 'password'}
-        name="password"
-        placeholder="Password"
-      />
-
-      {passwordVisible ? (
-        <ButtonIcon type="button" onClick={handleTogglePasswordVisibility}>
-          <Svg>
-            <use href={`${sprite}#icon-eye`} />
-          </Svg>
-        </ButtonIcon>
-      ) : (
-        <ButtonIcon type="button" onClick={handleTogglePasswordVisibility}>
-          <Svg>
-            <use href={`${sprite}#icon-eye-off`} />
-          </Svg>
-        </ButtonIcon>
-      )}
-
+          {passwordVisible ? (
+            <ButtonIcon type="button" onClick={handleTogglePasswordVisibility}>
+              <Svg>
+                <use href={`${sprite}#icon-eye`} />
+              </Svg>
+            </ButtonIcon>
+          ) : (
+            <ButtonIcon type="button" onClick={handleTogglePasswordVisibility}>
+              <Svg>
+                <use href={`${sprite}#icon-eye-off`} />
+              </Svg>
+            </ButtonIcon>
+          )}
+        </InputButtonCont>
+      </FormContainer>
       <Button type="submit">Sign In</Button>
       <SignInText>
         Don’t have an account?

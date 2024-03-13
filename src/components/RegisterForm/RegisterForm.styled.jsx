@@ -1,22 +1,44 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-export const Form = styled.form`
+export const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin-bottom: 20px;
+  /* gap: 20px; */
+  width: max-content;
   @media screen and (min-width: 375px) {
+  }
+`;
+
+export const InputButtonCont = styled.div`
+  position: relative;
+  display: inline-block;
+  width: max-content;
+`;
+
+export const Form = styled.form`
+  @media screen and (min-width: 375px) {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
     width: 335px;
   }
 `;
 
 export const Input = styled.input`
-  display: flex;
+  width: 335px;
+  height: 46px;
+  font-size: 14px;
   padding: 14px;
   position: relative;
-  /* margin-bottom: 20px; */
-  align-items: center;
-  gap: 10px;
+  margin: 4px;
+
+  @media screen and (min-width: 768px) {
+    width: 364px;
+    height: 52px;
+    font-size: 16px;
+  }
+
   border-radius: 12px;
   border: 1px solid rgba(239, 237, 232, 0.3);
   outline: rgba(239, 237, 232, 0.3) solid 1px;
@@ -37,18 +59,18 @@ export const Input = styled.input`
   }
 
   &.success {
-    border-color: #3cbf61; /* Зелений колір для успішного введення */
+    border-color: #3cbf61;
   }
 
   &.error {
-    border-color: #f80505; /* Червоний колір для помилки */
+    border-color: #f80505;
   }
 `;
 
 export const SignInText = styled.p`
   color: rgba(239, 237, 232, 0.6);
 
-  font-size: 12px;
+  /* font-size: 12px; */
   font-style: normal;
   font-weight: 400;
   line-height: 18px;
@@ -63,41 +85,27 @@ export const SignInLink = styled(Link)`
 `;
 
 export const ButtonIcon = styled.button`
-  /* position: absolute; */
-  top: 50%; /* Розміщуємо по середині вертикалі */
-  right: 8px; /* Відступ від правого краю інпута */
-  transform: translateY(-180%);
-  margin-left: auto;
-  width: 25px;
-  height: 25px;
-  cursor: pointer;
-  z-index: 1; /* Розміщуємо поверх інпута */
+  position: absolute;
+  top: 45%;
+  width: 30px;
+  height: 30px;
+  right: 15px;
+
+  transform: translateY(-50%);
   background-color: transparent;
   border: none;
-
-  svg {
-    width: 100%;
-    height: 100%;
-    stroke: #efede8;
-  }
-
+  cursor: pointer;
+  /* 
   @media screen and (min-width: 768px) {
-    width: 53px;
-    height: 53px;
-    right: 30px;
-
     width: 30px;
     height: 30px;
     right: 40px;
-  }
+  } */
 `;
 
 export const Svg = styled.svg`
-  width: 25px;
-  height: 25px;
-  /* margin-top: 6px; */
-  margin-right: 5px;
-  stroke: #efede8;
+  width: 20px;
+  height: 20px;
 `;
 
 export const GreenMsg = styled.div`
@@ -111,7 +119,7 @@ export const GreenMsg = styled.div`
   padding-left: 12px;
   font-size: 12px;
   font-weight: 400;
-  padding-top: 5px;
+  /* margin: 5px; */
 `;
 
 export const SvgGreen = styled.svg`
@@ -132,6 +140,7 @@ export const ErrorMsg = styled.div`
   color: rgba(248, 5, 5, 0.973);
   font-size: 12px;
   font-weight: 400;
+  /* margin: 5px; */
 `;
 
 export const SvgRed = styled.svg`

@@ -16,11 +16,11 @@ import {
   LabelSpan,
 } from './UserForm.styled';
 import RadioBtn from '../RadioBtn/RadioBtn';
-import Datapicker from '../Datapicker/Datapicker';
 
 import { selectUser } from '../../redux/auth/selectors';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateUserInfo } from '../../redux/auth/operation';
+import Datapicker from '../Datapicker/Datapicker';
 
 const UserForm = () => {
   const dispatch = useDispatch();
@@ -194,13 +194,13 @@ const UserForm = () => {
                 <WrappInput>
                   <LabelSpan>Date of birth</LabelSpan>
                   <Datapicker
-                    selectedDate={formik.values.birthday}
-                    setSelectedDate={(date) => {
-                      console.log(parseISO(date));
-                      const formattedDate = parseISO(date.toISOString());
-                      formik.setFieldValue('birthday', formattedDate);
-                    }}
-                  />
+
+            selectedDate={formik.values.birthday}
+            setSelectedDate={date => {
+              const formattedDate = parseISO(date.toISOString());
+              formik.setFieldValue('birthday', formattedDate);
+            }}
+          />
                 </WrappInput>
               </WrapperInputField>
             </InfoContainer>

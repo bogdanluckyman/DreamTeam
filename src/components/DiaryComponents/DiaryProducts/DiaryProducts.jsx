@@ -43,6 +43,8 @@ const DiaryProducts = ({ productsArray, date }) => {
   const error = useSelector(selectDiaryError);
   const isMobile = useMediaQuery('(max-width:768px)');
 
+  // useSelector(selectConsumedProducts)
+
   const formattedTitle = (productTitle) => {
     if (typeof productTitle !== 'string' || productTitle.length === 0) {
       return '';

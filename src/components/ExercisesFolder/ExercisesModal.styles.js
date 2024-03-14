@@ -15,7 +15,7 @@ export const ExercisesModalContainer = styled.div`
   border: 1px solid rgba(239, 237, 232, 0.2);
   border-radius: 12px;
   background: #10100f;
-  margin: 15% auto;
+  margin: 10% auto;
 
   @media screen and (min-width: 375px) {
     width: 335px;
@@ -24,6 +24,7 @@ export const ExercisesModalContainer = styled.div`
   @media screen and (min-width: 768px) {
     width: 694px;
     height: 550px;
+    margin: 10% auto;
   }
 `;
 export const ExercisesInnerModalContainer = styled.div`

@@ -58,8 +58,8 @@ export const NavgtionContainer = styled.div`
 `;
 
 export const Title = styled.h2`
-  margin-top: 0px;
-  margin-bottom: 0px;
+  margin-top: 0;
+  margin-bottom: 0;
   font-size: 24px;
 
   @media (min-width: 768px) and (max-width: 1439px) {
@@ -190,13 +190,13 @@ export const ContainerPageExercise = styled.div`
   justify-content: space-between;
 
   margin-top: 20px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 
   @media (min-width: 768px) {
     flex-direction: row;
 
     margin-top: 78px;
-    margin-bottom: 70px;
+    margin-bottom: 50px;
   }
 
   @media (max-width: 374px) {
@@ -231,8 +231,8 @@ export const BackButton = styled.a`
   align-items: center;
   top: 6px;
   gap: 8px;
-  color: #FFFFFF
-  font-size: 10px;
+  color: rgba(239, 237, 232, 0.3);
+  font-size: 14px;
   font-weight: 400;
   line-height: 1.167;
   transition: color 0.3s ease;
@@ -244,10 +244,15 @@ export const BackButton = styled.a`
     line-height: 1.167;
   }
 
+  @media (max-width: 374px) {
+    font-size: 16px;
+    margin-bottom: 100px;
+  }
+
   > svg {
-    stroke: #FFFFFF
-    width: 10px;
-    height: 10px;
+    stroke: rgba(239, 237, 232, 0.3);
+    width: 14px;
+    height: 14px;
     transition: stroke 0.3s ease;
     @media (min-width: 768px) {
       width: 16px;
@@ -256,11 +261,11 @@ export const BackButton = styled.a`
   }
 
   &:hover {
-    color: #E6533C;
+    color: #e6533c;
     cursor: pointer;
 
     > svg {
-      stroke: #E6533C;
+      stroke: #e6533c;
       width: 16px;
       height: 16px;
     }
@@ -271,7 +276,7 @@ export const CustomBackground = styled.div`
   display: flex;
   flex-direction: column;
   gap: 40px;
-  height: 100vh;
+  height: 90vh;
 
   @media (min-width: 768px) {
     gap: 32px;

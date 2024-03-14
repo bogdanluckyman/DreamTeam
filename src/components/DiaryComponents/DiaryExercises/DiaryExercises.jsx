@@ -33,30 +33,41 @@ import {
   deleteDiaryExercise,
   getAllDiaryInformation,
 } from '../../../redux/diary/operation';
+import { useEffect, useState } from 'react';
 
 const DiaryExercises = ({ exercisesArray, date }) => {
   const isMobile = useMediaQuery('(max-width:768px)');
   const error = useSelector(selectDiaryError);
   const dispatch = useDispatch();
+  const [allExercisesArray, setEercisesArray] = useState([]);
+
+  useEffect(() => {
+    setEercisesArray(exercisesArray);
+  }, [exercisesArray]);
 
   const formattedTitle = (title) => {
     return title.charAt(0).toUpperCase() + title.slice(1).toLowerCase();
   };
 
-const handleDelete = async (id) => {
-  try {
-    await dispatch(deleteDiaryExercise(id));
-    await dispatch(getAllDiaryInformation(date));
-    Notiflix.Notify.success('Exercise deleted successfully!', {
-      theme: 'light',
-    });
-  } catch (error) {
-    console.log(error);
-    Notiflix.Notify.failure('Sorry, something went wrong, please try again', {
-      theme: 'dark',
-    });
-  }
-};
+  const handleDelete = async (id) => {
+    try {
+      await dispatch(deleteDiaryExercise(id));
+      // await dispatch(getAllDiaryInformation(date));
+      const updatedExArray = allExercisesArray.filter(
+        (product) => product._id !== id
+      );
+
+      setEercisesArray(updatedExArray);
+      Notiflix.Notify.success('Exercise deleted successfully!', {
+        theme: 'light',
+      });
+    } catch (error) {
+      console.log(error);
+      Notiflix.Notify.failure('Sorry, something went wrong, please try again', {
+        theme: 'dark',
+      });
+    }
+  };
 
   return (
     <TableWrapper>
@@ -86,7 +97,7 @@ const handleDelete = async (id) => {
         isMobile ? (
           <Table>
             <WrapperForItemsArray>
-              {exercisesArray.map((exercise) => (
+              {allExercisesArray.map((exercise) => (
                 <ExerciseListArray key={exercise._id}>
                   <ExerciseListArrayItemMobile>
                     Body Part
@@ -164,7 +175,7 @@ const handleDelete = async (id) => {
             </HeaderArray>
 
             <WrapperForItemsArray>
-              {exercisesArray.map((exercise) => (
+              {allExercisesArray.map((exercise) => (
                 <ExerciseListArray key={exercise._id}>
                   {/* Body Part */}
                   <ExerciseListArrayItem>

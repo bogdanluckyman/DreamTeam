@@ -38,6 +38,7 @@ import { selectDiaryError } from '../../../redux/diary/selectors';
 import { useEffect, useState } from 'react';
 
 const DiaryProducts = ({ productsArray, date }) => {
+
   const [currentProductsArray, setCurrentProductsArray] = useState([]);
 
   useEffect(() => {
@@ -46,11 +47,17 @@ const DiaryProducts = ({ productsArray, date }) => {
     }
   }, [productsArray]);
 
+
   const dispatch = useDispatch();
   const currentUser = useSelector(selectUser);
   const userBloodType = currentUser.blood;
   const error = useSelector(selectDiaryError);
   const isMobile = useMediaQuery('(max-width:768px)');
+  const [allProductsArray, setProductsArray] = useState([]);
+
+  useEffect(() => {
+    setProductsArray(productsArray);
+  }, [productsArray]);
 
   const formattedTitle = (productTitle) => {
     if (typeof productTitle !== 'string' || productTitle.length === 0) {
@@ -64,11 +71,16 @@ const DiaryProducts = ({ productsArray, date }) => {
   const handleDelete = async (id) => {
     try {
       await dispatch(deleteDiaryProduct(id));
-      const updatedProductsArray = currentProductsArray.filter(
+
+
+      const updatedProductsArray = allProductsArray.filter(
         (product) => product._id !== id
       );
-      setCurrentProductsArray(updatedProductsArray);
-      await dispatch(getAllDiaryInformation(date));
+
+      setProductsArray(updatedProductsArray);
+      // await dispatch(getAllDiaryInformation(date));
+
+
       Notiflix.Notify.success('Product deleted successfully!', {
         theme: 'light',
       });
@@ -107,7 +119,9 @@ const DiaryProducts = ({ productsArray, date }) => {
         isMobile ? (
           <Table>
             <WrapperForItemsArray>
-              {currentProductsArray.map((product) => {
+
+              {allProductsArray.map((product) => {
+
                 const type = product.productID.groupBloodNotAllowed[
                   userBloodType
                 ]
@@ -241,7 +255,7 @@ const DiaryProducts = ({ productsArray, date }) => {
             </HeaderArray>
 
             <WrapperForItemsArray>
-              {productsArray.map((product) => {
+              {allProductsArray.map((product) => {
                 const type = product.productID?.groupBloodNotAllowed[
                   userBloodType
                 ]

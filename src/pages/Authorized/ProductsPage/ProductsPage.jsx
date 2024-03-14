@@ -51,7 +51,7 @@ const ProductsPage = () => {
             <TitlePage title="Products" />
             <ProductsFilters />
           </TopLineWrap>
-          {isLoading && !error ? (
+          {!isLoading && !error ? (
             <LoaderWrap>
               <Loader />
             </LoaderWrap>

@@ -63,14 +63,17 @@ export const TopLineWrap = styled.div`
 `;
 
 export const LoaderWrap = styled.div`
+  position: absolute;
+  top: 0;
+  width: 335px;
+  margin-right: auto;
+  margin-left: auto;
+
   @media screen and (min-width: 768px) {
     width: 704px;
   }
 
   @media screen and (min-width: 1440px) {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 1440px;
   }
 `;

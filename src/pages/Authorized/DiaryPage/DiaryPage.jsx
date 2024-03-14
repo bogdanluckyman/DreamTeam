@@ -87,36 +87,33 @@ const DiaryPage = () => {
 
   return (
     <Container>
-      {isLoading || isRefreshing ? (
+      {/* {isLoading || isRefreshing ? (
         <Loader />
-      ) : (
-        <DiaryCont>
-          <TitleAndSwitch>
-            <TitlePage title="Diary " />
-            <DaySwitch
-              currentDate={currentDate}
-              setCurrentDate={setCurrentDate}
-              userDateRegistration={formattedUserDateRegistration}
+      ) : ( */}
+      <DiaryCont>
+        <TitleAndSwitch>
+          <TitlePage title="Diary " />
+          <DaySwitch
+            currentDate={currentDate}
+            setCurrentDate={setCurrentDate}
+            userDateRegistration={formattedUserDateRegistration}
+          />
+        </TitleAndSwitch>
+        <InfoContainer>
+          <DayDashboard userDiaryInformation={allDiaryInformation} bmr={bmr} />
+          <ProdAndExercise>
+            <DiaryProducts
+              productsArray={consumedProductsArray}
+              date={formattedCurrentDate}
             />
-          </TitleAndSwitch>
-          <InfoContainer>
-            <DayDashboard
-              userDiaryInformation={allDiaryInformation}
-              bmr={bmr}
+            <DiaryExercises
+              exercisesArray={completedExercisesArray}
+              date={formattedCurrentDate}
             />
-            <ProdAndExercise>
-              <DiaryProducts
-                productsArray={consumedProductsArray}
-                date={formattedCurrentDate}
-              />
-              <DiaryExercises
-                exercisesArray={completedExercisesArray}
-                date={formattedCurrentDate}
-              />
-            </ProdAndExercise>
-          </InfoContainer>
-        </DiaryCont>
-      )}
+          </ProdAndExercise>
+        </InfoContainer>
+      </DiaryCont>
+      {/* )} */}
     </Container>
   );
 };

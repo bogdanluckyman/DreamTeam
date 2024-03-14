@@ -34,12 +34,14 @@ import {
   getAllDiaryInformation,
 } from '../../../redux/diary/operation';
 import { useEffect, useState } from 'react';
+import { Loader } from '../../Loader/Loader';
 
 const DiaryExercises = ({ exercisesArray, date }) => {
   const isMobile = useMediaQuery('(max-width:768px)');
   const error = useSelector(selectDiaryError);
   const dispatch = useDispatch();
   const [allExercisesArray, setEercisesArray] = useState([]);
+  const isLoading = useSelector((state) => state.diary.isLoading);
 
   useEffect(() => {
     setEercisesArray(exercisesArray);
@@ -51,13 +53,16 @@ const DiaryExercises = ({ exercisesArray, date }) => {
 
   const handleDelete = async (id) => {
     try {
-      await dispatch(deleteDiaryExercise(id));
+      const res = await dispatch(deleteDiaryExercise(id));
       // await dispatch(getAllDiaryInformation(date));
-      const updatedExArray = allExercisesArray.filter(
-        (product) => product._id !== id
-      );
+      if (res.meta.requestStatus === 'fulfilled') {
+        const updatedExArray = allExercisesArray.filter(
+          (product) => product._id !== id
+        );
 
-      setEercisesArray(updatedExArray);
+        setEercisesArray(updatedExArray);
+      }
+
       Notiflix.Notify.success('Exercise deleted successfully!', {
         theme: 'light',
       });
@@ -92,8 +97,9 @@ const DiaryExercises = ({ exercisesArray, date }) => {
           </NavLink>
         </NavBlock>
       </TitleNav>
-
-      {exercisesArray && exercisesArray.length > 0 && !error ? (
+      {isLoading ? (
+        <Loader />
+      ) : allExercisesArray && allExercisesArray.length > 0 && !error ? (
         isMobile ? (
           <Table>
             <WrapperForItemsArray>

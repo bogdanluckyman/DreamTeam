@@ -22,7 +22,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addDiaryProduct } from '../../redux/diary/operation';
 import sprite from '../../img/symbol-defs.svg';
 
-const FormModal = ({ onClose, product }) => {
+const FormModal = ({ onClose, product, data }) => {
   const [showWellDoneModal, setShowWellDoneModal] = useState(false);
   const [getFormModal, setFormModal] = useState(true);
   const [getCalories, setCalories] = useState(0);
@@ -80,7 +80,7 @@ const FormModal = ({ onClose, product }) => {
       await ValidationSchema.validate(values, { abortEarly: false });
 
       const newObjekt = {
-        date: formattedDate,
+        date: data ? data : formattedDate,
         products: {
           productID: id,
           amount: value,

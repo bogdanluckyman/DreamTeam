@@ -21,10 +21,14 @@ import { colors } from '../../styles/colors';
 import { useSelector } from 'react-redux';
 import { selectUser } from '../../redux/auth/selectors';
 import { capitalizeFirstLetter } from '../ExercisesSubcategoriesItem/ExercisesSubcategoriesItem';
+import { useLocation } from 'react-router';
 
 export const ProductItem = ({ product }) => {
   const userBlood = useSelector(selectUser).blood;
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const date = searchParams.get('date');
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -92,7 +96,9 @@ export const ProductItem = ({ product }) => {
           </List>
         </>
       </ProductWrapp>
-      {isModalOpen && <FormModal onClose={closeModal} product={product} />}
+      {isModalOpen && (
+        <FormModal onClose={closeModal} product={product} data={date} />
+      )}
     </>
   );
 };

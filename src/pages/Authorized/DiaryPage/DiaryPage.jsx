@@ -42,13 +42,22 @@ const DiaryPage = () => {
   const isRefreshing = useSelector(selectIsRefreshing);
   const bmr = useSelector(selectBmr);
 
+  const formattedCurrentDate = useMemo(
+    () => formatDate(currentDate),
+    [currentDate]
+  );
+  const formattedUserDateRegistration = useMemo(
+    () => formatDate(userDataRegistration),
+    [userDataRegistration]
+  );
+
   useEffect(() => {
     try {
       const fetchData = async () => {
-        const formattedCurrentDate = formatDate(currentDate);
         const res = await dispatch(
           getAllDiaryInformation(formattedCurrentDate)
         );
+
         if (res.payload) {
           setAllDiaryInformation(res.payload);
           setConsumedProductsArray(res.payload.products);
@@ -63,16 +72,7 @@ const DiaryPage = () => {
         theme: 'dark',
       });
     }
-  }, [dispatch, currentDate]);
-
-  const formattedCurrentDate = useMemo(
-    () => formatDate(currentDate),
-    [currentDate]
-  );
-  const formattedUserDateRegistration = useMemo(
-    () => formatDate(userDataRegistration),
-    [userDataRegistration]
-  );
+  }, [dispatch, currentDate, formattedCurrentDate]);
 
   const [allDiaryInformation, setAllDiaryInformation] = useState([]);
   const [consumedProductsArray, setConsumedProductsArray] = useState([]);

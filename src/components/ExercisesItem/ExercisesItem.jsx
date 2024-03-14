@@ -92,11 +92,7 @@ export const ExercisesItem = ({
           </Text>
         </WrapperText>
         {isModalOpen && (
-          <ExercisesModal
-            onClose={closeModal}
-            date={'06-03-2024'}
-            exercies={exercises}
-          />
+          <ExercisesModal onClose={closeModal} exercies={exercises} />
         )}
       </>
     </>

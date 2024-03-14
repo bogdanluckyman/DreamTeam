@@ -36,7 +36,7 @@ import {
 import { useEffect, useState } from 'react';
 import { Loader } from '../../Loader/Loader';
 
-const DiaryExercises = ({ exercisesArray, date }) => {
+const DiaryExercises = ({ exercisesArray }) => {
   const isMobile = useMediaQuery('(max-width:768px)');
   const error = useSelector(selectDiaryError);
   const dispatch = useDispatch();

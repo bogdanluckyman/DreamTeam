@@ -38,6 +38,8 @@ const ExercisesModal = ({ onClose, exercies }) => {
 
   const dispatch = useDispatch();
   const errorValue = useSelector((state) => state.diary.error);
+  const data = useSelector((state) => state.diary.date);
+
   /////////////////////////////////////////////////////////////
 
   const exercCal = exercies.burnedCalories;
@@ -109,7 +111,7 @@ const ExercisesModal = ({ onClose, exercies }) => {
       const formattedTime = `${parseInt(minutes, 10)}.${sekunden}`;
 
       const newObject = {
-        date: formattedDate,
+        date: data ? data : formattedDate,
         exercises: {
           exerciseID: exercies._id,
           time: parseFloat(formattedTime),

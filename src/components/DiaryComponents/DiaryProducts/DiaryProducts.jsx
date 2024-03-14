@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useMediaQuery } from '@mui/material';
 import sprite from '../../../img/sprite.svg';
 
@@ -39,6 +39,7 @@ import { useEffect, useState } from 'react';
 import { Loader } from '../../Loader/Loader';
 
 const DiaryProducts = ({ productsArray, date }) => {
+  // console.log(date);
   const dispatch = useDispatch();
   const currentUser = useSelector(selectUser);
   const userBloodType = currentUser.blood;
@@ -92,8 +93,11 @@ const DiaryProducts = ({ productsArray, date }) => {
       <TitleNav>
         <TitleText>Products</TitleText>
         <NavBlock>
-          <NavLink
-            to="/products"
+          <Link
+            to={{
+              pathname: '/products',
+              search: `?date=${date}`,
+            }}
             style={{ display: 'flex', alignItems: 'center' }}
           >
             <NavText>Add product</NavText>
@@ -107,7 +111,7 @@ const DiaryProducts = ({ productsArray, date }) => {
             >
               <use href={sprite + '#icon-arrow-right'} />
             </svg>
-          </NavLink>
+          </Link>
         </NavBlock>
       </TitleNav>
       {isLoading ? (

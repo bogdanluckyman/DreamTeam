@@ -13,6 +13,7 @@ export const Container = styled.div`
   padding: 40px 20px;
   margin-left: auto;
   margin-right: auto;
+  position: relative;
 
   @media screen and (min-width: 768px) {
     width: 768px;
@@ -67,6 +68,9 @@ export const LoaderWrap = styled.div`
   }
 
   @media screen and (min-width: 1440px) {
-    width: 850px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1440px;
   }
 `;

@@ -1,4 +1,4 @@
-import{u as e,a5 as w,a7 as l,d as h,j as i,a as u,b as f,k as x,a8 as b,a9 as v,r as c,L as m,s as k,O as j,aa as y}from"./index-616b4b89.js";import{T as E}from"./TitlePage-22027f7a.js";import{n as F}from"./index-ebb4c18a.js";const C=e.ul`
+import{u as e,a5 as w,a7 as l,d as h,j as i,a as u,b as f,k as x,a8 as b,a9 as v,r as c,L as m,s as k,O as j,aa as y}from"./index-1183ba3a.js";import{T as E}from"./TitlePage-97743a28.js";import{n as z}from"./index-67a8d24a.js";const C=e.ul`
   display: flex;
   margin-top: 28px;
   gap: 28px;
@@ -6,7 +6,7 @@ import{u as e,a5 as w,a7 as l,d as h,j as i,a as u,b as f,k as x,a8 as b,a9 as v
   @media (min-width: 768px) {
     gap: 32px;
   }
-`,z=e(w)`
+`,L=e(w)`
   color: rgba(239, 237, 232, 0.4);
   font-size: 14px;
   font-weight: 400;
@@ -36,7 +36,7 @@ import{u as e,a5 as w,a7 as l,d as h,j as i,a as u,b as f,k as x,a8 as b,a9 as v
   @media (max-width: 374px) {
     font-size: 18px;
   }
-`,L=()=>{const t=["Body parts","Muscles","Equipment"],{filter:r}=l(),d=h(),o=r;return i.jsx(i.Fragment,{children:i.jsx(C,{children:t.map(a=>i.jsx("li",{children:i.jsx(z,{to:`/exercises/${a}`,state:{from:d},isactive:a===o?"true":"false",children:a})},a))})})},$="/DreamTeam/assets/hero-background-gym-1-78b576d3.jpg",D="/DreamTeam/assets/hero-background-gym-2x-7f8d3593.jpg",B=e.div`
+`,F=()=>{const t=["Body parts","Muscles","Equipment"],{filter:r}=l(),d=h(),o=r;return i.jsx(i.Fragment,{children:i.jsx(C,{children:t.map(a=>i.jsx("li",{children:i.jsx(L,{to:`/exercises/${a}`,state:{from:d},isactive:a===o?"true":"false",children:a})},a))})})},$="/DreamTeam/assets/hero-background-gym-1-78b576d3.jpg",D="/DreamTeam/assets/hero-background-gym-2x-7f8d3593.jpg",B=e.div`
   @media screen and (min-width: 320px) {
     width: 100%;
     padding: 0 19px;
@@ -84,8 +84,8 @@ import{u as e,a5 as w,a7 as l,d as h,j as i,a as u,b as f,k as x,a8 as b,a9 as v
     margin: 0 auto;
   }
 `;e.h2`
-  margin-top: 0px;
-  margin-bottom: 0px;
+  margin-top: 0;
+  margin-bottom: 0;
   font-size: 24px;
 
   @media (min-width: 768px) and (max-width: 1439px) {
@@ -199,13 +199,13 @@ import{u as e,a5 as w,a7 as l,d as h,j as i,a as u,b as f,k as x,a8 as b,a9 as v
   justify-content: space-between;
 
   margin-top: 20px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 
   @media (min-width: 768px) {
     flex-direction: row;
 
     margin-top: 78px;
-    margin-bottom: 70px;
+    margin-bottom: 50px;
   }
 
   @media (max-width: 374px) {
@@ -233,8 +233,8 @@ import{u as e,a5 as w,a7 as l,d as h,j as i,a as u,b as f,k as x,a8 as b,a9 as v
   align-items: center;
   top: 6px;
   gap: 8px;
-  color: #FFFFFF
-  font-size: 10px;
+  color: rgba(239, 237, 232, 0.3);
+  font-size: 14px;
   font-weight: 400;
   line-height: 1.167;
   transition: color 0.3s ease;
@@ -246,10 +246,15 @@ import{u as e,a5 as w,a7 as l,d as h,j as i,a as u,b as f,k as x,a8 as b,a9 as v
     line-height: 1.167;
   }
 
+  @media (max-width: 374px) {
+    font-size: 16px;
+    margin-bottom: 100px;
+  }
+
   > svg {
-    stroke: #FFFFFF
-    width: 10px;
-    height: 10px;
+    stroke: rgba(239, 237, 232, 0.3);
+    width: 14px;
+    height: 14px;
     transition: stroke 0.3s ease;
     @media (min-width: 768px) {
       width: 16px;
@@ -258,11 +263,11 @@ import{u as e,a5 as w,a7 as l,d as h,j as i,a as u,b as f,k as x,a8 as b,a9 as v
   }
 
   &:hover {
-    color: #E6533C;
+    color: #e6533c;
     cursor: pointer;
 
     > svg {
-      stroke: #E6533C;
+      stroke: #e6533c;
       width: 16px;
       height: 16px;
     }
@@ -271,7 +276,7 @@ import{u as e,a5 as w,a7 as l,d as h,j as i,a as u,b as f,k as x,a8 as b,a9 as v
   display: flex;
   flex-direction: column;
   gap: 40px;
-  height: 100vh;
+  height: 90vh;
 
   @media (min-width: 768px) {
     gap: 32px;
@@ -291,4 +296,4 @@ import{u as e,a5 as w,a7 as l,d as h,j as i,a as u,b as f,k as x,a8 as b,a9 as v
     background-image: linear-gradient(89deg, #040404 0%, rgba(4, 4, 4, 0) 100%),
       url(${D});
   }
-`,W=()=>{const t=u(),r=f(),d=x(b),o=x(v),a=h(),{filter:n,filterList:p}=l();c.useEffect(()=>{(async()=>{n===void 0?F("We are still awating for data"):t(y({filter:n}))})()},[t,n]);function g(s){return s.charAt(0).toUpperCase()+s.slice(1)}return i.jsx(A,{children:i.jsx(B,{children:i.jsx(P,{children:o?i.jsx(m,{}):i.jsxs("div",{children:[n!==void 0&&a.pathname.endsWith(n.replace(" ","%20"))?null:i.jsxs(T,{onClick:()=>r(-1),children:[i.jsx("svg",{style:{fill:"none"},children:i.jsx("use",{href:k+"#icon-arrow-left"})}),"Back"," "]}),i.jsxs(I,{children:[i.jsx(E,{title:p?g(p.split(" ")[0]):"Exercises"}),i.jsx(L,{})]}),o&&!d&&i.jsx(m,{}),i.jsx(i.Fragment,{children:i.jsx(c.Suspense,{children:i.jsx(j,{})})})]})})})})};export{W as default};
+`,W=()=>{const t=u(),r=f(),d=x(b),o=x(v),a=h(),{filter:n,filterList:p}=l();c.useEffect(()=>{(async()=>{n===void 0?z("We are still awating for data"):t(y({filter:n}))})()},[t,n]);function g(s){return s.charAt(0).toUpperCase()+s.slice(1)}return i.jsx(A,{children:i.jsx(B,{children:i.jsx(P,{children:o?i.jsx(m,{}):i.jsxs("div",{children:[n!==void 0&&a.pathname.endsWith(n.replace(" ","%20"))?null:i.jsxs(T,{onClick:()=>r(-1),children:[i.jsx("svg",{style:{fill:"none"},children:i.jsx("use",{href:k+"#icon-arrow-left"})}),"Back"," "]}),i.jsxs(I,{children:[i.jsx(E,{title:p?g(p.split(" ")[0]):"Exercises"}),i.jsx(F,{})]}),o&&!d&&i.jsx(m,{}),i.jsx(i.Fragment,{children:i.jsx(c.Suspense,{children:i.jsx(j,{})})})]})})})})};export{W as default};

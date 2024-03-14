@@ -1,11 +1,11 @@
-import{u as o,h as i,j as e}from"./index-616b4b89.js";const n=o.h2`
+import{u as o,h as i,j as e}from"./index-1183ba3a.js";const n=o.h2`
   color: ${i.white};
   font-family: Roboto;
   font-size: 24px;
   font-style: normal;
   font-weight: 700;
   line-height: 1.16; /* 116.667% */
-  // margin-top: 40px;
+  margin-top: 10px;
 
   @media screen and (min-width: 768px) {
     font-size: 32px;

@@ -1,4 +1,4 @@
-import{u as n,n as t,c as a,j as i,s as p}from"./index-616b4b89.js";const d=n(t)`
+import{u as n,n as t,c as a,j as i,s as p}from"./index-1183ba3a.js";const d=n(t)`
   display: inline-block;
   text-decoration: none;
   /* padding: 12px; */

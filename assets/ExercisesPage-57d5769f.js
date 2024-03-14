@@ -1,4 +1,4 @@
-import{u as e,n as w,aj as l,d as h,j as i,a as u,b as f,k as x,ak as b,al as v,r as c,L as m,s as k,O as j,am as y}from"./index-9afad6aa.js";import{T as E}from"./TitlePage-c3e031e4.js";import{n as z}from"./index-7b5540a5.js";const C=e.ul`
+import{u as e,n as w,aj as l,d as h,j as i,a as u,b as f,k as x,ak as b,al as v,r as c,L as m,s as k,O as j,am as y}from"./index-cef17659.js";import{T as E}from"./TitlePage-61797f3d.js";import{n as z}from"./index-6e346c4c.js";const C=e.ul`
   display: flex;
   margin-top: 28px;
   gap: 28px;
@@ -188,7 +188,7 @@ import{u as e,n as w,aj as l,d as h,j as i,a as u,b as f,k as x,ak as b,al as v,
 
   &:hover,
   &:focus {
-    background-color: ##e6533c;
+    background-color: #e6533c;
     opacity: 100%;
   }
 `;const I=e.div`

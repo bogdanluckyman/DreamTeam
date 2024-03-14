@@ -1,23 +1,24 @@
-import{u as i,n as t}from"./index-9afad6aa.js";const e=i.div`
+import{u as t,n as i}from"./index-cef17659.js";const e=t.div`
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  /* gap: 20px; */
   width: max-content;
   @media screen and (min-width: 375px) {
   }
-`,o=i.div`
+`,o=t.div`
   position: relative;
   display: inline-block;
   width: max-content;
-`,r=i.form`
+`,r=t.form`
   display: flex;
   flex-direction: column;
-`,p=i.input`
+`,p=t.input`
   width: 335px;
   height: 46px;
   font-size: 14px;
   padding: 14px;
   position: relative;
+  margin: 4px;
 
   @media screen and (min-width: 768px) {
     width: 364px;
@@ -43,23 +44,20 @@ import{u as i,n as t}from"./index-9afad6aa.js";const e=i.div`
     outline: 1px solid rgba(239, 237, 232, 0.3);
   }
 
-  &.success {
-    border-color: #3cbf61;
-  }
-
   &.error {
     border-color: #f80505;
+    &:hover,
+    &:focus {
+      outline: none;
+    }
   }
-`,a=i.button`
+`,a=t.button`
   width: 130px;
   height: 42px;
   border-radius: 12px;
   margin-top: 28px;
   box-sizing: border-box;
-  /* max-width: 196px; */
   margin-bottom: 12px;
-  /* white-space: nowrap;
-  outline: none; */
   letter-spacing: 0.04em;
   display: flex;
   padding: 12px 40px;
@@ -82,25 +80,24 @@ import{u as i,n as t}from"./index-9afad6aa.js";const e=i.div`
     font-size: 20px;
     margin-top: 64px;
   }
-`,s=i.div`
+`,s=t.div`
   display: flex;
   flex-direction: column;
-  /* gap: 20px; */
   width: max-content;
   @media screen and (min-width: 375px) {
   }
-`,d=i.div`
+`,d=t.div`
   position: relative;
   display: inline-block;
   width: max-content;
-`,x=i.form`
+`,x=t.form`
   @media screen and (min-width: 375px) {
     display: flex;
     flex-direction: column;
     margin-bottom: 20px;
     width: 335px;
   }
-`,l=i.input`
+`,l=t.input`
   width: 335px;
   height: 46px;
   font-size: 14px;
@@ -135,25 +132,33 @@ import{u as i,n as t}from"./index-9afad6aa.js";const e=i.div`
 
   &.success {
     border-color: #3cbf61;
+    &:hover,
+    &:focus {
+      outline: none;
+    }
   }
 
   &.error {
     border-color: #f80505;
+    &:hover,
+    &:focus {
+      outline: none;
+    }
   }
-`,c=i.p`
+`,c=t.p`
   color: rgba(239, 237, 232, 0.6);
 
   /* font-size: 12px; */
   font-style: normal;
   font-weight: 400;
   line-height: 18px;
-`,h=i(t)`
+`,h=t(i)`
   color: #efede8;
   font-size: 12px;
   font-weight: 400;
   line-height: 18px;
   text-decoration-line: underline;
-`,g=i.button`
+`,g=t.button`
   position: absolute;
   top: 45%;
   width: 30px;
@@ -170,10 +175,10 @@ import{u as i,n as t}from"./index-9afad6aa.js";const e=i.div`
     height: 30px;
     right: 40px;
   } */
-`,m=i.svg`
+`,m=t.svg`
   width: 20px;
   height: 20px;
-`,f=i.div`
+`,f=t.div`
   display: flex;
   width: 100%;
   align-items: center;
@@ -184,13 +189,12 @@ import{u as i,n as t}from"./index-9afad6aa.js";const e=i.div`
   padding-left: 12px;
   font-size: 12px;
   font-weight: 400;
-  /* margin: 5px; */
-`,b=i.svg`
+`,u=t.svg`
   width: 16px;
   height: 16px;
   margin-right: 10px;
   stroke: #3cbf61;
-`,u=i.div`
+`,b=t.div`
   display: flex;
   width: 100%;
   padding-left: 12px;
@@ -201,14 +205,13 @@ import{u as i,n as t}from"./index-9afad6aa.js";const e=i.div`
   color: rgba(248, 5, 5, 0.973);
   font-size: 12px;
   font-weight: 400;
-  /* margin: 5px; */
-`,w=i.svg`
+`,w=t.svg`
   width: 16px;
   height: 16px;
   margin-right: 10px;
 
   vertical-align: middle;
-`,v=i.div`
+`,v=t.div`
   width: 335px;
   margin: 77px 20px 0px;
   position: relative;
@@ -221,7 +224,7 @@ import{u as i,n as t}from"./index-9afad6aa.js";const e=i.div`
     max-width: 1440px;
     margin-left: 96px;
   }
-`,z=i.h2`
+`,z=t.h2`
   font-size: 24px;
   line-height: 1.37;
   margin-bottom: 14px;
@@ -230,7 +233,7 @@ import{u as i,n as t}from"./index-9afad6aa.js";const e=i.div`
     font-size: 32px;
     margin-bottom: 16px;
   }
-`,y=i.p`
+`,y=t.p`
   width: 335px;
   font-size: 14px;
   line-height: 1.5;
@@ -242,4 +245,4 @@ import{u as i,n as t}from"./index-9afad6aa.js";const e=i.div`
     margin-bottom: 32px;
     font-size: 16px;
   }
-`;export{g as B,u as E,x as F,f as G,l as I,b as S,s as a,w as b,d as c,m as d,a as e,c as f,h as g,v as h,z as i,y as j,r as k,e as l,p as m,o as n};
+`;export{g as B,b as E,x as F,f as G,l as I,u as S,s as a,w as b,d as c,m as d,a as e,c as f,h as g,v as h,z as i,y as j,r as k,e as l,p as m,o as n};

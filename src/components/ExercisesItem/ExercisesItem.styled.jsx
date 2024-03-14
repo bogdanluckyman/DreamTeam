@@ -282,12 +282,7 @@ export const SvgWrapper = styled.svg`
 export const WrapperTitle = styled.div`
   display: flex;
   gap: 16px;
-  margin-top: 41px;
   align-items: center;
-
-  @media (min-width: 768px) {
-    margin-top: 30px;
-  }
 
   @media (max-width: 335px) {
     flex-wrap: wrap;

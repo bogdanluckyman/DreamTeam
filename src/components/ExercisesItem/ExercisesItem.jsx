@@ -87,11 +87,11 @@ export const ExercisesItem = ({
           </Text>
           <TextCategory>
             <span>Body part:</span>
-            {bodyPart}
+            {capitalizeFirstLetter(bodyPart)}
           </TextCategory>
           <Text>
             <span>Target:</span>
-            {target}
+            {capitalizeFirstLetter(target)}
           </Text>
         </WrapperText>
         {isModalOpen && (

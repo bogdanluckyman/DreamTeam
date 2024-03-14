@@ -216,7 +216,9 @@ const ExercisesModal = ({ onClose, exercies }) => {
                 <DataDiv>
                   <ExercisesBlock>
                     <ExercisesBlockText>Name</ExercisesBlockText>
-                    <ExercisesBlockResalts>{title}</ExercisesBlockResalts>
+                    <ExercisesBlockResalts title="title">
+                      {title}
+                    </ExercisesBlockResalts>
                   </ExercisesBlock>
                   <ExercisesBlock>
                     <ExercisesBlockText>Body Part</ExercisesBlockText>

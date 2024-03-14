@@ -89,7 +89,7 @@ const FormModal = ({ onClose, product }) => {
       };
 
       const res = await dispatch(addDiaryProduct(newObjekt));
-      console.log(errorValue);
+
       if (errorValue !== null) {
         Notiflix.Notify.failure('Sorry, something went wrong. Try again');
         return;

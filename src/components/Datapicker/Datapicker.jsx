@@ -1,16 +1,18 @@
 
 
 import DatePicker from 'react-datepicker';
-import { CalendarGlobalStyles, IconSvg } from './Datapicker.styled';
+import { CalendarGlobalStyles, IconSvg, InputField } from './Datapicker.styled';
 import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 
 import sprite from '../../img/symbol-defs.svg';
-import { InputField } from '../UserForm/UserForm.styled';
 
-const Datepicker = ({ selectedDate, setSelectedDate }) => {
+const Datapicker = ({ selectedDate, setSelectedDate }) => {
   const handleDateChange = date => {
     setSelectedDate(date);
   };
+
+
+  
 
   return (
     <>
@@ -21,11 +23,13 @@ const Datepicker = ({ selectedDate, setSelectedDate }) => {
 
         <DatePicker
           selected={selectedDate}
-          onChange={handleDateChange}
+          onChange={(date) => {
+            handleDateChange(date);
+          }}
           customInput={<InputField style={{ cursor: 'pointer' }} />}
           dateFormat={'dd.MM.yyyy'}
           calendarStartDay={1}
-          formatWeekDay={day => day.substring(0, 1)}
+          formatWeekDay={(day) => day.substr(0, 2)}
         />
 
         <CalendarGlobalStyles />
@@ -34,4 +38,4 @@ const Datepicker = ({ selectedDate, setSelectedDate }) => {
   );
 };
 
-export default Datepicker;
+export default Datapicker;

@@ -14,6 +14,17 @@ export const IconSvg = styled.svg`
   right: 14px;
 `;
 
+export const InputField = styled.input`
+  width: 165px;
+  padding: 14px;
+  align-items: center;
+  gap: 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(239, 237, 232, 0.3);
+  background-color: transparent;
+  color: #efede8;
+`;
+
 export const TitleWrapper = styled.button`
   width: 195px;
   color: #ffffff;

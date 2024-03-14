@@ -59,6 +59,8 @@ const DiaryProducts = ({ productsArray, date }) => {
     setProductsArray(productsArray);
   }, [productsArray]);
 
+  // useSelector(selectConsumedProducts)
+
   const formattedTitle = (productTitle) => {
     if (typeof productTitle !== 'string' || productTitle.length === 0) {
       return '';

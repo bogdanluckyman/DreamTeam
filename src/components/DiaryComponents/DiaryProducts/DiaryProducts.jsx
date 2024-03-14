@@ -36,24 +36,16 @@ import {
 import Notiflix from 'notiflix';
 import { selectDiaryError } from '../../../redux/diary/selectors';
 import { useEffect, useState } from 'react';
+import { Loader } from '../../Loader/Loader';
 
 const DiaryProducts = ({ productsArray, date }) => {
-
-  const [currentProductsArray, setCurrentProductsArray] = useState([]);
-
-  useEffect(() => {
-    if (productsArray) {
-      setCurrentProductsArray(productsArray); // оновлення currentProductsArray при кожному оновленні productsArray
-    }
-  }, [productsArray]);
-
-
   const dispatch = useDispatch();
   const currentUser = useSelector(selectUser);
   const userBloodType = currentUser.blood;
   const error = useSelector(selectDiaryError);
   const isMobile = useMediaQuery('(max-width:768px)');
   const [allProductsArray, setProductsArray] = useState([]);
+  const isLoading = useSelector((state) => state.diary.isLoading);
 
   useEffect(() => {
     setProductsArray(productsArray);
@@ -72,16 +64,17 @@ const DiaryProducts = ({ productsArray, date }) => {
 
   const handleDelete = async (id) => {
     try {
-      await dispatch(deleteDiaryProduct(id));
+      const res = await dispatch(deleteDiaryProduct(id));
 
+      if (res.meta.requestStatus === 'fulfilled') {
+        const updatedProductsArray = allProductsArray.filter(
+          (product) => product._id !== id
+        );
 
-      const updatedProductsArray = allProductsArray.filter(
-        (product) => product._id !== id
-      );
+        setProductsArray(updatedProductsArray);
+      }
 
-      setProductsArray(updatedProductsArray);
       // await dispatch(getAllDiaryInformation(date));
-
 
       Notiflix.Notify.success('Product deleted successfully!', {
         theme: 'light',
@@ -117,13 +110,13 @@ const DiaryProducts = ({ productsArray, date }) => {
           </NavLink>
         </NavBlock>
       </TitleNav>
-      {currentProductsArray && currentProductsArray.length > 0 && !error ? (
+      {isLoading ? (
+        <Loader />
+      ) : allProductsArray && allProductsArray.length > 0 && !error ? (
         isMobile ? (
           <Table>
             <WrapperForItemsArray>
-
               {allProductsArray.map((product) => {
-
                 const type = product.productID.groupBloodNotAllowed[
                   userBloodType
                 ]

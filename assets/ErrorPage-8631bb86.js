@@ -1,4 +1,4 @@
-import{u as t,a5 as p,j as e,b as l,x as h}from"./index-748f6732.js";import{P as o}from"./index-29689cd9.js";const r="/DreamTeam/assets/hero-background-mobile-1x-13cc494e.jpg",x="/DreamTeam/assets/hero-background-mobile-2x-3da7be96.jpg",n="/DreamTeam/assets/hero-background-tablet-1x-0b19296c.jpg",d="/DreamTeam/assets/hero-background-1x-bba9b0f3.jpg",m="/DreamTeam/assets/hero-background-2x-6f32b58d.jpg",b=t.div`
+import{u as t,a5 as p,j as e,b as l,x as h}from"./index-616b4b89.js";import{P as o}from"./index-ed3e4a81.js";const r="/DreamTeam/assets/hero-background-mobile-1x-13cc494e.jpg",x="/DreamTeam/assets/hero-background-mobile-2x-3da7be96.jpg",n="/DreamTeam/assets/hero-background-tablet-1x-0b19296c.jpg",d="/DreamTeam/assets/hero-background-1x-bba9b0f3.jpg",m="/DreamTeam/assets/hero-background-2x-6f32b58d.jpg",b=t.div`
   background:
     linear-gradient(170deg, #040404 3.66%, rgba(4, 4, 4, 0) 19.15%),
     linear-gradient(73deg, #040404 6.11%, rgba(4, 4, 4, 0) 66.68%),

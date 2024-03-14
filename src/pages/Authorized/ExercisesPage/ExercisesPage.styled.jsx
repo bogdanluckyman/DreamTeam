@@ -176,7 +176,7 @@ export const CircleButton = styled.button`
 
   &:hover,
   &:focus {
-    background-color: ##e6533c;
+    background-color: #e6533c;
     opacity: 100%;
   }
 `;

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  /* gap: 20px; */
   width: max-content;
   @media screen and (min-width: 375px) {
   }
@@ -26,6 +26,7 @@ export const Input = styled.input`
   font-size: 14px;
   padding: 14px;
   position: relative;
+  margin: 4px;
 
   @media screen and (min-width: 768px) {
     width: 364px;
@@ -51,12 +52,12 @@ export const Input = styled.input`
     outline: 1px solid rgba(239, 237, 232, 0.3);
   }
 
-  &.success {
-    border-color: #3cbf61;
-  }
-
   &.error {
     border-color: #f80505;
+    &:hover,
+    &:focus {
+      outline: none;
+    }
   }
 `;
 
@@ -66,10 +67,7 @@ export const Button = styled.button`
   border-radius: 12px;
   margin-top: 28px;
   box-sizing: border-box;
-  /* max-width: 196px; */
   margin-bottom: 12px;
-  /* white-space: nowrap;
-  outline: none; */
   letter-spacing: 0.04em;
   display: flex;
   padding: 12px 40px;

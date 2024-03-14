@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 export const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
-  /* gap: 20px; */
   width: max-content;
   @media screen and (min-width: 375px) {
   }
@@ -60,10 +59,18 @@ export const Input = styled.input`
 
   &.success {
     border-color: #3cbf61;
+    &:hover,
+    &:focus {
+      outline: none;
+    }
   }
 
   &.error {
     border-color: #f80505;
+    &:hover,
+    &:focus {
+      outline: none;
+    }
   }
 `;
 
@@ -119,7 +126,6 @@ export const GreenMsg = styled.div`
   padding-left: 12px;
   font-size: 12px;
   font-weight: 400;
-  /* margin: 5px; */
 `;
 
 export const SvgGreen = styled.svg`
@@ -140,7 +146,6 @@ export const ErrorMsg = styled.div`
   color: rgba(248, 5, 5, 0.973);
   font-size: 12px;
   font-weight: 400;
-  /* margin: 5px; */
 `;
 
 export const SvgRed = styled.svg`

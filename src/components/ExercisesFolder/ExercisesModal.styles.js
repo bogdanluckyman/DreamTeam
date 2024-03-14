@@ -136,9 +136,13 @@ export const ExercisesBlock = styled.div`
   width: 147px;
   height: 62px;
   background: rgba(239, 237, 232, 0.05);
+  transition:
+    width 0.3s,
+    height 0.3s;
+
   @media screen and (min-width: 375px) {
-    width: 147px;
-    height: 62px;
+    /* width: 147px;
+    height: 62px; */
   }
   @media screen and (min-width: 768px) {
     width: 169px;
@@ -153,9 +157,23 @@ export const ExercisesBlockText = styled.p`
 `;
 
 export const ExercisesBlockResalts = styled.p`
-  font-weight: 700;
   font-size: 14px;
   color: #efede8;
+  word-wrap: break-word;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  /* ховер тільки якщо title === 'title' */
+  ${({ title }) =>
+    title === 'title' &&
+    `
+    &:hover {
+      font-size: 12px;
+      white-space: normal;
+      overflow: visible;
+    }
+  `}
 `;
 export const ExercisesBlockButton = styled.button`
   border-radius: 12px;

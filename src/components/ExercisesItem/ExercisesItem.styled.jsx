@@ -316,6 +316,7 @@ export const WrapperText = styled.div`
   gap: 16px;
   margin-top: 8px;
   align-items: center;
+  flex-wraper: wrap;
 `;
 
 export const Text = styled.p`
@@ -373,7 +374,7 @@ export const Button = styled.button`
   display: flex;
   align-items: center;
   cursor: pointer;
-  color: #E6533C;
+  color: #e6533c;
   gap: 8px;
   width: 49px;
   height: 18px;
@@ -395,6 +396,6 @@ export const Button = styled.button`
   transition: color 0.3s ease;
 
   &:hover {
-    color: #E6533C};
+    color: #e6533c;
   }
 `;

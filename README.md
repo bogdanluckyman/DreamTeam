@@ -45,6 +45,21 @@
 
 # Наша команда розробників:
 
+- [Тищенко Богдан](https://github.com/bogdanluckyman) **Front end Team Lead**,
+- [Артем Семенюк](https://github.com/ArtemGit1) **Scrum Master**,
+- [Лісовецька Анжеліка](https://github.com/Just-Ang) **Front End Developer** ,
+- [Анастасія Калашнікова](https://github.com/AnastasiiaKalashnikova) **Front End
+  Developer** ,
+- [Кульчицький Юрій](https://github.com/YuriiKulchytskyi) **Front End
+  Developer** ,
+- [Андрій Капушчак](https://github.com/vndriy) **Front End Developer** ,
+- [Чернокур Надія](https://github.com/NadiiaChernokur) **Front End Developer**,
+- [Юрій Гапіров](https://github.com/YGapirov) **Front End Developer** ,
+
+- [Деренюк Павло](https://github.com/PavloDereniuk) **Back end Team Lead**,
+- [Василакі Олександр](https://github.com/AVasilaki) **Back end Developer**,
+- [Олександр Шепель](https://github.com/fhlare) **Back end Developer**.
+
 # Використані технології:
 
 Фронтенд:

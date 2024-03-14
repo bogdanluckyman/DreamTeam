@@ -18,8 +18,13 @@ export const Wrapper = styled.div`
     width: 8px;
   }
 
+  &::-webkit-scrollbar-track {
+    background: rgba(239, 237, 232, 0.1);
+  }
+
   &::-webkit-scrollbar-thumb {
-    background-color: #e6533c;
+    background: var(--orange-light-color);
+    height: 152px;
     border-radius: 12px;
   }
 `;

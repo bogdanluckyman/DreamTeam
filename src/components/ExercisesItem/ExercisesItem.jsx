@@ -14,6 +14,7 @@ import { colors } from '../../styles/colors';
 import sprite from '../../img/sprite.svg';
 import { useState } from 'react';
 import ExercisesModal from '../ExercisesFolder/ExercisesModal';
+import { TopLineWrapper } from '../ProductsItem/ProductsItem.styled';
 
 function capitalizeFirstLetter(str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
@@ -35,39 +36,41 @@ export const ExercisesItem = ({
   return (
     <>
       <>
-        <Span>WORKOUT</Span>
-        <div
-          style={{
-            display: 'flex',
-            gap: '16px',
-            alignSelf: 'flex-end',
-            flexWrap: 'wrap',
-          }}
-        >
+        <TopLineWrapper>
+          <Span>WORKOUT</Span>
           <div
             style={{
               display: 'flex',
-              gap: '8px',
-              alignItems: 'center',
+              gap: '16px',
+              alignSelf: 'flex-end',
+              flexWrap: 'wrap',
             }}
-          ></div>
-          <Button onClick={openModal}>
-            Start
-            <SvgWrapper
+          >
+            <div
               style={{
-                width: '16px',
-                height: '16px',
+                display: 'flex',
+                gap: '8px',
+                alignItems: 'center',
               }}
-            >
-              <use
-                href={sprite + '#icon-arrow-right'}
+            ></div>
+            <Button onClick={openModal}>
+              Start
+              <SvgWrapper
                 style={{
-                  stroke: colors.orange,
+                  width: '16px',
+                  height: '16px',
                 }}
-              />
-            </SvgWrapper>
-          </Button>
-        </div>
+              >
+                <use
+                  href={sprite + '#icon-arrow-right'}
+                  style={{
+                    stroke: colors.orange,
+                  }}
+                />
+              </SvgWrapper>
+            </Button>
+          </div>
+        </TopLineWrapper>
 
         <WrapperTitle>
           <svg style={{ flexShrink: 0, width: '24px', height: '24px' }}>
@@ -84,11 +87,11 @@ export const ExercisesItem = ({
           </Text>
           <TextCategory>
             <span>Body part:</span>
-            {bodyPart}
+            {capitalizeFirstLetter(bodyPart)}
           </TextCategory>
           <Text>
             <span>Target:</span>
-            {target}
+            {capitalizeFirstLetter(target)}
           </Text>
         </WrapperText>
         {isModalOpen && (

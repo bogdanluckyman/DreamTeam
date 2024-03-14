@@ -85,6 +85,10 @@ export const Inputs = styled.div`
   @media screen and (min-width: 768px) {
     flex-direction: row;
   }
+
+  &:focus-visible {
+    outline: 0;
+  }
 `;
 
 export const Paragraph = styled.p`

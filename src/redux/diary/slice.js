@@ -14,7 +14,7 @@ const initialState = {
   isLoading: false,
   error: null,
   allDiaryInformation: {},
-  date: {},
+  date: '',
 };
 
 const handlePending = (state) => {

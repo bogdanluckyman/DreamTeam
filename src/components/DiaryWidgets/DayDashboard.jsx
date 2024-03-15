@@ -99,7 +99,9 @@ const DayDashboard = ({ bmr }) => {
             </SvgStyled>
             <TitleStyled>The rest of sports</TitleStyled>
           </TitleStyledWrapper>
-          <DataValue>{Math.round(sportTime * 100) / 100 || 110} min</DataValue>
+          <DataValue>
+            {110 - Math.round(sportTime * 100) / 100 || 110} min
+          </DataValue>
         </ItemListStyled>
       </ListStyled>
 

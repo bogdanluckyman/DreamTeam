@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import {
   BurnedCalories,
   CloseExercisesContainer,
@@ -25,7 +25,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addDiaryExercise } from '../../redux/diary/operation';
 import Notiflix from 'notiflix';
 import sprite from '../../img/symbol-defs.svg';
-
+import mp3 from '../../../src/img/d0d8bbb34c203ff.mp3';
 const ExercisesModal = ({ onClose, exercies }) => {
   const [start, setStart] = useState(false);
   const [isPaused, setIsPaused] = useState(true);
@@ -41,6 +41,7 @@ const ExercisesModal = ({ onClose, exercies }) => {
   const data = useSelector((state) => state.diary.date);
 
   /////////////////////////////////////////////////////////////
+  const audio = useMemo(() => new Audio(mp3), []);
 
   const exercCal = exercies.burnedCalories;
 
@@ -85,6 +86,9 @@ const ExercisesModal = ({ onClose, exercies }) => {
   useEffect(() => {
     if (time === '' && restart === true) {
       setOverallResult((prev) => prev + 3);
+      audio
+        .play()
+        .catch((error) => console.error('Error playing audio:', error));
       setStart(false);
       setReStart(false);
       setIsPaused(true);
@@ -92,7 +96,7 @@ const ExercisesModal = ({ onClose, exercies }) => {
     }
 
     return;
-  }, [restart, start, time]);
+  }, [audio, restart, start, time]);
 
   const toCloseWindiw = async () => {
     function getFormattedDate() {

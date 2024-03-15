@@ -29,11 +29,14 @@ import {
   ExerciseListArrayItem,
 } from './DiaryExercises.style';
 import { selectDiaryError } from '../../../redux/diary/selectors';
-import { deleteDiaryExercise } from '../../../redux/diary/operation';
+import {
+  deleteDiaryExercise,
+  getAllDiaryInformation,
+} from '../../../redux/diary/operation';
 import { useEffect, useState } from 'react';
 import { Loader } from '../../Loader/Loader';
 
-const DiaryExercises = ({ exercisesArray }) => {
+const DiaryExercises = ({ exercisesArray, date }) => {
   const isMobile = useMediaQuery('(max-width:768px)');
   const error = useSelector(selectDiaryError);
   const dispatch = useDispatch();
@@ -51,13 +54,14 @@ const DiaryExercises = ({ exercisesArray }) => {
   const handleDelete = async (id) => {
     try {
       const res = await dispatch(deleteDiaryExercise(id));
-      // await dispatch(getAllDiaryInformation(date));
+
       if (res.meta.requestStatus === 'fulfilled') {
         const updatedExArray = allExercisesArray.filter(
           (product) => product._id !== id
         );
 
         setEercisesArray(updatedExArray);
+        await dispatch(getAllDiaryInformation(date));
       }
 
       Notiflix.Notify.success('Exercise deleted successfully!', {

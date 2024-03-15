@@ -35,6 +35,15 @@ const DayDashboard = ({ bmr }) => {
 
   const error = useSelector(selectDiaryError);
 
+  function ho() {
+    const res = 2200 - consumedCalories;
+    console.log(consumedCalories);
+    if (res > 2200) {
+      const h = 2200 - res;
+      return h;
+    }
+    return res;
+  }
   useEffect(() => {
     setIsOverCalories(remainingCalories < 0);
     setIsOverSports(sportTime < 0);
@@ -90,7 +99,7 @@ const DayDashboard = ({ bmr }) => {
             </SvgStyled>
             <TitleStyled>The rest of the calories</TitleStyled>
           </TitleStyledWrapper>
-          <DataValue>{2200 - remainingCalories || bmr || 0}</DataValue>
+          <DataValue>{ho() || 0}</DataValue>
         </ItemListStyled>
         <ItemListStyled className={isOverSports ? 'greenBg' : ''}>
           <TitleStyledWrapper>

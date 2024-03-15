@@ -5,8 +5,8 @@ import { TitlePage } from '../../../components/TitlePage/TitlePage';
 import DiaryProducts from '../../../components/DiaryComponents/DiaryProducts/DiaryProducts';
 import DiaryExercises from '../../../components/DiaryComponents/DiaryExercises/DiaryExercises';
 import DayDashboard from '../../../components/DiaryWidgets/DayDashboard';
-import { Loader } from '../../../components/Loader/Loader';
-import { selectDiaryIsLoading } from '../../../redux/diary/selectors';
+// import { Loader } from '../../../components/Loader/Loader';
+// import { selectDiaryIsLoading } from '../../../redux/diary/selectors';
 import { getAllDiaryInformation } from '../../../redux/diary/operation';
 import Notiflix from 'notiflix';
 
@@ -17,11 +17,7 @@ import {
   TitleAndSwitch,
   Container,
 } from './DiaryPage.style';
-import {
-  selectBmr,
-  selectIsRefreshing,
-  selectUser,
-} from '../../../redux/auth/selectors';
+import { selectBmr, selectUser } from '../../../redux/auth/selectors';
 
 const formatDate = (date) => {
   const dateObject = new Date(date);
@@ -35,11 +31,14 @@ const DiaryPage = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
   const user = useSelector(selectUser);
   const userDataRegistration = user.createdAt;
+  const [allDiaryInformation, setAllDiaryInformation] = useState([]);
+  const [consumedProductsArray, setConsumedProductsArray] = useState([]);
+  const [completedExercisesArray, setCompletedExercisesArray] = useState([]);
 
   const dispatch = useDispatch();
 
-  const isLoading = useSelector(selectDiaryIsLoading);
-  const isRefreshing = useSelector(selectIsRefreshing);
+  // const isLoading = useSelector(selectDiaryIsLoading);
+  // const isRefreshing = useSelector(selectIsRefreshing);
   const bmr = useSelector(selectBmr);
 
   const formattedCurrentDate = useMemo(
@@ -57,11 +56,22 @@ const DiaryPage = () => {
         const res = await dispatch(
           getAllDiaryInformation(formattedCurrentDate)
         );
+        console.log(res);
+        if (res.payload === null) {
+          setConsumedProductsArray([]);
+          setCompletedExercisesArray([]);
+          // return;
+        }
+        // if (res.payload.exercises === null) {
+        //   console.log('777777777');
+        //   setCompletedExercisesArray([]);
+        //   return;
+        // }
 
         if (res.payload) {
           setAllDiaryInformation(res.payload);
-          setConsumedProductsArray(res.payload.products);
-          setCompletedExercisesArray(res.payload.exercises);
+          setConsumedProductsArray(res.payload?.products);
+          setCompletedExercisesArray(res.payload?.exercises);
         }
       };
 
@@ -73,10 +83,6 @@ const DiaryPage = () => {
       });
     }
   }, [dispatch, currentDate, formattedCurrentDate]);
-
-  const [allDiaryInformation, setAllDiaryInformation] = useState([]);
-  const [consumedProductsArray, setConsumedProductsArray] = useState([]);
-  const [completedExercisesArray, setCompletedExercisesArray] = useState([]);
 
   return (
     <Container>

@@ -39,7 +39,7 @@ import { useEffect, useState } from 'react';
 import { Loader } from '../../Loader/Loader';
 
 const DiaryProducts = ({ productsArray, date }) => {
-  // console.log(date);
+  console.log(productsArray);
   const dispatch = useDispatch();
   const currentUser = useSelector(selectUser);
   const userBloodType = currentUser.blood;
@@ -51,8 +51,6 @@ const DiaryProducts = ({ productsArray, date }) => {
   useEffect(() => {
     setProductsArray(productsArray);
   }, [productsArray]);
-
-  // useSelector(selectConsumedProducts)
 
   const formattedTitle = (productTitle) => {
     if (typeof productTitle !== 'string' || productTitle.length === 0) {

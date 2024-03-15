@@ -30,7 +30,7 @@ const handleGetAllDiaryInformationFulfilled = (state, action) => {
   state.isLoading = false;
   state.error = null;
   state.allDiaryInformation = action.payload;
-  state.date = action.payload.date;
+  state.date = action.payload?.date;
 };
 
 const handleAddDiaryProductsFulfilled = (state, action) => {

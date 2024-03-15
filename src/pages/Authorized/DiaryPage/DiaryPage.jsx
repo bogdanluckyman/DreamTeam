@@ -56,7 +56,7 @@ const DiaryPage = () => {
         const res = await dispatch(
           getAllDiaryInformation(formattedCurrentDate)
         );
-        console.log(res);
+
         if (res.payload === null) {
           setConsumedProductsArray([]);
           setCompletedExercisesArray([]);

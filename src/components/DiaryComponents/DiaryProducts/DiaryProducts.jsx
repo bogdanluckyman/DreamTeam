@@ -1,4 +1,4 @@
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useMediaQuery } from '@mui/material';
 import sprite from '../../../img/sprite.svg';
 
@@ -29,17 +29,13 @@ import {
 import { colors } from '../../../styles/colors';
 import { selectUser } from '../../../redux/auth/selectors';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  deleteDiaryProduct,
-  getAllDiaryInformation,
-} from '../../../redux/diary/operation';
+import { deleteDiaryProduct } from '../../../redux/diary/operation';
 import Notiflix from 'notiflix';
 import { selectDiaryError } from '../../../redux/diary/selectors';
 import { useEffect, useState } from 'react';
 import { Loader } from '../../Loader/Loader';
 
 const DiaryProducts = ({ productsArray, date }) => {
-  console.log(productsArray);
   const dispatch = useDispatch();
   const currentUser = useSelector(selectUser);
   const userBloodType = currentUser.blood;

@@ -13,7 +13,7 @@ export const GlobalStyle = createGlobalStyle`
   --more-light-grey-color: rgba(239, 237, 232, 0.30); }
 
 .no-scroll {
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 body {

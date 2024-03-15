@@ -17,16 +17,23 @@ import {
 } from './UserForm.styled';
 import RadioBtn from '../RadioBtn/RadioBtn';
 
-import { selectUser } from '../../redux/auth/selectors';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { updateUserInfo } from '../../redux/auth/operation';
 import Datapicker from '../Datapicker/Datapicker';
 
+import { selectUser } from '../../redux/auth/selectors';
+
 const UserForm = () => {
   const dispatch = useDispatch();
-  const user = useSelector(selectUser);
-
-  const formattedDate = user.birthday ? parseISO(user.birthday) : new Date();
+const user = useSelector(selectUser);
+  // const [localName, setLocalName] = useState(user.name);
+  // const [localHeigth, setLocalHeight] = useState(user.height);
+  // useEffect(() => {
+  //   setLocalName(user.name)
+  //   setLocalHeight(user.height)
+   
+  // }, [user]);
 
   const bloodOptions = [
     { id: '1', value: '1', label: '1' },
@@ -69,9 +76,7 @@ const UserForm = () => {
     },
   ];
 
-
-  // const formattedDate = user.birthday ? parseISO(user.birthday) : new Date();
-  // console.log(formattedDate);
+   const formattedDate = user.birthday ? parseISO(user.birthday) : new Date();
 
 
   const initialValues = {
@@ -106,9 +111,8 @@ const UserForm = () => {
     dispatch(updateUserInfo(UserData));
   };
 
-
-  return (
-    <Wrapper>
+  
+   return ( <Wrapper>
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
@@ -185,13 +189,12 @@ const UserForm = () => {
                 <WrappInput>
                   <LabelSpan>Date of birth</LabelSpan>
                   <Datapicker
-
-            selectedDate={formik.values.birthday}
-            setSelectedDate={date => {
-              const formattedDate = parseISO(date.toISOString());
-              formik.setFieldValue('birthday', formattedDate);
-            }}
-          />
+                    selectedDate={formik.values.birthday}
+                    setSelectedDate={(date) => {
+                      const formattedDate = parseISO(date.toISOString());
+                      formik.setFieldValue('birthday', formattedDate);
+                    }}
+                  />
                 </WrappInput>
               </WrapperInputField>
             </InfoContainer>
@@ -252,11 +255,10 @@ const UserForm = () => {
           
  
              */}
-
           </Form>
         )}
       </Formik>
-    </Wrapper>
+    </Wrapper> 
   );
 };
 

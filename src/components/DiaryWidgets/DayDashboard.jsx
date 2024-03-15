@@ -23,7 +23,10 @@ const DayDashboard = ({ bmr }) => {
 
   // const { burnedCalories, consumedCalories, remainingSports } =
   //   userDiaryInformation;
-  const { burnedCalories, consumedCalories, sportTime } = userDiaryInformation;
+  console.log(userDiaryInformation);
+  const { burnedCalories, consumedCalories, sportTime } = userDiaryInformation
+    ? userDiaryInformation
+    : 0;
 
   const [isOverCalories, setIsOverCalories] = useState(false);
   const [isOverSports, setIsOverSports] = useState(false);

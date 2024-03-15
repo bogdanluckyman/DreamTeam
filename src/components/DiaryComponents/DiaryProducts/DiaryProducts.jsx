@@ -29,7 +29,10 @@ import {
 import { colors } from '../../../styles/colors';
 import { selectUser } from '../../../redux/auth/selectors';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteDiaryProduct } from '../../../redux/diary/operation';
+import {
+  deleteDiaryProduct,
+  getAllDiaryInformation,
+} from '../../../redux/diary/operation';
 import Notiflix from 'notiflix';
 import { selectDiaryError } from '../../../redux/diary/selectors';
 import { useEffect, useState } from 'react';
@@ -67,9 +70,8 @@ const DiaryProducts = ({ productsArray, date }) => {
         );
 
         setProductsArray(updatedProductsArray);
+        await dispatch(getAllDiaryInformation(date));
       }
-
-      // await dispatch(getAllDiaryInformation(date));
 
       Notiflix.Notify.success('Product deleted successfully!', {
         theme: 'light',

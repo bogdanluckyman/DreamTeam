@@ -62,11 +62,6 @@ const DiaryPage = () => {
           setCompletedExercisesArray([]);
           // return;
         }
-        // if (res.payload.exercises === null) {
-        //   console.log('777777777');
-        //   setCompletedExercisesArray([]);
-        //   return;
-        // }
 
         if (res.payload) {
           setAllDiaryInformation(res.payload);

@@ -16,9 +16,14 @@ import sprite from '../../img/sprite.svg';
 import { useSelector } from 'react-redux';
 import { selectDiaryError } from '../../redux/diary/selectors';
 
-const DayDashboard = ({ userDiaryInformation, bmr }) => {
-  const { burnedCalories, consumedCalories, remainingSports } =
-    userDiaryInformation;
+const DayDashboard = ({ bmr }) => {
+  const userDiaryInformation = useSelector(
+    (state) => state.diary.allDiaryInformation
+  );
+
+  // const { burnedCalories, consumedCalories, remainingSports } =
+  //   userDiaryInformation;
+  const { burnedCalories, consumedCalories, sportTime } = userDiaryInformation;
 
   const [isOverCalories, setIsOverCalories] = useState(false);
   const [isOverSports, setIsOverSports] = useState(false);
@@ -29,8 +34,8 @@ const DayDashboard = ({ userDiaryInformation, bmr }) => {
 
   useEffect(() => {
     setIsOverCalories(remainingCalories < 0);
-    setIsOverSports(remainingSports < 0);
-  }, [remainingCalories, remainingSports]);
+    setIsOverSports(sportTime < 0);
+  }, [remainingCalories, sportTime]);
 
   return (
     <ContainerWrap>
@@ -91,7 +96,7 @@ const DayDashboard = ({ userDiaryInformation, bmr }) => {
             </SvgStyled>
             <TitleStyled>The rest of sports</TitleStyled>
           </TitleStyledWrapper>
-          <DataValue>{remainingSports || 110} min</DataValue>
+          <DataValue>{Math.round(sportTime * 100) / 100 || 110} min</DataValue>
         </ItemListStyled>
       </ListStyled>
 

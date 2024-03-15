@@ -22,7 +22,7 @@ const Datapicker = ({ selectedDate, setSelectedDate }) => {
             handleDateChange(date);
           }}
           customInput={<InputField style={{ cursor: 'pointer' }} />}
-          dateFormat={'dd/MM/yyyy'}
+          dateFormat={'dd.MM.yyyy'}
           calendarStartDay={1}
           formatWeekDay={(day) => day.substr(0, 2)}
         />

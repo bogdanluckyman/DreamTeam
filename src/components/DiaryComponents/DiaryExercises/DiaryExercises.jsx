@@ -29,15 +29,11 @@ import {
   ExerciseListArrayItem,
 } from './DiaryExercises.style';
 import { selectDiaryError } from '../../../redux/diary/selectors';
-import {
-  deleteDiaryExercise,
-  getAllDiaryInformation,
-} from '../../../redux/diary/operation';
+import { deleteDiaryExercise } from '../../../redux/diary/operation';
 import { useEffect, useState } from 'react';
 import { Loader } from '../../Loader/Loader';
 
 const DiaryExercises = ({ exercisesArray }) => {
-  console.log(exercisesArray);
   const isMobile = useMediaQuery('(max-width:768px)');
   const error = useSelector(selectDiaryError);
   const dispatch = useDispatch();

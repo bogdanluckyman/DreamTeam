@@ -109,7 +109,7 @@ const ExercisesModal = ({ onClose, exercies }) => {
       const timeValue = valueTime;
       const [minutes, sekunden] = timeValue.split(':');
       const formattedTime = `${parseInt(minutes, 10)}.${sekunden}`;
-
+      console.log(data);
       const newObject = {
         date: data ? data : formattedDate,
         exercises: {

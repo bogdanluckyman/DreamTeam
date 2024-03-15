@@ -15,14 +15,25 @@ export const IconSvg = styled.svg`
 `;
 
 export const InputField = styled.input`
-  width: 165px;
+  width: 128px;
   padding: 14px;
   align-items: center;
-  gap: 10px;
-  border-radius: 12px;
-  border: 1px solid rgba(239, 237, 232, 0.3);
+  border: none;
   background-color: transparent;
+  font-size: 24px;
+  line-height: 1.33;
+  margin: 0;
+  padding: 0;
   color: #efede8;
+  font-weight: 700;
+  transition: color 0.3s ease;
+
+  @media screen and (max-width: 767px) {
+    padding-top: 5px;
+    width: 100px;
+    font-size: 18px;
+    line-height: 1.1;
+  }
 `;
 
 export const TitleWrapper = styled.button`

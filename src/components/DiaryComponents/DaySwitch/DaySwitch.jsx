@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { format } from 'date-fns';
+// import { format } from 'date-fns';
 import sprite from '../../../img/sprite.svg';
 import Datepicker from '../../Datapicker/Datapicker';
 import {
@@ -7,7 +7,7 @@ import {
   BtnPrev,
   CalenderBtn,
   CalenderIconSvg,
-  DateLabel,
+  // DateLabel,
   SvgPrev,
   SvgNext,
   ContainerWrap,
@@ -17,9 +17,9 @@ const DaySwitch = ({ currentDate, setCurrentDate, userDateRegistration }) => {
   const [selectedDate, setSelectedDate] = useState(currentDate);
   const [isCalendarOpen, setCalendarOpen] = useState(false);
 
-  const openCalendar = () => {
-    setCalendarOpen(!isCalendarOpen);
-  };
+  // const openCalendar = () => {
+  //   setCalendarOpen(!isCalendarOpen);
+  // };
 
   const goToPreviousDay = () => {
     const previousDay = new Date(selectedDate);
@@ -41,10 +41,23 @@ const DaySwitch = ({ currentDate, setCurrentDate, userDateRegistration }) => {
     setCalendarOpen(false);
   };
 
+  const handleDateChange = (date) => {
+    setSelectedDate(date);
+    setCurrentDate(date);
+    setCalendarOpen(false);
+  };
+
   return (
     <ContainerWrap>
-      <CalenderBtn onClick={openCalendar}>
-        <DateLabel>{format(selectedDate, 'dd/MM/yyyy')}</DateLabel>
+      <CalenderBtn>
+        <Datepicker
+          selectedDate={selectedDate}
+          setSelectedDate={handleDateChange}
+          isOpen={isCalendarOpen}
+          onClose={closeCalendar}
+          setCurrentDate={setCurrentDate}
+          userDateRegistration={userDateRegistration}
+        />
         <CalenderIconSvg>
           <use href={`${sprite}#icon-calendar-orange`} />
         </CalenderIconSvg>
@@ -59,14 +72,6 @@ const DaySwitch = ({ currentDate, setCurrentDate, userDateRegistration }) => {
           <use href={`${sprite}#icon-chevron-right`} />
         </SvgNext>
       </BtnNext>
-      <Datepicker
-        selectedDate={selectedDate}
-        setSelectedDate={setSelectedDate}
-        isOpen={isCalendarOpen}
-        onClose={closeCalendar}
-        setCurrentDate={setCurrentDate}
-        userDateRegistration={userDateRegistration}
-      />
     </ContainerWrap>
   );
 };

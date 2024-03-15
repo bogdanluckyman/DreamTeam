@@ -90,7 +90,7 @@ const DayDashboard = ({ bmr }) => {
             </SvgStyled>
             <TitleStyled>The rest of the calories</TitleStyled>
           </TitleStyledWrapper>
-          <DataValue>{remainingCalories || bmr || 0}</DataValue>
+          <DataValue>{2200 - remainingCalories || bmr || 0}</DataValue>
         </ItemListStyled>
         <ItemListStyled className={isOverSports ? 'greenBg' : ''}>
           <TitleStyledWrapper>

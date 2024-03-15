@@ -1,4 +1,6 @@
-import { createSlice } from '@reduxjs/toolkit';
+import {
+  createSlice
+} from '@reduxjs/toolkit';
 
 import {
   getAllDiaryInformation,
@@ -30,7 +32,7 @@ const handleGetAllDiaryInformationFulfilled = (state, action) => {
   state.isLoading = false;
   state.error = null;
   state.allDiaryInformation = action.payload;
-  state.date = action.payload.date;
+  state.date = action.payload ? action.payload.date : null; // Перевірка на наявність об'єкта action.payload перед спробою отримання властивості date
 };
 
 const handleAddDiaryProductsFulfilled = (state, action) => {
@@ -75,27 +77,27 @@ const diarySlice = createSlice({
   initialState: initialState,
   extraReducers: (builder) =>
     builder
-      .addCase(getAllDiaryInformation.pending, handlePending)
-      .addCase(
-        getAllDiaryInformation.fulfilled,
-        handleGetAllDiaryInformationFulfilled
-      )
-      .addCase(getAllDiaryInformation.rejected, handleRejected)
-      .addCase(addDiaryProduct.pending, handlePending)
-      .addCase(addDiaryProduct.fulfilled, handleAddDiaryProductsFulfilled)
-      .addCase(addDiaryProduct.rejected, handleRejected)
-      .addCase(deleteDiaryProduct.pending, handlePending)
-      .addCase(deleteDiaryProduct.fulfilled, handleDeleteDiaryProductsFulfilled)
-      .addCase(deleteDiaryProduct.rejected, handleRejected)
-      .addCase(addDiaryExercise.pending, handlePending)
-      .addCase(addDiaryExercise.fulfilled, handleAddDiaryExerciseFulfilled)
-      .addCase(addDiaryExercise.rejected, handleRejected)
-      .addCase(deleteDiaryExercise.pending, handlePending)
-      .addCase(
-        deleteDiaryExercise.fulfilled,
-        handleDeleteDiaryExerciseFulfilled
-      )
-      .addCase(deleteDiaryExercise.rejected, handleRejected),
+    .addCase(getAllDiaryInformation.pending, handlePending)
+    .addCase(
+      getAllDiaryInformation.fulfilled,
+      handleGetAllDiaryInformationFulfilled
+    )
+    .addCase(getAllDiaryInformation.rejected, handleRejected)
+    .addCase(addDiaryProduct.pending, handlePending)
+    .addCase(addDiaryProduct.fulfilled, handleAddDiaryProductsFulfilled)
+    .addCase(addDiaryProduct.rejected, handleRejected)
+    .addCase(deleteDiaryProduct.pending, handlePending)
+    .addCase(deleteDiaryProduct.fulfilled, handleDeleteDiaryProductsFulfilled)
+    .addCase(deleteDiaryProduct.rejected, handleRejected)
+    .addCase(addDiaryExercise.pending, handlePending)
+    .addCase(addDiaryExercise.fulfilled, handleAddDiaryExerciseFulfilled)
+    .addCase(addDiaryExercise.rejected, handleRejected)
+    .addCase(deleteDiaryExercise.pending, handlePending)
+    .addCase(
+      deleteDiaryExercise.fulfilled,
+      handleDeleteDiaryExerciseFulfilled
+    )
+    .addCase(deleteDiaryExercise.rejected, handleRejected),
 });
 
 export const diaryReducer = diarySlice.reducer;

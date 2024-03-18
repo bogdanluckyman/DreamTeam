@@ -14,24 +14,30 @@ import {
   Wrapper,
   InfoContainer,
   LabelSpan,
+  WrappInputBlood,
+  LabelSpanBlood,
 } from './UserForm.styled';
 import RadioBtn from '../RadioBtn/RadioBtn';
 
 
 import { useDispatch, useSelector } from 'react-redux';
 import { updateUserInfo } from '../../redux/auth/operation';
-import Datapicker from '../Datapicker/Datapicker';
+
 
 import { selectUser } from '../../redux/auth/selectors';
+import DatapickerProfile from '../DatapickerProfile/DatapickerProfile';
+import { useState } from 'react';
 
 const UserForm = () => {
   const dispatch = useDispatch();
 const user = useSelector(selectUser);
-  // const [localName, setLocalName] = useState(user.name);
-  // const [localHeigth, setLocalHeight] = useState(user.height);
+
+
+  const [localEmail] = useState(user.email);
+
   // useEffect(() => {
   //   setLocalName(user.name)
-  //   setLocalHeight(user.height)
+   
    
   // }, [user]);
 
@@ -76,7 +82,7 @@ const user = useSelector(selectUser);
     },
   ];
 
-   const formattedDate = user.birthday ? parseISO(user.birthday) : new Date();
+   const formattedDate = user.birthday ? parseISO(user.birthday) : '2006-01-01';
 
 
   const initialValues = {
@@ -109,6 +115,7 @@ const user = useSelector(selectUser);
       ...values,
     };
     dispatch(updateUserInfo(UserData));
+
   };
 
   
@@ -140,7 +147,7 @@ const user = useSelector(selectUser);
                   type="text"
                   name="email"
                   id="email"
-                  defaultValue={user.email}
+                  defaultValue={localEmail}
                   style={{ color: 'rgba(239, 237, 232, 0.60)' }}
                   readOnly
                 />
@@ -188,7 +195,7 @@ const user = useSelector(selectUser);
 
                 <WrappInput>
                   <LabelSpan>Date of birth</LabelSpan>
-                  <Datapicker
+                  <DatapickerProfile
                     selectedDate={formik.values.birthday}
                     setSelectedDate={(date) => {
                       const formattedDate = parseISO(date.toISOString());
@@ -198,9 +205,16 @@ const user = useSelector(selectUser);
                 </WrappInput>
               </WrapperInputField>
             </InfoContainer>
+           
+           
             <WrapperRadio>
+           
+
+          
               <div style={{ display: 'flex', marginRight: '20px' }}>
-                <div style={{ display: 'flex', marginRight: '20px' }}>
+              <WrappInputBlood>
+              <LabelSpanBlood>Blood</LabelSpanBlood>
+                <div style={{ display: 'flex' }}>
                   {bloodOptions.map((option) => (
                     <RadioBtn
                       key={option.id}
@@ -215,6 +229,7 @@ const user = useSelector(selectUser);
                     />
                   ))}
                 </div>
+                </WrappInputBlood>
 
                 <div style={{ display: 'flex' }}>
                   {sexOptions.map((option) => (

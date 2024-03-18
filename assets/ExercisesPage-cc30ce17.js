@@ -1,4 +1,4 @@
-import{u as e,n as w,aj as l,d as h,j as i,a as u,b as f,k as x,ak as b,al as v,r as c,L as m,s as k,O as j,am as y}from"./index-b03e6dcd.js";import{T as E}from"./TitlePage-3d56373a.js";import{n as z}from"./index-c959f697.js";const C=e.ul`
+import{u as e,o as w,aj as l,d as h,j as i,a as u,b as f,m as x,ak as b,al as v,r as c,L as m,s as j,O as k,am as y}from"./index-efdd0fe0.js";import{T as E}from"./TitlePage-6372751b.js";import{n as z}from"./index-470167cb.js";const C=e.ul`
   display: flex;
   margin-top: 28px;
   gap: 28px;
@@ -296,4 +296,4 @@ import{u as e,n as w,aj as l,d as h,j as i,a as u,b as f,k as x,ak as b,al as v,
     background-image: linear-gradient(89deg, #040404 0%, rgba(4, 4, 4, 0) 100%),
       url(${D});
   }
-`,W=()=>{const t=u(),r=f(),d=x(b),o=x(v),a=h(),{filter:n,filterList:p}=l();c.useEffect(()=>{(async()=>{n===void 0?z("We are still awating for data"):t(y({filter:n}))})()},[t,n]);function g(s){return s.charAt(0).toUpperCase()+s.slice(1)}return i.jsx(A,{children:i.jsx(B,{children:i.jsx(P,{children:o?i.jsx(m,{}):i.jsxs("div",{children:[n!==void 0&&a.pathname.endsWith(n.replace(" ","%20"))?null:i.jsxs(T,{onClick:()=>r(-1),children:[i.jsx("svg",{style:{fill:"none"},children:i.jsx("use",{href:k+"#icon-arrow-left"})}),"Back"," "]}),i.jsxs(I,{children:[i.jsx(E,{title:p?g(p.split(" ")[0]):"Exercises"}),i.jsx(F,{})]}),o&&!d&&i.jsx(m,{}),i.jsx(i.Fragment,{children:i.jsx(c.Suspense,{children:i.jsx(j,{})})})]})})})})};export{W as default};
+`,W=()=>{const t=u(),r=f(),d=x(b),o=x(v),a=h(),{filter:n,filterList:p}=l();c.useEffect(()=>{(async()=>{n===void 0?z("We are still awating for data"):t(y({filter:n}))})()},[t,n]);function g(s){return s.charAt(0).toUpperCase()+s.slice(1)}return i.jsx(A,{children:i.jsx(B,{children:i.jsx(P,{children:o?i.jsx(m,{}):i.jsxs("div",{children:[n!==void 0&&a.pathname.endsWith(n.replace(" ","%20"))?null:i.jsxs(T,{onClick:()=>r(-1),children:[i.jsx("svg",{style:{fill:"none"},children:i.jsx("use",{href:j+"#icon-arrow-left"})}),"Back"," "]}),i.jsxs(I,{children:[i.jsx(E,{title:p?g(p.split(" ")[0]):"Exercises"}),i.jsx(F,{})]}),o&&!d&&i.jsx(m,{}),i.jsx(i.Fragment,{children:i.jsx(c.Suspense,{children:i.jsx(k,{})})})]})})})})};export{W as default};

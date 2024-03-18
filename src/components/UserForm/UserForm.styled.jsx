@@ -100,7 +100,10 @@ export const WrappInput = styled.div`
   //   color: var(--light-grey-color);
   // }
 `;
+export const WrappInputBlood = styled.div `
+position: relative;
 
+`;
 export const LabelSpan = styled.label`
   position: absolute;
   font-size: 14px;
@@ -109,6 +112,20 @@ export const LabelSpan = styled.label`
 
   pointer-events: none;
   color: var(--light-grey-color);
+`;
+export const LabelSpanBlood = styled.label`
+  position: absolute;
+  font-size: 14px;
+  bottom: 30px;
+  left: 1px;
+
+  pointer-events: none;
+  color: var(--light-grey-color);
+
+
+  // @media screen and (min-width: 375px) {
+  //   bottom: 30px;
+  // }
 `;
 
 export const Label = styled.label`
